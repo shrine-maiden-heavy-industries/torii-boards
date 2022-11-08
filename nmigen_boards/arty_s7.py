@@ -1,5 +1,5 @@
-from amaranth_boards.arty_s7 import *
-from amaranth_boards.arty_s7 import __all__
+from torii_boards.arty_s7 import *
+from torii_boards.arty_s7 import __all__
 
 
 import warnings

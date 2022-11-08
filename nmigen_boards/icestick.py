@@ -1,5 +1,5 @@
-from amaranth_boards.icestick import *
-from amaranth_boards.icestick import __all__
+from torii_boards.icestick import *
+from torii_boards.icestick import __all__
 
 
 import warnings

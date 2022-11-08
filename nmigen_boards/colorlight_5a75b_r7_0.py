@@ -1,5 +1,5 @@
-from amaranth_boards.colorlight_5a75b_r7_0 import *
-from amaranth_boards.colorlight_5a75b_r7_0 import __all__
+from torii_boards.colorlight_5a75b_r7_0 import *
+from torii_boards.colorlight_5a75b_r7_0 import __all__
 
 
 import warnings

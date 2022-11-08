@@ -1,5 +1,5 @@
-from amaranth_boards.numato_mimas import *
-from amaranth_boards.numato_mimas import __all__
+from torii_boards.numato_mimas import *
+from torii_boards.numato_mimas import __all__
 
 
 import warnings

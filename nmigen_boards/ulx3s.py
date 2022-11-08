@@ -1,5 +1,5 @@
-from amaranth_boards.ulx3s import *
-from amaranth_boards.ulx3s import __all__
+from torii_boards.ulx3s import *
+from torii_boards.ulx3s import __all__
 
 
 import warnings

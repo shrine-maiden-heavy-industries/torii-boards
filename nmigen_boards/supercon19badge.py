@@ -1,5 +1,5 @@
-from amaranth_boards.supercon19badge import *
-from amaranth_boards.supercon19badge import __all__
+from torii_boards.supercon19badge import *
+from torii_boards.supercon19badge import __all__
 
 
 import warnings

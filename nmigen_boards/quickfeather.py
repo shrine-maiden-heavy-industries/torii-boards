@@ -1,5 +1,5 @@
-from amaranth_boards.quickfeather import *
-from amaranth_boards.quickfeather import __all__
+from torii_boards.quickfeather import *
+from torii_boards.quickfeather import __all__
 
 
 import warnings

@@ -1,5 +1,5 @@
-from amaranth_boards.orangecrab_r0_2 import *
-from amaranth_boards.orangecrab_r0_2 import __all__
+from torii_boards.orangecrab_r0_2 import *
+from torii_boards.orangecrab_r0_2 import __all__
 
 
 import warnings

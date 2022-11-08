@@ -1,5 +1,5 @@
-from amaranth_boards.ice40_hx1k_blink_evn import *
-from amaranth_boards.ice40_hx1k_blink_evn import __all__
+from torii_boards.ice40_hx1k_blink_evn import *
+from torii_boards.ice40_hx1k_blink_evn import __all__
 
 
 import warnings

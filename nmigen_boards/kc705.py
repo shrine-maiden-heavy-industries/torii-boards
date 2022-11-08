@@ -1,5 +1,5 @@
-from amaranth_boards.kc705 import *
-from amaranth_boards.kc705 import __all__
+from torii_boards.kc705 import *
+from torii_boards.kc705 import __all__
 
 
 import warnings

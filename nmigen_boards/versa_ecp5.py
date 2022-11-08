@@ -1,5 +1,5 @@
-from amaranth_boards.versa_ecp5 import *
-from amaranth_boards.versa_ecp5 import __all__
+from torii_boards.versa_ecp5 import *
+from torii_boards.versa_ecp5 import __all__
 
 
 import warnings

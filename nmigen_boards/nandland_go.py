@@ -1,5 +1,5 @@
-from amaranth_boards.nandland_go import *
-from amaranth_boards.nandland_go import __all__
+from torii_boards.nandland_go import *
+from torii_boards.nandland_go import __all__
 
 
 import warnings

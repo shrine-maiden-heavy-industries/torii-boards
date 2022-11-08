@@ -1,5 +1,5 @@
-from amaranth_boards.chameleon96 import *
-from amaranth_boards.chameleon96 import __all__
+from torii_boards.chameleon96 import *
+from torii_boards.chameleon96 import __all__
 
 
 import warnings

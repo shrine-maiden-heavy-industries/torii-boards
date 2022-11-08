@@ -1,5 +1,5 @@
-from amaranth_boards.nexys4ddr import *
-from amaranth_boards.nexys4ddr import __all__
+from torii_boards.nexys4ddr import *
+from torii_boards.nexys4ddr import __all__
 
 
 import warnings

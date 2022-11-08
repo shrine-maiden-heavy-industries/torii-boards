@@ -1,5 +1,5 @@
-from amaranth_boards.fomu_hacker import *
-from amaranth_boards.fomu_hacker import __all__
+from torii_boards.fomu_hacker import *
+from torii_boards.fomu_hacker import __all__
 
 
 import warnings

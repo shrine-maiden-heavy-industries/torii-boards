@@ -12,21 +12,22 @@ def scm_version():
 
 
 setup(
-    name="amaranth-boards",
+    name="torii-boards",
     use_scm_version=scm_version(),
-    author="whitequark",
-    author_email="whitequark@whitequark.org",
-    description="Board and connector definitions for Amaranth HDL",
+    author="",
+    author_email="",
+    description="Board and connector definitions for Torii-HDL",
     #long_description="""TODO""",
     license="BSD",
     setup_requires=["wheel", "setuptools", "setuptools_scm"],
     install_requires=[
-        "amaranth>=0.2,<0.5",
+        "torii-hdl>=0.2,<0.5",
         "importlib_metadata; python_version<'3.8'",
     ],
     packages=find_packages(),
     project_urls={
-        "Source Code": "https://github.com/amaranth-lang/amaranth-boards",
-        "Bug Tracker": "https://github.com/amaranth-lang/amaranth-boards/issues",
+        "Documentation": "",
+        "Source Code": "https://github.com/shrine-maiden-heavy-industries/torii-boards",
+        "Bug Tracker": "https://github.com/shrine-maiden-heavy-industries/torii-boards/issues",
     },
 )

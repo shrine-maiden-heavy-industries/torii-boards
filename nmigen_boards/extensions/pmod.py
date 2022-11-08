@@ -1,5 +1,5 @@
-from amaranth_boards.extensions.pmod import *
-from amaranth_boards.extensions.pmod import __all__
+from torii_boards.extensions.pmod import *
+from torii_boards.extensions.pmod import __all__
 
 
 import warnings

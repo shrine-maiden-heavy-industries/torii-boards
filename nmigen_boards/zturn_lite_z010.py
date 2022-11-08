@@ -1,5 +1,5 @@
-from amaranth_boards.zturn_lite_z010 import *
-from amaranth_boards.zturn_lite_z010 import __all__
+from torii_boards.zturn_lite_z010 import *
+from torii_boards.zturn_lite_z010 import __all__
 
 
 import warnings

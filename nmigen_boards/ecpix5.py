@@ -1,5 +1,5 @@
-from amaranth_boards.ecpix5 import *
-from amaranth_boards.ecpix5 import __all__
+from torii_boards.ecpix5 import *
+from torii_boards.ecpix5 import __all__
 
 
 import warnings

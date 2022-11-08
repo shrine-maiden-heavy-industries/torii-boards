@@ -1,5 +1,5 @@
-from amaranth_boards.tinyfpga_ax1 import *
-from amaranth_boards.tinyfpga_ax1 import __all__
+from torii_boards.tinyfpga_ax1 import *
+from torii_boards.tinyfpga_ax1 import __all__
 
 
 import warnings

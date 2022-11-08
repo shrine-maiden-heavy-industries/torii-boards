@@ -1,5 +1,5 @@
-from amaranth_boards.rz_easyfpga_a2_2 import *
-from amaranth_boards.rz_easyfpga_a2_2 import __all__
+from torii_boards.rz_easyfpga_a2_2 import *
+from torii_boards.rz_easyfpga_a2_2 import __all__
 
 
 import warnings

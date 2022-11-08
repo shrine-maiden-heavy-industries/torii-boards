@@ -1,5 +1,5 @@
-from amaranth_boards.machxo3_sk import *
-from amaranth_boards.machxo3_sk import __all__
+from torii_boards.machxo3_sk import *
+from torii_boards.machxo3_sk import __all__
 
 
 import warnings

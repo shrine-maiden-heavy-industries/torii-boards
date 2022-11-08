@@ -1,5 +1,5 @@
-from amaranth_boards.resources.display import *
-from amaranth_boards.resources.display import __all__
+from torii_boards.resources.display import *
+from torii_boards.resources.display import __all__
 
 
 import warnings

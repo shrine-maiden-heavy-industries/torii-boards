@@ -1,5 +1,5 @@
-from amaranth_boards.atlys import *
-from amaranth_boards.atlys import __all__
+from torii_boards.atlys import *
+from torii_boards.atlys import __all__
 
 
 import warnings

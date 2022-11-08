@@ -1,9 +1,8 @@
-# Board definitions for Amaranth HDL
+# Torii-HDL Board Definitions
 
-TODO
+This package contains evaluation board definitions for [Torii](https://github.com/shrine-maiden-heavy-industries/torii-hdl)
 
 ## License
 
-Amaranth is released under the very permissive two-clause BSD license. Under the terms of this license, you are authorized to use Amaranth for closed-source proprietary designs.
 
-See LICENSE file for full copyright and license info.
+Torii and it's board definitions are released under the [BSD-2-Clause](https://spdx.org/licenses/BSD-2-Clause.html), the full text of which can be found in the [LICENSE](LICENSE) file.

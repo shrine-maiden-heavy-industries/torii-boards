@@ -1,5 +1,5 @@
-from amaranth_boards.fomu_pvt import *
-from amaranth_boards.fomu_pvt import __all__
+from torii_boards.fomu_pvt import *
+from torii_boards.fomu_pvt import __all__
 
 
 import warnings

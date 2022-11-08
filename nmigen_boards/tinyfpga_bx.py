@@ -1,5 +1,5 @@
-from amaranth_boards.tinyfpga_bx import *
-from amaranth_boards.tinyfpga_bx import __all__
+from torii_boards.tinyfpga_bx import *
+from torii_boards.tinyfpga_bx import __all__
 
 
 import warnings

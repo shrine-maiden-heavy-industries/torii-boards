@@ -1,5 +1,5 @@
-from amaranth_boards.de0_cv import *
-from amaranth_boards.de0_cv import __all__
+from torii_boards.de0_cv import *
+from torii_boards.de0_cv import __all__
 
 
 import warnings

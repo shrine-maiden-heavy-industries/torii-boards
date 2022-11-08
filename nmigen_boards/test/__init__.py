@@ -1,4 +1,4 @@
-from amaranth_boards.test import *
+from torii_boards.test import *
 
 
 import warnings

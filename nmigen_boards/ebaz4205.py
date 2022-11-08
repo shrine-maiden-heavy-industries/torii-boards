@@ -1,5 +1,5 @@
-from amaranth_boards.ebaz4205 import *
-from amaranth_boards.ebaz4205 import __all__
+from torii_boards.ebaz4205 import *
+from torii_boards.ebaz4205 import __all__
 
 
 import warnings

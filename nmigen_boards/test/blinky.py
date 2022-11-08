@@ -1,5 +1,5 @@
-from amaranth_boards.test.blinky import *
-from amaranth_boards.test.blinky import __all__
+from torii_boards.test.blinky import *
+from torii_boards.test.blinky import __all__
 
 
 import warnings

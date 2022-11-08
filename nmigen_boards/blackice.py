@@ -1,5 +1,5 @@
-from amaranth_boards.blackice import *
-from amaranth_boards.blackice import __all__
+from torii_boards.blackice import *
+from torii_boards.blackice import __all__
 
 
 import warnings

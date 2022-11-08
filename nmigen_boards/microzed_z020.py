@@ -1,5 +1,5 @@
-from amaranth_boards.microzed_z020 import *
-from amaranth_boards.microzed_z020 import __all__
+from torii_boards.microzed_z020 import *
+from torii_boards.microzed_z020 import __all__
 
 
 import warnings

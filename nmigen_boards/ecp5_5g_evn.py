@@ -1,5 +1,5 @@
-from amaranth_boards.ecp5_5g_evn import *
-from amaranth_boards.ecp5_5g_evn import __all__
+from torii_boards.ecp5_5g_evn import *
+from torii_boards.ecp5_5g_evn import __all__
 
 
 import warnings

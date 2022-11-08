@@ -1,5 +1,5 @@
-from amaranth_boards.icebreaker_bitsy import *
-from amaranth_boards.icebreaker_bitsy import __all__
+from torii_boards.icebreaker_bitsy import *
+from torii_boards.icebreaker_bitsy import __all__
 
 
 import warnings

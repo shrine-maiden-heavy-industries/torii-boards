@@ -1,5 +1,5 @@
-from amaranth_boards.arrow_deca import *
-from amaranth_boards.arrow_deca import __all__
+from torii_boards.arrow_deca import *
+from torii_boards.arrow_deca import __all__
 
 
 import warnings

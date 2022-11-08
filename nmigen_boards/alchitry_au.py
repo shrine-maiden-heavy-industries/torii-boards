@@ -1,5 +1,5 @@
-from amaranth_boards.alchitry_au import *
-from amaranth_boards.alchitry_au import __all__
+from torii_boards.alchitry_au import *
+from torii_boards.alchitry_au import __all__
 
 
 import warnings

@@ -1,4 +1,4 @@
-from amaranth_boards.resources import *
+from torii_boards.resources import *
 
 
 import warnings

@@ -1,5 +1,5 @@
-from amaranth_boards.te0714_03_50_2I import *
-from amaranth_boards.te0714_03_50_2I import __all__
+from torii_boards.te0714_03_50_2I import *
+from torii_boards.te0714_03_50_2I import __all__
 
 
 import warnings
