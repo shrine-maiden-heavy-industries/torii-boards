@@ -43,7 +43,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install yices2
           python -m pip install --user --upgrade pip setuptools wheel setuptools_scm nox
-          python -m pip install --user https://github.com/shrine-maiden-heavy-industries/torii-hdl
 
 
       - name: Run Tests
