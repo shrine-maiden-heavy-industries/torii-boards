@@ -20,15 +20,21 @@ def scm_version():
 	}
 
 setup(
-    name             = 'torii-boards',
-    use_scm_version  = scm_version(),
-    author           = '',
-    author_email     = '',
-    description      = 'Board and connector definitions for Torii-HDL',
+	name             = 'torii-boards',
+	use_scm_version  = scm_version(),
+	author           = ', '.join([
+		'Aki Van Ness',
+		'Rachel Mant',
+	]),
+	author_email     = ', '.join([
+		'aki@lethalbit.net',
+		'git@dragonmux.network',
+	]),
+	description      = 'Board and connector definitions for Torii-HDL',
 	license          = ' BSD-2-Clause',
 	python_requires  = '~=3.9',
 	zip_safe         = True,
-    url              = 'https://github.com/shrine-maiden-heavy-industries/torii-boards',
+	url              = 'https://github.com/shrine-maiden-heavy-industries/torii-boards',
 
 	long_description = README_FILE.read_text(),
 	long_description_content_type = 'text/markdown',
@@ -39,9 +45,9 @@ setup(
 		'setuptools_scm'
 	],
 
-    install_requires = [
-        'torii-hdl>=0.4,<0.5',
-    ],
+	install_requires = [
+		'torii-hdl>=0.4,<0.5',
+	],
 
 	extras_require   = {
 		'dev': [
@@ -57,7 +63,7 @@ setup(
 		)
 	),
 
-    classifiers       = [
+	classifiers       = [
 		'Development Status :: 4 - Beta',
 
 		'Intended Audience :: Developers',
