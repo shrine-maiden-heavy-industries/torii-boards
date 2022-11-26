@@ -30,7 +30,6 @@ source_suffix = {
 	'.md': 'markdown',
 }
 
-root_doc = "cover"
 
 pygments_style         = 'monokai'
 autodoc_member_order   = 'bysource'
