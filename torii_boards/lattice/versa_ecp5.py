@@ -1,15 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                    import Dict
+from typing                             import Dict
 
-from torii.build               import (
+from torii.build                        import (
 	Connector, Resource, Pins, Clock, Attrs, PinsN,
 	Subsignal, DiffPairs,
 )
-from torii.build.run           import BuildProducts
-from torii.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.build.run                    import BuildProducts
+from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
 
-from ..resources               import (
+from ..resources                        import (
 	LEDResources, SwitchResources, UARTResource, SPIFlashResources
 )
 

@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                import Connector, Resource, Pins, Clock
-from torii.build.run            import BuildProducts
-from torii.vendor.lattice_ice40 import LatticeICE40Platform
+from torii.build                         import Connector, Resource, Pins, Clock
+from torii.build.run                     import BuildProducts
+from torii.platform.vendor.lattice_ice40 import LatticeICE40Platform
 
-from ..resources                import (
+from ..resources                         import (
 	LEDResources, ButtonResources, Display7SegResource, UARTResource, SPIFlashResources,
 	VGAResource
 )

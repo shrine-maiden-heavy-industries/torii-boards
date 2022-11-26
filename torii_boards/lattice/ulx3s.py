@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                    import List
+from typing                             import List
 
-from torii.build               import (
+from torii.build                        import (
 	Connector, Resource, Pins, Clock, Attrs, PinsN,
 	Subsignal, DiffPairs,
 )
-from torii.build.run           import BuildProducts, BuildPlan
-from torii.hdl.ir              import Fragment
-from torii.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.build.run                    import BuildProducts, BuildPlan
+from torii.hdl.ir                       import Fragment
+from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
 
-from ..resources               import (
+from ..resources                        import (
 	LEDResources, ButtonResources, UARTResource, SDCardResources, SDRAMResource,
 	SPIResource, DirectUSBResource
 )
