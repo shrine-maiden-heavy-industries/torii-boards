@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build             import Connector, Resource, Pins, Subsignal
-from torii.build.run         import BuildProducts
-from torii.vendor.quicklogic import QuicklogicPlatform
+from torii.build                      import Connector, Resource, Pins, Subsignal
+from torii.build.run                  import BuildProducts
+from torii.platform.vendor.quicklogic import QuicklogicPlatform
 
-from ..resources             import (
+from ..resources                      import (
 	ButtonResources, RGBLEDResource, UARTResource, SPIResource, I2CResource,
 	DirectUSBResource
 )
