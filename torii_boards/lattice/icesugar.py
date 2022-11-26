@@ -6,8 +6,7 @@ from torii.build                         import (
 )
 from torii.build.run                     import BuildProducts
 from torii.platform.vendor.lattice_ice40 import LatticeICE40Platform
-
-from ..resources                         import (
+from torii.platform.resources            import (
 	LEDResources, SwitchResources, UARTResource, SPIFlashResources
 )
 

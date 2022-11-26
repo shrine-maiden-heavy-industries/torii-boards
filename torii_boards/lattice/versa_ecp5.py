@@ -8,8 +8,7 @@ from torii.build                        import (
 )
 from torii.build.run                    import BuildProducts
 from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
-
-from ..resources                        import (
+from torii.platform.resources           import (
 	LEDResources, SwitchResources, UARTResource, SPIFlashResources
 )
 

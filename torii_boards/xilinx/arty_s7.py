@@ -7,8 +7,7 @@ from torii.build                  import (
 from torii.build.run              import BuildProducts, BuildPlan
 from torii.hdl.ir                 import Fragment
 from torii.platform.vendor.xilinx import XilinxPlatform
-
-from ..resources         import (
+from torii.platform.resources     import (
 	LEDResources, RGBLEDResource, ButtonResources, SwitchResources, SPIResource,
 	UARTResource, I2CResource, SPIFlashResources
 )

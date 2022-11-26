@@ -2,8 +2,7 @@
 
 from torii.build                         import Connector, Resource, Attrs, PinsN
 from torii.platform.vendor.lattice_ice40 import LatticeICE40Platform
-
-from ..resources                         import LEDResources, SPIFlashResources
+from torii.platform.resources            import LEDResources, SPIFlashResources
 
 __all__ = (
 	'UpduinoV1Platform',

@@ -3,8 +3,7 @@
 from torii.build                      import Connector, Resource, Pins, Subsignal
 from torii.build.run                  import BuildProducts
 from torii.platform.vendor.quicklogic import QuicklogicPlatform
-
-from ..resources                      import (
+from torii.platform.resources         import (
 	ButtonResources, RGBLEDResource, UARTResource, SPIResource, I2CResource,
 	DirectUSBResource
 )

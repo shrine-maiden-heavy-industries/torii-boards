@@ -8,8 +8,7 @@ from torii.build                  import (
 )
 from torii.build.run              import BuildProducts
 from torii.platform.vendor.xilinx import XilinxPlatform
-
-from ..resources                  import (
+from torii.platform.resources     import (
 	UARTResource, PS2Resource, SPIFlashResources
 )
 

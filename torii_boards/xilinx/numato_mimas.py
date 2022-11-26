@@ -2,8 +2,7 @@
 
 from torii.build                  import Resource, Pins, Clock, Attrs, Connector
 from torii.platform.vendor.xilinx import XilinxPlatform
-
-from ..resources                  import LEDResources, ButtonResources, SPIFlashResources
+from torii.platform.resources     import LEDResources, ButtonResources, SPIFlashResources
 
 __all__ = (
 	'NumatoMimasPlatform',

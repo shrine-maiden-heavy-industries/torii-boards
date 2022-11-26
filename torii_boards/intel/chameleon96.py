@@ -3,8 +3,7 @@
 from torii.build                 import Connector, Resource, Pins, Subsignal, Attrs
 from torii.build.run             import BuildProducts
 from torii.platform.vendor.intel import IntelPlatform
-
-from ..resources                 import (
+from torii.platform.resources    import (
 	LEDResources, I2CResource, SDCardResources, UARTResource
 )
 

@@ -5,8 +5,7 @@ from torii.build                               import (
 )
 from torii.build.run                           import BuildProducts
 from torii.platform.vendor.lattice_machxo_2_3l import LatticeMachXO3LPlatform
-
-from ..resources                               import (
+from torii.platform.resources                  import (
 	UARTResource, LEDResources, ButtonResources, SwitchResources, SPIFlashResources
 )
 

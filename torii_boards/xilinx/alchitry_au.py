@@ -5,8 +5,7 @@ from typing                       import Tuple
 from torii.build                  import Resource, Pins, Clock, Attrs, Subsignal, Connector
 from torii.build.run              import BuildProducts
 from torii.platform.vendor.xilinx import XilinxPlatform
-
-from ..resources                  import LEDResources, DDR3Resource
+from torii.platform.resources     import LEDResources, DDR3Resource
 
 __all__ = (
 	'AlchitryAuPlatform',

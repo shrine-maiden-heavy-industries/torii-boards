@@ -5,8 +5,7 @@ from torii.build                 import (
 )
 from torii.build.run             import BuildProducts
 from torii.platform.vendor.intel import IntelPlatform
-
-from ..resources                 import (
+from torii.platform.resources    import (
 	LEDResources, ButtonResources, SwitchResources, UARTResource, SPIResource,
 	SDRAMResource, SDCardResources, VGAResource
 )

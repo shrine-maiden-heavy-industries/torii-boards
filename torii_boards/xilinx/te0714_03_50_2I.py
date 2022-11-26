@@ -2,8 +2,7 @@
 
 from torii.build                  import Resource, Pins, Clock, Attrs, Connector
 from torii.platform.vendor.xilinx import XilinxPlatform
-
-from ..resources                  import LEDResources, SPIFlashResources
+from torii.platform.resources     import LEDResources, SPIFlashResources
 
 __all__ = (
 	'TE0714_03_50_2IPlatform',

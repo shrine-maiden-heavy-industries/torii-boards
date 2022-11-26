@@ -6,6 +6,5 @@ __all__ = (
 	'ZTurnLiteZ010Platform',
 )
 
-
 class ZTurnLiteZ010Platform(ZTurnLiteZ007SPlatform):
 	device = 'xc7z010'

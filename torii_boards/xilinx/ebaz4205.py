@@ -3,8 +3,7 @@
 from torii.build                  import Resource, Pins, Clock, Attrs
 from torii.build.run              import BuildProducts
 from torii.platform.vendor.xilinx import XilinxPlatform
-
-from ..resources                  import LEDResources, UARTResource
+from torii.platform.resources     import LEDResources, UARTResource
 
 __all__ = (
 	'EBAZ4205Platform',

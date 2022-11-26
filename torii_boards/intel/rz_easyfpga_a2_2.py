@@ -6,8 +6,7 @@ from torii.build                 import (
 from torii.hdl.ir                import Fragment
 from torii.build.run             import BuildProducts
 from torii.platform.vendor.intel import IntelPlatform
-
-from ..resources                 import (
+from torii.platform.resources    import (
 	LEDResources, ButtonResources, SDRAMResource, VGAResource, Display7SegResource,
 	PS2Resource, I2CResource, UARTResource
 )

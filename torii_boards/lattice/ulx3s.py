@@ -9,8 +9,7 @@ from torii.build                        import (
 from torii.build.run                    import BuildProducts, BuildPlan
 from torii.hdl.ir                       import Fragment
 from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
-
-from ..resources                        import (
+from torii.platform.resources           import (
 	LEDResources, ButtonResources, UARTResource, SDCardResources, SDRAMResource,
 	SPIResource, DirectUSBResource
 )
