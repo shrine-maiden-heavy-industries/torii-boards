@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing              import Literal, Dict
+from typing                       import Literal, Dict
 
-from torii.build         import (
+from torii.build                  import (
 	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
 	DiffPairs
 )
-from torii.build.run     import BuildProducts, BuildPlan
-from torii.hdl.ir        import Fragment
-from torii.vendor.xilinx import XilinxPlatform
+from torii.build.run              import BuildProducts, BuildPlan
+from torii.hdl.ir                 import Fragment
+from torii.platform.vendor.xilinx import XilinxPlatform
 
-from ..resources         import (
+from ..resources                  import (
 	ButtonResources, SwitchResources, LEDResources, UARTResource, I2CResource,
 	SPIResource, VGAResource, SDCardResources, ULPIResource
 )

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build         import Connector
-from torii.vendor.xilinx import XilinxPlatform
+from torii.build                  import Connector
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'MicroZedZ020Platform'

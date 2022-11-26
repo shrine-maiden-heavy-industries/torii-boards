@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build         import Resource, Clock, Attrs, DiffPairs
-from torii.build.run     import BuildProducts
-from torii.vendor.xilinx import XilinxPlatform
+from torii.build                  import Resource, Clock, Attrs, DiffPairs
+from torii.build.run              import BuildProducts
+from torii.platform.vendor.xilinx import XilinxPlatform
 
-from ..resources         import LEDResources
+from ..resources                  import LEDResources
 
 __all__ = (
 	'KCU105Platform',
