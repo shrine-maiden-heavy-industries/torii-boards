@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build        import Connector, Resource, Pins, Clock, Attrs
-from torii.build.run    import BuildProducts
-from torii.vendor.intel import IntelPlatform
+from torii.build                 import Connector, Resource, Pins, Clock, Attrs
+from torii.build.run             import BuildProducts
+from torii.platform.vendor.intel import IntelPlatform
 
-from ..resources        import LEDResources, ButtonResources, SwitchResources
+from ..resources                 import LEDResources, ButtonResources, SwitchResources
 
 __all__ = (
 	'ArrowDECAPlatform',

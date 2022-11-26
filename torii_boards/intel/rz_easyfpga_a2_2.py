@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build        import (
+from torii.build                 import (
 	Connector, Resource, Pins, Clock, Attrs, Subsignal, PinsN
 )
-from torii.hdl.ir       import Fragment
-from torii.build.run    import BuildProducts
-from torii.vendor.intel import IntelPlatform
+from torii.hdl.ir                import Fragment
+from torii.build.run             import BuildProducts
+from torii.platform.vendor.intel import IntelPlatform
 
-from ..resources        import (
+from ..resources                 import (
 	LEDResources, ButtonResources, SDRAMResource, VGAResource, Display7SegResource,
 	PS2Resource, I2CResource, UARTResource
 )
