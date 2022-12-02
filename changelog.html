@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; Torii-HDL Boards 0.1.dev228 documentation</title>
+  <title>Changelog &mdash; Torii-HDL Boards 0.4.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/styles.css" type="text/css" />
       <link rel="stylesheet" href="_static/platformpicker.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="index.html" class="icon icon-home"> Torii-HDL Boards
           </a>
               <div class="version">
-                latest
+                v0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -633,11 +633,20 @@
 <li class="toctree-l2"><a class="reference internal" href="#unreleased">Unreleased</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated">Deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#removed">Removed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#security">Security</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.1.0 - 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.1.0 - 0.3.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://shrine-maiden-heavy-industries.github.io/torii-hdl/">Torii HDL</a></li>
@@ -687,6 +696,27 @@ Unreleased template stuff
 <h2><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main">Unreleased</a><a class="headerlink" href="#unreleased" title="Permalink to this heading"></a></h2>
 <section id="added">
 <h3>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h3>
+</section>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h3>
+</section>
+<section id="deprecated">
+<h3>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this heading"></a></h3>
+</section>
+<section id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h3>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h3>
+</section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id1">
+<h2><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...v0.4.0">0.4.0</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<section id="id2">
+<h3>Added<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Added <a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-boards/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></p></li>
 <li><p>Added <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> configuration file.</p></li>
@@ -695,8 +725,8 @@ Unreleased template stuff
 <li><p>Added <code class="docutils literal notranslate"><span class="pre">MEGA65</span></code> board definitions file <a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-boards/pull/1">#1</a></p></li>
 </ul>
 </section>
-<section id="changed">
-<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h3>Changed<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Renamed from <code class="docutils literal notranslate"><span class="pre">amaranth_boards</span></code> to <code class="docutils literal notranslate"><span class="pre">torii_boards</span></code></p></li>
 <li><p>Updated the CI scripts.</p></li>
@@ -707,15 +737,15 @@ Unreleased template stuff
 <li><p>Moved the <code class="docutils literal notranslate"><span class="pre">torii_boards.extensions</span></code> into <code class="docutils literal notranslate"><span class="pre">torii_boards.resources.extensions</span></code>.</p></li>
 </ul>
 </section>
-<section id="removed">
-<h3>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h3>
+<section id="id4">
+<h3>Removed<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Removed the <code class="docutils literal notranslate"><span class="pre">nMigen</span></code> compatibility layer.</p></li>
 <li><p>Removed the <code class="docutils literal notranslate"><span class="pre">torii_boards.resources</span></code> and migrated that to <a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/tree/main/torii/platform/resources"><code class="docutils literal notranslate"><span class="pre">torii.platform.resources</span></code></a></p></li>
 </ul>
 </section>
-<section id="fixed">
-<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h3>
+<section id="id5">
+<h3>Fixed<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Fixed the package name.</p></li>
 <li><p>Fixed the package authors.</p></li>
@@ -725,8 +755,8 @@ Unreleased template stuff
 </ul>
 </section>
 </section>
-<section id="id1">
-<h2><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main">0.1.0</a> - <a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main">0.3.0</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<section id="id6">
+<h2><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main">0.1.0</a> - <a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main">0.3.0</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <p>No changelog is provided for these versions as they are all older untagged releases of <a class="reference external" href="https://github.com/amaranth-lang/amaranth-boards">Amaranth Boards</a> from before the fork.</p>
 </section>
 </section>
