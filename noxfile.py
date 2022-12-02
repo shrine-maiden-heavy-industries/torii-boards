@@ -38,7 +38,9 @@ def torii_boards_version() -> str:
 
 @nox.session(reuse_venv = True)
 def test(session: nox.Session) -> None:
-	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
+	session.install(
+		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
+	)
 	session.install('.')
 	session.run(
 		'python', '-m', 'unittest', 'discover',
@@ -50,7 +52,9 @@ def docs(session: nox.Session) -> None:
 	out_dir = (BUILD_DIR / 'docs')
 	shutil.rmtree(out_dir, ignore_errors = True)
 	session.install('-r', str(DOCS_DIR / 'requirements.txt'))
-	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
+	session.install(
+		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
+	)
 	session.install('.')
 	session.run('sphinx-build', '-b', 'html', str(DOCS_DIR), str(out_dir))
 
@@ -59,10 +63,14 @@ def mypy(session: nox.Session) -> None:
 	out_dir = (BUILD_DIR / 'mypy')
 	session.install('mypy')
 	session.install('lxml')
-	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
+	session.install(
+		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
+	)
 	session.install('.')
-	session.run('mypy', '--non-interactive', '--install-types')
-	session.run('mypy', '-p', 'torii_boards', '--html-report', str(out_dir.resolve()))
+	session.run(
+		'mypy', '--non-interactive', '--install-types',
+		'-p', 'torii_boards', '--html-report', str(out_dir.resolve())
+	)
 
 @nox.session
 def flake8(session: nox.Session) -> None:
