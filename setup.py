@@ -62,6 +62,11 @@ setup(
 			'tests.*'
 		)
 	),
+	package_data      = {
+		'torii_boards': [
+			'py.typed'
+		],
+	},
 
 	classifiers       = [
 		'Development Status :: 4 - Beta',
