@@ -1,14 +1,32 @@
 # SPDX-License-Identifier: BSD-2-Clause
 import os, sys
+from pathlib import Path
 sys.path.insert(0, os.path.abspath('.'))
 
-import torii
+from torii_boards import __version__ as boards_version
+
+ROOT_DIR = (Path(__file__).parent).parent
+
+def doc_version():
+	try:
+		from setuptools_scm.git import parse as parse_git
+	except ImportError:
+		return ''
+
+	git = parse_git(str(ROOT_DIR.resolve()))
+	if not git:
+		return ''
+	elif git.exact:
+		return git.format_with('v{tag}')
+	else:
+		return 'latest'
 
 project = 'Torii-HDL Boards'
-version = torii.__version__
+version = boards_version
 release = version.split('+')[0]
 copyright = '2022, Shrine Maiden Heavy Industries'
 language  = 'en'
+docver    = doc_version()
 
 extensions = [
 	'sphinx.ext.autodoc',
@@ -30,7 +48,6 @@ source_suffix = {
 	'.md': 'markdown',
 }
 
-
 pygments_style         = 'monokai'
 autodoc_member_order   = 'bysource'
 graphviz_output_format = 'svg'
@@ -49,6 +66,27 @@ napoleon_custom_sections  = [
 	'Platform overrides'
 ]
 
+myst_heading_anchors = 3
+
+templates_path = [
+	'_templates',
+]
+
+
+html_context = {
+	'display_lower_left': False,
+	'current_language'  : language,
+	'current_version'   : docver,
+	'version'           : docver,
+	'display_github'    : True,
+	'github_user'       : 'shrine-maiden-heavy-industries',
+	'github_repo'       : 'torii-boards',
+	'github_version'    : 'main/docs/',
+	'versions'          : [
+		('latest', '/latest')
+	]
+}
+
 html_baseurl     = 'https://shrine-maiden-heavy-industries.github.io/torii-boards/'
 html_theme       = 'sphinx_rtd_theme'
 html_copy_source = False
@@ -63,5 +101,7 @@ html_static_path = [
 ]
 
 html_css_files = [
-	'custom.css'
+	'css/styles.css'
 ]
+
+html_style = 'css/styles.css'
