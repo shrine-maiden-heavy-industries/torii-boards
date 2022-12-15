@@ -55,7 +55,7 @@ todo_include_todos     = True
 
 intersphinx_mapping = {
 	'python': ('https://docs.python.org/3', None),
-	'torii': ('https://shrine-maiden-heavy-industries.github.io/torii-hdl/', None)
+	'torii': ('https://torii.shmdn.link/', None)
 }
 
 
@@ -87,7 +87,7 @@ html_context = {
 	]
 }
 
-html_baseurl     = 'https://shrine-maiden-heavy-industries.github.io/torii-boards/'
+html_baseurl     = 'https://torii-boards.shmdn.link/'
 html_theme       = 'sphinx_rtd_theme'
 html_copy_source = False
 
