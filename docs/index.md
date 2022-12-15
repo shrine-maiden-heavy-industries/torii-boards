@@ -10,6 +10,8 @@ xilinx/index
 changelog
 
 Torii HDL <https://shrine-maiden-heavy-industries.github.io/torii-hdl/>
+
+Source Code <https://github.com/shrine-maiden-heavy-industries/torii-boards/>
 ```
 
 # Torii-HDL Board Definitions
