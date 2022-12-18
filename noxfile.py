@@ -61,14 +61,13 @@ def docs(session: nox.Session) -> None:
 @nox.session
 def mypy(session: nox.Session) -> None:
 	out_dir = (BUILD_DIR / 'mypy')
+	out_dir.mkdir(parents = True, exist_ok = True)
+
 	session.install('mypy')
 	session.install('lxml')
-	session.install(
-		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
-	)
 	session.install('.')
 	session.run(
-		'mypy', '--non-interactive', '--install-types',
+		'mypy', '--non-interactive', '--install-types', '--pretty',
 		'-p', 'torii_boards', '--html-report', str(out_dir.resolve())
 	)
 
