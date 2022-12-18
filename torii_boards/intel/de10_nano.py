@@ -101,7 +101,7 @@ class DE10NanoPlatform(IntelPlatform):
 	]
 
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

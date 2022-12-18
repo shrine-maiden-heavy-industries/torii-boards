@@ -212,7 +212,7 @@ class _ArtyA7Platform(XilinxPlatform):
 		})
 	]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs) -> BuildPlan:
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = {
 			'script_before_bitstream':
 				'set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]',
@@ -228,7 +228,7 @@ class _ArtyA7Platform(XilinxPlatform):
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import run
 

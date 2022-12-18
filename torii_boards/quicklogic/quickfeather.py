@@ -62,7 +62,7 @@ class QuickfeatherPlatform(QuicklogicPlatform):
 
 	# This programmer requires OpenOCD with support for eos-s3:
 	# https://github.com/antmicro/openocd/tree/eos-s3-support
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

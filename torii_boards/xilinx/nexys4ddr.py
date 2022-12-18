@@ -176,7 +176,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 		Connector('pmod', 3, 'H4  H1  G1  G3  - - H2  G4  G2  F3  - -')   # JD
 	]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs) -> BuildPlan:
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = {
 			'script_before_bitstream':
 				'set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]',
@@ -192,7 +192,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import run
 

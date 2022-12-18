@@ -46,7 +46,7 @@ class FomuHackerPlatform(LatticeICE40Platform):
 		Connector('pin', 3, 'F2'),
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

@@ -42,7 +42,7 @@ class ICESugarNanoPlatform(LatticeICE40Platform):
 		Connector('pmod', 2, 'B4 B5 E1 B1 - - C6 E3 C2 A1 - -'),    # PMOD3
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

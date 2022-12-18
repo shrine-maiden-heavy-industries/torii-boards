@@ -48,7 +48,7 @@ class ICEStickPlatform(LatticeICE40Platform):
 		Connector('j', 3, '- -  62  61  60  56  48  47  45  44'), # J3
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

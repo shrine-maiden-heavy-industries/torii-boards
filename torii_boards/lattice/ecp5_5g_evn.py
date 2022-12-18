@@ -25,7 +25,7 @@ class ECP55GEVNPlatform(LatticeECP5Platform):
 	default_rst = 'rst'
 
 	def __init__(
-		self, *, VCCIO1 : Literal['3V3', '2V5'] = '2V5', VCCIO6 : Literal['3V3', '2V5'] = '3V3', **kwargs
+		self, *, VCCIO1: Literal['3V3', '2V5'] = '2V5', VCCIO6: Literal['3V3', '2V5'] = '3V3', **kwargs
 	) -> None:
 		'''
 		VCCIO1 is connected by default to 2.5 V via R100 (can be set to 3.3 V by disconnecting
@@ -42,7 +42,7 @@ class ECP55GEVNPlatform(LatticeECP5Platform):
 		self._VCCIO1 = VCCIO1
 		self._VCCIO6 = VCCIO6
 
-	def _vccio_to_iostandard(self, vccio : Literal['3V3', '2V5']) -> str:
+	def _vccio_to_iostandard(self, vccio: Literal['3V3', '2V5']) -> str:
 		if vccio == '2V5':
 			return 'LVCMOS25'
 		if vccio == '3V3':
@@ -177,7 +177,7 @@ class ECP55GEVNPlatform(LatticeECP5Platform):
 			'''
 		}
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

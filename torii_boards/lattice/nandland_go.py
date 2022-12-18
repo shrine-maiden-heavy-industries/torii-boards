@@ -51,7 +51,7 @@ class NandlandGoPlatform(LatticeICE40Platform):
 		Connector('pmod', 0, '65 64 63 62 - - 78 79 80 81 - -'),
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

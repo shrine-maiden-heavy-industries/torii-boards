@@ -185,7 +185,7 @@ class ArtyZ720Platform(XilinxPlatform):
 		})
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str, **kwargs) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import run
 

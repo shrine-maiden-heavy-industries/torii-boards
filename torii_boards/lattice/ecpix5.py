@@ -131,7 +131,7 @@ class _ECPIX5Platform(LatticeECP5Platform):
 		Connector('pmod', 7, 'D14 B14 E14 B16 - - C14 A14 A15 A16 - -'),
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

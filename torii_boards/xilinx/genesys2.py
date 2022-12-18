@@ -27,7 +27,7 @@ class Genesys2Platform(XilinxPlatform):
 	package = 'ffg900'
 	speed   = '2'
 
-	def __init__(self, JP6 : Literal['1V2', '1V8', '2V5', '3V3'] = '2V5') -> None:
+	def __init__(self, JP6: Literal['1V2', '1V8', '2V5', '3V3'] = '2V5') -> None:
 		super().__init__()
 
 		if JP6 not in ('1V2', '1V8', '2V5', '3V3'):
@@ -369,7 +369,7 @@ class Genesys2Platform(XilinxPlatform):
 		})
 	]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs) -> BuildPlan:
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = {
 			'script_after_read': 'auto_detect_xpm',
 			'script_before_bitstream':
@@ -402,7 +402,7 @@ class Genesys2Platform(XilinxPlatform):
 			'''
 		}
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

@@ -199,7 +199,7 @@ class MercuryPlatform(XilinxPlatform):
 	baseboard_sram    = _buttons + _vga + _extclk + _ps2
 	baseboard_no_sram = baseboard_sram + _switches + _sevenseg + _audio
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

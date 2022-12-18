@@ -48,7 +48,7 @@ class FomuPVTPlatform(LatticeICE40Platform):
 
 	connectors = []
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

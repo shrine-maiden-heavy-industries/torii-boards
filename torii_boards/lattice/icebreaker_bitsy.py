@@ -64,9 +64,9 @@ class ICEBreakerBitsyPlatform(LatticeICE40Platform):
 	]
 
 	def toolchain_program(
-		self, products : BuildProducts, name : str,
-		run_vid : Optional[str] = None, run_pid : Optional[str] = None,
-		dfu_vid : str = '1d50', dfu_pid : str = '6146', reset : bool = True
+		self, products: BuildProducts, name: str,
+		run_vid: Optional[str] = None, run_pid: Optional[str] = None,
+		dfu_vid: str = '1d50', dfu_pid: str = '6146', reset: bool = True
 	) -> None:
 		from os         import environ
 		from subprocess import check_call

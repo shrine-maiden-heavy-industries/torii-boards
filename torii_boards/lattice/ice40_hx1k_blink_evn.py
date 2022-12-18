@@ -41,7 +41,7 @@ class ICE40HX1KBlinkEVNPlatform(LatticeICE40Platform):
 		Connector('pmod', 12, '59 56 53 51 - -'), # J12
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

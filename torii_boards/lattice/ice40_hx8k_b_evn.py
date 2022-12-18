@@ -62,7 +62,7 @@ class ICE40HX8KBEVNPlatform(LatticeICE40Platform):
 			'-   -   D1  D2  C1  C2  B1  B2  -   -   '),
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

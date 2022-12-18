@@ -25,7 +25,7 @@ class AtlysPlatform(XilinxPlatform):
 	package = 'csg324'
 	speed   = '3'
 
-	def __init__(self, *, JP12 : Literal['2V5', '3V3'] = '2V5', **kwargs) -> None:
+	def __init__(self, *, JP12: Literal['2V5', '3V3'] = '2V5', **kwargs) -> None:
 		super().__init__(**kwargs)
 
 		if JP12 not in ('2V5', '3V3'):
@@ -220,7 +220,7 @@ class AtlysPlatform(XilinxPlatform):
 		),
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from textwrap   import dedent
 		from subprocess import run
 

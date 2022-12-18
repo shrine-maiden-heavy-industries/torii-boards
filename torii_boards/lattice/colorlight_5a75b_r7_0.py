@@ -110,12 +110,12 @@ class Colorlight_5A75B_R70Platform(LatticeECP5Platform):
 			'openFPGALoader'
 		]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs) -> BuildPlan:
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress')
 		overrides.update(kwargs)
 		return super().toolchain_prepare(fragment, name, **overrides)
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from subprocess import check_call
 		from os         import environ
 

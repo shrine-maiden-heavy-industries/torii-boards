@@ -63,7 +63,7 @@ class ICESugarPlatform(LatticeICE40Platform):
 		Connector('pmod', 3, '21 20 19 18 - -  -  -  -  - - -'), # PMOD4 - IO pins used for switches via jumpers
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

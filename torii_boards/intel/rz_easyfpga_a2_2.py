@@ -123,7 +123,7 @@ class RZEasyFPGAA2_2Platform(IntelPlatform):
 		),
 	]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs):
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs):
 		overrides = {
 			'add_settings':
 				r'''
@@ -133,7 +133,7 @@ class RZEasyFPGAA2_2Platform(IntelPlatform):
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 

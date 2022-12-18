@@ -157,7 +157,7 @@ class _ArtyS7Platform(XilinxPlatform):
 		})
 	]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs) -> BuildPlan:
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = {
 			'script_before_bitstream':
 				'set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]',
@@ -169,7 +169,7 @@ class _ArtyS7Platform(XilinxPlatform):
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def _program_vivado(self, products : BuildProducts, name : str, flash : bool) -> None:
+	def _program_vivado(self, products: BuildProducts, name: str, flash: bool) -> None:
 		from textwrap         import dedent
 		from subprocess       import run
 
@@ -215,7 +215,7 @@ class _ArtyS7Platform(XilinxPlatform):
 			run([vivado, '-nolog', '-nojournal', '-mode', 'tcl'], input = cmd_script.encode('utf-8'), check = True)
 
 
-	def _program_openocd(self, products : BuildProducts, name : str, flash : bool) -> None:
+	def _program_openocd(self, products: BuildProducts, name: str, flash: bool) -> None:
 		from os         import environ
 		from subprocess import check_call
 
@@ -240,7 +240,7 @@ class _ArtyS7Platform(XilinxPlatform):
 			check_call([openocd, '-f', 'board/arty_s7.cfg', '-c', command_str])
 
 	def toolchain_program(
-		self, products : BuildProducts, name : str, *, programmer : str = 'vivado', flash : bool = True
+		self, products: BuildProducts, name: str, *, programmer: str = 'vivado', flash: bool = True
 	) -> None:
 
 		if programmer not in ('vivado', 'openocd'):

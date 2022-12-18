@@ -57,7 +57,7 @@ class BlackIcePlatform(LatticeICE40Platform):
 		Connector('pmod', 7, ' 71  67  68  70 - -'),  # PMOD14
 	]
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from subprocess import check_call
 
 		with products.extract(f'{name}.bin') as bitstream_filename:

@@ -81,7 +81,7 @@ class AlchitryAuPlatform(XilinxPlatform):
 		)
 	]
 
-	def toolchain_program(self, products : BuildProducts , name : str) -> None:
+	def toolchain_program(self, products: BuildProducts , name: str) -> None:
 		from subprocess import check_call
 
 		(loader, bridge_bin) = find_loader()

@@ -116,12 +116,12 @@ class OrangeCrabR0_1Platform(LatticeECP5Platform):
 			'''
 		]
 
-	def toolchain_prepare(self, fragment : Fragment, name : str, **kwargs) -> BuildPlan:
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress --freq 38.8')
 		overrides.update(kwargs)
 		return super().toolchain_prepare(fragment, name, **overrides)
 
-	def toolchain_program(self, products : BuildProducts, name : str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
 		from subprocess import check_call
 
