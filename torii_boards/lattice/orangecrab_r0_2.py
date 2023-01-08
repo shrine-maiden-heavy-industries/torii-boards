@@ -14,8 +14,13 @@ from torii.platform.resources           import (
 	DirectUSBResource
 )
 
+# NOTE: Keep OrangeCrabR0_2FPlatform for backwards compatibility
+# Originally, there was only OrangeCrabR0_2FPlatform, but the 85F variant
+# needs a different device.
 __all__ = (
 	'OrangeCrabR0_2Platform',
+	'OrangeCrabR0_2_25FPlatform',
+	'OrangeCrabR0_2_85FPlatform',
 )
 
 
@@ -142,6 +147,11 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 		with products.extract(f'{name}.bit') as bitstream_filename:
 			check_call([dfu_util, '-D', bitstream_filename])
 
+
+OrangeCrabR0_2_25FPlatform = OrangeCrabR0_2Platform
+
+class OrangeCrabR0_2_85FPlatform(OrangeCrabR0_2Platform):
+	device = 'LFE5U-85F'
 
 if __name__ == '__main__':
 	from ..test.blinky import Blinky
