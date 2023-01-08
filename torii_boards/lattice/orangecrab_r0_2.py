@@ -145,7 +145,7 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 		with products.extract(f'{name}.bit') as bitstream_filename:
-			check_call([dfu_util, '-D', bitstream_filename])
+			check_call([dfu_util, '-a', '0', '-D', bitstream_filename])
 
 
 OrangeCrabR0_2_25FPlatform = OrangeCrabR0_2Platform
