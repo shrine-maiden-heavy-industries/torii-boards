@@ -11,6 +11,7 @@ import nox
 ROOT_DIR  = Path(__file__).parent
 
 BUILD_DIR = (ROOT_DIR  / 'build')
+CNTRB_DIR = (ROOT_DIR  / 'contrib')
 DOCS_DIR  = (ROOT_DIR  / 'docs')
 DIST_DIR  = (BUILD_DIR / 'dist')
 
@@ -68,13 +69,17 @@ def mypy(session: nox.Session) -> None:
 	session.install('.')
 	session.run(
 		'mypy', '--non-interactive', '--install-types', '--pretty',
+		'--cache-dir', str((out_dir / '.mypy-cache').resolve()),
+		'--config-file', str((CNTRB_DIR / '.mypy.ini').resolve()),
 		'-p', 'torii_boards', '--html-report', str(out_dir.resolve())
 	)
 
 @nox.session
 def flake8(session: nox.Session) -> None:
 	session.install('flake8')
-	session.run('flake8', './torii_boards')
+	session.run(
+		'flake8', '--config', str((CNTRB_DIR / '.flake8').resolve()), './torii_boards'
+	)
 
 @nox.session
 def build_dists(session: nox.Session) -> None:
