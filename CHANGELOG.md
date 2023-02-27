@@ -23,8 +23,12 @@ Unreleased template stuff
 ### Deprecated
 ### Removed
 ### Fixed
-### Security
 
+## [0.4.1]
+
+### Fixed
+
+ - Fixed the import in the Xilinx ArtyS7 and Atlys board files where they were using the improper import in `toolchain_program` for `required_tool`.
 ## [0.4.0]
 
 ### Added
@@ -63,7 +67,8 @@ Unreleased template stuff
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...main
+[0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...v0.4.0
 [0.3.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main
 [0.1.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main
