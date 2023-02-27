@@ -173,7 +173,7 @@ class _ArtyS7Platform(XilinxPlatform):
 		from textwrap         import dedent
 		from subprocess       import run
 
-		from torii._toolchain import require_tool
+		from torii.tools import require_tool
 
 		vivado = require_tool('vivado')
 

@@ -224,7 +224,7 @@ class AtlysPlatform(XilinxPlatform):
 		from textwrap   import dedent
 		from subprocess import run
 
-		from torii._toolchain import require_tool
+		from torii.tools import require_tool
 
 		impact = require_tool('impact')
 
