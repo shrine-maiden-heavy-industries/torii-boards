@@ -42,7 +42,7 @@ class _CmodA7Platform(XilinxPlatform):
 
 		*ButtonResources(pins = 'A18 B18', attrs = Attrs(IOSTANDARD='LVCMOS33')),
 
-		UARTResource(0, rx = 'J18', tx = 'J17', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
+		UARTResource(0, rx = 'J17', tx = 'J18', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
 
 		*SPIFlashResources(0,
 			cs_n = 'K19', clk = 'E19', copi = 'D19', cipo = 'D18', wp_n = 'G18',
