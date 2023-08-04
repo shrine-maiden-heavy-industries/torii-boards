@@ -3,6 +3,7 @@
 
 Installing <https://shrine-maiden-heavy-industries.github.io/torii-hdl/install.html#installing-board-definitions>
 
+gowin/index
 intel/index
 lattice/index
 quicklogic/index
