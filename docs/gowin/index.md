@@ -1,4 +1,4 @@
-# Lattice Boards
+# Gowin Boards
 
 The {py:mod}`torii.platform.vendor.gowin` module provides a base platform to support [Gowin] devices with the [Apicula] and the vendor toolchains.
 
