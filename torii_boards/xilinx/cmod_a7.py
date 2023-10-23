@@ -94,5 +94,5 @@ class CmodA7_35Platform(_CmodA7Platform):
 	device      = 'xc7a35t'
 
 if __name__ == '__main__':
-	from ..test.blinky import *
+	from ..test.blinky import Blinky
 	CmodA7_35Platform().build(Blinky(), do_program = True)

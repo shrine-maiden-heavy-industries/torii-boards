@@ -61,5 +61,5 @@ class NandlandGoPlatform(ICE40Platform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import *
+	from ..test.blinky import Blinky
 	NandlandGoPlatform().build(Blinky(), do_program = True)

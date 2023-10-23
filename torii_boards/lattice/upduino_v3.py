@@ -1,9 +1,9 @@
 import os
 import subprocess
 
-from torii.build                         import *
+from torii.build                         import Resource, Pins, Clock, Attrs, Connector
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
-from torii.platform.resources            import *
+from torii.platform.resources            import RGBLEDResource, SPIFlashResources
 
 __all__ = (
 	'UpduinoV3Platform',
@@ -46,5 +46,5 @@ class UpduinoV3Platform(ICE40Platform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import *
+	from ..test.blinky import Blinky
 	UpduinoV3Platform().build(Blinky(), do_program = True)

@@ -178,5 +178,5 @@ class Supercon19BadgePlatform(ECP5Platform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import *
+	from ..test.blinky import Blinky
 	Supercon19BadgePlatform().build(Blinky(), do_program = True)
