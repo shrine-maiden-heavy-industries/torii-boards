@@ -6,7 +6,7 @@ from torii.build                         import (
 	Connector, Resource, Pins, Clock, Attrs, PinsN
 )
 from torii.build.run                     import BuildProducts
-from torii.platform.vendor.lattice_ice40 import LatticeICE40Platform
+from torii.platform.vendor.lattice.ice40 import ICE40Platform
 from torii.platform.resources            import (
 	DirectUSBResource, SPIFlashResources, RGBLEDResource, LEDResources,
 	ButtonResources
@@ -18,7 +18,7 @@ __all__ = (
 )
 
 
-class ICEBreakerBitsyPlatform(LatticeICE40Platform):
+class ICEBreakerBitsyPlatform(ICE40Platform):
 	device      = 'iCE40UP5K'
 	package     = 'SG48'
 	default_clk = 'clk12'

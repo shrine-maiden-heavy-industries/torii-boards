@@ -7,7 +7,7 @@ from torii.build                        import (
 	DiffPairs
 )
 from torii.build.run                    import BuildProducts
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	LEDResources, ButtonResources, SwitchResources, UARTResource, SPIFlashResources
 )
@@ -17,7 +17,7 @@ __all__ = (
 )
 
 
-class ECP55GEVNPlatform(LatticeECP5Platform):
+class ECP55GEVNPlatform(ECP5Platform):
 	device      = 'LFE5UM5G-85F'
 	package     = 'BG381'
 	speed       = '8'

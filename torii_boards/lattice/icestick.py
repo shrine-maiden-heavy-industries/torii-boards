@@ -2,7 +2,7 @@
 
 from torii.build                         import Connector, Resource, Pins, Clock, Attrs
 from torii.build.run                     import BuildProducts
-from torii.platform.vendor.lattice_ice40 import LatticeICE40Platform
+from torii.platform.vendor.lattice.ice40 import ICE40Platform
 from torii.platform.resources            import (
 	LEDResources, UARTResource, IrDAResource, SPIFlashResources
 )
@@ -12,7 +12,7 @@ __all__ = (
 )
 
 
-class ICEStickPlatform(LatticeICE40Platform):
+class ICEStickPlatform(ICE40Platform):
 	device      = 'iCE40HX1K'
 	package     = 'TQ144'
 	default_clk = 'clk12'

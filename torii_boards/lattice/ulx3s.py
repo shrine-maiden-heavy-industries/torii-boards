@@ -8,7 +8,7 @@ from torii.build                        import (
 )
 from torii.build.run                    import BuildProducts, BuildPlan
 from torii.hdl.ir                       import Fragment
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	LEDResources, ButtonResources, UARTResource, SDCardResources, SDRAMResource,
 	SPIResource, DirectUSBResource
@@ -22,7 +22,7 @@ __all__ = (
 )
 
 
-class _ULX3SPlatform(LatticeECP5Platform):
+class _ULX3SPlatform(ECP5Platform):
 	package     = 'BG381'
 	speed       = '6'
 	default_clk = 'clk25'

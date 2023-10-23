@@ -1,10 +1,10 @@
 # Lattice Boards
 
-The {py:mod}`torii.platform.vendor.lattice_ecp5` module provides a base platform to support Lattice ECP5 devices with the [Trellis] and [Diamond] toolchains.
+The {py:mod}`torii.platform.vendor.lattice.ecp5` module provides a base platform to support Lattice ECP5 devices with the [Trellis] and [Diamond] toolchains.
 
-The {py:mod}`torii.platform.vendor.lattice_ice40` module provides a base platform to support Lattice iCE40 devices with the [IceStorm] and [iCECube2] toolchains.
+The {py:mod}`torii.platform.vendor.lattice.ice40` module provides a base platform to support Lattice iCE40 devices with the [IceStorm] and [iCECube2] toolchains.
 
-The {py:mod}`torii.platform.vendor.lattice_machxo_2_3l` module provides a base platform to support Lattice MachXO2 and MachXO3L devices with the [Diamond] toolchain.
+The {py:mod}`torii.platform.vendor.lattice.machxo_2_3l` module provides a base platform to support Lattice MachXO2 and MachXO3L devices with the [Diamond] toolchain.
 
 ```{eval-rst}
 

@@ -4,7 +4,7 @@ from torii.build                               import (
 	Connector, Resource, Pins, Clock, Attrs
 )
 from torii.build.run                           import BuildProducts
-from torii.platform.vendor.lattice_machxo_2_3l import LatticeMachXO3LPlatform
+from torii.platform.vendor.lattice.machxo_2_3l import MachXO3LPlatform
 from torii.platform.resources                  import (
 	UARTResource, LEDResources, ButtonResources, SwitchResources, SPIFlashResources
 )
@@ -14,7 +14,7 @@ __all__ = (
 )
 
 
-class MachXO3SKPlatform(LatticeMachXO3LPlatform):
+class MachXO3SKPlatform(MachXO3LPlatform):
 	device      = 'LCMXO3LF-6900C'
 	package     = 'BG256'
 	speed       = '5'

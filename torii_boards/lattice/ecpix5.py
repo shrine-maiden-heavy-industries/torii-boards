@@ -5,7 +5,7 @@ from torii.build                        import (
 	DiffPairs
 )
 from torii.build.run                    import BuildProducts
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	RGBLEDResource, UARTResource, SPIFlashResources, ULPIResource
 )
@@ -16,7 +16,7 @@ __all__ = (
 )
 
 
-class _ECPIX5Platform(LatticeECP5Platform):
+class _ECPIX5Platform(ECP5Platform):
 	package     = 'BG554'
 	speed       = '8'
 	default_clk = 'clk100'

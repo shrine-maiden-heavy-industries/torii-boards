@@ -6,7 +6,7 @@ from torii.build                        import (
 )
 from torii.build.run                    import BuildProducts, BuildPlan
 from torii.hdl.ir                       import Fragment
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	DirectUSBResource, LEDResources, ButtonResources, SDCardResources, SPIFlashResources,
 )
@@ -17,7 +17,7 @@ __all__ = (
 )
 
 
-class LogicbonePlatform(LatticeECP5Platform):
+class LogicbonePlatform(ECP5Platform):
 	name        = 'Logicbone'
 	device      = 'LFE5UM5G-45F'
 	package     = 'BG381'

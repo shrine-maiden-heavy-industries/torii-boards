@@ -8,7 +8,7 @@ from torii.build                        import (
 )
 from torii.build.run                    import BuildProducts, BuildPlan
 from torii.hdl.ir                       import Fragment
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	RGBLEDResource, ButtonResources, SPIFlashResources, SDCardResources,
 	DirectUSBResource
@@ -19,7 +19,7 @@ __all__ = (
 )
 
 
-class OrangeCrabR0_2Platform(LatticeECP5Platform):
+class OrangeCrabR0_2Platform(ECP5Platform):
 	device      = 'LFE5U-25F'
 	package     = 'MG285'
 	speed       = '8'

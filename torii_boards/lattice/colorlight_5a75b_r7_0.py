@@ -7,7 +7,7 @@ from torii.build                        import (
 )
 from torii.hdl.ir                       import Fragment
 from torii.build.run                    import BuildProducts, BuildPlan
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	LEDResources, ButtonResources, UARTResource, SDRAMResource
 )
@@ -17,7 +17,7 @@ __all__ = (
 )
 
 
-class Colorlight_5A75B_R70Platform(LatticeECP5Platform):
+class Colorlight_5A75B_R70Platform(ECP5Platform):
 	device      = 'LFE5U-25F'
 	package     = 'BG256'
 	speed       = '6'

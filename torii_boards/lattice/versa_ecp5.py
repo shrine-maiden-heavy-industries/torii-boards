@@ -7,7 +7,7 @@ from torii.build                        import (
 	Subsignal, DiffPairs,
 )
 from torii.build.run                    import BuildProducts
-from torii.platform.vendor.lattice_ecp5 import LatticeECP5Platform
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
 	LEDResources, SwitchResources, UARTResource, SPIFlashResources
 )
@@ -18,7 +18,7 @@ __all__ = (
 )
 
 
-class VersaECP5Platform(LatticeECP5Platform):
+class VersaECP5Platform(ECP5Platform):
 	device      = 'LFE5UM-45F'
 	package     = 'BG381'
 	speed       = '8'
