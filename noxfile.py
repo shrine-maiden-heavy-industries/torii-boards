@@ -96,5 +96,5 @@ def upload(session: nox.Session) -> None:
 	session.log(f'Uploading torii-boards-{torii_boards_version()} to PyPi')
 	session.run(
 		'python', '-m', 'twine',
-		'upload', f'{DIST_DIR}/torii-boards-{torii_boards_version()}*'
+		'upload', f'{DIST_DIR}/torii*-{torii_boards_version()}*'
 	)
