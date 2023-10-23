@@ -24,6 +24,20 @@ Unreleased template stuff
 ### Removed
 ### Fixed
 
+## [0.5.0]
+
+### Added
+
+ - Added the `cmod_a7` and `cmod_s7` Xilinx FPGA boards from digilent.
+ - Added the `Upduino v3` Lattice FPGA board from TinyVision.
+ - Added the `Tang Nano` Gowin FPGA board from sipeed.
+ - Added the LEFUM5-85F variant of the orangecrab FPGA board.
+
+### Fixed
+
+ - Fixed SRAM ~CE pin assignment in the blackice_ii board.
+ - Fixed IO direction for  the i2c clock lines on the mister and de10-nano
+
 ## [0.4.1]
 
 ### Fixed
@@ -67,7 +81,8 @@ Unreleased template stuff
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.5.0...main
+[0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...v0.4.0
 [0.3.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main
