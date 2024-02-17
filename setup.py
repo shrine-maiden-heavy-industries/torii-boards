@@ -32,7 +32,7 @@ setup(
 	]),
 	description      = 'Board and connector definitions for Torii-HDL',
 	license          = ' BSD-2-Clause',
-	python_requires  = '~=3.9',
+	python_requires  = '~=3.10',
 	zip_safe         = True,
 	url              = 'https://torii-boards.shmdn.link/',
 
