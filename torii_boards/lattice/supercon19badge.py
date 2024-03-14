@@ -89,7 +89,7 @@ class Supercon19BadgePlatform(ECP5Platform):
 		Resource('hdmi', 0,
 			Subsignal('clk', DiffPairsN('P20', 'R20'), Attrs(IO_TYPE = 'TMDS_33')),
 			Subsignal('d', DiffPairs('N19 L20 L16', 'N20 M20 L17'), Attrs(IO_TYPE = 'TMDS_33')),
-			Subsignal('hpd', PinsN('R18'), Attrs(IO_TYPE = 'LVCMOS33')),# Also called HDMI_HEAC_n
+			Subsignal('hpd', PinsN('R18'), Attrs(IO_TYPE = 'LVCMOS33')), # Also called HDMI_HEAC_n
 			Subsignal('hdmi_heac_p', PinsN('T19'), Attrs(IO_TYPE = 'LVCMOS33')),
 			Attrs(DRIVE = '4'),
 		),
