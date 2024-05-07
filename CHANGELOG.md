@@ -24,6 +24,21 @@ Unreleased template stuff
 ### Removed
 ### Fixed
 
+## [0.6.0]
+
+### Changed
+
+ - Bumped the minium version of Python to match with Torii 0.6.0
+ - Bumped the minimum version of Torii to be 0.6.0
+
+### Deprecated
+
+ - Deprecated the `torii_boards.intel` boards in favor of `torii_boards.altera`, following the `IntelPlatform` deprecation in Torii 0.6.0
+
+### Fixed
+
+ - Fixed the Gowin boards title in the docs
+
 ## [0.5.0]
 
 ### Added
@@ -81,7 +96,8 @@ Unreleased template stuff
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.5.0...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.0...main
+[0.5.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.5.0...v0.6.0
 [0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...v0.4.0
