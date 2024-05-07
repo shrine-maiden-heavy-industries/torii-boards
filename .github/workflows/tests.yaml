@@ -47,3 +47,10 @@ jobs:
         shell: bash
         run: |
           nox -s test
+
+      - name: Codecov Upload
+        uses: codecov/codecov-action@v4
+        with:
+          verbose: true
+          files: ./build/tests/coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
