@@ -18,10 +18,17 @@ Unreleased template stuff
 -->
 
 ## [Unreleased]
+
 ### Added
+
 ### Changed
+
 ### Deprecated
+
 ### Removed
+
+ - Removed the deprecated `torii_boards.intel` module.
+
 ### Fixed
 
 ## [0.6.0]
