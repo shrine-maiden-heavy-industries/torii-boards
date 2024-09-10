@@ -25,6 +25,9 @@ class AtlysPlatform(XilinxPlatform):
 	package = 'csg324'
 	speed   = '3'
 
+	pretty_name = 'Atlys'
+	description = 'Digilent Atlys Xilinx Spartan 6 Trainer Board'
+
 	def __init__(self, *, JP12: Literal['2V5', '3V3'] = '2V5', **kwargs) -> None:
 		super().__init__(**kwargs)
 

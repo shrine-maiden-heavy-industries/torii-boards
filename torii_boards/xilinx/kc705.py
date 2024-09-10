@@ -16,6 +16,9 @@ class KC705Platform(XilinxPlatform):
 	speed       = '2'
 	default_clk = 'clk156'
 
+	pretty_name = 'KC705'
+	description = 'Xilinx KC705 Kintex7-325T Evaluation Board'
+
 	resources   = [
 		Resource(
 			'clk156', 0, DiffPairs('K28', 'K29', dir = 'i'), Clock(156e6), Attrs(IOSTANDARD = 'LVDS_25')

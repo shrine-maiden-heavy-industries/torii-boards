@@ -12,6 +12,10 @@ class ZTurnLiteZ007SPlatform(XilinxPlatform):
 	device     = 'xc7z007s'
 	package    = 'clg400'
 	speed      = '1'
+
+	pretty_name = 'Z-Turn Lite'
+	description = 'Myir Z-Turn Lite Xilinx Zynq-7007 SoC Development Board'
+
 	resources  = []
 	connectors = [
 		Connector('expansion', 0,

@@ -19,6 +19,9 @@ class Mega65r3Platform(XilinxPlatform):
 	speed = '2'
 	default_clk = 'clk100'
 
+	pretty_name = 'Mega65'
+	description = 'Mega65 Xilinx Artix7-200T Based 8-bit computer'
+
 	resources = [
 		Resource('clk100', 0, Pins('V13', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
 

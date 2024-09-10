@@ -27,6 +27,9 @@ class Genesys2Platform(XilinxPlatform):
 	package = 'ffg900'
 	speed   = '2'
 
+	pretty_name = 'Gensys 2'
+	description = 'Digilent Gensys 2 Xilinx Kintex7-325T Development Board'
+
 	def __init__(self, JP6: Literal['1V2', '1V8', '2V5', '3V3'] = '2V5') -> None:
 		super().__init__()
 

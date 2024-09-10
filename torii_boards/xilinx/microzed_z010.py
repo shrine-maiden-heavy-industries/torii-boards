@@ -13,6 +13,9 @@ class MicroZedZ010Platform(XilinxPlatform):
 	package    = 'clg400'
 	speed      = '1'
 
+	pretty_name = 'MicroZed Z010'
+	description = 'Avnet MicroZed Z010 Xilinx Zynq-7010 Development Board'
+
 	resources  = []
 	connectors = [
 		Connector('JX1', 0,

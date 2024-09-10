@@ -21,6 +21,9 @@ class ArtyZ720Platform(XilinxPlatform):
 	speed       = '1'
 	default_clk = 'clk125'
 
+	pretty_name = 'Arty Z7-20'
+	description = 'Digilent Arty Z7-20 Xilinx Zynq 7020 SoC Development Board'
+
 	resources   = [
 		Resource(
 			'clk125', 0, Pins('H16', dir = 'i'), Clock(125e6), Attrs(IOSTANDARD = 'LVCMOS33')

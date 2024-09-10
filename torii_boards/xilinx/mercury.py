@@ -37,6 +37,10 @@ class MercuryPlatform(XilinxPlatform):
 	speed   = '4'
 
 	default_clk = 'clk50'
+
+	pretty_name = 'Micro-Nova Mercury'
+	description = 'Micro-Nova Mercury Xilinx Spartan-3A based FPGA Module'
+
 	resources = [
 		Resource(
 			'clk50', 0, Pins('P43', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33'), Clock(50e6)

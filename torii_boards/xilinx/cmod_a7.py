@@ -90,8 +90,14 @@ class _CmodA7Platform(XilinxPlatform):
 class CmodA7_15Platform(_CmodA7Platform):
 	device      = 'xc7a15t'
 
+	pretty_name = 'Cmod A7-15T'
+	description = 'Digilent Cmod A7-15T Xilinx Artix7-15T FPGA Module'
+
 class CmodA7_35Platform(_CmodA7Platform):
 	device      = 'xc7a35t'
+
+	pretty_name = 'Cmod A7-35T'
+	description = 'Digilent Cmod A7-15T Xilinx Artix7-35T FPGA Module'
 
 if __name__ == '__main__':
 	from ..test.blinky import Blinky

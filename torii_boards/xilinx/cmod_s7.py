@@ -27,6 +27,10 @@ class CmodS7_Platform(XilinxPlatform):
 	package     = 'csga225'
 	speed       = '1'
 	default_clk = 'clk12'
+
+	pretty_name = 'Cmod S7'
+	description = 'Digilent Cmod S7 Xilinx Spartan7-25 FPGA Module'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('M9', dir = 'i'), Clock(12e6), Attrs(IOSTANDARD = 'LVCMOS33')

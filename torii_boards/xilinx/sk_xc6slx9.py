@@ -15,6 +15,9 @@ class SK_XC6SLX9Platform(XilinxPlatform):
 	speed       = '2'
 	default_clk = 'clk50'
 
+	pretty_name = 'SK-XC6SLX9'
+	description = 'Starterkit.ru SK-XC6SLX9 Xilinx Spartan 6 Development Board'
+
 	resources   = [
 		Resource(
 			'clk50', 0, Pins('P134', dir = 'i'), Clock(50e6), Attrs(IOSTANDARD = 'LVCMOS33')

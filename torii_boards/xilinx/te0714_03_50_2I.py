@@ -15,6 +15,9 @@ class TE0714_03_50_2IPlatform(XilinxPlatform):
 	speed       = '2'
 	default_clk = 'clk25'
 
+	pretty_name = 'TE0714-03-50'
+	description = 'Trenz Electronic TE0714-03-50 Xilinx Artix7-50T based FPGA Module'
+
 	resources   = [
 		Resource('clk25', 0, Pins('T14', dir = 'i'), Clock(25e6), Attrs(IOSTANDARD = 'LVCMOS18')),
 

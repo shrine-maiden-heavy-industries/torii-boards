@@ -15,6 +15,9 @@ class NumatoMimasPlatform(XilinxPlatform):
 	speed       = '2'
 	default_clk = 'clk100'
 
+	pretty_name = 'Mimas S6'
+	description = 'Numato Mimas S6 Xilinx Spartan6 Development Board'
+
 	resources   = [
 		Resource('clk100', 0, Pins('P126', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
 

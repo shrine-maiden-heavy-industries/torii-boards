@@ -24,6 +24,9 @@ class Nexys4DDRPlatform(XilinxPlatform):
 	default_clk = 'clk100'
 	default_rst = 'rst'
 
+	pretty_name = 'Nexys 4 DDR'
+	description = 'Digilent Nexys 4 DDR Xilinx Artix7-100T Development Board'
+
 	resources   = [
 		Resource('clk100', 0, Pins('E3', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource('rst', 0, PinsN('C12', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),

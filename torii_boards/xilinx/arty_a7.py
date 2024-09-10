@@ -240,10 +240,14 @@ class _ArtyA7Platform(XilinxPlatform):
 class ArtyA7_35Platform(_ArtyA7Platform):
 	device = 'xc7a35ti'
 
+	pretty_name = 'Arty A7-35T'
+	description = 'Digilent Arty A7-35T Xilinx Artix7-35 Development Board'
 
 class ArtyA7_100Platform(_ArtyA7Platform):
 	device = 'xc7a100ti'
 
+	pretty_name = 'Arty A7-100T'
+	description = 'Digilent Arty-A7-100T Xilinx Artix7-100 Development Board'
 
 if __name__ == '__main__':
 	from ..test.blinky import Blinky

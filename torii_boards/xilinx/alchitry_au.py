@@ -33,6 +33,9 @@ class AlchitryAuPlatform(XilinxPlatform):
 	speed       = '1'
 	default_clk = 'clk100'
 
+	pretty_name = 'Alchitry Au'
+	description = 'Alchitry Au Xilinx Artix7 Development Board'
+
 	resources   = [
 		Resource(
 			'clk100', 0, Pins('N14', dir = 'i'), Clock(10e7),

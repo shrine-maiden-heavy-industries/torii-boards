@@ -255,10 +255,14 @@ class _ArtyS7Platform(XilinxPlatform):
 class ArtyS7_50Platform(_ArtyS7Platform):
 	device      = 'xc7s50'
 
+	pretty_name = 'Arty S7-50'
+	description = 'Digilent Arty S7-50 Xilinx Spartan7-50 Development Board'
 
 class ArtyS7_25Platform(_ArtyS7Platform):
 	device      = 'xc7s25'
 
+	pretty_name = 'Arty S7-25'
+	description = 'Digilent Arty S7-25 Xilinx Spartan7-25 Development Board'
 
 if __name__ == '__main__':
 	from ..test.blinky import Blinky

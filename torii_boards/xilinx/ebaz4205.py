@@ -16,6 +16,9 @@ class EBAZ4205Platform(XilinxPlatform):
 	speed       = '1'
 	default_clk = 'clk33_333'
 
+	pretty_name = 'EBAZ4205'
+	description = 'EBAZ4205 Ebit E9+ Xilinx Zynq-7010 Board'
+
 	resources   = [
 		Resource(
 			'clk33_333', 0, Pins('N18', dir = 'i'), Clock(33.333e6), Attrs(IOSTANDARD = 'LVCMOS33')

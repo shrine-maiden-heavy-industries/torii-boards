@@ -16,6 +16,9 @@ class KCU105Platform(XilinxPlatform):
 	speed       = '2-e'
 	default_clk = 'clk125'
 
+	pretty_name = 'KCU105'
+	description = 'Xilinx Kintex UltraScale Evaluation Board'
+
 	resources   = [
 		Resource(
 			'clk125', 0, DiffPairs('G10', 'F10', dir = 'i'), Clock(125e6), Attrs(IOSTANDARD = 'LVDS')
