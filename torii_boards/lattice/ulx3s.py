@@ -188,18 +188,26 @@ class _ULX3SPlatform(ECP5Platform):
 class ULX3S_12F_Platform(_ULX3SPlatform):
 	device = 'LFE5U-12F'
 
+	pretty_name = 'ULXS3-12F'
+	description = 'Radiona ULXS3-12F Lattice ECP5-12F Development Board'
 
 class ULX3S_25F_Platform(_ULX3SPlatform):
 	device = 'LFE5U-25F'
 
+	pretty_name = 'ULXS3-24F'
+	description = 'Radiona ULXS3-25F Lattice ECP5-25F Development Board'
 
 class ULX3S_45F_Platform(_ULX3SPlatform):
 	device = 'LFE5U-45F'
 
+	pretty_name = 'ULXS3-45F'
+	description = 'Radiona ULXS3-45F Lattice ECP5-45F Development Board'
 
 class ULX3S_85F_Platform(_ULX3SPlatform):
 	device = 'LFE5U-85F'
 
+	pretty_name = 'ULXS3-85F'
+	description = 'Radiona ULXS3-85F Lattice ECP5-85F Development Board'
 
 if __name__ == '__main__':
 	from argparse      import ArgumentParser

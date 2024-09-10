@@ -30,6 +30,9 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 	speed       = '8'
 	default_clk = 'clk'
 
+	pretty_name = 'OrangeCrab R0.2'
+	description = 'OrangeCrab R0.2 Lattice ECP5-25F Development Board'
+
 	resources   = [
 		Resource('clk', 0, Pins('A9', dir = 'i'), Clock(48e6), Attrs(IO_TYPE = 'LVCMOS33')),
 
@@ -148,10 +151,15 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 			check_call([dfu_util, '-a', '0', '-D', bitstream_filename])
 
 
-OrangeCrabR0_2_25FPlatform = OrangeCrabR0_2Platform
+class OrangeCrabR0_2_25FPlatform(OrangeCrabR0_2Platform):
+	pretty_name = 'OrangeCrab R0.2 25F'
+	description = 'OrangeCrab R0.2 Lattice ECP5-25F Development Board'
 
 class OrangeCrabR0_2_85FPlatform(OrangeCrabR0_2Platform):
 	device = 'LFE5U-85F'
+
+	pretty_name = 'OrangeCrab R0.2 85F'
+	description = 'OrangeCrab R0.2 Lattice ECP5-85F Development Board'
 
 if __name__ == '__main__':
 	from ..test.blinky import Blinky

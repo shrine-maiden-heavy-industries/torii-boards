@@ -17,6 +17,9 @@ class ICE40HX8KBEVNPlatform(ICE40Platform):
 	package     = 'CT256'
 	default_clk = 'clk12'
 
+	pretty_name = 'ICE40HX8KEVN'
+	description = 'Lattice iCE40-HX8K Evaluation Board'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('J3', dir = 'i'), Clock(12e6),

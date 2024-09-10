@@ -17,6 +17,9 @@ class ICEStickPlatform(ICE40Platform):
 	package     = 'TQ144'
 	default_clk = 'clk12'
 
+	pretty_name = 'iCEstick'
+	description = 'Lattice iCEstick iCE40-HX1K Evaluation Kit'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('21', dir = 'i'), Clock(12e6),

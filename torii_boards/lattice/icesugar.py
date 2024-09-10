@@ -20,6 +20,9 @@ class ICESugarPlatform(ICE40Platform):
 	package     = 'SG48'
 	default_clk = 'clk12'
 
+	pretty_name = 'iCESugar'
+	description = 'iCESugar Lattice iCE40-UP5K Development Board'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('35', dir = 'i'), Clock(12e6),

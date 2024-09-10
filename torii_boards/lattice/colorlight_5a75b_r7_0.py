@@ -23,6 +23,9 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 	speed       = '6'
 	default_clk = 'clk25'
 
+	pretty_name = 'Colorlight 5A-75B'
+	description = 'Colorlight 5A-75B Lattice ECP5-25F FPGA Board'
+
 	resources   = [
 		Resource('clk25', 0, Pins('P6', dir = 'i'), Clock(25e6), Attrs(IO_TYPE = 'LVCMOS33')),
 

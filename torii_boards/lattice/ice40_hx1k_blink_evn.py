@@ -15,6 +15,9 @@ class ICE40HX1KBlinkEVNPlatform(ICE40Platform):
 	package     = 'VQ100'
 	default_clk = 'clk3p3'
 
+	pretty_name = 'ICE40HX1KEVN'
+	description = 'Lattice iCE40-HX1K Evaluation Board'
+
 	resources   = [
 		Resource(
 			'clk3p3', 0, Pins('13', dir = 'i'), Clock(3.3e6),

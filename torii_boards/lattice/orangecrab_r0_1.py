@@ -24,6 +24,9 @@ class OrangeCrabR0_1Platform(ECP5Platform):
 	speed       = '8'
 	default_clk = 'clk'
 
+	pretty_name = 'OrangeCrab R0.1'
+	description = 'OrangeCrab R0.1 Lattice ECP5-25F Development Board'
+
 	resources   = [
 		Resource('clk', 0, Pins('A9', dir = 'i'), Clock(48e6), Attrs(IO_TYPE = 'LVCMOS33')),
 

@@ -17,6 +17,9 @@ class FomuPVTPlatform(ICE40Platform):
 	package     = 'UWG30'
 	default_clk = 'clk48'
 
+	pretty_name = 'FOMU'
+	description = 'Im Tomu FPGA Lattice iCE40 UP5K FPGA Board'
+
 	resources   = [
 		Resource(
 			'clk48', 0, Pins('F4', dir = 'i'), Clock(48e6),

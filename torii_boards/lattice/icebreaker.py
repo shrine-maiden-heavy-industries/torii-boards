@@ -19,6 +19,9 @@ class ICEBreakerPlatform(ICE40Platform):
 	package     = 'SG48'
 	default_clk = 'clk12'
 
+	pretty_name = 'iCEBreaker'
+	description = '1BitSquared iCEBreaker Lattice iCE40-UP5K Development Board'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('35', dir = 'i'), Clock(12e6),

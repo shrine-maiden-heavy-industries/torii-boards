@@ -11,6 +11,9 @@ __all__ = (
 
 
 class UpduinoV2Platform(UpduinoV1Platform):
+	pretty_name = 'Upduino V2'
+	description = 'TinyVision Upduino V2 Lattice iCE40-UP5K Development Board'
+
 	# Mostly identical to the V1 board, but it has an integrated
 	# programmer and a 12MHz oscillator which is NC by default.
 	resources = UpduinoV1Platform.resources + [

@@ -144,6 +144,9 @@ class _ECPIX5Platform(ECP5Platform):
 class ECPIX545Platform(_ECPIX5Platform):
 	device      = 'LFE5UM5G-45F'
 
+	pretty_name = 'ECPIX5 45F'
+	description = 'Lambda Concept ECPIX5 45F Lattice ECP5-5G-45F Development Board'
+
 	resources   = [
 		*_ECPIX5Platform.resources,
 
@@ -173,6 +176,9 @@ class ECPIX545Platform(_ECPIX5Platform):
 
 class ECPIX585Platform(_ECPIX5Platform):
 	device      = 'LFE5UM5G-85F'
+
+	pretty_name = 'ECPIX5 85F'
+	description = 'Lambda Concept ECPIX5 85F Lattice ECP5-5G-85F Development Board'
 
 	resources   = [
 		*_ECPIX5Platform.resources,

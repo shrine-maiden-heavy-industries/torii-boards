@@ -17,6 +17,9 @@ class ICESugarNanoPlatform(ICE40Platform):
 	package     = 'CM36'
 	default_clk = 'clk12'
 
+	pretty_name = 'iCESugar-nano'
+	description = 'iCESugar-nano Lattice iCE40-LP1K Development Board'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('D1', dir = 'i'), Clock(12e6),

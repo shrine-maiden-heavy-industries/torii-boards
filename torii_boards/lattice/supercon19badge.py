@@ -22,6 +22,9 @@ class Supercon19BadgePlatform(ECP5Platform):
 	speed       = '8'
 	default_clk = 'clk8'
 
+	pretty_name = 'Supercon 19 Badge'
+	description = 'Lattice ECP5-45F Based Hackaday Supercon 2019 Badge'
+
 	# The badge's LEDs are wired in a non-straightforward way. Here, the
 	# LEDResources represent each of the common anodes of a collection of RGB LEDs.
 	# A single one of their cathodes defaults to connected via a FET; the other

@@ -8,6 +8,10 @@ __all__ = (
 
 class VersaECP55GPlatform(VersaECP5Platform):
 	device      = 'LFE5UM5G-45F'
+
+	pretty_name = 'Versa 5G'
+	description = 'Lattice Versa 5G ECP5-5G-45F Evaluation Board'
+
 	# Everything else is identical between 3G and 5G Versa boards.
 
 

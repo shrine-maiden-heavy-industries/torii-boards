@@ -25,6 +25,9 @@ class VersaECP5Platform(ECP5Platform):
 	default_clk = 'clk100'
 	default_rst = 'rst'
 
+	pretty_name = 'Versa'
+	description = 'Lattice Versa ECP5-45F Evaluation Board'
+
 	resources   = [
 		Resource('rst', 0, PinsN('T1', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource('clk100', 0, DiffPairs('P3', 'P4', dir = 'i'), Clock(100e6), Attrs(IO_TYPE = 'LVDS')),

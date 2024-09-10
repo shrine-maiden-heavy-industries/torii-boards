@@ -13,6 +13,9 @@ class TinyFPGAAX2Platform(LatticeMachXO2Platform):
 	package     = 'SG32'
 	speed       = '4'
 
+	pretty_name = 'TinyFPGA AX2'
+	description = 'TinyFPGA AX2 Lattice MachXO2-1200 Development Board'
+
 	connectors  = [
 		Connector('gpio', 0,
 			# Left side of the board

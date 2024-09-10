@@ -17,6 +17,9 @@ class BlackIceIIPlatform(ICE40Platform):
 	package     = 'TQ144'
 	default_clk = 'clk100'
 
+	pretty_name = 'BlackIce II'
+	description = 'myStorm BlackIce II Lattice iCE40-HX4k Development Board'
+
 	resources   = [
 		Resource('clk100', 0, Pins('129', dir = 'i'),
 			Clock(100e6), Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')

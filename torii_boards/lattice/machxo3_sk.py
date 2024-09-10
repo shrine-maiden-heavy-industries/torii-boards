@@ -20,6 +20,9 @@ class MachXO3SKPlatform(MachXO3LPlatform):
 	speed       = '5'
 	default_clk = 'clk12'
 
+	pretty_name = 'MachXO3SK'
+	description = 'Lattice MachXO3LF Starter Kit'
+
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('C8', dir = 'i'),

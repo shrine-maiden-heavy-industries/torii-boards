@@ -15,6 +15,9 @@ class UpduinoV1Platform(ICE40Platform):
 	default_clk = 'SB_HFOSC'
 	hfosc_div   = 0
 
+	pretty_name = 'Upduino V1'
+	description = 'TinyVision Upduino V1 Lattice iCE40-UP5K Development Board'
+
 	resources   = [
 		*LEDResources(
 			pins = '39 40 41', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')

@@ -22,8 +22,10 @@ class LogicbonePlatform(ECP5Platform):
 	device      = 'LFE5UM5G-45F'
 	package     = 'BG381'
 	speed       = '8'
-
 	default_clk = 'refclk'
+
+	pretty_name = 'Logicbone'
+	description = 'Logicbone Lattice ECP5-5G-45F Development Board'
 
 	resources   = [
 		Resource(

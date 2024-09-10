@@ -24,6 +24,9 @@ class ECP55GEVNPlatform(ECP5Platform):
 	default_clk = 'clk12'
 	default_rst = 'rst'
 
+	pretty_name = 'ECP55GEVN'
+	description = 'ECP55GEVN Lattice ECP5-5G-85F Evaluation Board'
+
 	def __init__(
 		self, *, VCCIO1: Literal['3V3', '2V5'] = '2V5', VCCIO6: Literal['3V3', '2V5'] = '3V3', **kwargs
 	) -> None:

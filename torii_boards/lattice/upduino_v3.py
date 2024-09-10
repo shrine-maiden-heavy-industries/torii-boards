@@ -15,6 +15,10 @@ class UpduinoV3Platform(ICE40Platform):
 	package     = 'SG48'
 	default_clk = 'SB_HFOSC'
 	hfosc_div   = 0
+
+	pretty_name = 'Upduino V3'
+	description = 'TinyVision Upduino V3 Lattice iCE40-UP5K Development Board'
+
 	resources   = [
 		# Solder the OSC jumper to connect the onboard oscillator to pin 20.
 		# Note that this overlaps with the QSPI pins.

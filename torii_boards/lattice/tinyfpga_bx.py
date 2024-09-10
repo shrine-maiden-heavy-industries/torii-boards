@@ -17,6 +17,9 @@ class TinyFPGABXPlatform(ICE40Platform):
 	package     = 'CM81'
 	default_clk = 'clk16'
 
+	pretty_name = 'TinyFPGA BX'
+	description = 'TinyFPGA BX Lattice iCE40-LP8K Development Board'
+
 	resources   = [
 		Resource(
 			'clk16', 0, Pins('B2', dir = 'i'), Clock(16e6), Attrs(IO_STANDARD = 'SB_LVCMOS')

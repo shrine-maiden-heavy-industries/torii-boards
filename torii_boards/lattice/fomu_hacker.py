@@ -17,6 +17,9 @@ class FomuHackerPlatform(ICE40Platform):
 	package     = 'UWG30'
 	default_clk = 'clk48'
 
+	pretty_name = 'FOMU Hacker'
+	description = 'Im Tomu FPGA Hacker Edition Lattice iCE40 UP5K FPGA Board'
+
 	resources   = [
 		Resource(
 			'clk48', 0, Pins('F5', dir = 'i'), Clock(48e6),

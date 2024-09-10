@@ -19,6 +19,9 @@ class NandlandGoPlatform(ICE40Platform):
 	package     = 'VQ100'
 	default_clk = 'clk25'
 
+	pretty_name = 'Nandland Go'
+	description = 'Nandland Go Lattice iCE40-HX1K Development Board'
+
 	resources = [
 		Resource(
 			'clk25', 0, Pins('15', dir = 'i'), Clock(25e6)

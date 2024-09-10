@@ -19,6 +19,9 @@ class ICE40UP5KBEVNPlatform(ICE40Platform):
 	package     = 'SG48'
 	default_clk = 'clk12'
 
+	pretty_name = 'ICE40UP5KEVN'
+	description = 'Lattice iCE40-UP5K Evaluation Board'
+
 	resources   = [
 		# J51 must be connected to use clk12 (it is by default)
 		Resource(
