@@ -22,6 +22,9 @@ class QuickfeatherPlatform(QuicklogicPlatform):
 	osc_freq    = int(60e6)
 	osc_div     = 12
 
+	pretty_name = 'QuickFeather'
+	description = 'QuickLogic EOS S3 Development Board'
+
 	connectors = [
 		Connector('J', 2, '- 28 22 21 37 36 42 40 7 2 4 5'),
 		Connector('J', 3, '- 8 9 17 16 20 6 55 31 25 47 - - - - 41'),
