@@ -110,6 +110,7 @@ No changelog is provided for these versions as they are all older untagged relea
 
 
 [unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.1...main
+[0.6.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/tree/v0.6.1
 [0.6.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.0...v.6.1
 [0.5.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.5.0...v0.6.0
 [0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...v0.5.0
