@@ -41,7 +41,7 @@
             Torii-HDL Boards
           </a>
               <div class="version">
-                0.1.dev1+ge8b97a8
+                0.1.dev1+g7a53481
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -445,6 +445,26 @@
 <li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.connectors"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.connectors</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.toolchain_prepare()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.toolchain_program()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.device"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.device</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.package"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.package</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.speed"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.pretty_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.description"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.connectors"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.connectors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.resources"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.resources</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.device"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.device</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.package"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.package</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.speed"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.pretty_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.description"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.connectors"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.connectors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.resources"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.resources</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform</span></code></a><ul>
@@ -1927,6 +1947,86 @@ a <code class="xref py py-class docutils literal notranslate"><span class="pre">
 <span class="sig-name descname"><span class="pre">toolchain_program</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">products</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BuildProducts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.toolchain_program" title="Link to this definition"></a></dt>
 <dd><p>Extract bitstream for fragment <code class="docutils literal notranslate"><span class="pre">name</span></code> from <code class="docutils literal notranslate"><span class="pre">products</span></code> and download it to a target.</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-torii_boards.lattice.tinyfpga_ax1">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">torii_boards.lattice.tinyfpga_ax1.</span></span><span class="sig-name descname"><span class="pre">TinyFPGAAX1Platform</span></span><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LCMXO2-256HC'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.package">
+<span class="sig-name descname"><span class="pre">package</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SG32'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.package" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.speed">
+<span class="sig-name descname"><span class="pre">speed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'4'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.speed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.pretty_name">
+<span class="sig-name descname"><span class="pre">pretty_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TinyFPGA</span> <span class="pre">AX1'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.pretty_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TinyFPGA</span> <span class="pre">AX1</span> <span class="pre">Lattice</span> <span class="pre">MachXO2-256</span> <span class="pre">Development</span> <span class="pre">Board'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.connectors">
+<span class="sig-name descname"><span class="pre">connectors</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[(connector</span> <span class="pre">gpio</span> <span class="pre">0</span> <span class="pre">1=&gt;13</span> <span class="pre">2=&gt;14</span> <span class="pre">3=&gt;16</span> <span class="pre">4=&gt;17</span> <span class="pre">5=&gt;20</span> <span class="pre">6=&gt;21</span> <span class="pre">7=&gt;23</span> <span class="pre">8=&gt;25</span> <span class="pre">9=&gt;26</span> <span class="pre">10=&gt;27</span> <span class="pre">11=&gt;28</span> <span class="pre">16=&gt;4</span> <span class="pre">17=&gt;5</span> <span class="pre">18=&gt;8</span> <span class="pre">19=&gt;9</span> <span class="pre">20=&gt;10</span> <span class="pre">21=&gt;11</span> <span class="pre">22=&gt;12)]</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.connectors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.resources">
+<span class="sig-name descname"><span class="pre">resources</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.resources" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-torii_boards.lattice.tinyfpga_ax2">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">torii_boards.lattice.tinyfpga_ax2.</span></span><span class="sig-name descname"><span class="pre">TinyFPGAAX2Platform</span></span><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LCMXO2-1200HC'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.package">
+<span class="sig-name descname"><span class="pre">package</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SG32'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.package" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.speed">
+<span class="sig-name descname"><span class="pre">speed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'4'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.speed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.pretty_name">
+<span class="sig-name descname"><span class="pre">pretty_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TinyFPGA</span> <span class="pre">AX2'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.pretty_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TinyFPGA</span> <span class="pre">AX2</span> <span class="pre">Lattice</span> <span class="pre">MachXO2-1200</span> <span class="pre">Development</span> <span class="pre">Board'</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.connectors">
+<span class="sig-name descname"><span class="pre">connectors</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[(connector</span> <span class="pre">gpio</span> <span class="pre">0</span> <span class="pre">1=&gt;13</span> <span class="pre">2=&gt;14</span> <span class="pre">3=&gt;16</span> <span class="pre">4=&gt;17</span> <span class="pre">5=&gt;20</span> <span class="pre">6=&gt;21</span> <span class="pre">7=&gt;23</span> <span class="pre">8=&gt;25</span> <span class="pre">9=&gt;26</span> <span class="pre">10=&gt;27</span> <span class="pre">11=&gt;28</span> <span class="pre">16=&gt;4</span> <span class="pre">17=&gt;5</span> <span class="pre">18=&gt;8</span> <span class="pre">19=&gt;9</span> <span class="pre">20=&gt;10</span> <span class="pre">21=&gt;11</span> <span class="pre">22=&gt;12)]</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.connectors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.resources">
+<span class="sig-name descname"><span class="pre">resources</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.resources" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
