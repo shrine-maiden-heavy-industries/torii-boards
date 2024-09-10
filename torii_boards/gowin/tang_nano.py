@@ -47,7 +47,6 @@ class TangNanoPlatform(GowinPlatform):
 
 		Resource('lcd_backlight', 0, Pins('47', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS33')),
 	]
-	connectors  = []
 
 	def toolchain_prepare(self, fragment, name, **kwargs):
 		overrides = {

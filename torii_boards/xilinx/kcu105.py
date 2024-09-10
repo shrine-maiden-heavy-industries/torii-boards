@@ -26,7 +26,6 @@ class KCU105Platform(XilinxPlatform):
 			attrs = Attrs(IOSTANDARD = 'LVCMOS18')
 		),
 	]
-	connectors  = []
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ

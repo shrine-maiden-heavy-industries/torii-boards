@@ -31,7 +31,6 @@ class KC705Platform(XilinxPlatform):
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 	]
-	connectors  = []
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
