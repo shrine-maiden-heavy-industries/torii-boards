@@ -20,6 +20,9 @@ class DE10LitePlatform(AlteraPlatform):
 	suffix      = 'G'
 	default_clk = 'clk50'
 
+	pretty_name = 'DE10-Lite'
+	description = 'terasIC DE10-Lite Altera MAX 10 Development Board'
+
 	resources   = [
 		Resource(
 			'clk10', 0, Pins('N5', dir = 'i'),  Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')

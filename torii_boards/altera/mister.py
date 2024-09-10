@@ -22,6 +22,9 @@ class MisterPlatform(AlteraPlatform):
 	speed       = 'I7'
 	default_clk = 'clk50'
 
+	pretty_name = 'MiSTer FPGA'
+	description = 'terasIC DE10-Nano based MiSTer FPGA Platform'
+
 	resources   = [
 		Resource(
 			'clk50', 0, Pins('V11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')

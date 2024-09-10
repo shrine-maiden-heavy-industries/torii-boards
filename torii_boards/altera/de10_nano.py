@@ -22,6 +22,9 @@ class DE10NanoPlatform(AlteraPlatform):
 	speed       = 'I7'
 	default_clk = 'clk50'
 
+	pretty_name = 'DE10-Nano'
+	description = 'terasIC DE10-Nano Altera Cyclone V Development Board'
+
 	resources   = [
 		Resource(
 			'clk50', 0, Pins('V11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')

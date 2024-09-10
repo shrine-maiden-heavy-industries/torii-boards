@@ -17,6 +17,9 @@ class Chameleon96Platform(AlteraPlatform):
 	speed       = 'I7'
 	default_clk = 'cyclonev_oscillator'
 
+	pretty_name = 'Chameleon96'
+	description = 'Altera Cyclone V SoC Development Board'
+
 	resources   = [
 		# WIFI and BT LEDs
 		*LEDResources(

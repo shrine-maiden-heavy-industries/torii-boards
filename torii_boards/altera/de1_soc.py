@@ -18,6 +18,9 @@ class DE1SoCPlatform(AlteraPlatform):
 	speed       = 'C6'
 	default_clk = 'clk50'
 
+	pretty_name = 'DE1-SoC'
+	description = 'terasIC DE1-SoC Altera Cyclone V SoC Development Board'
+
 	resources   = [
 		Resource(
 			'clk50', 0, Pins('AF14', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')

@@ -17,6 +17,9 @@ class ArrowDECAPlatform(AlteraPlatform):
 	suffix      = 'GES'
 	default_clk = 'clk50'
 
+	pretty_name = 'DECA Development Kit'
+	description = 'Arrow Development Tools DECA Altera MAX10 Development Kit'
+
 	resources   = [
 		Resource('clk50', 0, Pins('M8',  dir = 'i'), Clock(50e6), Attrs(io_standard = '2.5 V')),
 		Resource('clk50', 1, Pins('P11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3 V')),

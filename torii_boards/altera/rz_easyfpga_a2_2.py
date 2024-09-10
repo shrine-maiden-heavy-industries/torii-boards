@@ -23,6 +23,9 @@ class RZEasyFPGAA2_2Platform(AlteraPlatform):
 	default_clk = 'clk50'  # 50MHz builtin clock
 	default_rst = 'rst'
 
+	pretty_name = 'RZ-EasyFPGA A2.2'
+	description = 'RZ-EasyFPGA Altera Cyclone IV Development Board'
+
 	resources   = [
 		# Clock
 		Resource(

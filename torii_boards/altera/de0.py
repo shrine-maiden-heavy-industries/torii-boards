@@ -19,6 +19,9 @@ class DE0Platform(AlteraPlatform):
 	speed       = 'C6'
 	default_clk = 'clk50'
 
+	pretty_name = 'DE0'
+	description = 'terasIC DE0 Altera Cyclone III Development Board'
+
 	resources   = [
 		Resource(
 			'clk50', 0, Pins('G21', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')

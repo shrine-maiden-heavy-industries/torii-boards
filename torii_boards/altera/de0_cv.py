@@ -18,6 +18,10 @@ class DE0CVPlatform(AlteraPlatform):
 	package     = 'F23'    # FBGA-484
 	speed       = 'C7'
 	default_clk = 'clk50'
+
+	pretty_name = 'DE0-CV'
+	description = 'terasIC DE0-CV Altera Cyclone V Development Board'
+
 	resources   = [
 		Resource(
 			'clk50', 0, Pins('M9', dir = 'i'),  Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
