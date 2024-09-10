@@ -17,6 +17,10 @@ class TangNanoPlatform(GowinPlatform):
 	family      = 'GW1N-1'
 	default_clk = 'OSC'
 	osc_frequency = 24_000_000
+
+	pretty_name = 'Tang Nano'
+	description = 'Sipeed Tang Nano Gowin GW1N-1 Development Board'
+
 	resources   = [
 		# This clock is shared with the USB-JTAG MCU and stops when the USB bus is suspended.
 		# It probably should not be used, but is included for completeness.
