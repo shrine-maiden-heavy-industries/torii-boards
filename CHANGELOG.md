@@ -31,6 +31,12 @@ Unreleased template stuff
 
 ### Fixed
 
+## [0.6.1]
+
+### Fixed
+
+ - Fixed the platform import in `torii_boards.lattice.tinyfpga_ax1` and `torii_boards.lattice.tinyfpga_ax2`, as they still used the old Lattice MachXO2 platform name
+
 ## [0.6.0]
 
 ### Changed
@@ -103,7 +109,8 @@ Unreleased template stuff
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.0...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.1...main
+[0.6.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.0...v.6.1
 [0.5.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.5.0...v0.6.0
 [0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.0...v0.4.1
