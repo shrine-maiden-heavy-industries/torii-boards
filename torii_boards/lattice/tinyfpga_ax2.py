@@ -1,14 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                               import Connector
-from torii.platform.vendor.lattice.machxo_2_3l import LatticeMachXO2Platform
+from torii.platform.vendor.lattice.machxo_2_3l import MachXO2Platform
 
 __all__ = (
 	'TinyFPGAAX2Platform',
 )
 
 
-class TinyFPGAAX2Platform(LatticeMachXO2Platform):
+class TinyFPGAAX2Platform(MachXO2Platform):
 	device      = 'LCMXO2-1200HC'
 	package     = 'SG32'
 	speed       = '4'
