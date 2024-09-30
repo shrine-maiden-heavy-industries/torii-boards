@@ -5,6 +5,7 @@ on:
     branches:
       - 'main'
     paths:
+      - '.github/workflows/codeql.yml'
       - 'torii_boards/**'
       - 'tests/**'
   schedule:
