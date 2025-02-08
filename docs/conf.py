@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: BSD-2-Clause
-import os, sys
+import os, sys, datetime
 from pathlib import Path
 sys.path.insert(0, os.path.abspath('.'))
 
@@ -11,7 +11,7 @@ ROOT_DIR = (Path(__file__).parent).parent
 project = 'Torii-HDL Boards'
 version = boards_version
 release = version.split('+')[0]
-copyright = '2022, Shrine Maiden Heavy Industries'
+copyright = f'{datetime.date.today().year}, Shrine Maiden Heavy Industries'
 language  = 'en'
 docver    = version
 
@@ -92,3 +92,9 @@ html_css_files = [
 ]
 
 html_style = 'css/styles.css'
+
+linkcheck_ignore = [
+	'https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html',
+	'https://www.xilinx.com/products/design-tools/ise-design-suite.html',
+	'https://www.xilinx.com/products/design-tools/vivado.html',
+]
