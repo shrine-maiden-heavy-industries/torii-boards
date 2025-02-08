@@ -23,11 +23,13 @@ Unreleased template stuff
 
 ### Changed
 
+- Bumped the minimum version of Torii to be 0.7.1
+
 ### Deprecated
 
 ### Removed
 
- - Removed the deprecated `torii_boards.intel` module.
+- Removed the deprecated `torii_boards.intel` module.
 
 ### Fixed
 
@@ -35,42 +37,43 @@ Unreleased template stuff
 
 ### Fixed
 
- - Fixed the platform import in `torii_boards.lattice.tinyfpga_ax1` and `torii_boards.lattice.tinyfpga_ax2`, as they still used the old Lattice MachXO2 platform name
+- Fixed the platform import in `torii_boards.lattice.tinyfpga_ax1` and `torii_boards.lattice.tinyfpga_ax2`, as they still used the old Lattice MachXO2 platform name
 
 ## [0.6.0]
 
 ### Changed
 
- - Bumped the minium version of Python to match with Torii 0.6.0
- - Bumped the minimum version of Torii to be 0.6.0
+- Bumped the minium version of Python to match with Torii 0.6.0
+- Bumped the minimum version of Torii to be 0.6.0
 
 ### Deprecated
 
- - Deprecated the `torii_boards.intel` boards in favor of `torii_boards.altera`, following the `IntelPlatform` deprecation in Torii 0.6.0
+- Deprecated the `torii_boards.intel` boards in favor of `torii_boards.altera`, following the `IntelPlatform` deprecation in Torii 0.6.0
 
 ### Fixed
 
- - Fixed the Gowin boards title in the docs
+- Fixed the Gowin boards title in the docs
 
 ## [0.5.0]
 
 ### Added
 
- - Added the `cmod_a7` and `cmod_s7` Xilinx FPGA boards from digilent.
- - Added the `Upduino v3` Lattice FPGA board from TinyVision.
- - Added the `Tang Nano` Gowin FPGA board from sipeed.
- - Added the LEFUM5-85F variant of the orangecrab FPGA board.
+- Added the `cmod_a7` and `cmod_s7` Xilinx FPGA boards from digilent.
+- Added the `Upduino v3` Lattice FPGA board from TinyVision.
+- Added the `Tang Nano` Gowin FPGA board from sipeed.
+- Added the LEFUM5-85F variant of the orangecrab FPGA board.
 
 ### Fixed
 
- - Fixed SRAM ~CE pin assignment in the blackice_ii board.
- - Fixed IO direction for  the i2c clock lines on the mister and de10-nano
+- Fixed SRAM ~CE pin assignment in the blackice_ii board.
+- Fixed IO direction for  the i2c clock lines on the mister and de10-nano
 
 ## [0.4.1]
 
 ### Fixed
 
- - Fixed the import in the Xilinx ArtyS7 and Atlys board files where they were using the improper import in `toolchain_program` for `required_tool`.
+- Fixed the import in the Xilinx ArtyS7 and Atlys board files where they were using the improper import in `toolchain_program` for `required_tool`.
+
 ## [0.4.0]
 
 ### Added
@@ -108,12 +111,11 @@ Unreleased template stuff
 
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
-
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.1...main
-[0.6.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.6.0...v.6.1
-[0.6.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.1...v0.5.0
-[0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/v0.4.0...v0.4.1
-[0.4.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...v0.4.0
-[0.3.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main
-[0.1.0]: https://github.com/shrine-maiden-heavy-industries/torii-hdl/compare/amaranth-fork...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.1...main
+[0.6.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.0...v.6.1
+[0.6.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.4.1...v0.5.0
+[0.4.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/amaranth-fork...v0.4.0
+[0.3.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/amaranth-fork...main
+[0.1.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/amaranth-fork...main
