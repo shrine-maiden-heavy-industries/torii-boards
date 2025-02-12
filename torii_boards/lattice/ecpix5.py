@@ -1,20 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, Subsignal, PinsN,
-	DiffPairs
-)
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.platform.resources           import RGBLEDResource, SPIFlashResources, UARTResource, ULPIResource
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
-from torii.platform.resources           import (
-	RGBLEDResource, UARTResource, SPIFlashResources, ULPIResource
-)
 
 __all__ = (
 	'ECPIX585Platform',
 	'ECPIX545Platform',
 )
-
 
 class _ECPIX5Platform(ECP5Platform):
 	package     = 'BG554'
@@ -210,6 +204,7 @@ class ECPIX585Platform(_ECPIX5Platform):
 
 if __name__ == '__main__':
 	import argparse
+
 	from ..test.blinky import Blinky
 
 	parser = argparse.ArgumentParser()

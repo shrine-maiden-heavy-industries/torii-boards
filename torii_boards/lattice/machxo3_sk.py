@@ -1,18 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                               import (
-	Connector, Resource, Pins, Clock, Attrs
-)
+from torii.build                               import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                           import BuildProducts
-from torii.platform.vendor.lattice.machxo_2_3l import MachXO3LPlatform
 from torii.platform.resources                  import (
-	UARTResource, LEDResources, ButtonResources, SwitchResources, SPIFlashResources
+	ButtonResources, LEDResources, SPIFlashResources, SwitchResources, UARTResource
 )
+from torii.platform.vendor.lattice.machxo_2_3l import MachXO3LPlatform
 
 __all__ = (
 	'MachXO3SKPlatform',
 )
-
 
 class MachXO3SKPlatform(MachXO3LPlatform):
 	device      = 'LCMXO3LF-6900C'

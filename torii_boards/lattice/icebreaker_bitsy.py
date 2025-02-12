@@ -1,22 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                              import Optional
-
-from torii.build                         import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN
-)
+from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.vendor.lattice.ice40 import ICE40Platform
 from torii.platform.resources            import (
-	DirectUSBResource, SPIFlashResources, RGBLEDResource, LEDResources,
-	ButtonResources
+	ButtonResources, DirectUSBResource, LEDResources, RGBLEDResource, SPIFlashResources
 )
-
+from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
 	'ICEBreakerBitsyPlatform',
 )
-
 
 class ICEBreakerBitsyPlatform(ICE40Platform):
 	device      = 'iCE40UP5K'
@@ -68,7 +61,7 @@ class ICEBreakerBitsyPlatform(ICE40Platform):
 
 	def toolchain_program(
 		self, products: BuildProducts, name: str,
-		run_vid: Optional[str] = None, run_pid: Optional[str] = None,
+		run_vid: str | None = None, run_pid: str | None = None,
 		dfu_vid: str = '1d50', dfu_pid: str = '6146', reset: bool = True
 	) -> None:
 		from os         import environ

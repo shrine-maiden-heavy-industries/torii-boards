@@ -1,22 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                             import List
-
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN,
-	Subsignal, DiffPairs
-)
-from torii.build.run                    import BuildProducts, BuildPlan
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.platform.resources           import DirectUSBResource, RGBLEDResource, SDCardResources, SPIFlashResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
-from torii.platform.resources           import (
-	RGBLEDResource, SPIFlashResources, SDCardResources, DirectUSBResource
-)
 
 __all__ = (
 	'OrangeCrabR0_1Platform',
 )
-
 
 class OrangeCrabR0_1Platform(ECP5Platform):
 	device      = 'LFE5U-25F'
@@ -105,13 +97,13 @@ class OrangeCrabR0_1Platform(ECP5Platform):
 	]
 
 	@property
-	def required_tools(self) -> List[str]:
+	def required_tools(self) -> list[str]:
 		return super().required_tools + [
 			'dfu-suffix'
 		]
 
 	@property
-	def command_templates(self) -> List[str]:
+	def command_templates(self) -> list[str]:
 		return super().command_templates + [
 			r'''
 			{{invoke_tool('dfu-suffix')}}

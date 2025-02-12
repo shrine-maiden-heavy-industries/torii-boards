@@ -1,18 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                         import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN
-)
+from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource
 from torii.build.run                     import BuildProducts
+from torii.platform.resources            import ButtonResources, LEDResources, SPIFlashResources, UARTResource
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
-from torii.platform.resources            import (
-	LEDResources, ButtonResources, UARTResource, SPIFlashResources
-)
 
 __all__ = (
 	'ICEBreakerPlatform',
 )
-
 
 class ICEBreakerPlatform(ICE40Platform):
 	device      = 'iCE40UP5K'

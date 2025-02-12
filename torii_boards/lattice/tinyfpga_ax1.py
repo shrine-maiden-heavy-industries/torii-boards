@@ -7,7 +7,6 @@ __all__ = (
 	'TinyFPGAAX1Platform',
 )
 
-
 class TinyFPGAAX1Platform(MachXO2Platform):
 	device      = 'LCMXO2-256HC'
 	package     = 'SG32'

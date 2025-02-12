@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build     import Resource, Attrs, Clock, Pins
+from torii.build     import Attrs, Clock, Pins, Resource
 from torii.build.run import BuildProducts
 
 from .upduino_v1     import UpduinoV1Platform
@@ -8,7 +8,6 @@ from .upduino_v1     import UpduinoV1Platform
 __all__ = (
 	'UpduinoV2Platform',
 )
-
 
 class UpduinoV2Platform(UpduinoV1Platform):
 	pretty_name = 'Upduino V2'

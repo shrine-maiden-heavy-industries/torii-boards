@@ -1,18 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                         import Connector, Resource, Pins, Clock
+from torii.build                         import Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.vendor.lattice.ice40 import ICE40Platform
 from torii.platform.resources            import (
-	LEDResources, ButtonResources, Display7SegResource, UARTResource, SPIFlashResources,
-	VGAResource
+	ButtonResources, Display7SegResource, LEDResources, SPIFlashResources, UARTResource, VGAResource
 )
-
+from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
 	'NandlandGoPlatform',
 )
-
 
 class NandlandGoPlatform(ICE40Platform):
 	device      = 'iCE40HX1K'

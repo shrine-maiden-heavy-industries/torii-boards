@@ -1,13 +1,12 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                         import Connector, Resource, Attrs, PinsN
-from torii.platform.vendor.lattice.ice40 import ICE40Platform
+from torii.build                         import Attrs, Connector, PinsN, Resource
 from torii.platform.resources            import LEDResources, SPIFlashResources
+from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
 	'UpduinoV1Platform',
 )
-
 
 class UpduinoV1Platform(ICE40Platform):
 	device      = 'iCE40UP5K'

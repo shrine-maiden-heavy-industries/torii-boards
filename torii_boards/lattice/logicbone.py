@@ -1,21 +1,17 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN,
-	Subsignal, DiffPairs
-)
-from torii.build.run                    import BuildProducts, BuildPlan
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
-	DirectUSBResource, LEDResources, ButtonResources, SDCardResources, SPIFlashResources,
+	ButtonResources, DirectUSBResource, LEDResources, SDCardResources, SPIFlashResources
 )
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
 	'LogicbonePlatform',
 	'Logicbone85FPlatform',
 )
-
 
 class LogicbonePlatform(ECP5Platform):
 	name        = 'Logicbone'
@@ -137,6 +133,7 @@ class Logicbone85FPlatform(LogicbonePlatform):
 
 if __name__ == '__main__':
 	import argparse
+
 	from ..test.blinky import Blinky
 
 	parser = argparse.ArgumentParser()

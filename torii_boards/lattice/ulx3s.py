@@ -1,18 +1,12 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                             import List
-
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN,
-	Subsignal, DiffPairs,
-)
-from torii.build.run                    import BuildProducts, BuildPlan
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
-	LEDResources, ButtonResources, UARTResource, SDCardResources, SDRAMResource,
-	SPIResource, DirectUSBResource
+	ButtonResources, DirectUSBResource, LEDResources, SDCardResources, SDRAMResource, SPIResource, UARTResource
 )
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
 	'ULX3S_12F_Platform',
@@ -20,7 +14,6 @@ __all__ = (
 	'ULX3S_45F_Platform',
 	'ULX3S_85F_Platform',
 )
-
 
 class _ULX3SPlatform(ECP5Platform):
 	package     = 'BG381'
@@ -166,7 +159,7 @@ class _ULX3SPlatform(ECP5Platform):
 	]
 
 	@property
-	def required_tools(self) -> List[str]:
+	def required_tools(self) -> list[str]:
 		return super().required_tools + [
 			'openFPGALoader'
 		]
@@ -211,6 +204,7 @@ class ULX3S_85F_Platform(_ULX3SPlatform):
 
 if __name__ == '__main__':
 	from argparse      import ArgumentParser
+
 	from ..test.blinky import Blinky
 
 	variants = {

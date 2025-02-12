@@ -1,14 +1,15 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
 import os
 import subprocess
 
-from torii.build                         import Resource, Pins, Clock, Attrs, Connector
-from torii.platform.vendor.lattice.ice40 import ICE40Platform
+from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.platform.resources            import RGBLEDResource, SPIFlashResources
+from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
 	'UpduinoV3Platform',
 )
-
 
 class UpduinoV3Platform(ICE40Platform):
 	device      = 'iCE40UP5K'

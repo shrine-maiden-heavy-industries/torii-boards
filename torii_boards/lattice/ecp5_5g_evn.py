@@ -1,21 +1,17 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                             import Dict, Literal
+from typing      import Literal
 
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, Subsignal, PinsN,
-	DiffPairs
-)
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
-from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
-	LEDResources, ButtonResources, SwitchResources, UARTResource, SPIFlashResources
+	ButtonResources, LEDResources, SPIFlashResources, SwitchResources, UARTResource
 )
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
 	'ECP55GEVNPlatform',
 )
-
 
 class ECP55GEVNPlatform(ECP5Platform):
 	device      = 'LFE5UM5G-85F'
@@ -160,11 +156,13 @@ class ECP55GEVNPlatform(ECP5Platform):
 		# JTAG
 		Connector('J', 1, '- V4 R5 - - U5 - T5'),
 		# Parallel configuration
-		Connector('J', 38, 'W3 R2 T3 Y3 R1 V3 T1 V2 U1 W2 V1 T2 W1 U2 Y2 R2 U3 R3 - -'), # Connect pin 2 / R2 with jumper when needed
+		Connector(
+			'J', 38, 'W3 R2 T3 Y3 R1 V3 T1 V2 U1 W2 V1 T2 W1 U2 Y2 R2 U3 R3 - -'
+		), # Connect pin 2 / R2 with jumper when needed
 	]
 
 	@property
-	def file_templates(self) -> Dict[str, str]:
+	def file_templates(self) -> dict[str, str]:
 		return {
 			**super().file_templates,
 			'{{name}}-openocd.cfg': r'''

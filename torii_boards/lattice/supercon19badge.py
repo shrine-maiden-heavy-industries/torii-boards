@@ -1,20 +1,18 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN,
-	Subsignal, DiffPairs, DiffPairsN
+	Attrs, Clock, Connector, DiffPairs, DiffPairsN, Pins, PinsN, Resource, Subsignal
 )
-from torii.build.run                    import BuildProducts, BuildPlan
+from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 from torii.platform.resources           import (
-	LEDResources, UARTResource, DirectUSBResource, ButtonResources, SDRAMResource
+	ButtonResources, DirectUSBResource, LEDResources, SDRAMResource, UARTResource
 )
+from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
 	'Supercon19BadgePlatform',
 )
-
 
 class Supercon19BadgePlatform(ECP5Platform):
 	device      = 'LFE5U-45F'

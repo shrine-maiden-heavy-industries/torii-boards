@@ -1,21 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                             import List
-
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, Subsignal, PinsN
-)
+from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.build.run                    import BuildProducts, BuildPlan
+from torii.platform.resources           import ButtonResources, LEDResources, SDRAMResource, UARTResource
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
-from torii.platform.resources           import (
-	LEDResources, ButtonResources, UARTResource, SDRAMResource
-)
 
 __all__ = (
 	'Colorlight_5A75B_R70Platform',
 )
-
 
 class Colorlight_5A75B_R70Platform(ECP5Platform):
 	device      = 'LFE5U-25F'
@@ -108,7 +101,7 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 	]
 
 	@property
-	def required_tools(self) -> List[str]:
+	def required_tools(self) -> list[str]:
 		return super().required_tools + [
 			'openFPGALoader'
 		]
@@ -119,8 +112,8 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 		return super().toolchain_prepare(fragment, name, **overrides)
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
-		from subprocess import check_call
 		from os         import environ
+		from subprocess import check_call
 
 		tool = environ.get('OPENFPGALOADER', 'openFPGALoader')
 		with products.extract(f'{name}.bit') as bitstream_filename:

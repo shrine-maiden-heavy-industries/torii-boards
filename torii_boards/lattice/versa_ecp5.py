@@ -1,22 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                             import Dict
-
-from torii.build                        import (
-	Connector, Resource, Pins, Clock, Attrs, PinsN,
-	Subsignal, DiffPairs,
-)
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.platform.resources           import LEDResources, SPIFlashResources, SwitchResources, UARTResource
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
-from torii.platform.resources           import (
-	LEDResources, SwitchResources, UARTResource, SPIFlashResources
-)
-
 
 __all__ = (
 	'VersaECP5Platform',
 )
-
 
 class VersaECP5Platform(ECP5Platform):
 	device      = 'LFE5UM-45F'
@@ -161,7 +152,7 @@ class VersaECP5Platform(ECP5Platform):
 	]
 
 	@property
-	def file_templates(self) -> Dict[str, str]:
+	def file_templates(self) -> dict[str, str]:
 		return {
 			**super().file_templates,
 			'{{name}}-openocd.cfg': r'''
