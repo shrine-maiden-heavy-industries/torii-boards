@@ -1,19 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import (
-	Connector, Resource, Pins, Clock, Attrs, Subsignal
-)
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource, Subsignal
 from torii.build.run              import BuildProducts
-from torii.platform.vendor.altera import AlteraPlatform
 from torii.platform.resources     import (
-	LEDResources, ButtonResources, SwitchResources, UARTResource,
-	SPIResource
+	ButtonResources, LEDResources, SPIResource, SwitchResources, UARTResource
 )
+from torii.platform.vendor.altera import AlteraPlatform
 
 __all__ = (
 	'DE10NanoPlatform',
 )
-
 
 # The MiSTer platform is built around the DE10-Nano; if you update one you should update the other.
 class DE10NanoPlatform(AlteraPlatform):
@@ -102,7 +98,6 @@ class DE10NanoPlatform(AlteraPlatform):
 			'AH7  -    -    -    -    -    -    -    '
 		),
 	]
-
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ

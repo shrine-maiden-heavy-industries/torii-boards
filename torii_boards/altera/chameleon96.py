@@ -1,11 +1,9 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Connector, Resource, Pins, Subsignal, Attrs
+from torii.build                  import Attrs, Connector, Pins, Resource, Subsignal
 from torii.build.run              import BuildProducts
+from torii.platform.resources     import I2CResource, LEDResources, SDCardResources, UARTResource
 from torii.platform.vendor.altera import AlteraPlatform
-from torii.platform.resources     import (
-	LEDResources, I2CResource, SDCardResources, UARTResource
-)
 
 __all__ = (
 	'Chameleon96Platform',

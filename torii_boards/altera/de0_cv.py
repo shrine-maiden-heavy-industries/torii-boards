@@ -1,17 +1,16 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Connector, Resource, Pins, Clock, Attrs
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run              import BuildProducts
-from torii.platform.vendor.altera import AlteraPlatform
 from torii.platform.resources     import (
-	LEDResources, ButtonResources, SwitchResources, Display7SegResource,
-	VGAResource, PS2Resource, SDCardResources, SDRAMResource
+	ButtonResources, Display7SegResource, LEDResources, PS2Resource, SDCardResources, SDRAMResource,
+	SwitchResources, VGAResource
 )
+from torii.platform.vendor.altera import AlteraPlatform
 
 __all__ = (
 	'DE0CVPlatform',
 )
-
 
 class DE0CVPlatform(AlteraPlatform):
 	device      = '5CEBA4' # Cyclone V 49K LEs

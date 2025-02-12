@@ -1,16 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                 import Connector, Resource, Pins, Clock, Attrs
-from torii.build.run             import BuildProducts
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
+from torii.build.run              import BuildProducts
+from torii.platform.resources     import ButtonResources, Display7SegResource, LEDResources, SwitchResources
 from torii.platform.vendor.altera import AlteraPlatform
-from torii.platform.resources    import (
-	LEDResources, ButtonResources, SwitchResources, Display7SegResource
-)
 
 __all__ = (
 	'DE1SoCPlatform',
 )
-
 
 class DE1SoCPlatform(AlteraPlatform):
 	device      = '5CSEMA5' # Cyclone V 85K LEs

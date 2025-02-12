@@ -1,20 +1,16 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import (
-	Connector, Resource, Pins, Clock, Attrs, Subsignal, PinsN
-)
-from torii.hdl.ir                 import Fragment
+from torii.build                  import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
 from torii.build.run              import BuildProducts
-from torii.platform.vendor.altera import AlteraPlatform
+from torii.hdl.ir                 import Fragment
 from torii.platform.resources     import (
-	LEDResources, ButtonResources, SDRAMResource, VGAResource, Display7SegResource,
-	PS2Resource, I2CResource, UARTResource
+	ButtonResources, Display7SegResource, I2CResource, LEDResources, PS2Resource, SDRAMResource, UARTResource, VGAResource
 )
+from torii.platform.vendor.altera import AlteraPlatform
 
 __all__ = (
 	'RZEasyFPGAA2_2Platform',
 )
-
 
 class RZEasyFPGAA2_2Platform(AlteraPlatform):
 	device      = 'EP4CE6' # Cyclone IV 6K LEs
@@ -134,7 +130,6 @@ class RZEasyFPGAA2_2Platform(AlteraPlatform):
 				'''
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
-
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ

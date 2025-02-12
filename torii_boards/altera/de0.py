@@ -1,13 +1,12 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Connector, Resource, Pins, Clock, Attrs, Subsignal
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource, Subsignal
 from torii.build.run              import BuildProducts
-from torii.platform.vendor.altera import AlteraPlatform
 from torii.platform.resources     import (
-	LEDResources, ButtonResources, SwitchResources, Display7SegResource,
-	UARTResource, VGAResource, PS2Resource, SDCardResources, SDRAMResource,
-	NORFlashResources
+	ButtonResources, Display7SegResource, LEDResources, NORFlashResources, PS2Resource, SDCardResources, SDRAMResource,
+	SwitchResources, UARTResource, VGAResource
 )
+from torii.platform.vendor.altera import AlteraPlatform
 
 __all__ = (
 	'DE0Platform',
@@ -130,7 +129,7 @@ class DE0Platform(AlteraPlatform):
 		from subprocess import check_call
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
-		with products.extract('{}.sof'.format(name)) as bitstream_filename:
+		with products.extract(f'{name}.sof') as bitstream_filename:
 			check_call([
 				quartus_pgm, '--haltcc', '--mode', 'JTAG',
 				'--operation', 'P;' + bitstream_filename

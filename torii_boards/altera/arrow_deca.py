@@ -1,14 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Connector, Resource, Pins, Clock, Attrs
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run              import BuildProducts
+from torii.platform.resources     import ButtonResources, LEDResources, SwitchResources
 from torii.platform.vendor.altera import AlteraPlatform
-from torii.platform.resources     import LEDResources, ButtonResources, SwitchResources
 
 __all__ = (
 	'ArrowDECAPlatform',
 )
-
 
 class ArrowDECAPlatform(AlteraPlatform):
 	device      = '10M50DA' # MAX 10
