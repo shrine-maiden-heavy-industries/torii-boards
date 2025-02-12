@@ -2,13 +2,12 @@
 
 from itertools   import count, cycle
 
-from torii       import Elaboratable, Module, Signal, Cat
+from torii       import Cat, Elaboratable, Module, Signal
 from torii.build import ResourceError
 
 __all__ = (
 	'Blinky',
 )
-
 
 class Blinky(Elaboratable):
 	def elaborate(self, platform):
