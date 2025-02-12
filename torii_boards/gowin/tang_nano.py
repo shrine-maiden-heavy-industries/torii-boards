@@ -2,11 +2,9 @@
 
 import subprocess
 
-from torii.build                 import Resource, Pins, Clock, Attrs, Subsignal
+from torii.build                 import Attrs, Clock, Pins, Resource, Subsignal
+from torii.platform.resources    import ButtonResources, RGBLEDResource, SPIFlashResources, UARTResource
 from torii.platform.vendor.gowin import GowinPlatform
-from torii.platform.resources    import (
-	RGBLEDResource, ButtonResources, UARTResource, SPIFlashResources
-)
 
 __all__ = (
 	'TangNanoPlatform',
