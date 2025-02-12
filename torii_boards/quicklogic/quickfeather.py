@@ -1,17 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                      import Connector, Resource, Pins, Subsignal
+from torii.build                      import Connector, Pins, Resource, Subsignal
 from torii.build.run                  import BuildProducts
-from torii.platform.vendor.quicklogic import QuicklogicPlatform
 from torii.platform.resources         import (
-	ButtonResources, RGBLEDResource, UARTResource, SPIResource, I2CResource,
-	DirectUSBResource
+	ButtonResources, DirectUSBResource, I2CResource, RGBLEDResource, SPIResource, UARTResource
 )
+from torii.platform.vendor.quicklogic import QuicklogicPlatform
 
 __all__ = (
 	'QuickfeatherPlatform',
 )
-
 
 class QuickfeatherPlatform(QuicklogicPlatform):
 	device      = 'ql-eos-s3_wlcsp'
