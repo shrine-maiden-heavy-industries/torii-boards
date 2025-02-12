@@ -2,11 +2,9 @@
 
 import shutil
 from pathlib        import Path
-from setuptools_scm import (
-	get_version, ScmVersion
-)
 
 import nox
+from setuptools_scm import ScmVersion, get_version
 
 ROOT_DIR  = Path(__file__).parent
 
@@ -14,7 +12,6 @@ BUILD_DIR = (ROOT_DIR  / 'build')
 CNTRB_DIR = (ROOT_DIR  / 'contrib')
 DOCS_DIR  = (ROOT_DIR  / 'docs')
 DIST_DIR  = (BUILD_DIR / 'dist')
-
 
 # Default sessions to run
 nox.options.sessions = (
