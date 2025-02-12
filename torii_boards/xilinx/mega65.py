@@ -1,17 +1,12 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN, DiffPairs
-)
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.platform.resources     import I2CResource, LEDResources, SDCardResources, UARTResource, VGADACResource
 from torii.platform.vendor.xilinx import XilinxPlatform
-from torii.platform.resources     import (
-	LEDResources, VGADACResource, UARTResource, SDCardResources, I2CResource
-)
 
 __all__ = (
 	'Mega65r3Platform',
 )
-
 
 class Mega65r3Platform(XilinxPlatform):
 	device = 'xc7a200t'

@@ -1,24 +1,21 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                       import Tuple
-
-from torii.build                  import Resource, Pins, Clock, Attrs, Subsignal, Connector
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource, Subsignal
 from torii.build.run              import BuildProducts
+from torii.platform.resources     import DDR3Resource, LEDResources
 from torii.platform.vendor.xilinx import XilinxPlatform
-from torii.platform.resources     import LEDResources, DDR3Resource
 
 __all__ = (
 	'AlchitryAuPlatform',
 )
 
-
-def find_loader() -> Tuple[str, str]:
-	from os     import environ, path
+def find_loader() -> tuple[str, str]:
+	from os import environ, path
 	from shutil import which
 
 	loader_prgm = environ.get('ALCHITRY_LOADER', which('loader'))
 	if loader_prgm is None:
-		raise EnvironmentError(
+		raise OSError(
 			'Could not find Alchrity Loader. Place '
 			'it directly in PATH or specify path explicitly via the '
 			'ALCHITRY_LOADER environment variable'
@@ -55,7 +52,9 @@ class AlchitryAuPlatform(XilinxPlatform):
 
 		# TODO: This is untested
 		DDR3Resource(0,
-			rst_n = 'D13', clk_p = 'G14', clk_n = 'F14', clk_en = 'D15', cs_n = 'D16', we_n = 'E11', ras_n = 'D14', cas_n = 'D14',
+			rst_n = 'D13',
+			clk_p = 'G14', clk_n = 'F14', clk_en = 'D15',
+			cs_n = 'D16', we_n = 'E11', ras_n = 'D14', cas_n = 'D14',
 			a = 'F12 G16 G15 E16 H11 G12 H16 H12 H16 H13 E12 H14 F13 J15',
 			ba = 'E13 F15 E15',
 			dqs_p = 'B15 A15', dqs_n = 'B9 A10',

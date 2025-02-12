@@ -1,22 +1,17 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                 import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
-	DiffPairs
-)
-from torii.build.run              import BuildProducts, BuildPlan
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run              import BuildPlan, BuildProducts
 from torii.hdl.ir                 import Fragment
-from torii.platform.vendor.xilinx import XilinxPlatform
 from torii.platform.resources     import (
-	LEDResources, RGBLEDResource, ButtonResources, SwitchResources, UARTResource,
-	SPIFlashResources, SPIResource
+	ButtonResources, LEDResources, RGBLEDResource, SPIFlashResources, SPIResource, SwitchResources, UARTResource
 )
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'ArtyA7_35Platform',
 	'ArtyA7_100Platform',
 )
-
 
 class _ArtyA7Platform(XilinxPlatform):
 	package     = 'csg324'

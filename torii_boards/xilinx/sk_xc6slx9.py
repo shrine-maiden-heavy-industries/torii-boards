@@ -1,13 +1,12 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Resource, Pins, Clock, Attrs, Connector
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
 from torii.platform.resources     import SPIFlashResources, SRAMResource
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'SK_XC6SLX9Platform',
 )
-
 
 class SK_XC6SLX9Platform(XilinxPlatform):
 	device      = 'xc6slx9'

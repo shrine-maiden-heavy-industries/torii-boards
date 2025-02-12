@@ -1,23 +1,19 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                       import Literal, Dict
+from typing                       import Literal
 
-from torii.build                  import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
-	DiffPairs
-)
-from torii.build.run              import BuildProducts, BuildPlan
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run              import BuildPlan, BuildProducts
 from torii.hdl.ir                 import Fragment
-from torii.platform.vendor.xilinx import XilinxPlatform
 from torii.platform.resources     import (
-	ButtonResources, SwitchResources, LEDResources, UARTResource, I2CResource,
-	SPIResource, VGAResource, SDCardResources, ULPIResource
+	ButtonResources, I2CResource, LEDResources, SDCardResources, SPIResource,
+	SwitchResources, UARTResource, ULPIResource, VGAResource
 )
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'Genesys2Platform',
 )
-
 
 class Genesys2Platform(XilinxPlatform):
 	'''Platform file for Diglient Genesys2 Kitex-7 board.
@@ -391,7 +387,7 @@ class Genesys2Platform(XilinxPlatform):
 		)
 
 	@property
-	def file_templates(self) -> Dict[str, str]:
+	def file_templates(self) -> dict[str, str]:
 		return {
 			**super().file_templates,
 			'{{name}}-openocd.cfg': r'''

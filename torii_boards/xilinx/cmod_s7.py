@@ -2,11 +2,11 @@
 
 import subprocess
 
-from torii.build                  import Connector, Clock, Resource, Pins, Attrs
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
 from torii.platform.resources     import (
-	LEDResources, RGBLEDResource, ButtonResources, UARTResource, SPIFlashResources
+	ButtonResources, LEDResources, RGBLEDResource, SPIFlashResources, UARTResource
 )
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 '''
 Example Usage:
@@ -20,7 +20,6 @@ Supported programmer:
 __all__ = (
 	'CmodS7_Platform',
 )
-
 
 class CmodS7_Platform(XilinxPlatform):
 	device      = 'xc7s25'

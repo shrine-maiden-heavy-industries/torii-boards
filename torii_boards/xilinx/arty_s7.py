@@ -1,22 +1,18 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
-	DiffPairs
-)
-from torii.build.run              import BuildProducts, BuildPlan
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run              import BuildPlan, BuildProducts
 from torii.hdl.ir                 import Fragment
-from torii.platform.vendor.xilinx import XilinxPlatform
 from torii.platform.resources     import (
-	LEDResources, RGBLEDResource, ButtonResources, SwitchResources, SPIResource,
-	UARTResource, I2CResource, SPIFlashResources
+	ButtonResources, I2CResource, LEDResources, RGBLEDResource, SPIFlashResources, SPIResource,
+	SwitchResources, UARTResource
 )
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'ArtyS7_25Platform',
 	'ArtyS7_50Platform',
 )
-
 
 class _ArtyS7Platform(XilinxPlatform):
 	package     = 'csga324'
@@ -170,8 +166,8 @@ class _ArtyS7Platform(XilinxPlatform):
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
 	def _program_vivado(self, products: BuildProducts, name: str, flash: bool) -> None:
-		from textwrap         import dedent
-		from subprocess       import run
+		from subprocess  import run
+		from textwrap    import dedent
 
 		from torii.tools import require_tool
 
@@ -211,9 +207,7 @@ class _ArtyS7Platform(XilinxPlatform):
 				puts "Reset or power-cycle your board now."
 			''')
 
-
 			run([vivado, '-nolog', '-nojournal', '-mode', 'tcl'], input = cmd_script.encode('utf-8'), check = True)
-
 
 	def _program_openocd(self, products: BuildProducts, name: str, flash: bool) -> None:
 		from os         import environ

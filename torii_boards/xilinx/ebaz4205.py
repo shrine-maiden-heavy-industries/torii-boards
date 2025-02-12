@@ -1,14 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Resource, Pins, Clock, Attrs
+from torii.build                  import Attrs, Clock, Pins, Resource
 from torii.build.run              import BuildProducts
-from torii.platform.vendor.xilinx import XilinxPlatform
 from torii.platform.resources     import LEDResources, UARTResource
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'EBAZ4205Platform',
 )
-
 
 class EBAZ4205Platform(XilinxPlatform):
 	device      = 'xc7z010'

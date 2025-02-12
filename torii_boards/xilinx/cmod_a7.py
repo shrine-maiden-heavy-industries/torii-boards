@@ -2,12 +2,11 @@
 
 import subprocess
 
-from torii.build                  import Connector, Clock, Resource, Pins, Attrs
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
 from torii.platform.resources     import (
-	LEDResources, RGBLEDResource, ButtonResources, UARTResource,
-	SPIFlashResources, SRAMResource
+	ButtonResources, LEDResources, RGBLEDResource, SPIFlashResources, SRAMResource, UARTResource
 )
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 '''
 Example Usage:
@@ -22,7 +21,6 @@ __all__ = (
 	'CmodA7_15Platform',
 	'CmodA7_35Platform',
 )
-
 
 class _CmodA7Platform(XilinxPlatform):
 	package     = 'cpg236'

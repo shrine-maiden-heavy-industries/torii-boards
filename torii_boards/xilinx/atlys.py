@@ -2,20 +2,14 @@
 
 from typing                       import Literal
 
-from torii.build                  import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
-	DiffPairs
-)
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run              import BuildProducts
+from torii.platform.resources     import PS2Resource, SPIFlashResources, UARTResource
 from torii.platform.vendor.xilinx import XilinxPlatform
-from torii.platform.resources     import (
-	UARTResource, PS2Resource, SPIFlashResources
-)
 
 __all__ = (
 	'AtlysPlatform',
 )
-
 
 class AtlysPlatform(XilinxPlatform):
 	'''Platform file for Digilent Atlys Spartan 6 board.
@@ -224,8 +218,8 @@ class AtlysPlatform(XilinxPlatform):
 	]
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
-		from textwrap   import dedent
-		from subprocess import run
+		from subprocess  import run
+		from textwrap    import dedent
 
 		from torii.tools import require_tool
 

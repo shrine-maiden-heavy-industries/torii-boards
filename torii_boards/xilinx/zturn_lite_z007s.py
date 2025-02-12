@@ -7,7 +7,6 @@ __all__ = (
 	'ZTurnLiteZ007SPlatform',
 )
 
-
 class ZTurnLiteZ007SPlatform(XilinxPlatform):
 	device     = 'xc7z007s'
 	package    = 'clg400'

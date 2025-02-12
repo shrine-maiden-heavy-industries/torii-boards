@@ -1,13 +1,12 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Resource, Pins, Clock, Attrs, Connector
+from torii.build                  import Attrs, Clock, Connector, Pins, Resource
+from torii.platform.resources     import ButtonResources, LEDResources, SPIFlashResources
 from torii.platform.vendor.xilinx import XilinxPlatform
-from torii.platform.resources     import LEDResources, ButtonResources, SPIFlashResources
 
 __all__ = (
 	'NumatoMimasPlatform',
 )
-
 
 class NumatoMimasPlatform(XilinxPlatform):
 	device      = 'xc6slx9'

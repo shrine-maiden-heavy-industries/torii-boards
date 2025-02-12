@@ -1,19 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
-	DiffPairs
-)
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run              import BuildProducts
+from torii.platform.resources     import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
 from torii.platform.vendor.xilinx import XilinxPlatform
-from torii.platform.resources     import (
-	SwitchResources, RGBLEDResource, LEDResources, ButtonResources
-)
 
 __all__ = (
 	'ArtyZ720Platform',
 )
-
 
 class ArtyZ720Platform(XilinxPlatform):
 	device      = 'xc7z020'

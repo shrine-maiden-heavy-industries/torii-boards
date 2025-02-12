@@ -1,21 +1,17 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import (
-	Resource, Pins, Clock, Attrs, Subsignal, Connector, PinsN,
-	DiffPairs
-)
-from torii.build.run              import BuildProducts, BuildPlan
+from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run              import BuildPlan, BuildProducts
 from torii.hdl.ir                 import Fragment
-from torii.platform.vendor.xilinx import XilinxPlatform
 from torii.platform.resources     import (
-	SwitchResources, LEDResources, RGBLEDResource, Display7SegResource, VGAResource,
-	UARTResource, SDCardResources, PS2Resource, SPIFlashResources
+	Display7SegResource, LEDResources, PS2Resource, RGBLEDResource, SDCardResources,
+	SPIFlashResources, SwitchResources, UARTResource, VGAResource
 )
+from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
 	'Nexys4DDRPlatform',
 )
-
 
 class Nexys4DDRPlatform(XilinxPlatform):
 	device      = 'xc7a100t'
