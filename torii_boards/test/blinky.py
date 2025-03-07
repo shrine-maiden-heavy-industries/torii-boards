@@ -1,9 +1,11 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from itertools   import count, cycle
+from itertools     import count, cycle
 
-from torii       import Cat, Elaboratable, Module, Signal
-from torii.build import ResourceError
+from torii.hdl.ast import Cat, Signal
+from torii.hdl.dsl import Module
+from torii.hdl.ir  import Elaboratable
+from torii.build   import ResourceError
 
 __all__ = (
 	'Blinky',
