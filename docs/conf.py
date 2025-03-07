@@ -100,10 +100,7 @@ linkcheck_ignore = [
 	'https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html',
 	'https://www.xilinx.com/products/design-tools/ise-design-suite.html',
 	'https://www.xilinx.com/products/design-tools/vivado.html',
+	# Digilent is being a big meanie
+	'https://digilent.com/reference/programmable-logic/genesys-2/start',
+	'https://digilent.com/reference/programmable-logic/atlys/start',
 ]
-
-linkcheck_request_headers = {
-	r'https://digilent.com': {
-		'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0'
-	}
-}
