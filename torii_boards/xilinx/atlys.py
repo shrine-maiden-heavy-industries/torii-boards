@@ -13,7 +13,7 @@ __all__ = (
 
 class AtlysPlatform(XilinxPlatform):
 	'''Platform file for Digilent Atlys Spartan 6 board.
-	https://reference.digilentinc.com/reference/programmable-logic/atlys/start'''
+	https://digilent.com/reference/programmable-logic/atlys/start'''
 
 	device  = 'xc6slx45'
 	package = 'csg324'

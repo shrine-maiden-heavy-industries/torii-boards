@@ -17,7 +17,7 @@ __all__ = (
 
 class Genesys2Platform(XilinxPlatform):
 	'''Platform file for Diglient Genesys2 Kitex-7 board.
-	https://reference.digilentinc.com/reference/programmable-logic/genesys-2/start'''
+	https://digilent.com/reference/programmable-logic/genesys-2/start'''
 
 	device  = 'xc7k325t'
 	package = 'ffg900'

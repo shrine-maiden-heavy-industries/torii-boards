@@ -92,7 +92,7 @@ Unreleased template stuff
 
 - Added [Code of Conduct](https://github.com/shrine-maiden-heavy-industries/torii-boards/blob/main/CODE_OF_CONDUCT.md)
 - Added [flake8](https://flake8.pycqa.org/en/latest/) configuration file.
-- Added [mypy](http://mypy-lang.org/) configuration file.
+- Added [mypy](https://mypy-lang.org/) configuration file.
 - Added a `noxfile.py` for use with [nox](https://nox.thea.codes/en/stable/).
 - Added `MEGA65` board definitions file [#1](https://github.com/shrine-maiden-heavy-industries/torii-boards/pull/1)
 
