@@ -23,7 +23,19 @@ Unreleased template stuff
 
 ### Changed
 
-- Bumped the minimum version of Torii to be 0.7.1
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.7.5]
+
+### Added
+
+### Changed
+
+- Bumped the minimum version of Torii to be 0.7.5
 
 ### Deprecated
 
@@ -111,7 +123,8 @@ Unreleased template stuff
 
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.1...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.7.5...main
+[0.7.5]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.1...v0.7.5
 [0.6.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.4.1...v0.5.0
