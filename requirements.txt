@@ -1,5 +1,0 @@
-setuptools_scm
-sphinx
-sphinx-rtd-theme
-sphinxcontrib-platformpicker
-myst-parser
