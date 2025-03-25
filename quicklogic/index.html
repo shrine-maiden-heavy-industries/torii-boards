@@ -1,912 +1,268 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Xilinx Boards" href="../xilinx/index.html" /><link rel="prev" title="Lattice Boards" href="../lattice/index.html" />
+        <link rel="canonical" href="https://torii-boards.shmdn.link/quicklogic/index.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Quicklogic Boards - Torii-HDL Boards 0.7.6.dev4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/styles.css?v=c63e5f18" />
+    
+    
 
 
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quicklogic Boards &mdash; Torii-HDL Boards 0.7.6.dev3 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5349f25f" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/styles.css?v=e585626c" />
-      <link rel="stylesheet" type="text/css" href="../_static/platformpicker.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/styles.css?v=e585626c" />
-
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
-    <link rel="canonical" href="https://torii-boards.shmdn.link/quicklogic/index.html" />
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=b74abced"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/platformpicker.js"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Xilinx Board" href="../xilinx/index.html" />
-    <link rel="prev" title="Lattice Boards" href="../lattice/index.html" /> 
-</head>
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Torii-HDL Boards
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1"><a class="reference external" href="https://shrine-maiden-heavy-industries.github.io/torii-hdl/install.html#installing-board-definitions">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gowin/index.html">Gowin Boards</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.part"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.part</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.family"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.family</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.osc_frequency"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.osc_frequency</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.description"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.resources"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../gowin/index.html#torii_boards.gowin.tang_nano.TangNanoPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">TangNanoPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../altera/index.html">Intel Boards</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.device"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.package"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.speed"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.suffix"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.suffix</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.description"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.toolchain_program()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.arrow_deca.ArrowDECAPlatform.file_templates"><code class="docutils literal notranslate"><span class="pre">ArrowDECAPlatform.file_templates</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.device"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.package"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.speed"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.description"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.resources"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.connectors"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.chameleon96.Chameleon96Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">Chameleon96Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.device"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.package"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.speed"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.description"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.resources"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0_cv.DE0CVPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">DE0CVPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform"><code class="docutils literal notranslate"><span class="pre">DE0Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.device"><code class="docutils literal notranslate"><span class="pre">DE0Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.package"><code class="docutils literal notranslate"><span class="pre">DE0Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.speed"><code class="docutils literal notranslate"><span class="pre">DE0Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">DE0Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">DE0Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.description"><code class="docutils literal notranslate"><span class="pre">DE0Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.resources"><code class="docutils literal notranslate"><span class="pre">DE0Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.connectors"><code class="docutils literal notranslate"><span class="pre">DE0Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de0.DE0Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">DE0Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.device"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.package"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.speed"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.description"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.resources"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de1_soc.DE1SoCPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">DE1SoCPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.device"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.package"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.speed"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.suffix"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.suffix</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.description"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.resources"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.connectors"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_lite.DE10LitePlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">DE10LitePlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.device"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.package"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.speed"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.description"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.resources"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.de10_nano.DE10NanoPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">DE10NanoPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform"><code class="docutils literal notranslate"><span class="pre">MisterPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.device"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.package"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.speed"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.description"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.resources"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.mister.MisterPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">MisterPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.device"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.package"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.speed"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.default_rst"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.default_rst</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.description"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.resources"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.connectors"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../altera/index.html#torii_boards.altera.rz_easyfpga_a2_2.RZEasyFPGAA2_2Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">RZEasyFPGAA2_2Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../lattice/index.html">Lattice Boards</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.device"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.package"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.description"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.resources"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice_ii.BlackIceIIPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">BlackIceIIPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.device"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.package"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.description"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.resources"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.connectors"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.blackice.BlackIcePlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">BlackIcePlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.device"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.package"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.speed"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.description"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.resources"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.connectors"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.required_tools"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.required_tools</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.colorlight_5a75b_r7_0.Colorlight_5A75B_R70Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">Colorlight_5A75B_R70Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.device"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.package"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.speed"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.default_rst"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.default_rst</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.description"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.bank1_iostandard"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.bank1_iostandard()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.bank6_iostandard"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.bank6_iostandard()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.file_templates"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.file_templates</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecp5_5g_evn.ECP55GEVNPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ECP55GEVNPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX585Platform"><code class="docutils literal notranslate"><span class="pre">ECPIX585Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX585Platform.device"><code class="docutils literal notranslate"><span class="pre">ECPIX585Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX585Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ECPIX585Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX585Platform.description"><code class="docutils literal notranslate"><span class="pre">ECPIX585Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX585Platform.resources"><code class="docutils literal notranslate"><span class="pre">ECPIX585Platform.resources</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX545Platform"><code class="docutils literal notranslate"><span class="pre">ECPIX545Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX545Platform.device"><code class="docutils literal notranslate"><span class="pre">ECPIX545Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX545Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ECPIX545Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX545Platform.description"><code class="docutils literal notranslate"><span class="pre">ECPIX545Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ecpix5.ECPIX545Platform.resources"><code class="docutils literal notranslate"><span class="pre">ECPIX545Platform.resources</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.device"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.package"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.description"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.resources"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_hacker.FomuHackerPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">FomuHackerPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.device"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.package"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.description"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.resources"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.fomu_pvt.FomuPVTPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">FomuPVTPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx1k_blink_evn.ICE40HX1KBlinkEVNPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICE40HX1KBlinkEVNPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_hx8k_b_evn.ICE40HX8KBEVNPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICE40HX8KBEVNPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ice40_up5k_b_evn.ICE40UP5KBEVNPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICE40UP5KBEVNPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker_bitsy.ICEBreakerBitsyPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICEBreakerBitsyPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.break_off_pmod"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.break_off_pmod</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icebreaker.ICEBreakerPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICEBreakerPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icestick.ICEStickPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICEStickPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.device"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.package"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.description"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.icesugar_nano.ICESugarNanoPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ICESugarNanoPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.name"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.device"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.package"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.speed"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.description"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.resources"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.connectors"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.LogicbonePlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">LogicbonePlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.Logicbone85FPlatform"><code class="docutils literal notranslate"><span class="pre">Logicbone85FPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.Logicbone85FPlatform.name"><code class="docutils literal notranslate"><span class="pre">Logicbone85FPlatform.name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.logicbone.Logicbone85FPlatform.device"><code class="docutils literal notranslate"><span class="pre">Logicbone85FPlatform.device</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.device"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.package"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.speed"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.description"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.resources"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.machxo3_sk.MachXO3SKPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">MachXO3SKPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.device"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.package"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.description"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.resources"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.nandland_go.NandlandGoPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">NandlandGoPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.device"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.package"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.speed"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.description"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.resources"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.connectors"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.required_tools"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.required_tools</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.command_templates"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.command_templates</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_1.OrangeCrabR0_1Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_1Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.device"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.package"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.speed"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.description"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.resources"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.connectors"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.required_tools"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.required_tools</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.command_templates"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.command_templates</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_25FPlatform"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_25FPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_25FPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_25FPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_25FPlatform.description"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_25FPlatform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_85FPlatform"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_85FPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_85FPlatform.device"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_85FPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_85FPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_85FPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.orangecrab_r0_2.OrangeCrabR0_2_85FPlatform.description"><code class="docutils literal notranslate"><span class="pre">OrangeCrabR0_2_85FPlatform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.device"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.package"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.speed"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.description"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.led_cathode_mappings"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.led_cathode_mappings</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.resources"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.connectors"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.supercon19badge.Supercon19BadgePlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">Supercon19BadgePlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.device"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.package"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.speed"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.description"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.connectors"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax1.TinyFPGAAX1Platform.resources"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX1Platform.resources</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.device"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.package"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.speed"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.description"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.connectors"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_ax2.TinyFPGAAX2Platform.resources"><code class="docutils literal notranslate"><span class="pre">TinyFPGAAX2Platform.resources</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.device"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.package"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.description"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.resources"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.tinyfpga_bx.TinyFPGABXPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">TinyFPGABXPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_12F_Platform"><code class="docutils literal notranslate"><span class="pre">ULX3S_12F_Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_12F_Platform.device"><code class="docutils literal notranslate"><span class="pre">ULX3S_12F_Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_12F_Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ULX3S_12F_Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_12F_Platform.description"><code class="docutils literal notranslate"><span class="pre">ULX3S_12F_Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_25F_Platform"><code class="docutils literal notranslate"><span class="pre">ULX3S_25F_Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_25F_Platform.device"><code class="docutils literal notranslate"><span class="pre">ULX3S_25F_Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_25F_Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ULX3S_25F_Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_25F_Platform.description"><code class="docutils literal notranslate"><span class="pre">ULX3S_25F_Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_45F_Platform"><code class="docutils literal notranslate"><span class="pre">ULX3S_45F_Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_45F_Platform.device"><code class="docutils literal notranslate"><span class="pre">ULX3S_45F_Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_45F_Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ULX3S_45F_Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_45F_Platform.description"><code class="docutils literal notranslate"><span class="pre">ULX3S_45F_Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_85F_Platform"><code class="docutils literal notranslate"><span class="pre">ULX3S_85F_Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_85F_Platform.device"><code class="docutils literal notranslate"><span class="pre">ULX3S_85F_Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_85F_Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ULX3S_85F_Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.ulx3s.ULX3S_85F_Platform.description"><code class="docutils literal notranslate"><span class="pre">ULX3S_85F_Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.device"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.package"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.hfosc_div"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.hfosc_div</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.description"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.resources"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v1.UpduinoV1Platform.connectors"><code class="docutils literal notranslate"><span class="pre">UpduinoV1Platform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v2.UpduinoV2Platform"><code class="docutils literal notranslate"><span class="pre">UpduinoV2Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v2.UpduinoV2Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">UpduinoV2Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v2.UpduinoV2Platform.description"><code class="docutils literal notranslate"><span class="pre">UpduinoV2Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v2.UpduinoV2Platform.resources"><code class="docutils literal notranslate"><span class="pre">UpduinoV2Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.upduino_v2.UpduinoV2Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">UpduinoV2Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5_5g.VersaECP55GPlatform"><code class="docutils literal notranslate"><span class="pre">VersaECP55GPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5_5g.VersaECP55GPlatform.device"><code class="docutils literal notranslate"><span class="pre">VersaECP55GPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5_5g.VersaECP55GPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">VersaECP55GPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5_5g.VersaECP55GPlatform.description"><code class="docutils literal notranslate"><span class="pre">VersaECP55GPlatform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.device"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.package"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.speed"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.default_rst"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.default_rst</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.description"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.resources"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.connectors"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.file_templates"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.file_templates</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lattice/index.html#torii_boards.lattice.versa_ecp5.VersaECP5Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">VersaECP5Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quicklogic Boards</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.device"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.package"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.osc_freq"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.osc_freq</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.osc_div"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.osc_div</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.description"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.resources"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../xilinx/index.html">Xilinx Board</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.device"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.package"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.speed"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.description"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.resources"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.alchitry_au.AlchitryAuPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">AlchitryAuPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_35Platform"><code class="docutils literal notranslate"><span class="pre">ArtyA7_35Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_35Platform.device"><code class="docutils literal notranslate"><span class="pre">ArtyA7_35Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_35Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ArtyA7_35Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_35Platform.description"><code class="docutils literal notranslate"><span class="pre">ArtyA7_35Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_100Platform"><code class="docutils literal notranslate"><span class="pre">ArtyA7_100Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_100Platform.device"><code class="docutils literal notranslate"><span class="pre">ArtyA7_100Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_100Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ArtyA7_100Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_a7.ArtyA7_100Platform.description"><code class="docutils literal notranslate"><span class="pre">ArtyA7_100Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_25Platform"><code class="docutils literal notranslate"><span class="pre">ArtyS7_25Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_25Platform.device"><code class="docutils literal notranslate"><span class="pre">ArtyS7_25Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_25Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ArtyS7_25Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_25Platform.description"><code class="docutils literal notranslate"><span class="pre">ArtyS7_25Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_50Platform"><code class="docutils literal notranslate"><span class="pre">ArtyS7_50Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_50Platform.device"><code class="docutils literal notranslate"><span class="pre">ArtyS7_50Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_50Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ArtyS7_50Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_s7.ArtyS7_50Platform.description"><code class="docutils literal notranslate"><span class="pre">ArtyS7_50Platform.description</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.device"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.package"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.speed"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.description"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.resources"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.connectors"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.arty_z7.ArtyZ720Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">ArtyZ720Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.device"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.package"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.speed"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.description"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.bank2_iostandard"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.bank2_iostandard()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.default_rst"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.default_rst</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.resources"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.atlys.AtlysPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">AtlysPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.device"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.package"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.speed"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.description"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.resources"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.connectors"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.ebaz4205.EBAZ4205Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">EBAZ4205Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.device"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.package"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.speed"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.description"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.bank15_16_17_iostandard"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.bank15_16_17_iostandard()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.default_rst"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.default_rst</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.resources"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.connectors"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.file_templates"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.file_templates</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.genesys2.Genesys2Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">Genesys2Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform"><code class="docutils literal notranslate"><span class="pre">KC705Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.device"><code class="docutils literal notranslate"><span class="pre">KC705Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.package"><code class="docutils literal notranslate"><span class="pre">KC705Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.speed"><code class="docutils literal notranslate"><span class="pre">KC705Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">KC705Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">KC705Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.description"><code class="docutils literal notranslate"><span class="pre">KC705Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.resources"><code class="docutils literal notranslate"><span class="pre">KC705Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kc705.KC705Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">KC705Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform"><code class="docutils literal notranslate"><span class="pre">KCU105Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.device"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.package"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.speed"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.description"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.resources"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.kcu105.KCU105Platform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">KCU105Platform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.device"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.package"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.speed"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.description"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.resources"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mega65.Mega65r3Platform.connectors"><code class="docutils literal notranslate"><span class="pre">Mega65r3Platform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.device"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.package"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.speed"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.description"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.resources"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.leds"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.leds</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.sram"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.sram</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.serial"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.serial</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.baseboard_sram"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.baseboard_sram</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.baseboard_no_sram"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.baseboard_no_sram</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.mercury.MercuryPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">MercuryPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.device"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.package"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.speed"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.description"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.resources"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z010.MicroZedZ010Platform.connectors"><code class="docutils literal notranslate"><span class="pre">MicroZedZ010Platform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.device"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.package"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.speed"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.description"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.resources"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.microzed_z020.MicroZedZ020Platform.connectors"><code class="docutils literal notranslate"><span class="pre">MicroZedZ020Platform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.device"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.package"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.speed"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.default_rst"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.default_rst</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.description"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.resources"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.connectors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.toolchain_prepare"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.toolchain_prepare()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.nexys4ddr.Nexys4DDRPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">Nexys4DDRPlatform.toolchain_program()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.device"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.package"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.speed"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.description"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.resources"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.numato_mimas.NumatoMimasPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">NumatoMimasPlatform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.device"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.package"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.speed"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.default_clk"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.description"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.resources"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.sk_xc6slx9.SK_XC6SLX9Platform.connectors"><code class="docutils literal notranslate"><span class="pre">SK_XC6SLX9Platform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.device"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.package"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.speed"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.default_clk"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.default_clk</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.description"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.resources"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.te0714_03_50_2I.TE0714_03_50_2IPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">TE0714_03_50_2IPlatform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.device"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.package"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.package</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.speed"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.speed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.description"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.resources"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.resources</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z007s.ZTurnLiteZ007SPlatform.connectors"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ007SPlatform.connectors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z010.ZTurnLiteZ010Platform"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ010Platform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z010.ZTurnLiteZ010Platform.device"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ010Platform.device</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z010.ZTurnLiteZ010Platform.pretty_name"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ010Platform.pretty_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../xilinx/index.html#torii_boards.xilinx.zturn_lite_z010.ZTurnLiteZ010Platform.description"><code class="docutils literal notranslate"><span class="pre">ZTurnLiteZ010Platform.description</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">Unreleased</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#changed">Changed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#deprecated">Deprecated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#removed">Removed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#fixed">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.7.5</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">Added</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Changed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Deprecated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id5">Removed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.6.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id9">0.6.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">Changed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">Deprecated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id13">0.5.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">Added</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id16">0.4.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id17">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id18">0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id19">Added</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id20">Changed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id21">Removed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id22">Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id23">0.1.0 - 0.3.0</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="https://shrine-maiden-heavy-industries.github.io/torii-hdl/">Torii HDL</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-boards/">Source Code</a></li>
-</ul>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
-        </div>
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Torii-HDL Boards 0.7.6.dev4 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
       </div>
-    </nav>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Torii-HDL Boards 0.7.6.dev4 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://shrine-maiden-heavy-industries.github.io/torii-hdl/install.html#installing-board-definitions">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gowin/index.html">Gowin Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../altera/index.html">Intel Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lattice/index.html">Lattice Boards</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Quicklogic Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xilinx/index.html">Xilinx Boards</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://shrine-maiden-heavy-industries.github.io/torii-hdl/">Torii HDL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-boards/">Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/shrine-maiden-heavy-industries/torii-boards/blob/main/CONTRIBUTING.md">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Torii-HDL Boards</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Quicklogic Boards</li>
-      <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/shrine-maiden-heavy-industries/torii-boards/blob/main/docs/quicklogic/index.md" class="fa fa-github"> Edit on GitHub</a>
-      </li>
-  </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="quicklogic-boards">
-<h1>Quicklogic Boards<a class="headerlink" href="#quicklogic-boards" title="Link to this heading"></a></h1>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="quicklogic-boards">
+<h1>Quicklogic Boards<a class="headerlink" href="#quicklogic-boards" title="Link to this heading">¶</a></h1>
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">torii.platform.vendor.quicklogic</span></code> module provides a base platform to support Quicklogic toolchains with the <a class="reference external" href="https://github.com/QuickLogic-Corp/quicklogic-fpga-toolchain">Symbiflow</a> toolchain.</p>
 <dl class="py class" id="module-torii_boards.quicklogic.quickfeather">
 <dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">torii_boards.quicklogic.quickfeather.</span></span><span class="sig-name descname"><span class="pre">QuickfeatherPlatform</span></span><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform" title="Link to this definition"></a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.device">
-<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ql-eos-s3_wlcsp'</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.device" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.package">
-<span class="sig-name descname"><span class="pre">package</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PU64'</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.package" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.default_clk">
-<span class="sig-name descname"><span class="pre">default_clk</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sys_clk0'</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.default_clk" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.osc_freq">
-<span class="sig-name descname"><span class="pre">osc_freq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60000000</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.osc_freq" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.osc_div">
-<span class="sig-name descname"><span class="pre">osc_div</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.osc_div" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.pretty_name">
-<span class="sig-name descname"><span class="pre">pretty_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'QuickFeather'</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.pretty_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.description">
-<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'QuickLogic</span> <span class="pre">EOS</span> <span class="pre">S3</span> <span class="pre">Development</span> <span class="pre">Board'</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.description" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.connectors">
-<span class="sig-name descname"><span class="pre">connectors</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[(connector</span> <span class="pre">J</span> <span class="pre">2</span> <span class="pre">2=&gt;28</span> <span class="pre">3=&gt;22</span> <span class="pre">4=&gt;21</span> <span class="pre">5=&gt;37</span> <span class="pre">6=&gt;36</span> <span class="pre">7=&gt;42</span> <span class="pre">8=&gt;40</span> <span class="pre">9=&gt;7</span> <span class="pre">10=&gt;2</span> <span class="pre">11=&gt;4</span> <span class="pre">12=&gt;5),</span> <span class="pre">(connector</span> <span class="pre">J</span> <span class="pre">3</span> <span class="pre">2=&gt;8</span> <span class="pre">3=&gt;9</span> <span class="pre">4=&gt;17</span> <span class="pre">5=&gt;16</span> <span class="pre">6=&gt;20</span> <span class="pre">7=&gt;6</span> <span class="pre">8=&gt;55</span> <span class="pre">9=&gt;31</span> <span class="pre">10=&gt;25</span> <span class="pre">11=&gt;47</span> <span class="pre">16=&gt;41),</span> <span class="pre">(connector</span> <span class="pre">J</span> <span class="pre">8</span> <span class="pre">1=&gt;27</span> <span class="pre">2=&gt;26</span> <span class="pre">3=&gt;33</span> <span class="pre">4=&gt;32</span> <span class="pre">5=&gt;23</span> <span class="pre">6=&gt;57</span> <span class="pre">7=&gt;56</span> <span class="pre">8=&gt;3</span> <span class="pre">9=&gt;64</span> <span class="pre">10=&gt;62</span> <span class="pre">11=&gt;63</span> <span class="pre">12=&gt;61</span> <span class="pre">13=&gt;59)]</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.connectors" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.resources">
-<span class="sig-name descname"><span class="pre">resources</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[(resource</span> <span class="pre">button</span> <span class="pre">0</span> <span class="pre">(pins</span> <span class="pre">i</span> <span class="pre">62)),</span> <span class="pre">(resource</span> <span class="pre">rgb_led</span> <span class="pre">0</span> <span class="pre">(subsignal</span> <span class="pre">r</span> <span class="pre">(pins</span> <span class="pre">o</span> <span class="pre">34))</span> <span class="pre">(subsignal</span> <span class="pre">g</span> <span class="pre">(pins</span> <span class="pre">o</span> <span class="pre">39))</span> <span class="pre">(subsignal</span> <span class="pre">b</span> <span class="pre">(pins</span> <span class="pre">o</span> <span class="pre">38))),</span> <span class="pre">(resource</span> <span class="pre">uart</span> <span class="pre">0</span> <span class="pre">(subsignal</span> <span class="pre">rx</span> <span class="pre">(pins</span> <span class="pre">i</span> <span class="pre">9))</span> <span class="pre">(subsignal</span> <span class="pre">tx</span> <span class="pre">(pins</span> <span class="pre">o</span> <span class="pre">8))),</span> <span class="pre">(resource</span> <span class="pre">spi</span> <span class="pre">0</span> <span class="pre">(subsignal</span> <span class="pre">cs</span> <span class="pre">(pins-n</span> <span class="pre">o</span> <span class="pre">11))</span> <span class="pre">(subsignal</span> <span class="pre">clk</span> <span class="pre">(pins</span> <span class="pre">o</span> <span class="pre">20))</span> <span class="pre">(subsignal</span> <span class="pre">copi</span> <span class="pre">(pins</span> <span class="pre">o</span> <span class="pre">16))</span> <span class="pre">(subsignal</span> <span class="pre">cipo</span> <span class="pre">(pins</span> <span class="pre">i</span> <span class="pre">17))),</span> <span class="pre">(resource</span> <span class="pre">spi</span> <span class="pre">1</span> <span class="pre">(subsignal</span> <span class="pre">cs</span> <span class="pre">(pins-n</span> <span class="pre">i</span> <span class="pre">37))</span> <span class="pre">(subsignal</span> <span class="pre">clk</span> <span class="pre">(pins</span> <span class="pre">i</span> <span class="pre">40))</span> <span class="pre">(subsignal</span> <span class="pre">copi</span> <span class="pre">(pins</span> <span class="pre">i</span> <span class="pre">36))</span> <span class="pre">(subsignal</span> <span class="pre">cipo</span> <span class="pre">(pins</span> <span class="pre">oe</span> <span class="pre">42))),</span> <span class="pre">(resource</span> <span class="pre">i2c</span> <span class="pre">0</span> <span class="pre">(subsignal</span> <span class="pre">scl</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">4))</span> <span class="pre">(subsignal</span> <span class="pre">sda</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">5))),</span> <span class="pre">(resource</span> <span class="pre">i2c</span> <span class="pre">1</span> <span class="pre">(subsignal</span> <span class="pre">scl</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">22))</span> <span class="pre">(subsignal</span> <span class="pre">sda</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">21))),</span> <span class="pre">(resource</span> <span class="pre">usb</span> <span class="pre">0</span> <span class="pre">(subsignal</span> <span class="pre">d_p</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">10))</span> <span class="pre">(subsignal</span> <span class="pre">d_n</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">14))),</span> <span class="pre">(resource</span> <span class="pre">swd</span> <span class="pre">0</span> <span class="pre">(subsignal</span> <span class="pre">clk</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">54))</span> <span class="pre">(subsignal</span> <span class="pre">io</span> <span class="pre">(pins</span> <span class="pre">io</span> <span class="pre">53)))]</span></em><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.resources" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">torii_boards.quicklogic.quickfeather.</span></span><span class="sig-name descname"><span class="pre">QuickfeatherPlatform</span></span><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
 <dt class="sig sig-object py" id="torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.toolchain_program">
-<span class="sig-name descname"><span class="pre">toolchain_program</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">products</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BuildProducts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.toolchain_program" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">toolchain_program</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">products</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BuildProducts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.toolchain_program" title="Link to this definition">¶</a></dt>
 <dd><p>Extract bitstream for fragment <code class="docutils literal notranslate"><span class="pre">name</span></code> from <code class="docutils literal notranslate"><span class="pre">products</span></code> and download it to a target.</p>
 </dd></dl>
 
@@ -914,35 +270,84 @@
 
 </section>
 
-
-           </div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../xilinx/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Xilinx Boards</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../lattice/index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Lattice Boards</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Shrine Maiden Heavy Industries
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../lattice/index.html" class="btn btn-neutral float-left" title="Lattice Boards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../xilinx/index.html" class="btn btn-neutral float-right" title="Xilinx Board" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Quicklogic Boards</a><ul>
+<li><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform</span></code></a><ul>
+<li><a class="reference internal" href="#torii_boards.quicklogic.quickfeather.QuickfeatherPlatform.toolchain_program"><code class="docutils literal notranslate"><span class="pre">QuickfeatherPlatform.toolchain_program()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2025, Shrine Maiden Heavy Industries.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
+          </div>
         </div>
       </div>
-    </section>
+      
+      
+    </aside>
   </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+</div><script src="../_static/documentation_options.js?v=52548b70"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    </body>
 </html>
