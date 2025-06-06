@@ -86,7 +86,9 @@ html_css_files = [
 	'css/styles.css'
 ]
 
-linkcheck_ignore = [
+linkcheck_retries = 2
+linkcheck_workers = 1 # At the cost of speed try to prevent rate-limiting
+linkcheck_ignore  = [
 	'https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html',
 	'https://www.xilinx.com/products/design-tools/ise-design-suite.html',
 	'https://www.xilinx.com/products/design-tools/vivado.html',
