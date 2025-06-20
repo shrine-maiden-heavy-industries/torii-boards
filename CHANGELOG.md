@@ -32,19 +32,13 @@ Unreleased template stuff
 
 ## [0.7.5]
 
-### Added
-
 ### Changed
 
 - Bumped the minimum version of Torii to be 0.7.5
 
-### Deprecated
-
 ### Removed
 
 - Removed the deprecated `torii_boards.intel` module.
-
-### Fixed
 
 ## [0.6.1]
 
