@@ -30,7 +30,7 @@ Unreleased template stuff
 
 ### Fixed
 
-## [0.7.5]
+## [0.7.5] - 2025-03-07
 
 ### Changed
 
@@ -40,13 +40,13 @@ Unreleased template stuff
 
 - Removed the deprecated `torii_boards.intel` module.
 
-## [0.6.1]
+## [0.6.1] - 2024-09-10
 
 ### Fixed
 
 - Fixed the platform import in `torii_boards.lattice.tinyfpga_ax1` and `torii_boards.lattice.tinyfpga_ax2`, as they still used the old Lattice MachXO2 platform name
 
-## [0.6.0]
+## [0.6.0] - 2024-05-06
 
 ### Changed
 
@@ -61,7 +61,7 @@ Unreleased template stuff
 
 - Fixed the Gowin boards title in the docs
 
-## [0.5.0]
+## [0.5.0] - 2023-10-23
 
 ### Added
 
@@ -75,13 +75,13 @@ Unreleased template stuff
 - Fixed SRAM ~CE pin assignment in the blackice_ii board.
 - Fixed IO direction for  the i2c clock lines on the mister and de10-nano
 
-## [0.4.1]
+## [0.4.1] - 2023-02-27
 
 ### Fixed
 
 - Fixed the import in the Xilinx ArtyS7 and Atlys board files where they were using the improper import in `toolchain_program` for `required_tool`.
 
-## [0.4.0]
+## [0.4.0] - 2022-12-02
 
 ### Added
 
