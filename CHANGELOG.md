@@ -30,6 +30,11 @@ Unreleased template stuff
 
 ### Fixed
 
+## [0.8.0] - 2025-06-26
+
+This is a maintenance release, syncs the minimum [Torii] version to `0.8.0` in preparation for
+the Torii `v1.0.0` release in the future.
+
 ## [0.7.5] - 2025-03-07
 
 ### Changed
@@ -118,7 +123,8 @@ Unreleased template stuff
 
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.7.5...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.8.0...main
+[0.8.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.7.5...v0.8.0
 [0.7.5]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.1...v0.7.5
 [0.6.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.5.0...v0.6.0
@@ -127,3 +133,4 @@ No changelog is provided for these versions as they are all older untagged relea
 [0.4.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/amaranth-fork...v0.4.0
 [0.3.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/amaranth-fork...main
 [0.1.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/amaranth-fork...main
+[Torii]: https://github.com/shrine-maiden-heavy-industries/torii-hdl
