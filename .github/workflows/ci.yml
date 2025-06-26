@@ -30,7 +30,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: 'Run Style Lint'
         shell: bash
@@ -86,7 +86,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: 'Run Tests'
         shell: bash
@@ -127,7 +127,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: 'Link Check'
         shell: bash
@@ -205,7 +205,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: 'Download docs artifact'
         uses: actions/download-artifact@v4
@@ -254,7 +254,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: 'Build wheel'
         shell: bash
