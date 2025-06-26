@@ -47,7 +47,7 @@ setup(
 	],
 
 	install_requires = [
-		'torii>=0.7.5,<1.0',
+		'torii>=0.8.0,<1.0',
 	],
 
 	extras_require   = {
