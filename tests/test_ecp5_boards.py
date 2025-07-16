@@ -1,14 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from pathlib                  import Path
-from unittest                 import TestCase
+from pathlib                   import Path
+from unittest                  import TestCase
 
-from torii.platform.vendor    import LatticeECP5Platform
+from torii.platform.vendor     import LatticeECP5Platform
 
-from torii_boards.lattice     import (
+from torii_boards.lattice.ecp5 import (
 	orangecrab_r0_1, orangecrab_r0_2, versa_ecp5, versa_ecp5_5g
 )
-from torii_boards.test.blinky import Blinky
+from torii_boards.test.blinky  import Blinky
 
 BUILD_DIR = (Path(__file__).parent / '..' / 'build' / 'test_boards').resolve()
 

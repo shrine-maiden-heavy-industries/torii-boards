@@ -1,14 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from pathlib                  import Path
-from unittest                 import TestCase
+from pathlib                    import Path
+from unittest                   import TestCase
 
-from torii.platform.vendor    import LatticeICE40Platform
+from torii.platform.vendor      import LatticeICE40Platform
 
-from torii_boards.lattice     import (
-	ice40_hx1k_blink_evn, ice40_hx8k_b_evn, ice40_up5k_b_evn, icebreaker, icebreaker_bitsy
+from torii_boards.lattice.ice40 import (
+	ice40_hx1k_blink_evn, ice40_hx8k_b_evn, ice40_up5k_b_evn, icebreaker, icebreaker_bitsy,
 )
-from torii_boards.test.blinky import Blinky
+from torii_boards.test.blinky   import Blinky
 
 BUILD_DIR = (Path(__file__).parent / '..' / 'build' / 'test_boards').resolve()
 

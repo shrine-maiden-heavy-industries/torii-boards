@@ -31,6 +31,7 @@ Unreleased template stuff
 - Board files have been categorized into their FPGA sub-families.
   - `torii_boards.altera` now has `cyclone_iii`, `cyclone_iv`, `cyclone_v`, and `max10` submodules.
   - `torii_boards.gowin` now has a `gw1n` submodule.
+  - `torii_boards.lattice` now has `ecp5`, `ice40`, `machxo2`, and `machxo3` submodules.
 
 ### Deprecated
 
