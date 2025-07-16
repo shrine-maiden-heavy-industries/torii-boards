@@ -98,5 +98,5 @@ class CmodA7_35Platform(_CmodA7Platform):
 	description = 'Digilent Cmod A7-15T Xilinx Artix7-35T FPGA Module'
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	CmodA7_35Platform().build(Blinky(), do_program = True)

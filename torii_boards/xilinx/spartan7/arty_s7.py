@@ -259,5 +259,5 @@ class ArtyS7_25Platform(_ArtyS7Platform):
 	description = 'Digilent Arty S7-25 Xilinx Spartan7-25 Development Board'
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	ArtyS7_25Platform().build(Blinky(), do_program = True)

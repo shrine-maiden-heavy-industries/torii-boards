@@ -233,6 +233,6 @@ class Mega65r3Platform(XilinxPlatform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	Mega65r3Platform(toolchain = 'yosys_nextpnr').build(
 		Blinky(), do_build = True, do_program = False)

@@ -237,5 +237,5 @@ class AtlysPlatform(XilinxPlatform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	AtlysPlatform().build(Blinky(), do_program = True)

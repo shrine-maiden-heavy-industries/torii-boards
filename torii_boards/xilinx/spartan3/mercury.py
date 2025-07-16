@@ -209,7 +209,7 @@ class MercuryPlatform(XilinxPlatform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	plat = MercuryPlatform()
 	plat.add_resources(plat.leds)
 	plat.build(Blinky(), do_program = True)

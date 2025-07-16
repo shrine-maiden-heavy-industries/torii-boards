@@ -33,6 +33,7 @@ Unreleased template stuff
   - `torii_boards.gowin` now has a `gw1n` submodule.
   - `torii_boards.lattice` now has `ecp5`, `ice40`, `machxo2`, and `machxo3` submodules.
   - `torii_boards.quicklogic` now has a `eos_3s` submodule.
+  - `torii_boards.xilinx` now has `artix7`, `kintex_us`, `kintex7`, `spartan3`, `spartan6`, `spartan7`, and `zynq7` submodules.
 
 ### Deprecated
 

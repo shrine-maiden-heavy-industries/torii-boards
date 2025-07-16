@@ -136,5 +136,5 @@ class TE0714_03_50_2IPlatform(XilinxPlatform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	TE0714_03_50_2IPlatform().build(Blinky(), do_program = False)
