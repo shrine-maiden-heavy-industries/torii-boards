@@ -1,7 +1,7 @@
 ```{toctree}
 :hidden:
 
-Installing <https://shrine-maiden-heavy-industries.github.io/torii-hdl/install.html#installing-board-definitions>
+Installing <https://torii.shmdn.link/latest/install.html#installing-board-definitions>
 
 gowin/index
 altera/index
