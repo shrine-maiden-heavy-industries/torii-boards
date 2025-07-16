@@ -32,6 +32,7 @@ Unreleased template stuff
   - `torii_boards.altera` now has `cyclone_iii`, `cyclone_iv`, `cyclone_v`, and `max10` submodules.
   - `torii_boards.gowin` now has a `gw1n` submodule.
   - `torii_boards.lattice` now has `ecp5`, `ice40`, `machxo2`, and `machxo3` submodules.
+  - `torii_boards.quicklogic` now has a `eos_3s` submodule.
 
 ### Deprecated
 
