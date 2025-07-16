@@ -110,5 +110,5 @@ class Chameleon96Platform(AlteraPlatform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	Chameleon96Platform().build(Blinky(), do_program = True)

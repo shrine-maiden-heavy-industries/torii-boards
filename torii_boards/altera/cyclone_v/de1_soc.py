@@ -108,5 +108,5 @@ class DE1SoCPlatform(AlteraPlatform):
 
 
 if __name__ == '__main__':
-	from ..test.blinky import Blinky
+	from ...test.blinky import Blinky
 	DE1SoCPlatform().build(Blinky(), do_program = True)
