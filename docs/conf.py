@@ -49,7 +49,7 @@ todo_include_todos     = True
 
 intersphinx_mapping = {
 	'python': ('https://docs.python.org/3', None),
-	'torii': ('https://torii.shmdn.link/', None)
+	'torii': (f'https://torii.shmdn.link/latest', None)
 }
 
 
