@@ -96,3 +96,6 @@ linkcheck_ignore  = [
 	'https://digilent.com/reference/programmable-logic/genesys-2/start',
 	'https://digilent.com/reference/programmable-logic/atlys/start',
 ]
+linkcheck_anchors_ignore_for_url = [
+	r'^https://web\.libera\.chat/',
+]
