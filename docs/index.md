@@ -11,7 +11,6 @@ quicklogic/index
 xilinx/index
 
 Torii HDL <https://shrine-maiden-heavy-industries.github.io/torii-hdl/>
-
 ```
 
 ```{toctree}
