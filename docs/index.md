@@ -4,11 +4,7 @@
 
 Installing <https://torii.shmdn.link/latest/install.html#installing-board-definitions>
 
-gowin/index
-altera/index
-lattice/index
-quicklogic/index
-xilinx/index
+fpga_vendor/index
 
 Torii HDL <https://shrine-maiden-heavy-industries.github.io/torii-hdl/>
 ```
@@ -28,6 +24,8 @@ license
 
 This package contains a collection of board definitions for [Torii], primarily FPGA evaluation boards, but other board files are also planned and welcome to help expand the ecosystem.
 
+They are currently organized [by FPGA vendor] and sub-categorized into FPGA family.
+
 ## Community
 
 The two primary community spots for Torii and by extension Torii Boards are the `#torii` IRC channel on [libera.chat] (`irc.libera.chat:6697`) which you can join via your favorite IRC client or the [web chat], and the [discussion forum] on GitHub.
@@ -35,6 +33,7 @@ The two primary community spots for Torii and by extension Torii Boards are the 
 Please do join and share your projects using Torii, ask questions, get help with problems, or discuss development.
 
 [Torii]: https://github.com/shrine-maiden-heavy-industries/torii-hdl
+[by FPGA vendor]: ./fpga_vendor/index.md
 [libera.chat]: https://libera.chat/
 [web chat]: https://web.libera.chat/#torii
 [discussion forum]: https://github.com/shrine-maiden-heavy-industries/torii-boards/discussions
