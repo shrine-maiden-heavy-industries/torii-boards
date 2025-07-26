@@ -33,9 +33,6 @@ def test(session: nox.Session) -> None:
 
 	unitest_args = ('-m', 'unittest', 'discover', '-s', str(ROOT_DIR))
 
-	session.install(
-		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
-	)
 	session.install('-e', '.')
 
 	# XXX(aki): Coverage is not quite possible yet
@@ -74,9 +71,6 @@ def build_docs(session: Session) -> None:
 	OUTPUT_DIR = BUILD_DIR / 'docs'
 
 	session.install('-r', str(DOCS_DIR / 'requirements.txt'))
-	session.install(
-		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
-	)
 	session.install('-e', '.')
 
 	session.run('sphinx-build', '-b', 'html', str(DOCS_DIR), str(OUTPUT_DIR))
@@ -86,9 +80,6 @@ def linkcheck_docs(session: Session) -> None:
 	OUTPUT_DIR = BUILD_DIR / 'docs-linkcheck'
 
 	session.install('-r', str(DOCS_DIR / 'requirements.txt'))
-	session.install(
-		'git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git#egg=torii'
-	)
 	session.install('-e', '.')
 
 	session.run('sphinx-build', '-b', 'linkcheck', str(DOCS_DIR), str(OUTPUT_DIR))
