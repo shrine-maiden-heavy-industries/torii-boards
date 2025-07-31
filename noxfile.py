@@ -31,7 +31,7 @@ def test(session: nox.Session) -> None:
 	OUTPUT_DIR = BUILD_DIR / 'tests'
 	OUTPUT_DIR.mkdir(parents = True, exist_ok = True)
 
-	unitest_args = ('-m', 'unittest', 'discover', '-s', str(ROOT_DIR))
+	unittest_args = ('-m', 'unittest', 'discover', '-s', str(ROOT_DIR))
 
 	session.install('-e', '.')
 
@@ -46,7 +46,7 @@ def test(session: nox.Session) -> None:
 
 	with session.chdir(OUTPUT_DIR):
 		session.log('Running test suite...')
-		session.run('python', *coverage_args, *unitest_args, *session.posargs)
+		session.run('python', *coverage_args, *unittest_args, *session.posargs)
 
 	# XXX(aki): Coverage is not quite possible yet
 	if False and ENABLE_COVERAGE:
