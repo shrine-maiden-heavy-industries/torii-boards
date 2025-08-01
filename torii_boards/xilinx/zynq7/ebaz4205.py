@@ -22,20 +22,18 @@ class EBAZ4205Platform(XilinxPlatform):
 		Resource(
 			'clk33_333', 0, Pins('N18', dir = 'i'), Clock(33.333e6), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
 		*LEDResources(
 			pins = 'W14 W13',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = 'B19', tx = 'B20',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 	]
 
-	connectors = [
-	]
+	connectors = []
 
 	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ

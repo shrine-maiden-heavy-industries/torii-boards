@@ -17,7 +17,8 @@ class ZTurnLiteZ007SPlatform(XilinxPlatform):
 
 	resources  = []
 	connectors = [
-		Connector('expansion', 0,
+		Connector(
+			'expansion', 0,
 			'-   -   '
 			'B19 E17 '
 			'A20 D18 '
