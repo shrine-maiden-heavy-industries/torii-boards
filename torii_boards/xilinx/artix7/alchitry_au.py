@@ -38,20 +38,20 @@ class AlchitryAuPlatform(XilinxPlatform):
 			'clk100', 0, Pins('N14', dir = 'i'), Clock(10e7),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
 		# On-Board LED Array
 		*LEDResources(
 			pins = 'K13 K12 L14 L13 M16 M14 M12 N16',
-			attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
-		Resource('usb', 0,
+			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
+		),
+		Resource(
+			'usb', 0,
 			Subsignal('usb_tx', Pins('P16', dir = 'o')),
 			Subsignal('usb_rx', Pins('P15', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
 		# TODO: This is untested
-		DDR3Resource(0,
+		DDR3Resource(
+			0,
 			rst_n = 'D13',
 			clk_p = 'G14', clk_n = 'F14', clk_en = 'D15',
 			cs_n = 'D16', we_n = 'E11', ras_n = 'D14', cas_n = 'D14',
@@ -65,25 +65,29 @@ class AlchitryAuPlatform(XilinxPlatform):
 	]
 
 	connectors  = [
-		Connector('bank', 0,
+		Connector(
+			'bank', 0,
 			'T8  T7  T5  R5  R8  P8  L2  L3  J1  K1  H1  H2  G1  G2  K5  E6 '
 			'T10 T9  R6  R7  P9  N9  K2  K3  J4  J5  H3  J3  H4  H5  N6  M6 '
 		),
-		Connector('bank', 1,
+		Connector(
+			'bank', 1,
 			'D1  E2  A2  B2  E1  F2  F3  F4  A3  B4  A4  A5  B5  B6  A7  B7 '
 			'B1  C1  C2  C3  D3  E3  C4  D4  G4  G5  E5  F5  D5  D6  C6  C7 '
 		),
-		Connector('bank', 2,
+		Connector(
+			'bank', 2,
 			'T13 R13 T12 R12 R11 R10 N2  N3  P3  P4  M4  L4  N4  M5  L5  P5 '
 			'P11 P10 N12 N11 P13 N13 M1  M2  P1  N1  R1  R2  T2  R3  T3  T4 '
 		),
-		Connector('bank', 3,
+		Connector(
+			'bank', 3,
 			'L14 L13 M12 N16 R16 R15 P14 M15 P16 P15  -   -   -   -   -   - '
 			'K13 K12 M16 M14 T16 T14 N14   -   -   -  -   -   -   -   -   - '
 		)
 	]
 
-	def toolchain_program(self, products: BuildProducts , name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from subprocess import check_call
 
 		(loader, bridge_bin) = find_loader()
