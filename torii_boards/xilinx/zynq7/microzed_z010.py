@@ -17,7 +17,8 @@ class MicroZedZ010Platform(XilinxPlatform):
 
 	resources  = []
 	connectors = [
-		Connector('JX1', 0,
+		Connector(
+			'JX1', 0,
 			'F9  J6  '
 			'F6  G6  '
 			'-   -   '
@@ -69,7 +70,8 @@ class MicroZedZ010Platform(XilinxPlatform):
 			'K9  M9  '
 			'L10 M10 '
 		),
-		Connector('JX2', 0,
+		Connector(
+			'JX2', 0,
 			'E8  E9  '
 			'C6  D9  '
 			'E6  B5  '

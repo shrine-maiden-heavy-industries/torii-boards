@@ -22,63 +22,57 @@ class ArtyZ720Platform(XilinxPlatform):
 		Resource(
 			'clk125', 0, Pins('H16', dir = 'i'), Clock(125e6), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
 		*SwitchResources(
 			pins = 'M20 M19',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		RGBLEDResource(0,
-			r = 'N15', g = 'G17', b = 'L15',                    # LD4
+		RGBLEDResource(
+			0, # LD4
+			r = 'N15', g = 'G17', b = 'L15',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		RGBLEDResource(1,                                       # LD5
+		RGBLEDResource(
+			1,  # LD5
 			r = 'M15', g = 'L14', b = 'G14',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
 		*LEDResources(
 			pins = 'R14 P14 N16 M14',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
 		*ButtonResources(
 			pins = 'D19 D20 L20 L19',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		Resource('audio', 0,
+		Resource(
+			'audio', 0,
 			Subsignal('pwm', Pins('R18', dir = 'o')),
 			Subsignal('sd',  PinsN('T17', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		Resource('crypto_sda', 0,                               # ATSHA204A
+		Resource(
+			'crypto_sda', 0, # ATSHA204A
 			Pins('J15', dir = 'io'),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		Resource('hdmi_rx', 0,                                  # J10
+		Resource(
+			'hdmi_rx', 0, # J10
 			Subsignal('cec', Pins('H17', dir = 'io')),
-			Subsignal('clk', DiffPairs('N18', 'P19', dir = 'i'),
-				Attrs(IOSTANDARD = 'TMDS_33')
-			),
-			Subsignal('d',   DiffPairs('V20 T20 N20', 'W20 U20 P20', dir = 'i'),
-				Attrs(IOSTANDARD = 'TMDS_33')
+			Subsignal('clk', DiffPairs('N18', 'P19', dir = 'i'), Attrs(IOSTANDARD = 'TMDS_33')),
+			Subsignal(
+				'd', DiffPairs('V20 T20 N20', 'W20 U20 P20', dir = 'i'), Attrs(IOSTANDARD = 'TMDS_33')
 			),
 			Subsignal('hpd', Pins('T19', dir = 'o')),
 			Subsignal('scl', Pins('U14', dir = 'io')),
 			Subsignal('sda', Pins('U15', dir = 'io')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		Resource('hdmi_tx', 0,                                  # J11
+		Resource(
+			'hdmi_tx', 0, # J11
 			Subsignal('cec', Pins('G15', dir = 'io')),
-			Subsignal('clk', DiffPairs('L16', 'L17', dir = 'o'),
-				Attrs(IOSTANDARD = 'TMDS_33')
-			),
-			Subsignal('d',   DiffPairs('K17 K19 J18', 'K18 J19 H18', dir = 'o'),
-				Attrs(IOSTANDARD = 'TMDS_33')
+			Subsignal('clk', DiffPairs('L16', 'L17', dir = 'o'), Attrs(IOSTANDARD = 'TMDS_33')),
+			Subsignal(
+				'd', DiffPairs('K17 K19 J18', 'K18 J19 H18', dir = 'o'), Attrs(IOSTANDARD = 'TMDS_33')
 			),
 			Subsignal('hpd', PinsN('R19', dir = 'i')),
 			Subsignal('scl', Pins('M17', dir = 'io')),
@@ -86,10 +80,10 @@ class ArtyZ720Platform(XilinxPlatform):
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		)
 	]
+
 	connectors = [
 		Connector('pmod', 0, 'Y18 Y19 Y16 Y17 - - U18 U19 W18 W19 - -'),  # JA
 		Connector('pmod', 1, 'W14 Y14 T11 T10 - - V16 W16 V12 W13 - -'),  # JB
-
 		Connector('ck_io', 0, {
 			# Outer Digital Header
 			'io0': 'T14',
@@ -106,7 +100,6 @@ class ArtyZ720Platform(XilinxPlatform):
 			'io11': 'R17',
 			'io12': 'P18',
 			'io13': 'N17',
-
 			# Inner Digital Header
 			'io26': 'U5',
 			'io27': 'V5',
@@ -124,7 +117,6 @@ class ArtyZ720Platform(XilinxPlatform):
 			'io39': 'Y8',
 			'io40': 'W9',
 			'io41': 'Y9',
-
 			# Outer Analog Header as Digital IO
 			'a0': 'Y11',
 			'a1': 'Y12',
@@ -132,7 +124,6 @@ class ArtyZ720Platform(XilinxPlatform):
 			'a3': 'V11',
 			'a4': 'T5',
 			'a5': 'U10',
-
 			# Inner Analog Header as Digital IO
 			'a6': 'F19',
 			'a7': 'F20',
@@ -140,23 +131,19 @@ class ArtyZ720Platform(XilinxPlatform):
 			'a9': 'B20',
 			'a10': 'B19',
 			'a11': 'A20',
-
 			# Misc.
 			'a': 'Y13'
 		}),
-
 		Connector('ck_spi', 0, {
 			'cipo': 'W15',
 			'copi': 'T12',
 			'sck': 'H15',
 			'ss': 'F16'
 		}),
-
 		Connector('ck_i2c', 0, {
 			'scl': 'P16',
 			'sda': 'P15'
 		}),
-
 		Connector('xadc', 0, {
 			# Outer Analog Header
 			'vaux1_n': 'D18',
@@ -171,7 +158,6 @@ class ArtyZ720Platform(XilinxPlatform):
 			'vaux5_p': 'J20',
 			'vaux13_n': 'G20',
 			'vaux13_p': 'G19',
-
 			# Inner Analog Header
 			'vaux12_n': 'F20',
 			'vaux12_p': 'F19',
