@@ -22,7 +22,6 @@ class KCU105Platform(XilinxPlatform):
 		Resource(
 			'clk125', 0, DiffPairs('G10', 'F10', dir = 'i'), Clock(125e6), Attrs(IOSTANDARD = 'LVDS')
 		),
-
 		*LEDResources(
 			pins = 'AP8 H23 P20 P21 N22 M22 R23 P23',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS18')
@@ -35,8 +34,8 @@ class KCU105Platform(XilinxPlatform):
 
 		openocd = environ.get('OPENOCD', 'openocd')
 		with products.extract(f'{name}.bit') as bitstream_filename:
-			check_call([openocd,
-				'-c', f'source [find board/kcu105.cfg]; init; pld load 0 {bitstream_filename}; exit'
+			check_call([
+				openocd, '-c', f'source [find board/kcu105.cfg]; init; pld load 0 {bitstream_filename}; exit'
 			])
 
 
