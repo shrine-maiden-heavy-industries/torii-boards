@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
+from textwrap                           import dedent
+
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
 from torii.platform.resources           import LEDResources, SPIFlashResources, SwitchResources, UARTResource
@@ -23,13 +25,12 @@ class VersaECP5Platform(ECP5Platform):
 		Resource('rst', 0, PinsN('T1', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource('clk100', 0, DiffPairs('P3', 'P4', dir = 'i'), Clock(100e6), Attrs(IO_TYPE = 'LVDS')),
 		Resource('pclk', 0, DiffPairs('A4', 'A5', dir = 'i'), Attrs(IO_TYPE = 'LVDS')),
-
 		*LEDResources(
 			pins = 'E16 D17 D18 E18 F17 F18 E17 F16', invert = True,
 			attrs = Attrs(IO_TYPE = 'LVCMOS25')
 		),
-
-		Resource('alnum_led', 0,
+		Resource(
+			'alnum_led', 0,
 			Subsignal('a', PinsN('M20', dir = 'o')),
 			Subsignal('b', PinsN('L18', dir = 'o')),
 			Subsignal('c', PinsN('M19', dir = 'o')),
@@ -47,7 +48,6 @@ class VersaECP5Platform(ECP5Platform):
 			Subsignal('dp', PinsN('U1', dir = 'o')),
 			Attrs(IO_TYPE = 'LVCMOS25')
 		),
-
 		*SwitchResources(
 			pins = {0: 'H2',  1: 'K3',  2: 'G3',  3: 'F2' },
 			attrs = Attrs(IO_TYPE = 'LVCMOS15')
@@ -56,106 +56,112 @@ class VersaECP5Platform(ECP5Platform):
 			pins = {4: 'J18', 5: 'K18', 6: 'K19', 7: 'K20'},
 			attrs = Attrs(IO_TYPE = 'LVCMOS25')
 		),
-
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = 'C11', tx = 'A11',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33', PULLMODE = 'UP')
 		),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = 'R2', clk = 'U3', cipo = 'W2', copi = 'V2', wp_n = 'Y2', hold_n = 'W1',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
 		Resource(
 			'eth_clk125', 0, Pins('L19', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
 		),
 		Resource(
 			'eth_clk125_pll', 0, Pins('U16', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
 		), # NC by default
-		Resource('eth_rgmii', 0,
-			Subsignal('rst',     PinsN('U17', dir = 'o')),
-			Subsignal('mdc',     Pins('T18', dir = 'o')),
-			Subsignal('mdio',    Pins('U18', dir = 'io')),
-			Subsignal('tx_clk',  Pins('P19', dir = 'o')),
-			Subsignal('tx_ctl',  Pins('R20', dir = 'o')),
+		# TODO(aki): Replace with EthernetResource
+		Resource(
+			'eth_rgmii', 0,
+			Subsignal('rst', PinsN('U17', dir = 'o')),
+			Subsignal('mdc', Pins('T18', dir = 'o')),
+			Subsignal('mdio', Pins('U18', dir = 'io')),
+			Subsignal('tx_clk', Pins('P19', dir = 'o')),
+			Subsignal('tx_ctl', Pins('R20', dir = 'o')),
 			Subsignal('tx_data', Pins('N19 N20 P18 P20', dir = 'o')),
-			Subsignal('rx_clk',  Pins('L20', dir = 'i')),
-			Subsignal('rx_ctl',  Pins('U19', dir = 'i')),
+			Subsignal('rx_clk', Pins('L20', dir = 'i')),
+			Subsignal('rx_ctl', Pins('U19', dir = 'i')),
 			Subsignal('rx_data', Pins('T20 U20 T19 R18', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS25')
 		),
-		Resource('eth_sgmii', 0,
-			Subsignal('rst',  PinsN('U17', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
-			Subsignal('mdc',  Pins('T18', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
+		Resource(
+			'eth_sgmii', 0,
+			Subsignal('rst', PinsN('U17', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
+			Subsignal('mdc', Pins('T18', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
 			Subsignal('mdio', Pins('U18', dir = 'io'), Attrs(IO_TYPE = 'LVCMOS25')),
-			Subsignal('tx',   DiffPairs('W13', 'W14', dir = 'o')),
-			Subsignal('rx',   DiffPairs('Y14', 'Y15', dir = 'i')),
+			Subsignal('tx', DiffPairs('W13', 'W14', dir = 'o')),
+			Subsignal('rx', DiffPairs('Y14', 'Y15', dir = 'i')),
 		),
-
 		Resource(
 			'eth_clk125', 1, Pins('J20', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
 		),
 		Resource(
 			'eth_clk125_pll', 1, Pins('C18', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
 		), # NC by default
-		Resource('eth_rgmii', 1,
-			Subsignal('rst',     PinsN('F20', dir = 'o')),
-			Subsignal('mdc',     Pins('G19', dir = 'o')),
-			Subsignal('mdio',    Pins('H20', dir = 'io')),
-			Subsignal('tx_clk',  Pins('C20', dir = 'o')),
+		Resource(
+			'eth_rgmii', 1,
+			Subsignal('rst', PinsN('F20', dir = 'o')),
+			Subsignal('mdc', Pins('G19', dir = 'o')),
+			Subsignal('mdio', Pins('H20', dir = 'io')),
+			Subsignal('tx_clk', Pins('C20', dir = 'o')),
 			Subsignal('tx_ctrl', Pins('E19', dir = 'o')),
 			Subsignal('tx_data', Pins('J17 J16 D19 D20', dir = 'o')),
-			Subsignal('rx_clk',  Pins('J19', dir = 'i')),
+			Subsignal('rx_clk', Pins('J19', dir = 'i')),
 			Subsignal('rx_ctrl', Pins('F19', dir = 'i')),
 			Subsignal('rx_data', Pins('G18 G16 H18 H17', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS25')
 		),
-		Resource('eth_sgmii', 1,
-			Subsignal('rst',  PinsN('F20', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
-			Subsignal('mdc',  Pins('G19', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
+		Resource(
+			'eth_sgmii', 1,
+			Subsignal('rst', PinsN('F20', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
+			Subsignal('mdc', Pins('G19', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
 			Subsignal('mdio', Pins('H20', dir = 'io'), Attrs(IO_TYPE = 'LVCMOS25')),
-			Subsignal('tx',   DiffPairs('W17', 'W18', dir = 'o')),
-			Subsignal('rx',   DiffPairs('Y16', 'Y17', dir = 'i')),
+			Subsignal('tx', DiffPairs('W17', 'W18', dir = 'o')),
+			Subsignal('rx', DiffPairs('Y16', 'Y17', dir = 'i')),
 		),
-
-		Resource('ddr3', 0,
-			Subsignal('rst',    PinsN('N4', dir = 'o')),
-			Subsignal('clk',    DiffPairs('M4', 'N5', dir = 'o'), Attrs(IO_TYPE = 'SSTL135D_I')),
+		Resource(
+			'ddr3', 0,
+			Subsignal('rst', PinsN('N4', dir = 'o')),
+			Subsignal('clk', DiffPairs('M4', 'N5', dir = 'o'), Attrs(IO_TYPE = 'SSTL135D_I')),
 			Subsignal('clk_en', Pins('N2', dir = 'o')),
-			Subsignal('cs',     PinsN('K1', dir = 'o')),
-			Subsignal('we',     PinsN('M1', dir = 'o')),
-			Subsignal('ras',    PinsN('P1', dir = 'o')),
-			Subsignal('cas',    PinsN('L1', dir = 'o')),
-			Subsignal('a',      Pins('P2 C4 E5 F5 B3 F4 B5 E4 C5 E3 D5 B4 C3', dir = 'o')),
-			Subsignal('ba',     Pins('P5 N3 M3', dir = 'o')),
+			Subsignal('cs', PinsN('K1', dir = 'o')),
+			Subsignal('we', PinsN('M1', dir = 'o')),
+			Subsignal('ras', PinsN('P1', dir = 'o')),
+			Subsignal('cas', PinsN('L1', dir = 'o')),
+			Subsignal('a', Pins('P2 C4 E5 F5 B3 F4 B5 E4 C5 E3 D5 B4 C3', dir = 'o')),
+			Subsignal('ba', Pins('P5 N3 M3', dir = 'o')),
 			Subsignal(
-				'dqs',    DiffPairs('K2 H4', 'J1 G5', dir = 'io'),
+				'dqs', DiffPairs('K2 H4', 'J1 G5', dir = 'io'),
 				Attrs(IO_TYPE = 'SSTL135D_I', DIFFRESISTOR = '100', TERMINATION = 'OFF')
 			),
-			Subsignal('dq',     Pins('L5 F1 K4 G1 L4 H1 G2 J3 D1 C1 E2 C2 F3 A2 E1 B1', dir = 'io')),
-			Attrs(TERMINATION = '75'),
-			Subsignal('dm',     Pins('J4 H5', dir = 'o')),
-			Subsignal('odt',    Pins('L2', dir = 'o')),
+			Subsignal(
+				'dq', Pins('L5 F1 K4 G1 L4 H1 G2 J3 D1 C1 E2 C2 F3 A2 E1 B1', dir = 'io'), Attrs(TERMINATION = '75')
+			),
+			Subsignal('dm', Pins('J4 H5', dir = 'o')),
+			Subsignal('odt', Pins('L2', dir = 'o')),
 			Attrs(IO_TYPE = 'SSTL135_I', SLEWRATE = 'FAST')
 		)
 	]
 	connectors = [
-		Connector('expcon', 1, '''
-		-   -   -   B19 B12 B9  E6  D6  E7  D7  B11 B6  E9  D9  B8  C8  D8  E8  C7  C6
-		-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-		'''), # X3
-		Connector('expcon', 2, '''
-		A8  -   A12 A13 B13 C13 D13 E13 A14 C14 D14 E14 D11 C10 A9  B10 D12 E12 -   -
-		B15 -   C15 -   D15 -   E15 A16 B16 -   C16 D16 B17 -   C17 A17 B18 A7  A18 -
-		'''), # X4
+		Connector(
+			'expcon', 1,
+			'-   -   -   B19 B12 B9  E6  D6  E7  D7  B11 B6  E9  D9  B8  C8  D8  E8  C7  C6 '
+			'-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  '
+		),  # X3
+		Connector(
+			'expcon', 2,
+			'A8  -   A12 A13 B13 C13 D13 E13 A14 C14 D14 E14 D11 C10 A9  B10 D12 E12 -   - '
+			'B15 -   C15 -   D15 -   E15 A16 B16 -   C16 D16 B17 -   C17 A17 B18 A7  A18 - '
+		), # X4
 	]
 
 	@property
 	def file_templates(self) -> dict[str, str]:
 		return {
 			**super().file_templates,
-			'{{name}}-openocd.cfg': r'''
+			'{{name}}-openocd.cfg': dedent(r'''
 			interface ftdi
 			{# FTDI descriptors is identical between non-5G and 5G recent Versa boards #}
 			ftdi_device_desc 'Lattice ECP5_5G VERSA Board'
@@ -173,7 +179,7 @@ class VersaECP5Platform(ECP5Platform):
 			{% else -%}
 			jtag newtap ecp5 tap -irlen 8 -expected-id 0x01112043 ; # LFE5UM-45F
 			{% endif %}
-			'''
+			''')
 		}
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
@@ -183,8 +189,8 @@ class VersaECP5Platform(ECP5Platform):
 		openocd = environ.get('OPENOCD', 'openocd')
 		with products.extract(f'{name}-openocd.cfg', f'{name}.svf') as files:
 			(config_filename, vector_filename) = files
-			check_call([openocd,
-				'-f', config_filename,
+			check_call([
+				openocd, '-f', config_filename,
 				'-c', f'transport select jtag; init; svf -quiet {vector_filename}; exit'
 			])
 

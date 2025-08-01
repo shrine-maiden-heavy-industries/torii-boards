@@ -50,10 +50,8 @@ class Supercon19BadgePlatform(ECP5Platform):
 
 	resources   = [
 		Resource('clk8', 0, Pins('U18'), Clock(8e6), Attrs(IO_TYPE = 'LVCMOS33')),
-
 		# Used to trigger FPGA reconfiguration.
 		Resource('program', 0, PinsN('R1'), Attrs(IO_TYPE = 'LVCMOS33')),
-
 		# See note above for LED anode/cathode information.
 		# Short version is: these work as normal LEDs until you touch their cathodes.
 		*LEDResources(
@@ -61,84 +59,85 @@ class Supercon19BadgePlatform(ECP5Platform):
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		Resource('led_cathodes', 0, Pins('P19 L18 K18'), Attrs(IO_TYPE = 'LVCMOS33')),
-
 		UARTResource(0, rx = 'U2', tx = 'U1', attrs = Attrs(IO_TYPE = 'LVCMOS33')),
-
-		DirectUSBResource(0,
+		DirectUSBResource(
+			0,
 			d_p = 'F3', d_n = 'G3', pullup = 'E4', vbus_valid = 'F4',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
 		# Buttons, with semantic aliases.
 		*ButtonResources(
 			pins = 'G2 F2 F1 C1 E1 D2 D1 E2',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33', PULLMODE = 'UP')
 		),
-		Resource('keypad', 0,
-			Subsignal('left',   Pins('G2', dir = 'i')),
-			Subsignal('right',  Pins('F2', dir = 'i')),
-			Subsignal('up',     Pins('F1', dir = 'i')),
-			Subsignal('down',   Pins('C1', dir = 'i')),
-			Subsignal('start',  Pins('E1', dir = 'i')),
+		Resource(
+			'keypad', 0,
+			Subsignal('left', Pins('G2', dir = 'i')),
+			Subsignal('right', Pins('F2', dir = 'i')),
+			Subsignal('up', Pins('F1', dir = 'i')),
+			Subsignal('down', Pins('C1', dir = 'i')),
+			Subsignal('start', Pins('E1', dir = 'i')),
 			Subsignal('select', Pins('D2', dir = 'i')),
-			Subsignal('a',      Pins('D1', dir = 'i')),
-			Subsignal('b',      Pins('E2', dir = 'i')),
+			Subsignal('a', Pins('D1', dir = 'i')),
+			Subsignal('b', Pins('E2', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS33', PULLMODE = 'UP')
 		),
-
 		# Direct HDMI on the bottom of the board.
-		Resource('hdmi', 0,
+		Resource(
+			'hdmi', 0,
 			Subsignal('clk', DiffPairsN('P20', 'R20'), Attrs(IO_TYPE = 'TMDS_33')),
 			Subsignal('d', DiffPairs('N19 L20 L16', 'N20 M20 L17'), Attrs(IO_TYPE = 'TMDS_33')),
 			Subsignal('hpd', PinsN('R18'), Attrs(IO_TYPE = 'LVCMOS33')), # Also called HDMI_HEAC_n
 			Subsignal('hdmi_heac_p', PinsN('T19'), Attrs(IO_TYPE = 'LVCMOS33')),
 			Attrs(DRIVE = '4'),
 		),
-
-		Resource('lcd', 0,
-			Subsignal('db',
-				Pins('J3 H1 K4 J1 K3 K2 L4 K1 L3 L2 M4 L1 M3 M1 N4 N2 N3 N1'),
-			),
-			Subsignal('rd',    Pins('P2')),
-			Subsignal('wr',    Pins('P4')),
-			Subsignal('rs',    Pins('P1')),
-			Subsignal('cs',    Pins('P3')),
-			Subsignal('id',    Pins('J4')),
-			Subsignal('rst',   Pins('H2')),
+		# TODO(aki): Replace with LCDResource
+		Resource(
+			'lcd', 0,
+			Subsignal('db', Pins('J3 H1 K4 J1 K3 K2 L4 K1 L3 L2 M4 L1 M3 M1 N4 N2 N3 N1')),
+			Subsignal('rd', Pins('P2')),
+			Subsignal('wr', Pins('P4')),
+			Subsignal('rs', Pins('P1')),
+			Subsignal('cs', Pins('P3')),
+			Subsignal('id', Pins('J4')),
+			Subsignal('rst', Pins('H2')),
 			Subsignal('fmark', Pins('G1')),
-			Subsignal('blen',  Pins('P5')),
+			Subsignal('blen', Pins('P5')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
-		Resource('spi_flash', 0, # clock needs to be accessed through USRMCLK
-			Subsignal('cs',   PinsN('R2')),
+		Resource(
+			'spi_flash', 0, # clock needs to be accessed through USRMCLK
+			Subsignal('cs', PinsN('R2')),
 			Subsignal('copi', Pins('W2')),
 			Subsignal('cipo', Pins('V2')),
-			Subsignal('wp',   Pins('Y2')),
+			Subsignal('wp', Pins('Y2')),
 			Subsignal('hold', Pins('W1')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
-		Resource('spi_flash_4x', 0, # clock needs to be accessed through USRMCLK
-			Subsignal('cs',   PinsN('R2')),
-			Subsignal('dq',   Pins('W2 V2 Y2 W1')),
+		Resource(
+			'spi_flash_4x', 0, # clock needs to be accessed through USRMCLK
+			Subsignal('cs', PinsN('R2')),
+			Subsignal('dq', Pins('W2 V2 Y2 W1')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
 		# SPI-connected PSRAM.
-		Resource('spi_psram_4x', 0,
-			Subsignal('cs',  PinsN('D20')),
+		Resource(
+			'spi_psram_4x', 0,
+			Subsignal('cs', PinsN('D20')),
 			Subsignal('clk', Pins('E20')),
-			Subsignal('dq',  Pins('E19 D19 C20 F19'), Attrs(PULLMODE = 'UP')),
+			Subsignal('dq', Pins('E19 D19 C20 F19'), Attrs(PULLMODE = 'UP')),
 			Attrs(IO_TYPE = 'LVCMOS33', SLEWRATE = 'SLOW')
 		),
-		Resource('spi_psram_4x', 1,
-			Subsignal('cs',   PinsN('F20')),
-			Subsignal('clk',  Pins('J19')),
-			Subsignal('dq',   Pins('J20 G19 G20 H20'), Attrs(PULLMODE = 'UP')),
+		Resource(
+			'spi_psram_4x', 1,
+			Subsignal('cs', PinsN('F20')),
+			Subsignal('clk', Pins('J19')),
+			Subsignal('dq', Pins('J20 G19 G20 H20'), Attrs(PULLMODE = 'UP')),
 			Attrs(IO_TYPE = 'LVCMOS33', SLEWRATE = 'SLOW')
 		),
-
-		SDRAMResource(0, clk = 'D11', cke = 'C11', cs_n = 'C7', we_n = 'B6', ras_n = 'D6', cas_n = 'A6',
+		SDRAMResource(
+			0,
+			clk = 'D11', cke = 'C11', cs_n = 'C7', we_n = 'B6', ras_n = 'D6', cas_n = 'A6',
 			ba = 'A7 C8', a = 'A8 D9 C9 B9 C14 E17 A12 B12 H17 G18 B8 A11 B11',
 			dq = 'C5 B5 A5 C6 B10 C10 D10 A9', dqm = 'A10',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33', SLEWRATE = 'FAST')
@@ -147,19 +146,19 @@ class Supercon19BadgePlatform(ECP5Platform):
 
 	connectors = [
 		Connector('pmod', 0, 'A15 C16 A14 D16 B15 C15 A13 B13'),
-		Connector('cartridge', 0,
-			'- - - - - - - - C5 B5 A5 C6 B6 A6 D6 C7 A7 C8 B8 A8 D9 C9 B9 A9' # continued:
-			' D10 C10 B10 A10 D11 C11 B11 A11 G18 H17 B12 A12 E17 C14'
+		Connector(
+			'cartridge', 0,
+			'-   -   -   -   -   -   -   -   C5  B5  A5  C6  B6  A6  D6  C7  A7  C8  B8 '
+			'A8  D9  C9  B9  A9  D10 C10 B10 A10 D11 C11 B11 A11 G18 H17 B12 A12 E17 C14'
 		),
-
 		# SAO connectors names are compliant with the, erm, SAO 1.69 X-TREME standard.
 		# See: https://hackaday.com/2019/03/20/introducing-the-shitty-add-on-v1-69bis-standard/
 		Connector('sao', 0, {
-			'sda':   'B3', 'scl':   'B2', 'gpio0': 'A2',
+			'sda': 'B3', 'scl': 'B2', 'gpio0': 'A2',
 			'gpio1': 'A3', 'gpio2': 'B4', 'gpio3': 'A4'
 		}),
 		Connector('sao', 1, {
-			'sda':   'A16', 'scl':   'B17', 'gpio0': 'B18',
+			'sda': 'A16', 'scl': 'B17', 'gpio0': 'B18',
 			'gpio1': 'A17', 'gpio2': 'B16', 'gpio3': 'C17'
 		})
 	]
