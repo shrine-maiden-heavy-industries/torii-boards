@@ -25,37 +25,32 @@ class TangNanoPlatform(GowinPlatform):
 		Resource(
 			'clk24', 0, Pins('35', dir = 'i'), Clock(24_000_000), Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
 		RGBLEDResource(0, r = '18', g = '16', b = '17', attrs = Attrs(IO_TYPE = 'LVCMOS33')),
-
 		*ButtonResources(pins = '15 14', invert = True, attrs = Attrs(IO_TYPE = 'LVCMOS33')),
-
 		UARTResource(0, tx = '9', rx = '8', attrs = Attrs(IO_TYPE = 'LVCMOS33', PULL_MODE = 'UP')),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = '19', clk = '20', copi = '22', cipo = '23', wp_n = '24', hold_n = '25',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
-		Resource('lcd', 0,
-			Subsignal('clk', Pins('11',                dir = 'o')),
-			Subsignal('hs',  Pins('10',                dir = 'o')),
-			Subsignal('vs',  Pins('46',                dir = 'o')),
-			Subsignal('de',  Pins('5',                 dir = 'o')),
-			Subsignal('r',   Pins('27 28 29 30 31',    dir = 'o')),
-			Subsignal('g',   Pins('32 33 34 38 39 40', dir = 'o')),
-			Subsignal('b',   Pins('41 42 43 44 45',    dir = 'o')),
-			Attrs(IO_TYPE = 'LVCMOS33')),
-
+		Resource(
+			'lcd', 0,
+			Subsignal('clk', Pins('11', dir = 'o')),
+			Subsignal('hs', Pins('10', dir = 'o')),
+			Subsignal('vs', Pins('46', dir = 'o')),
+			Subsignal('de', Pins('5', dir = 'o')),
+			Subsignal('r', Pins('27 28 29 30 31', dir = 'o')),
+			Subsignal('g', Pins('32 33 34 38 39 40', dir = 'o')),
+			Subsignal('b', Pins('41 42 43 44 45', dir = 'o')),
+			Attrs(IO_TYPE = 'LVCMOS33')
+		),
 		Resource('lcd_backlight', 0, Pins('47', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS33')),
 	]
 
 	def toolchain_prepare(self, fragment, name, **kwargs):
 		overrides = {
-			'add_options':
-				'set_option -use_mspi_as_gpio 1 -use_sspi_as_gpio 1',
-			'gowin_pack_opts':
-				'--sspi_as_gpio --mspi_as_gpio'
+			'add_options': 'set_option -use_mspi_as_gpio 1 -use_sspi_as_gpio 1',
+			'gowin_pack_opts': '--sspi_as_gpio --mspi_as_gpio'
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
