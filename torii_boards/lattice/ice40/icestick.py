@@ -22,30 +22,28 @@ class ICEStickPlatform(ICE40Platform):
 			'clk12', 0, Pins('21', dir = 'i'), Clock(12e6),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
-
 		*LEDResources(pins = '99 98 97 96 95', attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
-
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = '9', tx = '8', rts = '7', cts = '4', dtr = '3', dsr = '2', dcd = '1',
 			attrs = Attrs(IO_STANDARD = 'SB_LVTTL', PULLUP = 1),
 			role = 'dce'
 		),
-
-		IrDAResource(0,
+		IrDAResource(
+			0,
 			rx = '106', tx = '105', sd = '107',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = '71', clk = '70', copi = '67', cipo = '68',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
 	connectors  = [
-		Connector('pmod', 0, '78 79 80 81 - - 87 88 90 91 - -'),  # J2
-
+		Connector('pmod', 0, '78 79 80 81 - - 87 88 90 91 - -'), # J2
 		Connector('j', 1, '- - 112 113 114 115 116 117 118 119'), # J1
-		Connector('j', 3, '- -  62  61  60  56  48  47  45  44'), # J3
+		Connector('j', 3, '- - 62 61 60 56 48 47 45 44'), # J3
 	]
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:

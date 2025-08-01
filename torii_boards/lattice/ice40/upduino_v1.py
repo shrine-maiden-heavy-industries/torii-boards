@@ -24,8 +24,8 @@ class UpduinoV1Platform(ICE40Platform):
 		Resource('led_g', 0, PinsN('39', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_b', 0, PinsN('40', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_r', 0, PinsN('41', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = '16', clk = '15', cipo = '17', copi = '14',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
