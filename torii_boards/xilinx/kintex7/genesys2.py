@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
+from textwrap                     import dedent
 from typing                       import Literal
 
 from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
@@ -67,24 +68,28 @@ class Genesys2Platform(XilinxPlatform):
 			pins = 'T28 V19 U30 U29 V20 V26 W24 W23',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		Resource('fan', 0,
+		Resource(
+			'fan', 0,
 			Subsignal('pwm', Pins('W19', dir = 'o')),
 			Subsignal('tach', Pins('V21', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = 'Y20', tx = 'Y23',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		I2CResource(0,
+		I2CResource(
+			0,
 			scl = 'AE30', sda = 'AF30',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		Resource('ddr3', 0,
+		Resource(
+			'ddr3', 0,
 			Subsignal('rst', PinsN('AG5', dir = 'o'), Attrs(IOSTANDARD = 'SSTL15')),
-			Subsignal('clk',
-				DiffPairs(p = 'AB9', n = 'AC9', dir = 'o'),
-				Attrs(IOSTANDARD = 'DIFF_SSTL15_DCI')
+			Subsignal(
+				'clk',
+				DiffPairs(p = 'AB9', n = 'AC9', dir = 'o'), Attrs(IOSTANDARD = 'DIFF_SSTL15_DCI')
 			),
 			Subsignal('clk_en', Pins('AJ9', dir = 'o')),
 			Subsignal('cs', PinsN('AH12', dir = 'o')),
@@ -96,53 +101,60 @@ class Genesys2Platform(XilinxPlatform):
 				'Y10 Y11 AB8 AA8 AB12 AA12 AH9 AG9', dir = 'o')
 			),
 			Subsignal('ba', Pins('AE9 AB10 AC11', dir = 'o')),
-			Subsignal('dqs',
-				DiffPairs(
-					p   = 'AD2 AG4 AG2 AH7',
-					n   = 'AD1 AG3 AH1 AJ7',
-					dir = 'io'
-				),
+			Subsignal(
+				'dqs',
+				DiffPairs(p = 'AD2 AG4 AG2 AH7', n = 'AD1 AG3 AH1 AJ7', dir = 'io'),
 				Attrs(IOSTANDARD = 'DIFF_SSTL15_DCI', ODT = 'RTT_40')
 			),
-			Subsignal('dq', Pins(
-				'AD3 AC2 AC1 AC5 AC4 AD6 AE6 AC7 '
-				'AF2 AE1 AF1 AE4 AE3 AE5 AF5 AF6 '
-				'AJ4 AH6 AH5 AH2 AJ2 AJ1 AK1 AJ3 '
-				'AF7 AG7 AJ6 AK6 AJ8 AK8 AK5 AK4', dir = 'io'),
+			Subsignal(
+				'dq',
+				Pins(
+					'AD3 AC2 AC1 AC5 AC4 AD6 AE6 AC7 '
+					'AF2 AE1 AF1 AE4 AE3 AE5 AF5 AF6 '
+					'AJ4 AH6 AH5 AH2 AJ2 AJ1 AK1 AJ3 '
+					'AF7 AG7 AJ6 AK6 AJ8 AK8 AK5 AK4',
+					dir = 'io'
+				),
 				Attrs(ODT = 'RTT_40')
 			),
 			Subsignal('dm', Pins('AD4 AF3 AH4 AF8', dir = 'o')),
 			Subsignal('odt', Pins('AK9', dir = 'o')),
 			Attrs(IOSTANDARD = 'SSTL15_DCI', SLEW = 'FAST', OUTPUT_IMPEDANCE = 'RDRV_40_40')
 		),
-		Resource('audio_i2c', 0,  # ADAU1761 I2C
+		Resource(
+			'audio_i2c', 0,  # ADAU1761 I2C
 			Subsignal('scl', Pins('AE19', dir = 'io')),
 			Subsignal('sda', Pins('AF18', dir = 'io')),
 			Subsignal('adr', Pins('AD19 AG19', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		Resource('audio_i2s', 0,  # ADAU1761 ADC, I2S
+		Resource(
+			'audio_i2s', 0,  # ADAU1761 ADC, I2S
 			Subsignal('clk', Pins('AG18', dir = 'o')), # BCLK
 			Subsignal('sd_adc', Pins('AH19', dir = 'o')), # ADC_SDATA
 			Subsignal('sd_dac', Pins('AJ19', dir = 'i')),  # DAC_SDATA
 			Subsignal('ws', Pins('AJ18', dir = 'o')), # LRCLK
 			Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		Resource('audio_clk', 0,  # ADAU1761 MCLK
+		Resource(
+			'audio_clk', 0,  # ADAU1761 MCLK
 			Pins('AK19', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		SPIResource(0,  # OLED, SSD1306, 128 x 32
+		SPIResource(
+			0,  # OLED, SSD1306, 128 x 32
 			cs_n = 'dummy-cs0', clk = 'AF17', copi = 'Y15',
 			cipo = 'dummy-cipo0', reset = 'AB17',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		Resource('oled', 0,  # OLED, UG-2832HSWEG04
+		Resource(
+			'oled', 0,  # OLED, UG-2832HSWEG04
 			Subsignal('dc', Pins('AC17', dir = 'o')),
 			Subsignal('vdd_en', PinsN('AG17', dir = 'o')),
 			Subsignal('vbat_en', PinsN('AB22', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		Resource('hdmi', 0,  # HDMI TX, connector J4
+		Resource(
+			'hdmi', 0,  # HDMI TX, connector J4
 			Subsignal('scl', Pins('AF27', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Subsignal('sda', Pins('AF26', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Subsignal('clk', DiffPairs(p = 'AA20', n = 'AB20', dir = 'o')),
@@ -153,7 +165,8 @@ class Genesys2Platform(XilinxPlatform):
 			)),
 			Attrs(IOSTANDARD = 'TMDS_33')
 		),
-		Resource('hdmi', 1,  # HDMI RX, connector J5
+		Resource(
+			'hdmi', 1,  # HDMI RX, connector J5
 			Subsignal('scl', Pins('AJ28', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Subsignal('sda', Pins('AJ29', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Subsignal('clk', DiffPairs(p = 'AE28', n = 'AF28', dir = 'i')),
@@ -164,30 +177,35 @@ class Genesys2Platform(XilinxPlatform):
 			)),
 			Attrs(IOSTANDARD = 'TMDS_33')
 		),
-		VGAResource(0,
+		VGAResource(
+			0,
 			r = 'AK25 AG25 AH25 AK24 AJ24',
 			g = 'AJ23 AJ22 AH22 AK21 AJ21 AK23',
 			b = 'AH20 AG20 AF21 AK20 AG22',
 			hs = 'AF20', vs = 'AG23', invert_sync = True,
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		*SDCardResources(0,
+		*SDCardResources(
+			0,
 			clk = 'R28', cmd = 'R29', dat0 = 'R26', dat1 = 'R30',
 			dat2 = 'P29', dat3 = 'T30', cd = 'P28',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		Resource('sd_card_rst', 0,
+		Resource(
+			'sd_card_rst', 0,
 			Pins('AE24', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-		ULPIResource(0,
+		ULPIResource(
+			0,
 			data = 'AE14 AE15 AC15 AC16 AB15 AA15 AD14 AC14',
 			rst = 'AB14', clk = 'AD18', dir = 'Y16', stp = 'AA17', nxt = 'AA16',
 			clk_dir = 'i', rst_invert = True, attrs = Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		Resource('vusb_oc', 0,
-			PinsN('AF16', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')
+		Resource(
+			'vusb_oc', 0, PinsN('AF16', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')
 		),
-		Resource('eth_rgmii', 0,
+		Resource(
+			'eth_rgmii', 0,
 			Subsignal('rst', PinsN('AH24', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Subsignal('mdc', Pins('AF12', dir = 'o')),
 			Subsignal('mdio', Pins('AG12', dir = 'io')),
@@ -202,23 +220,28 @@ class Genesys2Platform(XilinxPlatform):
 	]
 
 	connectors = [
-		Connector('pmod', 0,  # JA
+		Connector(
+			'pmod', 0,  # JA
 			'U27 U28 T26 T27 - - '
 			'T22 T23 T20 T21 - - '
 		),
-		Connector('pmod', 1,  # JB
+		Connector(
+			'pmod', 1,  # JB
 			'V29 V30 V25 W26 - - '
 			'T25 U25 U22 U23 - - '
 		),
-		Connector('pmod', 2,  # JC
+		Connector(
+			'pmod', 2,  # JC
 			'AC26 AJ27 AH30 AK29 - - '
 			'AD26 AG30 AK30 AK28 - - '
 		),
-		Connector('pmod', 3,  # JD
+		Connector(
+			'pmod', 3,  # JD
 			'V27 Y30 V24 W22 - - '
 			'U24 Y26 V22 W21 - - '
 		),
-		Connector('pmod', 4,  # JXADC
+		Connector(
+			'pmod', 4,  # JXADC
 			'J23 K23 L22 L21 - - '
 			'J24 K24 L23 K21 - - '
 		),
@@ -373,14 +396,14 @@ class Genesys2Platform(XilinxPlatform):
 			'script_after_read': 'auto_detect_xpm',
 			'script_before_bitstream':
 			'set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]',
-			'add_constraints': '''
+			'add_constraints': dedent('''
 			set_property BITSTREAM.CONFIG.CONFIGRATE 50 [current_design]
 			set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
 			set_property BITSTREAM.CONFIG.SPI_32BIT_ADDR YES [current_design]
 			set_property BITSTREAM.CONFIG.SPI_FALL_EDGE YES [current_design]
 			set_property CFGBVS VCCO [current_design]
 			set_property CONFIG_VOLTAGE 3.3 [current_design]
-			'''
+			''')
 		}
 		return super().toolchain_prepare(
 			fragment, name, **overrides, **kwargs
@@ -390,7 +413,7 @@ class Genesys2Platform(XilinxPlatform):
 	def file_templates(self) -> dict[str, str]:
 		return {
 			**super().file_templates,
-			'{{name}}-openocd.cfg': r'''
+			'{{name}}-openocd.cfg': dedent(r'''
 			source [find interface/ftdi/digilent-hs1.cfg]
 			# fix channel
 			ftdi_channel 1
@@ -398,7 +421,7 @@ class Genesys2Platform(XilinxPlatform):
 			transport select jtag
 			source [find cpld/xilinx-xc7.cfg]
 			source [find cpld/jtagspi.cfg]
-			'''
+			''')
 		}
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
