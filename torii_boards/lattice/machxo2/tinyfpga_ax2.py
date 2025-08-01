@@ -16,7 +16,8 @@ class TinyFPGAAX2Platform(MachXO2Platform):
 	description = 'TinyFPGA AX2 Lattice MachXO2-1200 Development Board'
 
 	connectors  = [
-		Connector('gpio', 0,
+		Connector(
+			'gpio', 0,
 			# Left side of the board
 			#  1  2  3  4  5  6  7  8  9 10 11
 			'13 14 16 17 20 21 23 25 26 27 28 '
