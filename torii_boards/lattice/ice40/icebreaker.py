@@ -22,26 +22,24 @@ class ICEBreakerPlatform(ICE40Platform):
 			'clk12', 0, Pins('35', dir = 'i'), Clock(12e6),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
-
 		*LEDResources(pins = '11 37', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		# Semantic aliases
 		Resource('led_r', 0, PinsN('11', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_g', 0, PinsN('37', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
-
 		*ButtonResources(pins = '10', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
-
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = '6', tx = '9',
 			attrs = Attrs(IO_STANDARD = 'SB_LVTTL', PULLUP = 1)
 		),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = '16', clk = '15', copi = '14', cipo = '17', wp_n = '12', hold_n = '13',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
 	connectors = [
-		Connector('pmod', 0, ' 4  2 47 45 - -  3 48 46 44 - -'), # PMOD1A
+		Connector('pmod', 0, '4 2 47 45 - -  3 48 46 44 - -'), # PMOD1A
 		Connector('pmod', 1, '43 38 34 31 - - 42 36 32 28 - -'), # PMOD1B
 		Connector('pmod', 2, '27 25 21 19 - - 26 23 20 18 - -'), # PMOD2
 	]
@@ -71,7 +69,6 @@ class ICEBreakerPlatform(ICE40Platform):
 		Resource(
 			'led_g', 4, Pins('3', dir = 'o', conn = ('pmod', 2)), Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
-
 		*ButtonResources(
 			pins = {
 				1: '9', 2: '4', 3: '10'
