@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
+from textwrap                     import dedent
+
 from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run              import BuildPlan, BuildProducts
 from torii.hdl.ir                 import Fragment
@@ -25,51 +27,51 @@ class _ArtyS7Platform(XilinxPlatform):
 			'clk100', 0, Pins('R2', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'SSTL135')
 		),
 		Resource('rst', 0, PinsN('C18', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
-
 		*LEDResources(pins = 'E18 F13 E13 H15', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
 		RGBLEDResource(0, r = 'J15', g = 'G17', b = 'F15', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
 		RGBLEDResource(1, r = 'E15', g = 'F18', b = 'E14', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
 		*ButtonResources(pins = 'G15 K16 J16 H13', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
 		*SwitchResources(pins = 'H14 H18 G18  M5', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = 'V12', tx = 'R12',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		SPIResource(0,
+		SPIResource(
+			0,
 			cs_n = 'H16', clk = 'G16', copi = 'H17', cipo = 'K14',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		I2CResource(0,
+		I2CResource(
+			0,
 			scl = 'J14', sda = 'J13',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = 'M13', clk = 'D11', copi = 'K17', cipo = 'K18', wp_n = 'L14', hold_n = 'M15',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
-
-		Resource('ddr3', 0,
-			Subsignal('rst',    PinsN('J6', dir = 'o')),
-			Subsignal('clk',    DiffPairs('R5', 'T4', dir = 'o'), Attrs(IOSTANDARD = 'DIFF_SSTL135')),
+		Resource(
+			'ddr3', 0,
+			Subsignal('rst', PinsN('J6', dir = 'o')),
+			Subsignal('clk', DiffPairs('R5', 'T4', dir = 'o'), Attrs(IOSTANDARD = 'DIFF_SSTL135')),
 			Subsignal('clk_en', Pins('T2', dir = 'o')),
-			Subsignal('cs',     PinsN('R3', dir = 'o')),
-			Subsignal('we',     PinsN('P7', dir = 'o')),
-			Subsignal('ras',    PinsN('U1', dir = 'o')),
-			Subsignal('cas',    PinsN('V3', dir = 'o')),
-			Subsignal('a',      Pins('U2 R4 V2 V4 T3 R7 V6 T6 U7 V7 P6 T5 R6 U6', dir = 'o')),
-			Subsignal('ba',     Pins('V5 T1 U3', dir = 'o')),
-			Subsignal('dqs',    DiffPairs('K1 N3', 'L1 N2', dir = 'io'),
-								Attrs(IOSTANDARD = 'DIFF_SSTL135')),
-			Subsignal('dq',     Pins('K2 K3 L4 M6 K6 M4 L5 L6 N4 R1 N1 N5 M2 P1 M1 P2', dir = 'io'),
-								Attrs(IN_TERM = 'UNTUNED_SPLIT_40')),
-			Subsignal('dm',     Pins('K4 M3', dir = 'o')),
-			Subsignal('odt',    Pins('P5', dir = 'o')),
+			Subsignal('cs', PinsN('R3', dir = 'o')),
+			Subsignal('we', PinsN('P7', dir = 'o')),
+			Subsignal('ras', PinsN('U1', dir = 'o')),
+			Subsignal('cas', PinsN('V3', dir = 'o')),
+			Subsignal('a', Pins('U2 R4 V2 V4 T3 R7 V6 T6 U7 V7 P6 T5 R6 U6', dir = 'o')),
+			Subsignal('ba', Pins('V5 T1 U3', dir = 'o')),
+			Subsignal(
+				'dqs', DiffPairs('K1 N3', 'L1 N2', dir = 'io'), Attrs(IOSTANDARD = 'DIFF_SSTL135')
+			),
+			Subsignal(
+				'dq', Pins('K2 K3 L4 M6 K6 M4 L5 L6 N4 R1 N1 N5 M2 P1 M1 P2', dir = 'io'),
+				Attrs(IN_TERM = 'UNTUNED_SPLIT_40')
+			),
+			Subsignal('dm', Pins('K4 M3', dir = 'o')),
+			Subsignal('odt', Pins('P5', dir = 'o')),
 			Attrs(IOSTANDARD = 'SSTL135', SLEW = 'FAST'),
 		),
 	]
@@ -78,24 +80,22 @@ class _ArtyS7Platform(XilinxPlatform):
 		Connector('pmod', 1, 'P17 P18 R18 T18 - - P14 P15 N15 P16 - -'), # JB
 		Connector('pmod', 2, 'U15 V16 U17 U18 - - U16 P13 R13 V14 - -'), # JC
 		Connector('pmod', 3, 'V15 U12 V13 T12 - - T13 R11 T11 U11 - -'), # JD
-
 		Connector('ck_io', 0, {
 			# Outer Digital Header
-			'io0':  'L13',
-			'io1':  'N13',
-			'io2':  'L16',
-			'io3':  'R14',
-			'io4':  'T14',
-			'io5':  'R16',
-			'io6':  'R17',
-			'io7':  'V17',
-			'io8':  'R15',
-			'io9':  'T15',
+			'io0': 'L13',
+			'io1': 'N13',
+			'io2': 'L16',
+			'io3': 'R14',
+			'io4': 'T14',
+			'io5': 'R16',
+			'io6': 'R17',
+			'io7': 'V17',
+			'io8': 'R15',
+			'io9': 'T15',
 			'io10': 'H16',
 			'io11': 'H17',
 			'io12': 'K14',
 			'io13': 'G16',
-
 			# Inner Digital Header
 			'io26': 'U11',
 			'io27': 'T11',
@@ -113,7 +113,6 @@ class _ArtyS7Platform(XilinxPlatform):
 			'io39': 'U17',
 			'io40': 'V16',
 			'io41': 'U15',
-
 			# Outer Analog Header as Digital IO
 			'a0': 'G13',
 			'a1': 'B16',
@@ -121,7 +120,6 @@ class _ArtyS7Platform(XilinxPlatform):
 			'a3': 'C13',
 			'a4': 'C14',
 			'a5': 'D18',
-
 			# Inner Analog Header as Digital IO
 			'io20': 'B14',
 			'io21': 'A14',
@@ -144,7 +142,6 @@ class _ArtyS7Platform(XilinxPlatform):
 			'vaux10_n': 'B18',
 			'vaux11_p': 'E16',
 			'vaux11_n': 'E17',
-
 			# Inner Analog Header
 			'vaux8_p': 'B14',
 			'vaux8_n': 'A14',
@@ -155,20 +152,16 @@ class _ArtyS7Platform(XilinxPlatform):
 
 	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = {
-			'script_before_bitstream':
-				'set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]',
-			'script_after_bitstream':
-				'write_cfgmem -force -format mcs -interface spix4 -size 16 '
-				f'-loadbit \'up 0x0 {name}.bit\' -file {name}.mcs',
-			'add_constraints':
-				'set_property INTERNAL_VREF 0.675 [get_iobanks 34]'
+			'script_before_bitstream': 'set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]',
+			'script_after_bitstream': dedent(f'''
+				write_cfgmem -force -format mcs -interface spix4 -size 16 -loadbit 'up 0x0 {name}.bit' -file {name}.mcs
+			'''),
+			'add_constraints': 'set_property INTERNAL_VREF 0.675 [get_iobanks 34]'
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
 	def _program_vivado(self, products: BuildProducts, name: str, flash: bool) -> None:
 		from subprocess  import run
-		from textwrap    import dedent
-
 		from torii.tools import require_tool
 
 		vivado = require_tool('vivado')
@@ -195,7 +188,7 @@ class _ArtyS7Platform(XilinxPlatform):
 					create_hw_bitstream -hw_device [current_hw_device] [get_property PROGRAM.HW_CFGMEM_BITFILE [current_hw_device]]
 					program_hw_devices
 					program_hw_cfgmem
-				''')
+				''') # noqa: E501
 			else:
 				cmd_script += dedent(f'''
 					set_property PROGRAM.FILE {{{bitstream}}} [current_hw_device]
