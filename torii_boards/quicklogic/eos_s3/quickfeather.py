@@ -23,42 +23,30 @@ class QuickfeatherPlatform(QuicklogicPlatform):
 	pretty_name = 'QuickFeather'
 	description = 'QuickLogic EOS S3 Development Board'
 
+	resources   = [
+		*ButtonResources(pins = '62'),
+		RGBLEDResource(0, r = '34', g = '39', b = '38'),
+		UARTResource(0, rx = '9', tx = '8'),
+		SPIResource(0, cs_n = '11', clk = '20', copi = '16', cipo = '17'),
+		SPIResource(
+			1,
+			cs_n = '37', clk = '40', copi = '36', cipo = '42',
+			role = 'peripheral'
+		),
+		I2CResource(0, scl = '4', sda = '5'),
+		I2CResource(1, scl = '22', sda = '21'),
+		DirectUSBResource(0, d_p = '10', d_n = '14'),
+		Resource(
+			'swd', 0,
+			Subsignal('clk', Pins('54', dir = 'io')),
+			Subsignal('io',  Pins('53', dir = 'io')),
+		),
+	]
+
 	connectors = [
 		Connector('J', 2, '- 28 22 21 37 36 42 40 7 2 4 5'),
 		Connector('J', 3, '- 8 9 17 16 20 6 55 31 25 47 - - - - 41'),
 		Connector('J', 8, '27 26 33 32 23 57 56 3 64 62 63 61 59 - - -'),
-	]
-
-	resources   = [
-		*ButtonResources(pins = '62'),
-
-		RGBLEDResource(0, r = '34', g = '39', b = '38'),
-
-		UARTResource(0,
-			rx = '9', tx = '8',
-		),
-
-		SPIResource(0,
-			cs_n = '11', clk = '20', copi = '16', cipo = '17'
-		),
-		SPIResource(1,
-			cs_n = '37', clk = '40', copi = '36', cipo = '42',
-			role = 'peripheral'
-		),
-
-		I2CResource(0,
-			scl = '4', sda = '5'
-		),
-		I2CResource(1,
-			scl = '22', sda = '21'
-		),
-
-		DirectUSBResource(0, d_p = '10', d_n = '14'),
-
-		Resource('swd', 0,
-			Subsignal('clk', Pins('54', dir = 'io')),
-			Subsignal('io',  Pins('53', dir = 'io')),
-		),
 	]
 
 	# This programmer requires OpenOCD with support for eos-s3:
