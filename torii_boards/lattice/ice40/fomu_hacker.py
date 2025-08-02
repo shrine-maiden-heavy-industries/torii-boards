@@ -19,21 +19,23 @@ class FomuHackerPlatform(ICE40Platform):
 
 	resources   = [
 		Resource(
-			'clk48', 0, Pins('F5', dir = 'i'), Clock(48e6),
+			'clk48', 0,
+			Pins('F5', dir = 'i'), Clock(48e6),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
-
 		*LEDResources(pins = 'A5', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
-		RGBLEDResource(0,
+		RGBLEDResource(
+			0,
 			r = 'C5', g = 'B5', b = 'A5', invert = True,
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
-
-		DirectUSBResource(0, d_p = 'A4', d_n = 'A2', pullup = 'D5',
+		DirectUSBResource(
+			0,
+			d_p = 'A4', d_n = 'A2', pullup = 'D5',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS'),
 		),
-
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = 'C1', clk = 'D1', copi = 'F1', cipo = 'E1',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS'),
 		),

@@ -19,47 +19,37 @@ class Mega65r3Platform(XilinxPlatform):
 
 	resources = [
 		Resource('clk100', 0, Pins('V13', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
-
 		*LEDResources(pins = 'U22', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
-		Resource('iec', 0,
+		Resource(
+			'iec', 0,
 			Subsignal('rst', Pins('AB21', dir = 'o')),
 			Subsignal('atn', Pins('N17', dir = 'o')),
-
 			Subsignal('data_en', Pins('Y21', dir = 'o')),
 			Subsignal('data_o', Pins('Y22', dir = 'o')),
 			Subsignal('data_i', Pins('AB22', dir = 'i'), Attrs(PULLUP = 'TRUE')),
-
 			Subsignal('clk_en', Pins('AA21', dir = 'o')),
 			Subsignal('clk_o', Pins('Y19', dir = 'o')),
 			Subsignal('clk_i', Pins('Y18', dir = 'i'), Attrs(PULLUP = 'TRUE')),
-
 			Subsignal('srq_en', Pins('AB20', dir = 'o')),
 			Subsignal('srq_o', Pins('U20', dir = 'o')),
 			Subsignal('srq_i', Pins('AA18', dir = 'i')),
-
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('cart', 0,
+		Resource(
+			'cart', 0,
 			Subsignal('ctrl_en', Pins('G18', dir = 'o')),
 			Subsignal('ctrl_dir', Pins('U17', dir = 'o')),
-
 			Subsignal('addr_en', Pins('L19', dir = 'o')),
 			Subsignal('addr_dir_lo', Pins('L21', dir = 'o')),
 			Subsignal('addr_dir_hi', Pins('L18', dir = 'o')),
-
 			Subsignal('data_en', Pins('U21', dir = 'o')),
 			Subsignal('data_dir', Pins('V22', dir = 'o')),
-
 			Subsignal('phi2', Pins('V17', dir = 'o')),
 			Subsignal('dotclk', Pins('AA19', dir = 'o')),
 			Subsignal('rst', Pins('N14', dir = 'o')),
-
 			Subsignal('nmi', Pins('W17', dir = 'i')),
 			Subsignal('irq', Pins('P14', dir = 'i')),
 			Subsignal('dma', Pins('P15', dir = 'i')),
-
 			Subsignal('exrom', Pins('R19', dir = 'io')),
 			Subsignal('ba', Pins('N13', dir = 'io')),
 			Subsignal('rw', Pins('R18', dir = 'io')),
@@ -68,23 +58,19 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('io1', Pins('N15', dir = 'io')),
 			Subsignal('game', Pins('W22', dir = 'io')),
 			Subsignal('io2', Pins('AA20', dir = 'io')),
-
 			Subsignal('data', Pins('P16 R17 P20 R16 U18 V18 W20 W21', dir = 'io')),
-
 			Subsignal('addr', Pins(
 				'K19 K18 K21 M22 L20 J20 J21 K22 '
 				'H17 H20 G20 J15 H19 M20 N22 H18',
 				dir = 'io'
 			)),
-
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('keyboard', 0,
+		Resource(
+			'keyboard', 0,
 			Subsignal('clk', Pins('A14', dir = 'o')),
 			Subsignal('out', Pins('A13', dir = 'o')),
 			Subsignal('in', Pins('C13', dir = 'i')),
-
 			Subsignal('tck', Pins('E13', dir = 'o')),
 			Subsignal('tdo', Pins('E14', dir = 'o')),
 			Subsignal('tdi', Pins('D15', dir = 'i')),
@@ -92,14 +78,14 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('jtag_en', Pins('B13', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('paddle', 0,
+		Resource(
+			'paddle', 0,
 			Subsignal('in', Pins('H13 G15 J14 J22', dir = 'i')),
 			Subsignal('drain', Pins('H22', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('joystick', 0,
+		Resource(
+			'joystick', 0,
 			Subsignal('up', Pins('C14', dir = 'i')),
 			Subsignal('down', Pins('F16', dir = 'i')),
 			Subsignal('left', Pins('F14', dir = 'i')),
@@ -107,8 +93,8 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('fire', Pins('E17', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('joystick', 1,
+		Resource(
+			'joystick', 1,
 			Subsignal('up', Pins('W19', dir = 'i')),
 			Subsignal('down', Pins('P17', dir = 'i')),
 			Subsignal('left', Pins('F21', dir = 'i')),
@@ -116,12 +102,12 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('fire', Pins('F15', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		VGADACResource(0,
+		VGADACResource(
+			0,
 			clk = 'AA9',
-			r = 'U15 V15 T14  Y17  Y16  AB17 AA16 AB16',
-			g = 'Y14 W14 AA15 AB15 Y13  AA14 AA13 AB13',
-			b = 'W10 Y12 AB12 AA11 AB11 Y11  AB10 AA10',
+			r = 'U15 V15 T14 Y17 Y16 AB17 AA16 AB16',
+			g = 'Y14 W14 AA15 AB15 Y13 AA14 AA13 AB13',
+			b = 'W10 Y12 AB12 AA11 AB11 Y11 AB10 AA10',
 			hs = 'W12', vs = 'V14',
 			extras = [
 				Subsignal('sync', PinsN('V10', dir = 'o')),
@@ -129,8 +115,8 @@ class Mega65r3Platform(XilinxPlatform):
 			],
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('hdmi', 0,
+		Resource(
+			'hdmi', 0,
 			Subsignal('clk', DiffPairs('W1', 'Y1', dir = 'o')),
 			Subsignal('data', DiffPairs('AA1 AB3 AA5', 'AB1 AB2 AB5', dir = 'o')),
 			Subsignal('scl', Pins('AB7', dir = 'io')),
@@ -141,13 +127,11 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('cec', Pins('W9', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
 		I2CResource(0, scl = 'A15', sda = 'A16', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
 		# Seeed Grove
 		I2CResource('grove', 0, scl = 'G21', sda = 'G22', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
-		Resource('audio', 0,
+		Resource(
+			'audio', 0,
 			Subsignal('left', Pins('L6', dir = 'o')),
 			Subsignal('right', Pins('F4', dir = 'o')),
 			Subsignal('sd', Pins('F18', dir = 'o')),
@@ -157,13 +141,13 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('sync', Pins('F19', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('spi_flash', 0,
+		Resource(
+			'spi_flash', 0,
 			Subsignal('data', Pins('P22 R22 P21 R21', dir = 'io'), Attrs(PULLUP = 'TRUE')),
 			Subsignal('cs', PinsN('T19', dir = 'o')),
 		),
-
-		Resource('hyper_ram', 0,
+		Resource(
+			'hyper_ram', 0,
 			Subsignal('clk', Pins('D22', dir = 'o'), Attrs(SLEW = 'FAST', DRIVE = '16')),
 			Subsignal('data', Pins('A21 D21 C20 A20 B20 A19 E21 E22', dir = 'io'), Attrs(SLEW = 'FAST', DRIVE = '16')),
 			Subsignal('rwds', Pins('B21', dir = 'io'), Attrs(SLEW = 'FAST', DRIVE = '16')),
@@ -171,8 +155,8 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('cs', Pins('C22', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33', PULLUP = 'FALSE'),
 		),
-
-		Resource('ethernet', 0,
+		Resource(
+			'ethernet', 0,
 			Subsignal('led', Pins('R14', dir = 'o')),
 			Subsignal('clk', Pins('L4', dir = 'o'), Attrs(SLEW = 'FAST')),
 			Subsignal('rst', Pins('K6', dir = 'o')),
@@ -185,29 +169,28 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('rxdv', Pins('K4', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
 		UARTResource(0, rx = 'L14', tx = 'L13', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
-
-		Resource('max10', 0,
+		Resource(
+			'max10', 0,
 			Subsignal('tx', Pins('M13', dir = 'i')),
 			Subsignal('rx', Pins('K16', dir = 'o')),
 			Subsignal('rst', Pins('L16', dir = 'io')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		*SDCardResources(0,
+		*SDCardResources(
+			0,
 			clk = 'B17', cmd = 'B16', cd = 'D17', wp_n = 'C17',
 			dat0 = 'B18', dat1 = 'C18', dat2 = 'C19', dat3 = 'B15',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		*SDCardResources(1,
+		*SDCardResources(
+			1,
 			clk = 'G2', cmd = 'J2', cd = 'K1', wp_n = None,
 			dat0 = 'H2', dat1 = 'H3', dat2 = 'J1', dat3 = 'K2',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
-
-		Resource('floppy', 0,
+		Resource(
+			'floppy', 0,
 			Subsignal('density', Pins('P6', dir = 'o')),
 			Subsignal('motor', Pins('M5 H15', dir = 'o')),
 			Subsignal('select', Pins('N5 G17', dir = 'o')),

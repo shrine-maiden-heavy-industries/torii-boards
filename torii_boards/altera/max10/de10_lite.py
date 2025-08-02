@@ -31,7 +31,6 @@ class DE10LitePlatform(AlteraPlatform):
 		Resource(
 			'clk50', 1, Pins('N14', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
 		),
-
 		*LEDResources(
 			pins = 'A8 A9 A10 B10 D13 C13 E14 D14 A11 B11',
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
@@ -44,45 +43,51 @@ class DE10LitePlatform(AlteraPlatform):
 			pins = 'C10 C11 D12 C12 A12 B12 A13 A14 B14 F15',
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-		Display7SegResource(0,
+		Display7SegResource(
+			0,
 			a = 'C14', b = 'E15', c = 'C15', d = 'C16', e = 'E16', f = 'D17', g = 'C17', dp = 'D15', invert = True,
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-		Display7SegResource(1,
+		Display7SegResource(
+			1,
 			a = 'C18', b = 'D18', c = 'E18', d = 'B16', e = 'A17', f = 'A18', g = 'B17', dp = 'A16', invert = True,
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-		Display7SegResource(2,
+		Display7SegResource(
+			2,
 			a = 'B20', b = 'A20', c = 'B19', d = 'A21', e = 'B21', f = 'C22', g = 'B22', dp = 'A19', invert = True,
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-		Display7SegResource(3,
+		Display7SegResource(
+			3,
 			a = 'F21', b = 'E22', c = 'E21', d = 'C19', e = 'C20', f = 'D19', g = 'E17', dp = 'D22', invert = True,
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-		Display7SegResource(4,
+		Display7SegResource(
+			4,
 			a = 'F18', b = 'E20', c = 'E19', d = 'J18', e = 'H19', f = 'F19', g = 'F20', dp = 'F17', invert = True,
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-		Display7SegResource(5,
+		Display7SegResource(
+			5,
 			a = 'J20', b = 'K20', c = 'L18', d = 'N18', e = 'M20', f = 'N19', g = 'N20', dp = 'L19', invert = True,
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-
 		# Arduino header
-		UARTResource(0,
+		UARTResource(
+			0,
 			rx = 'V10', tx = 'W10',
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
-
-		SDRAMResource(0,
+		SDRAMResource(
+			0,
 			clk = 'L14', cs_n = 'U20', we_n = 'V20', ras_n = 'U22', cas_n = 'U21',
 			ba = 'T21 T22', a = 'U17 W19 V18 U18 U19 T18 T19 R18 P18 P19 T20 P20 R20',
 			dq = 'Y21 Y20 AA22 AA21 Y22 W22 W20 V21 P21 J22 H21 H22 G22 G20 G19 F22',
 			dqm = 'V22 J21', attrs = Attrs(io_standard = '3.3-V LVCMOS')
 		),
-
-		VGAResource(0,
+		VGAResource(
+			0,
 			r = 'AA1 V1 Y2 Y1',
 			g = 'W1 T2 R2 R1',
 			b = 'P1 T1 P4 N2',
@@ -92,11 +97,13 @@ class DE10LitePlatform(AlteraPlatform):
 	]
 
 	connectors  = [
-		Connector('gpio', 0,
+		Connector(
+			'gpio', 0,
 			'V10  W10 V9 W9  V8 W8  V7 W7  W6 V5  W5 AA15 AA14 W13 W12 AB13 AB12 Y11 AB11 W11 AB10 '
 			'AA10 AA9 Y8 AA8 Y7 AA7 Y6 AA6 Y5 AA5 Y4 AB3  Y3   AB2 AA2 -    -    -   -    -   -    '
 		),
-		Connector('gpio', 5,
+		Connector(
+			'gpio', 5,
 			'AB5 AB6 AB7 AB8 AB9 Y10 AA11 AA12 AB17 AA17 AB19 AA19 Y19 AB20 AB21 AA20 F16'
 		),
 	]

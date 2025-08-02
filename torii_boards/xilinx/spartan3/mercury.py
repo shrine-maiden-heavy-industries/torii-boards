@@ -40,30 +40,28 @@ class MercuryPlatform(XilinxPlatform):
 		Resource(
 			'clk50', 0, Pins('P43', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33'), Clock(50e6)
 		),
-
 		Resource('button', 0, Pins('P41', dir = 'i'), Attrs(IOSTANDARD = 'LVTTL')),
-
 		# The serial interface and flash memory have a shared SPI bus.
 		# FPGA is secondary.
-		SPIResource('spi_serial', 0,
+		SPIResource(
+			'spi_serial', 0,
 			role = 'peripheral',
 			cs_n = 'P39', clk = 'P53', copi = 'P46', cipo = 'P51',
 			attrs = Attrs(IOSTANDARD = 'LVTTL'),
 		),
-
 		# FPGA is primary.
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = 'P27', clk = 'P53', copi = 'P46', cipo = 'P51',
 			attrs = Attrs(IOSTANDARD = 'LVTTL')
 		),
-
 		# ADC over SPI- FPGA is primary.
-		SPIResource('spi_adc', 0,
+		SPIResource(
+			'spi_adc', 0,
 			role = 'controller',
 			cs_n = 'P12', clk = 'P9', copi = 'P10', cipo = 'P21',
 			attrs = Attrs(IOSTANDARD = 'LVTTL'),
 		),
-
 		# GPIO/SRAM Control
 		# 5V tolerant GPIO is shared w/ the SRAM (on 200k gate devices) using
 		# this pin. All GPIO except gpio:30 (and gpio:20, though see comment
@@ -76,13 +74,13 @@ class MercuryPlatform(XilinxPlatform):
 	# Perhaps define some connectors as having a specific purpose- i.e. a 5V GPIO
 	# bus with data, peripheral-select, and control signals?
 	connectors = [
-		Connector('gpio', 0, '''
-			P59 P60 P61 P62 P64 P57
-			P56 P52 P50 P49 P85 P84
-			P83 P78 P77 P65 P70 P71
-			P72 P73 P5  P4  P6  P98
-			P94 P93 P90 P89 P88 P86
-			'''
+		Connector(
+			'gpio', 0,
+			'P59 P60 P61 P62 P64 P57 '
+			'P56 P52 P50 P49 P85 P84 '
+			'P83 P78 P77 P65 P70 P71 '
+			'P72 P73 P5  P4  P6  P98 '
+			'P94 P93 P90 P89 P88 P86 '
 		),  # 5V I/O- LVTTL.
 		Connector('dio', 0, 'P20 P32 P33 P34 P35 P36 P37'),  # Fast 3.3V IO
 		# (Directly attached to FPGA)- LVCMOS33.
@@ -106,7 +104,8 @@ class MercuryPlatform(XilinxPlatform):
 	]
 
 	sram = [
-		SRAMResource(0,
+		SRAMResource(
+			0,
 			cs_n = 'P3', we_n = 'gpio_0:29',
 			# According to the schematic, A19/Pin 25 on the SRAM is wired to
 			# gpio-0:20. However, according to the SRAM's datasheet, pin 25 is
@@ -156,7 +155,8 @@ class MercuryPlatform(XilinxPlatform):
 	]
 
 	_vga = [
-		VGAResource(0,
+		VGAResource(
+			0,
 			r = 'dio_0:1 dio_0:2 dio_0:3',
 			g = 'dio_0:4 dio_0:5 dio_0:6',
 			b = 'dio_0:7 clkio_0:1',
@@ -170,25 +170,26 @@ class MercuryPlatform(XilinxPlatform):
 	]
 
 	_sevenseg = [
-		Display7SegResource(0,
+		Display7SegResource(
+			0,
 			a = 'gpio_0:13', b = 'gpio_0:14', c = 'gpio_0:15', d = 'gpio_0:16',
 			e = 'gpio_0:17', f = 'gpio_0:18', g = 'gpio_0:19', dp = 'gpio_0:20',
 			invert = True, attrs = Attrs(IOSTANDARD = 'LVTTL')
 		),
-		Resource('display_7seg_ctrl', 0,
+		Resource(
+			'display_7seg_ctrl', 0,
 			Subsignal('en', Pins('9 10 11 12', dir = 'o', conn = ('gpio', 0))),
 			Attrs(IOSTANDARD = 'LVTTL')
 		)
 	]
 
 	_ps2 = [
-		PS2Resource(0,
-			clk = '2', dat = '1', conn = ('led', 0), attrs = Attrs(IOSTANDARD = 'LVTTL')
-		),
+		PS2Resource(0, clk = '2', dat = '1', conn = ('led', 0), attrs = Attrs(IOSTANDARD = 'LVTTL')),
 	]
 
 	_audio = [
-		Resource('audio', 0,
+		Resource(
+			'audio', 0,
 			Subsignal('l', Pins('30', dir = 'o', conn = ('gpio', 0))),
 			Subsignal('r', Pins('29', dir = 'o', conn = ('gpio', 0))),
 			Attrs(IOSTANDARD = 'LVTTL')

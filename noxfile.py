@@ -114,11 +114,14 @@ def typecheck_pyright(session: Session) -> None:
 @nox.session(reuse_venv = True)
 def lint(session: nox.Session) -> None:
 	session.install('flake8')
+	session.install('ruff')
 
 	session.run(
 		'flake8', '--config', str((CNTRB_DIR / '.flake8').resolve()),
 		'./torii_boards', './tests', './docs'
 	)
+	session.run('ruff', 'check', './torii_boards', './tests', './docs')
+
 
 @nox.session(reuse_venv = True)
 def dist(session: Session) -> None:

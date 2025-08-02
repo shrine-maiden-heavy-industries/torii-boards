@@ -26,13 +26,14 @@ class UpduinoV3Platform(ICE40Platform):
 		Resource(
 			'clk12', 0, Pins('20', dir = 'i'), Clock(12e6), Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
-
-		RGBLEDResource(0,
+		RGBLEDResource(
+			0,
 			r = '41', g = '39', b = '40', invert = True,
-			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
-
+			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
+		),
 		# To use QSPI mode, solder the appropriate jumpers.
-		*SPIFlashResources(0,
+		*SPIFlashResources(
+			0,
 			cs_n = '16', clk = '15', cipo = '17', copi = '14', wp_n = '10', hold_n = '20',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
