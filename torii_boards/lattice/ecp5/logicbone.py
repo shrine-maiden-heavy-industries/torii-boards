@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.resources           import (
-	ButtonResources, DirectUSBResource, LEDResources, SDCardResources, SPIFlashResources
-)
+from torii.platform.resources.interface import DirectUSBResource
+from torii.platform.resources.memory    import DDR3Resource, SDCardResources, SPIFlashResources
+from torii.platform.resources.user      import ButtonResources, LEDResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -65,6 +65,7 @@ class LogicbonePlatform(ECP5Platform):
 		Resource(
 			'eth_clk125', 0, Pins('A19', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when it supports `int` signal
 		Resource(
 			'eth_rgmii', 0,
 			# Stolen for sys_reset usage on prototypes.
@@ -80,22 +81,16 @@ class LogicbonePlatform(ECP5Platform):
 			Subsignal('rx_data', Pins('B17 A17 B16 A16', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
-		Resource(
-			'ddr3', 0,
-			Subsignal('rst', PinsN('P1', dir = 'o')),
-			Subsignal('clk', DiffPairs('M4', 'N5', dir = 'o'), Attrs(IO_TYPE = 'LVDS')),
-			Subsignal('clk_en', Pins('K4', dir = 'o')),
-			Subsignal('cs', PinsN('M3', dir = 'o')),
-			Subsignal('we', PinsN('E4', dir = 'o')),
-			Subsignal('ras', PinsN('L1', dir = 'o')),
-			Subsignal('cas', PinsN('M1', dir = 'o')),
-			Subsignal('a', Pins('D5 F4 B3 F3 E5 C3 C4 A5 A3 B5 G3 F5 D2 A4 D3 E3', dir = 'o')),
-			Subsignal('ba', Pins('B4 H5 N2', dir = 'o')),
-			Subsignal('dqs', DiffPairs('K2 H4', 'J1 G5', dir = 'io'), Attrs(IO_TYPE = 'LVDS')),
-			Subsignal('dq', Pins('G2 K1 F1 K3 H2 J3 G1 H1 B1 E1 A2 F2 C1 E2 C2 D1', dir = 'io')),
-			Subsignal('dm', Pins('L4 J5', dir = 'o')),
-			Subsignal('odt', Pins('C5', dir = 'o')),
-			Attrs(IO_TYPE = 'SSTL135_I')
+		DDR3Resource(
+			0,
+			rst_n = 'P1',
+			clk_p = 'M4', clk_n = 'N5', clk_en = 'K4',
+			cs_n = 'M3', we_n = 'E4', ras_n = 'L1', cas_n = 'M1',
+			a = 'D5 F4 B3 F3 E5 C3 C4 A5 A3 B5 G3 F5 D2 A4 D3 E3', ba = 'B4 H5 N2',
+			dqs_p = 'K2 H4', dqs_n = 'J1 G5',
+			dq = 'G2 K1 F1 K3 H2 J3 G1 H1 B1 E1 A2 F2 C1 E2 C2 D1', dm = 'L4 J5', odt = 'C5',
+			diff_attrs = Attrs(IO_TYPE = 'LVDS'),
+			attrs = Attrs(IO_TYPE = 'SSTL135_I')
 		)
 	]
 	connectors = [

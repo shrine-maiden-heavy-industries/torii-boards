@@ -3,7 +3,9 @@
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.resources           import DirectUSBResource, RGBLEDResource, SDCardResources, SPIFlashResources
+from torii.platform.resources.interface import DirectUSBResource
+from torii.platform.resources.memory    import SDCardResources, SPIFlashResources
+from torii.platform.resources.user      import RGBLEDResource
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -34,7 +36,7 @@ class OrangeCrabR0_1Platform(ECP5Platform):
 			cs_n = 'U17', clk = 'U16', cipo = 'T18', copi = 'U18', wp_n = 'R18', hold_n = 'N18',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33'),
 		),
-		# TODO(aki): Replace with DDR3Resource
+		# TODO(aki): Replace with `DDR3Resource` when more granular attrs are possible
 		Resource(
 			'ddr3', 0,
 			Subsignal('rst', PinsN('B1', dir = 'o')),

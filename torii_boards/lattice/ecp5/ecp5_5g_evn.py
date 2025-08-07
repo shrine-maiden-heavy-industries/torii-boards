@@ -5,9 +5,9 @@ from typing                             import Literal
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
-from torii.platform.resources           import (
-	ButtonResources, LEDResources, SPIFlashResources, SwitchResources, UARTResource
-)
+from torii.platform.resources.interface import UARTResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import ButtonResources, LEDResources, SwitchResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (

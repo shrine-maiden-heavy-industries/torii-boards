@@ -2,7 +2,9 @@
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
-from torii.platform.resources           import RGBLEDResource, SPIFlashResources, UARTResource, ULPIResource
+from torii.platform.resources.interface import UARTResource, ULPIResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import RGBLEDResource
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -51,6 +53,7 @@ class _ECPIX5Platform(ECP5Platform):
 			cs_n = 'AA2', clk = 'AE3', cipo = 'AE2', copi = 'AD2', wp_n = 'AF2', hold_n = 'AE1',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when it gets an `rst` signal
 		Resource(
 			'eth_rgmii', 0,
 			Subsignal('rst', PinsN('C13', dir = 'o')),
@@ -65,6 +68,7 @@ class _ECPIX5Platform(ECP5Platform):
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		Resource('eth_int', 0, PinsN('B13', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
+		# TODO(aki): Replace with `DDR3Resource` when it can have more fine-grained attrs
 		Resource(
 			'ddr3', 0,
 			Subsignal('clk', DiffPairs('H3', 'J3', dir = 'o'), Attrs(IO_TYPE = 'SSTL15D_I')),

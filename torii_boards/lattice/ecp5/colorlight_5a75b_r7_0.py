@@ -3,7 +3,9 @@
 from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.resources           import ButtonResources, LEDResources, SDRAMResource, UARTResource
+from torii.platform.resources.interface import UARTResource
+from torii.platform.resources.memory    import SDRAMResource
+from torii.platform.resources.user      import ButtonResources, LEDResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -36,6 +38,9 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		# SPIFlash (W25Q32JV)   1x/2x/4x speed
+		# XXX(aki):
+		# We can't replace this with `SPIFlashResource` because it needs a `clk` signal
+		# And the SPI Clock needs to be done via the `USRMCLK` block in the ECP5.
 		Resource(
 			'spi_flash', 0,
 			Subsignal('cs', PinsN('N8', dir = 'o')),
@@ -59,6 +64,7 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 			attrs = Attrs(PULLMODE = 'NONE', DRIVE = '4', SLEWRATE = 'FAST', IO_TYPE = 'LVCMOS33')
 		),
 		# Broadcom B50612D Gigabit Ethernet Transceiver
+		# TODO(aki): Replace with `EthernetResource` when it gets an `rst` signal
 		Resource(
 			'eth_rgmii', 0,
 			Subsignal('rst', PinsN('P5', dir = 'o')),
@@ -73,6 +79,7 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		# Broadcom B50612D Gigabit Ethernet Transceiver
+		# TODO(aki): Replace with `EthernetResource` when it gets an `rst` signal
 		Resource(
 			'eth_rgmii', 1,
 			Subsignal('rst', PinsN('P5', dir = 'o')),
@@ -86,7 +93,6 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 			Subsignal('rx_data', Pins('P13 N13 P14 M15', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
-
 	]
 	connectors = [
 		Connector('j', 1, 'F3 F1 G3 - G2 H3 H5 F15 L2 K1 J5 K2 B16 J14 F12 -'),
