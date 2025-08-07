@@ -4,7 +4,9 @@ from textwrap                           import dedent
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
-from torii.platform.resources           import LEDResources, SPIFlashResources, SwitchResources, UARTResource
+from torii.platform.resources.interface import UARTResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import LEDResources, SwitchResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -72,7 +74,7 @@ class VersaECP5Platform(ECP5Platform):
 		Resource(
 			'eth_clk125_pll', 0, Pins('U16', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
 		), # NC by default
-		# TODO(aki): Replace with EthernetResource
+		# TODO(aki): Replace with `EthernetResource` when it has `rst` signal support
 		Resource(
 			'eth_rgmii', 0,
 			Subsignal('rst', PinsN('U17', dir = 'o')),
@@ -86,6 +88,7 @@ class VersaECP5Platform(ECP5Platform):
 			Subsignal('rx_data', Pins('T20 U20 T19 R18', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS25')
 		),
+		# TODO(aki): Replace with `EthernetResource` when it has SGMII support
 		Resource(
 			'eth_sgmii', 0,
 			Subsignal('rst', PinsN('U17', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
@@ -100,6 +103,7 @@ class VersaECP5Platform(ECP5Platform):
 		Resource(
 			'eth_clk125_pll', 1, Pins('C18', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
 		), # NC by default
+		# TODO(aki): Replace with `EthernetResource` when it has `rst` signal support
 		Resource(
 			'eth_rgmii', 1,
 			Subsignal('rst', PinsN('F20', dir = 'o')),
@@ -113,6 +117,7 @@ class VersaECP5Platform(ECP5Platform):
 			Subsignal('rx_data', Pins('G18 G16 H18 H17', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS25')
 		),
+		# TODO(aki): Replace with `EthernetResource` when it has SGMII support
 		Resource(
 			'eth_sgmii', 1,
 			Subsignal('rst', PinsN('F20', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS25')),
@@ -121,6 +126,7 @@ class VersaECP5Platform(ECP5Platform):
 			Subsignal('tx', DiffPairs('W17', 'W18', dir = 'o')),
 			Subsignal('rx', DiffPairs('Y16', 'Y17', dir = 'i')),
 		),
+		# TODO(aki): Replace with `DDR3Resource` when more granular attrs are possible
 		Resource(
 			'ddr3', 0,
 			Subsignal('rst', PinsN('N4', dir = 'o')),

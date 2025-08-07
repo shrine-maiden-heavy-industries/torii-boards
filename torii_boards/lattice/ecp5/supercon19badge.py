@@ -5,9 +5,9 @@ from torii.build                        import (
 )
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.resources           import (
-	ButtonResources, DirectUSBResource, LEDResources, SDRAMResource, UARTResource
-)
+from torii.platform.resources.interface import DirectUSBResource, UARTResource
+from torii.platform.resources.memory    import SDRAMResource
+from torii.platform.resources.user      import ButtonResources, LEDResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -82,7 +82,7 @@ class Supercon19BadgePlatform(ECP5Platform):
 			Subsignal('b', Pins('E2', dir = 'i')),
 			Attrs(IO_TYPE = 'LVCMOS33', PULLMODE = 'UP')
 		),
-		# Direct HDMI on the bottom of the board.
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 0,
 			Subsignal('clk', DiffPairsN('P20', 'R20'), Attrs(IO_TYPE = 'TMDS_33')),
@@ -105,8 +105,11 @@ class Supercon19BadgePlatform(ECP5Platform):
 			Subsignal('blen', Pins('P5')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
+		# XXX(aki):
+		# We can't replace this with `SPIFlashResource` because it needs a `clk` signal
+		# And the SPI Clock needs to be done via the `USRMCLK` block in the ECP5.
 		Resource(
-			'spi_flash', 0, # clock needs to be accessed through USRMCLK
+			'spi_flash', 0,
 			Subsignal('cs', PinsN('R2')),
 			Subsignal('copi', Pins('W2')),
 			Subsignal('cipo', Pins('V2')),
@@ -114,12 +117,16 @@ class Supercon19BadgePlatform(ECP5Platform):
 			Subsignal('hold', Pins('W1')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
+		# XXX(aki):
+		# We can't replace this with `SPIFlashResource` because it needs a `clk` signal
+		# And the SPI Clock needs to be done via the `USRMCLK` block in the ECP5.
 		Resource(
-			'spi_flash_4x', 0, # clock needs to be accessed through USRMCLK
+			'spi_flash_4x', 0,
 			Subsignal('cs', PinsN('R2')),
 			Subsignal('dq', Pins('W2 V2 Y2 W1')),
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `SPIResource` when it's QSPI compatible
 		# SPI-connected PSRAM.
 		Resource(
 			'spi_psram_4x', 0,
@@ -128,6 +135,7 @@ class Supercon19BadgePlatform(ECP5Platform):
 			Subsignal('dq', Pins('E19 D19 C20 F19'), Attrs(PULLMODE = 'UP')),
 			Attrs(IO_TYPE = 'LVCMOS33', SLEWRATE = 'SLOW')
 		),
+		# TODO(aki): Replace with `SPIResource` when it's QSPI compatible
 		Resource(
 			'spi_psram_4x', 1,
 			Subsignal('cs', PinsN('F20')),
