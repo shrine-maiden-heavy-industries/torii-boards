@@ -2,9 +2,9 @@
 
 from torii.build                               import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                           import BuildProducts
-from torii.platform.resources                  import (
-	ButtonResources, LEDResources, SPIFlashResources, SwitchResources, UARTResource
-)
+from torii.platform.resources.interface        import UARTResource
+from torii.platform.resources.memory           import SPIFlashResources
+from torii.platform.resources.user             import ButtonResources, LEDResources, SwitchResources
 from torii.platform.vendor.lattice.machxo_2_3l import MachXO3LPlatform
 
 __all__ = (
