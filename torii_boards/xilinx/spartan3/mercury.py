@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import (
-	Display7SegResource, PS2Resource, SPIFlashResources, SPIResource, SRAMResource, UARTResource, VGAResource
-)
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildProducts
+from torii.platform.resources.display   import Display7SegResource, VGAResource
+from torii.platform.resources.interface import PS2Resource, SPIResource, UARTResource
+from torii.platform.resources.memory    import SPIFlashResources, SRAMResource
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'MercuryPlatform',
