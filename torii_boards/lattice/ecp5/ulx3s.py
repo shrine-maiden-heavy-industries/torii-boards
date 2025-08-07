@@ -3,9 +3,9 @@
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
-from torii.platform.resources           import (
-	ButtonResources, DirectUSBResource, LEDResources, SDCardResources, SDRAMResource, SPIResource, UARTResource
-)
+from torii.platform.resources.interface import DirectUSBResource, SPIResource, UARTResource
+from torii.platform.resources.memory    import SDCardResources, SDRAMResource
+from torii.platform.resources.user      import ButtonResources, LEDResources
 from torii.platform.vendor.lattice.ecp5 import ECP5Platform
 
 __all__ = (
@@ -57,8 +57,9 @@ class _ULX3SPlatform(ECP5Platform):
 			clk = 'J1', cmd = 'J3', dat0 = 'K2', dat1 = 'K1', dat2 = 'H2', dat3 = 'H1',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33', SLEW = 'FAST')
 		),
-		# TODO(aki): Replace with SPIFlashResource
-		# SPI Flash clock is accessed via USR_MCLK instance.
+		# XXX(aki):
+		# We can't replace this with `SPIFlashResource` because it needs a `clk` signal
+		# And the SPI Clock needs to be done via the `USRMCLK` block in the ECP5.
 		Resource(
 			'spi_flash', 0,
 			Subsignal('cs', PinsN('R2', dir = 'o')),
@@ -108,6 +109,7 @@ class _ULX3SPlatform(ECP5Platform):
 		Resource('diff_gpio', 2, DiffPairs('A9', 'B10'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource('diff_gpio', 3, DiffPairs('B9', 'C10'),  Attrs(IO_TYPE = 'LVCMOS33')),
 		# HDMI (only TX, due to the top bank of ECP5 only supporting diff. outputs)
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 0,
 			Subsignal(

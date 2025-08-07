@@ -1,8 +1,11 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.platform.resources     import I2CResource, LEDResources, SDCardResources, UARTResource, VGADACResource
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.platform.resources.display   import VGADACResource
+from torii.platform.resources.interface import I2CResource, UARTResource
+from torii.platform.resources.memory    import SDCardResources
+from torii.platform.resources.user      import LEDResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'Mega65r3Platform',
@@ -115,6 +118,7 @@ class Mega65r3Platform(XilinxPlatform):
 			],
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 0,
 			Subsignal('clk', DiffPairs('W1', 'Y1', dir = 'o')),
@@ -141,11 +145,13 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('sync', Pins('F19', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33'),
 		),
+		# TODO(aki): Replace with `SPIFlashResource` when more granular attrs are possible
 		Resource(
 			'spi_flash', 0,
 			Subsignal('data', Pins('P22 R22 P21 R21', dir = 'io'), Attrs(PULLUP = 'TRUE')),
 			Subsignal('cs', PinsN('T19', dir = 'o')),
 		),
+		# TODO(aki): Replace with `HyperBusResource` when more granular attrs are possible
 		Resource(
 			'hyper_ram', 0,
 			Subsignal('clk', Pins('D22', dir = 'o'), Attrs(SLEW = 'FAST', DRIVE = '16')),
@@ -155,6 +161,7 @@ class Mega65r3Platform(XilinxPlatform):
 			Subsignal('cs', Pins('C22', dir = 'o')),
 			Attrs(IOSTANDARD = 'LVCMOS33', PULLUP = 'FALSE'),
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'ethernet', 0,
 			Subsignal('led', Pins('R14', dir = 'o')),

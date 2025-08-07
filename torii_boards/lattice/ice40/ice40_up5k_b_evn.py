@@ -2,7 +2,8 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.resources            import LEDResources, SPIFlashResources, SwitchResources
+from torii.platform.resources.memory     import SPIFlashResources
+from torii.platform.resources.user       import LEDResources, SwitchResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
@@ -28,6 +29,7 @@ class ICE40UP5KBEVNPlatform(ICE40Platform):
 			pins = '39 40 41', invert = True,
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
+		# Semantic Aliases
 		Resource('led_b', 0, PinsN('39', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_g', 0, PinsN('40', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_r', 0, PinsN('41', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),

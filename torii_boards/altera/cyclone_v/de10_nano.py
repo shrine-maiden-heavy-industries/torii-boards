@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Attrs, Clock, Connector, Pins, Resource, Subsignal
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import (
-	ButtonResources, LEDResources, SPIResource, SwitchResources, UARTResource
-)
-from torii.platform.vendor.altera import AlteraPlatform
+from torii.build                        import Attrs, Clock, Connector, Pins, Resource, Subsignal
+from torii.build.run                    import BuildProducts
+from torii.platform.resources.interface import SPIResource, UARTResource
+from torii.platform.resources.user      import ButtonResources, LEDResources, SwitchResources
+from torii.platform.vendor.altera       import AlteraPlatform
 
 __all__ = (
 	'DE10NanoPlatform',
