@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from textwrap                     import dedent
+from textwrap                      import dedent
 
-from torii.build                  import Attrs, Clock, Connector, Pins, Resource
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import ButtonResources, LEDResources, SwitchResources
-from torii.platform.vendor.altera import AlteraPlatform
+from torii.build                   import Attrs, Clock, Connector, Pins, Resource
+from torii.build.run               import BuildProducts
+from torii.platform.resources.user import ButtonResources, LEDResources, SwitchResources
+from torii.platform.vendor.altera  import AlteraPlatform
 
 __all__ = (
 	'ArrowDECAPlatform',
