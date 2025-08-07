@@ -1,15 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from textwrap                     import dedent
+from textwrap                           import dedent
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildPlan, BuildProducts
-from torii.hdl.ir                 import Fragment
-from torii.platform.resources     import (
-	ButtonResources, I2CResource, LEDResources, RGBLEDResource, SPIFlashResources, SPIResource,
-	SwitchResources, UARTResource
-)
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
+from torii.hdl.ir                       import Fragment
+from torii.platform.resources.interface import I2CResource, SPIResource, UARTResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'ArtyS7_25Platform',
@@ -52,6 +51,7 @@ class _ArtyS7Platform(XilinxPlatform):
 			cs_n = 'M13', clk = 'D11', copi = 'K17', cipo = 'K18', wp_n = 'L14', hold_n = 'M15',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `DDR3Resource` when more granular attrs are possible
 		Resource(
 			'ddr3', 0,
 			Subsignal('rst', PinsN('J6', dir = 'o')),
