@@ -43,6 +43,8 @@ Unreleased template stuff
 
 ### Fixed
 
+- All board files now use the appropriate Torii platform resources where possible.
+
 ## [0.8.0] - 2025-06-26
 
 This is a maintenance release, syncs the minimum [Torii] version to `0.8.0` in preparation for
