@@ -1,15 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from textwrap                     import dedent
+from textwrap                           import dedent
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildPlan, BuildProducts
-from torii.hdl.ir                 import Fragment
-from torii.platform.resources     import (
-	Display7SegResource, LEDResources, PS2Resource, RGBLEDResource, SDCardResources,
-	SPIFlashResources, SwitchResources, UARTResource, VGAResource
-)
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
+from torii.hdl.ir                       import Fragment
+from torii.platform.resources.display   import Display7SegResource, VGAResource
+from torii.platform.resources.interface import PS2Resource, UARTResource
+from torii.platform.resources.memory    import SDCardResources, SPIFlashResources
+from torii.platform.resources.user      import LEDResources, RGBLEDResource, SwitchResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'Nexys4DDRPlatform',
@@ -128,6 +128,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 			clk = 'F4', dat = 'B2',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33', PULLUP = 'TRUE')
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth', 0,  # LAN8720A
 			Subsignal('mdio', Pins('A9', dir = 'io')),
@@ -147,6 +148,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 			cs_n = 'L13', clk = 'E9', copi = 'K17', cipo = 'K18', wp_n = 'L14', hold_n = 'M14',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `DDR2Resource` when more granular attrs are possible
 		Resource(
 			'ddr2', 0, # MT47H64M16HR-25:H
 			Subsignal('a', Pins('M4 P4 M6 T1 L3 P5 M2 N1 L4 N5 R2 K5 N6 K3', dir = 'o')),

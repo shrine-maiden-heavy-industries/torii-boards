@@ -1,14 +1,14 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from textwrap                     import dedent
+from textwrap                           import dedent
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildPlan, BuildProducts
-from torii.hdl.ir                 import Fragment
-from torii.platform.resources     import (
-	ButtonResources, LEDResources, RGBLEDResource, SPIFlashResources, SPIResource, SwitchResources, UARTResource
-)
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
+from torii.hdl.ir                       import Fragment
+from torii.platform.resources.interface import SPIResource, UARTResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'ArtyA7_35Platform',
@@ -56,6 +56,7 @@ class _ArtyA7Platform(XilinxPlatform):
 			cs_n = 'L13', clk = 'L16', copi = 'K17', cipo = 'K18', wp_n = 'L14', hold_n = 'M14',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `DDR3Resource` when more granular attrs are possible
 		Resource(
 			'ddr3', 0,
 			Subsignal('rst', PinsN('K6', dir = 'o')),
@@ -84,6 +85,7 @@ class _ArtyA7Platform(XilinxPlatform):
 		Resource(
 			'eth_clk50', 0, Pins('G18', dir = 'o'), Clock(50e6), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth_mii', 0,
 			Subsignal('rst', PinsN('C16', dir = 'o')),
@@ -100,6 +102,7 @@ class _ArtyA7Platform(XilinxPlatform):
 			Subsignal('crs', Pins('G14', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth_rmii', 0,
 			Subsignal('rst', PinsN('C16', dir = 'o')),

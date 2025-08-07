@@ -2,11 +2,11 @@
 
 import subprocess
 
-from torii.build                  import Attrs, Clock, Connector, Pins, Resource
-from torii.platform.resources     import (
-	ButtonResources, LEDResources, RGBLEDResource, SPIFlashResources, SRAMResource, UARTResource
-)
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, Pins, Resource
+from torii.platform.resources.interface import UARTResource
+from torii.platform.resources.memory    import SPIFlashResources, SRAMResource
+from torii.platform.resources.user      import ButtonResources, LEDResources, RGBLEDResource
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 '''
 Example Usage:
