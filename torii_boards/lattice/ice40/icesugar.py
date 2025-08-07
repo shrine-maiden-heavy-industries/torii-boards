@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
+from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.resources            import LEDResources, SPIFlashResources, SwitchResources, UARTResource
+from torii.platform.resources.interface  import DirectUSBResource, UARTResource
+from torii.platform.resources.memory     import SPIFlashResources
+from torii.platform.resources.user       import LEDResources, SwitchResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
@@ -41,13 +43,9 @@ class ICESugarPlatform(ICE40Platform):
 			cs_n = '16', clk = '15', copi = '14', cipo = '17', wp_n = '12', hold_n = '13',
 			attrs = Attrs(IO_STANDARD = 'LVCMOS33')
 		),
-		# TODO(aki): Replace with DirectUSBResource
-		Resource(
-			'usb', 0,
-			Subsignal('d_p', Pins('10', dir = 'io')),
-			Subsignal('d_n', Pins('9', dir = 'io')),
-			Subsignal('pullup', Pins('11', dir = 'o')),
-			Attrs(IO_STANDARD = 'LVCMOS33')
+		DirectUSBResource(
+			0,
+			d_p = '10', d_n = '9', pullup = '11', attrs = Attrs(IO_STANDARD = 'LVCMOS33')
 		),
 	]
 

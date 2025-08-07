@@ -2,7 +2,8 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.resources            import LEDResources, SPIFlashResources
+from torii.platform.resources.memory     import SPIFlashResources
+from torii.platform.resources.user       import LEDResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
