@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from textwrap                     import dedent
-from typing                       import Literal
+from textwrap                           import dedent
+from typing                             import Literal
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildPlan, BuildProducts
-from torii.hdl.ir                 import Fragment
-from torii.platform.resources     import (
-	ButtonResources, I2CResource, LEDResources, SDCardResources, SPIResource,
-	SwitchResources, UARTResource, ULPIResource, VGAResource
-)
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
+from torii.hdl.ir                       import Fragment
+from torii.platform.resources.display   import VGAResource
+from torii.platform.resources.interface import I2CResource, SPIResource, UARTResource, ULPIResource
+from torii.platform.resources.memory    import SDCardResources
+from torii.platform.resources.user      import ButtonResources, LEDResources, SwitchResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'Genesys2Platform',
@@ -84,6 +84,7 @@ class Genesys2Platform(XilinxPlatform):
 			scl = 'AE30', sda = 'AF30',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `DDR3Resource` when more granular attrs are possible
 		Resource(
 			'ddr3', 0,
 			Subsignal('rst', PinsN('AG5', dir = 'o'), Attrs(IOSTANDARD = 'SSTL15')),
@@ -153,6 +154,7 @@ class Genesys2Platform(XilinxPlatform):
 			Subsignal('vbat_en', PinsN('AB22', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),
 			Attrs(IOSTANDARD = 'LVCMOS18')
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 0,  # HDMI TX, connector J4
 			Subsignal('scl', Pins('AF27', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33')),
@@ -165,6 +167,7 @@ class Genesys2Platform(XilinxPlatform):
 			)),
 			Attrs(IOSTANDARD = 'TMDS_33')
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 1,  # HDMI RX, connector J5
 			Subsignal('scl', Pins('AJ28', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33')),
@@ -204,6 +207,7 @@ class Genesys2Platform(XilinxPlatform):
 		Resource(
 			'vusb_oc', 0, PinsN('AF16', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth_rgmii', 0,
 			Subsignal('rst', PinsN('AH24', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),

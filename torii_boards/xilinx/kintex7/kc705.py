@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Attrs, Clock, DiffPairs, Resource
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import LEDResources, UARTResource
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, DiffPairs, Resource
+from torii.build.run                    import BuildProducts
+from torii.platform.resources.interface import UARTResource
+from torii.platform.resources.user      import LEDResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'KC705Platform',
