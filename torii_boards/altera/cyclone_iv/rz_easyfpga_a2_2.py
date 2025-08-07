@@ -1,15 +1,15 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from textwrap                     import dedent
+from textwrap                           import dedent
 
-from torii.build                  import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildProducts
-from torii.hdl.ir                 import Fragment
-from torii.platform.resources     import (
-	ButtonResources, Display7SegResource, I2CResource, LEDResources, PS2Resource, SDRAMResource, UARTResource,
-	VGAResource
-)
-from torii.platform.vendor.altera import AlteraPlatform
+from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildProducts
+from torii.hdl.ir                       import Fragment
+from torii.platform.resources.display   import Display7SegResource, VGAResource
+from torii.platform.resources.interface import I2CResource, PS2Resource, UARTResource
+from torii.platform.resources.memory    import SDRAMResource
+from torii.platform.resources.user      import ButtonResources, LEDResources
+from torii.platform.vendor.altera       import AlteraPlatform
 
 __all__ = (
 	'RZEasyFPGAA2_2Platform',
