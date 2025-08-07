@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                         import Attrs, Connector, PinsN, Resource
-from torii.platform.resources            import LEDResources, SPIFlashResources
+from torii.platform.resources.memory     import SPIFlashResources
+from torii.platform.resources.user       import LEDResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
@@ -21,6 +22,7 @@ class UpduinoV1Platform(ICE40Platform):
 		*LEDResources(
 			pins = '39 40 41', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
+		# Semantic Aliases
 		Resource('led_g', 0, PinsN('39', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_b', 0, PinsN('40', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		Resource('led_r', 0, PinsN('41', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),

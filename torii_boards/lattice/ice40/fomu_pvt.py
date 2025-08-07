@@ -2,7 +2,9 @@
 
 from torii.build                         import Attrs, Clock, Pins, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.resources            import DirectUSBResource, LEDResources, RGBLEDResource, SPIFlashResources
+from torii.platform.resources.interface  import DirectUSBResource
+from torii.platform.resources.memory     import SPIFlashResources
+from torii.platform.resources.user       import ButtonResources, LEDResources, RGBLEDResource
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
@@ -38,10 +40,7 @@ class FomuPVTPlatform(ICE40Platform):
 			cs_n = 'C1', clk = 'D1', copi = 'F1', cipo = 'E1',
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS'),
 		),
-		Resource('touch', 0, Pins('E4')),
-		Resource('touch', 1, Pins('D5')),
-		Resource('touch', 2, Pins('E5')),
-		Resource('touch', 3, Pins('F5')),
+		*ButtonResources('touch', pins = 'E4 D5 E5 F5'),
 	]
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:

@@ -2,9 +2,9 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
-from torii.platform.resources            import (
-	ButtonResources, LEDResources, SRAMResource, SwitchResources, UARTResource
-)
+from torii.platform.resources.interface  import UARTResource
+from torii.platform.resources.memory     import SRAMResource
+from torii.platform.resources.user       import ButtonResources, LEDResources, SwitchResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (

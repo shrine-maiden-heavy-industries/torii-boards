@@ -4,7 +4,8 @@ import os
 import subprocess
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
-from torii.platform.resources            import RGBLEDResource, SPIFlashResources
+from torii.platform.resources.memory     import SPIFlashResources
+from torii.platform.resources.user       import RGBLEDResource
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
 
 __all__ = (
