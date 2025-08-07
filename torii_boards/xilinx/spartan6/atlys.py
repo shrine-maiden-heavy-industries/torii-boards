@@ -1,11 +1,13 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from typing                       import Literal
+from typing                             import Literal
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import PS2Resource, SPIFlashResources, UARTResource
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run                    import BuildProducts
+from torii.platform.resources.interface import PS2Resource, UARTResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import ButtonResources, LEDResources, SwitchResources
+from torii.platform.vendor.xilinx       import XilinxPlatform
 
 __all__ = (
 	'AtlysPlatform',
@@ -40,27 +42,20 @@ class AtlysPlatform(XilinxPlatform):
 		Resource(
 			'clk100', 0, Pins('L15', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')
 		), # GCLK
-		Resource('led', 0, Pins('U18', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),          # LD0
-		Resource('led', 1, Pins('M14', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),          # LD1
-		Resource('led', 2, Pins('N14', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),          # LD2
-		Resource('led', 3, Pins('L14', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),          # LD3
-		Resource('led', 4, Pins('M13', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),          # LD4
-		Resource('led', 5, Pins('D4', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),           # LD5
-		Resource('led', 6, Pins('P16', dir = 'o'), Attrs(IOSTANDARD = 'LVCMOS33')),          # LD6
+		*LEDResources(pins = 'U18 M14 N14 L14 M13 D3 P16', attrs = Attrs(IOSTANDARD = 'LVCMOS33')), # LD0..6
 		Resource('led', 7, Pins('N12', dir = 'o'), Attrs(IOSTANDARD = bank2_iostandard)),    # LD7
-		Resource('button', 0, Pins('N4', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')),        # BTNU
-		Resource('button', 1, Pins('P4', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')),        # BTNL
-		Resource('button', 2, Pins('P3', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')),        # BTND
-		Resource('button', 3, Pins('F6', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')),        # BTNR
-		Resource('button', 4, Pins('F5', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')),        # BTNC
-		Resource('switch', 0, Pins('A10', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),       # SW0
-		Resource('switch', 1, Pins('D14', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),       # SW1
-		Resource('switch', 2, Pins('C14', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),       # SW2
-		Resource('switch', 3, Pins('P15', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),       # SW3
-		Resource('switch', 4, Pins('P12', dir = 'i'), Attrs(IOSTANDARD = bank2_iostandard)), # SW4
-		Resource('switch', 5, Pins('R5', dir = 'i'), Attrs(IOSTANDARD = bank2_iostandard)),  # SW5
-		Resource('switch', 6, Pins('T5', dir = 'i'), Attrs(IOSTANDARD = bank2_iostandard)),  # SW6
-		Resource('switch', 7, Pins('E4', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS18')),        # SW7
+		# BTNU/BTNL/BTND/BTNR/BTNC
+		*ButtonResources(pins = 'N4 P4 P3 F6 F5', attrs = Attrs(IOSTANDARD = 'LVCMOS18')),
+		*SwitchResources(
+			pins = {
+				0: 'A10', 1: 'D14', 2: 'C14', 3: 'P15', 7: 'E4',
+			}, attrs = Attrs(IOSTANDARD = 'LVCMOS33')
+		), # SW0..3,SW7
+		*SwitchResources(
+			pins = {
+				4: 'P12', 5: 'R5', 6: 'T5',
+			}, attrs = Attrs(IOSTANDARD = bank2_iostandard)
+		), # SW4..6
 		UARTResource(0, rx = 'A16', tx = 'B16', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),     # J17/UART
 		PS2Resource(
 			0, # PS/2 keyboard interface converted from J13 'HOST' USB connector
@@ -75,6 +70,7 @@ class AtlysPlatform(XilinxPlatform):
 			cs_n = 'AE14', clk = 'AH18', copi = 'AF14', cipo = 'AF20', wp_n = 'AG21', hold_n = 'AG17',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS25', SLEW = 'FAST'),
 		),
+		# TODO(aki): Replace with `DDR2Resource` when more granular attrs are possible
 		Resource(
 			'ddr2', 0,
 			Subsignal(
@@ -92,6 +88,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('odt', Pins('K6', dir = 'o')),
 			Attrs(IOSTANDARD = 'SSTL18_II', SLEW = 'FAST'),
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth_gmii', 0,
 			Subsignal('rst', PinsN('G13', dir = 'o')),
@@ -111,6 +108,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('crs', Pins('C18', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth_rgmii', 0,
 			Subsignal('rst', PinsN('G13', dir = 'o')),
@@ -125,6 +123,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('rx_data', Pins('G16 H14 E16 F15', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(
 			'eth_mii', 0,
 			Subsignal('rst', PinsN('G13', dir = 'o')),
@@ -144,6 +143,7 @@ class AtlysPlatform(XilinxPlatform):
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		# Device does not support RMII
+		# TODO(aki): Replace with `EthernetResource` when TBI/RTBI support merged + released in Torii
 		Resource(
 			'eth_tbi', 0,
 			Subsignal('rst', PinsN('G13', dir = 'o')),
@@ -158,6 +158,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('comma', Pins('C18', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `EthernetResource` when TBI/RTBI support merged + released in Torii
 		Resource(
 			'eth_rtbi', 0,
 			Subsignal('rst', PinsN('G13', dir = 'o')),
@@ -170,6 +171,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('rx_data', Pins('G16 H14 E16 F15 F17', dir = 'i')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 0, # J1, input only due to on board buffer, HDMI A connector
 			Subsignal('scl',  Pins('C13'), Attrs(IOSTANDARD = 'I2C')),
@@ -178,6 +180,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('d', DiffPairs('G9 B11 B12', 'F9 A11 A12', dir = 'i')),
 			Attrs(IOSTANDARD = 'TMDS_33'),
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 1, # J2, output only due to on board buffer, HDMI A connector
 			Subsignal('scl', Pins('D9'), Attrs(IOSTANDARD = 'I2C')),
@@ -186,6 +189,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('d', DiffPairs('D8 C7 B8', 'C8 A7 A8', dir = 'o')),
 			Attrs(IOSTANDARD = 'TMDS_33'),
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 2, # J3, input only due to on board buffer, HDMI A connector
 			Subsignal('scl', Pins('M16'), Attrs(IOSTANDARD = 'I2C')),
@@ -194,6 +198,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('d', DiffPairs('K17 L17 J16', 'K18 L18 J18', dir = 'i')),
 			Attrs(IOSTANDARD = 'TMDS_33'),
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi', 3, # JA, input/output as it is unbuffered, HDMI D connector
 			Subsignal('scl', Pins('C13'), Attrs(IOSTANDARD = 'I2C')),
@@ -202,6 +207,7 @@ class AtlysPlatform(XilinxPlatform):
 			Subsignal('d', DiffPairs('R3 T4 N5', 'T3 V4 P6')),
 			Attrs(IOSTANDARD = 'TMDS_33'),
 		),
+		# TODO(aki): Replace with `AC97Resource` when merged + released in Torii
 		Resource(
 			'ac97', 0,
 			Subsignal('clk', Pins('L13', dir = 'o')),
@@ -222,8 +228,8 @@ class AtlysPlatform(XilinxPlatform):
 	]
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
-		from subprocess  import run
-		from textwrap    import dedent
+		from subprocess import run
+		from textwrap import dedent
 
 		from torii.tools import require_tool
 
