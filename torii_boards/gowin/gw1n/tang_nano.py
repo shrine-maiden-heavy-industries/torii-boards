@@ -2,9 +2,11 @@
 
 import subprocess
 
-from torii.build                 import Attrs, Clock, Pins, Resource, Subsignal
-from torii.platform.resources    import ButtonResources, RGBLEDResource, SPIFlashResources, UARTResource
-from torii.platform.vendor.gowin import GowinPlatform
+from torii.build                        import Attrs, Clock, Pins, Resource, Subsignal
+from torii.platform.resources.interface import UARTResource
+from torii.platform.resources.memory    import SPIFlashResources
+from torii.platform.resources.user      import ButtonResources, RGBLEDResource
+from torii.platform.vendor.gowin        import GowinPlatform
 
 __all__ = (
 	'TangNanoPlatform',
@@ -33,6 +35,7 @@ class TangNanoPlatform(GowinPlatform):
 			cs_n = '19', clk = '20', copi = '22', cipo = '23', wp_n = '24', hold_n = '25',
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `LCDResource` when in Torii
 		Resource(
 			'lcd', 0,
 			Subsignal('clk', Pins('11', dir = 'o')),
