@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Attrs, Clock, Connector, Pins, Resource, Subsignal
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import DDR3Resource, LEDResources
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                     import Attrs, Clock, Connector, Pins, Resource, Subsignal
+from torii.build.run                 import BuildProducts
+from torii.platform.resources.memory import DDR3Resource
+from torii.platform.resources.user   import LEDResources
+from torii.platform.vendor.xilinx    import XilinxPlatform
 
 __all__ = (
 	'AlchitryAuPlatform',
@@ -43,6 +44,7 @@ class AlchitryAuPlatform(XilinxPlatform):
 			pins = 'K13 K12 L14 L13 M16 M14 M12 N16',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# NOTE(aki): I *think* this is a serial port???
 		Resource(
 			'usb', 0,
 			Subsignal('usb_tx', Pins('P16', dir = 'o')),
