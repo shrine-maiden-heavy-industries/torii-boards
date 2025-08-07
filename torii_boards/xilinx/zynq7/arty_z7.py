@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
-from torii.build.run              import BuildProducts
-from torii.platform.resources     import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
-from torii.platform.vendor.xilinx import XilinxPlatform
+from torii.build                   import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.build.run               import BuildProducts
+from torii.platform.resources.user import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
+from torii.platform.vendor.xilinx  import XilinxPlatform
 
 __all__ = (
 	'ArtyZ720Platform',
@@ -55,6 +55,7 @@ class ArtyZ720Platform(XilinxPlatform):
 			Pins('J15', dir = 'io'),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi_rx', 0, # J10
 			Subsignal('cec', Pins('H17', dir = 'io')),
@@ -67,6 +68,7 @@ class ArtyZ720Platform(XilinxPlatform):
 			Subsignal('sda', Pins('U15', dir = 'io')),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
+		# TODO(aki): Replace with `HDMIResource` when merged + released in Torii
 		Resource(
 			'hdmi_tx', 0, # J11
 			Subsignal('cec', Pins('G15', dir = 'io')),
