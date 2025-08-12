@@ -1,8 +1,11 @@
-setuptools_scm
-sphinx
-sphinx-inline-tabs
 furo
+matplotlib
 myst-parser
+sphinx
+sphinx-autodoc-typehints
+sphinx-codeautolink
 sphinx-copybutton
 sphinx-design
+sphinx-inline-tabs
 sphinx-multiversion
+sphinxext-opengraph
