@@ -28,6 +28,8 @@ Unreleased template stuff
 
 ### Removed
 
+- Removed the deprecated imports of board files from the root vendor namespace.
+
 ### Fixed
 
 ## [0.8.1] - 2025-08-13
