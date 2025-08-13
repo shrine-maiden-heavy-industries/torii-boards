@@ -20,10 +20,20 @@ Unreleased template stuff
 
 ## [Unreleased]
 
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.8.1] - 2025-08-13
+
 > [!IMPORTANT]
 > The minimum Python version for Torii and Torii Boards is now 3.11
-
-### Added
 
 ### Changed
 
@@ -38,8 +48,6 @@ Unreleased template stuff
 ### Deprecated
 
 - Board imports from the root FPGA namespace have been deprecated in favor of using the sub-family name.
-
-### Removed
 
 ### Fixed
 
@@ -138,7 +146,8 @@ the Torii `v1.0.0` release in the future.
 
 No changelog is provided for these versions as they are all older untagged releases of [Amaranth Boards](https://github.com/amaranth-lang/amaranth-boards) from before the fork.
 
-[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.8.0...main
+[unreleased]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.8.1...main
+[0.8.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.7.5...v0.8.0
 [0.7.5]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.1...v0.7.5
 [0.6.1]: https://github.com/shrine-maiden-heavy-industries/torii-boards/compare/v0.6.0...v0.6.1
