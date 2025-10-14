@@ -5,6 +5,7 @@ The {py:mod}`torii_boards.gowin` module provides a collection of Gowin FPGA deve
 ```{toctree}
 :maxdepth: 2
 gw1n
+gw5a
 ```
 
 [Apicula]: https://github.com/YosysHQ/apicula
