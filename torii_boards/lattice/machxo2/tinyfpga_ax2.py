@@ -8,14 +8,16 @@ __all__ = (
 )
 
 class TinyFPGAAX2Platform(MachXO2Platform):
-	device      = 'LCMXO2-1200HC'
-	package     = 'SG32'
-	speed       = '4'
+	device         = 'LCMXO2-1200HC'
+	package        = 'SG32'
+	speed          = '4'
+	default_clk    = 'OSCH'
+	osch_frequency = 14.00
 
-	pretty_name = 'TinyFPGA AX2'
-	description = 'TinyFPGA AX2 Lattice MachXO2-1200 Development Board'
+	pretty_name    = 'TinyFPGA AX2'
+	description    = 'TinyFPGA AX2 Lattice MachXO2-1200 Development Board'
 
-	connectors  = [
+	connectors     = [
 		Connector(
 			'gpio', 0,
 			# Left side of the board
