@@ -38,7 +38,7 @@ class Blinky(Elaboratable):
 		for index, switch in zip(cycle(range(len(inverts))), switches):
 			inverts[index] ^= switch
 
-		clk_freq = platform.default_clk_frequency
+		clk_freq = platform.default_clk_frequency.hertz
 		timer = Signal(range(int(clk_freq // 2)), reset = int(clk_freq // 2) - 1)
 		flops = Signal(len(leds))
 
