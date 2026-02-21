@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import Display7SegResource, VGAResource
 from torii.platform.resources.interface import PS2Resource, SPIResource, UARTResource
 from torii.platform.resources.memory    import SPIFlashResources, SRAMResource
@@ -38,7 +39,7 @@ class MercuryPlatform(XilinxPlatform):
 
 	resources = [
 		Resource(
-			'clk50', 0, Pins('P43', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33'), Clock(50e6)
+			'clk50', 0, Pins('P43', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33'), Clock(MHz(50))
 		),
 		Resource('button', 0, Pins('P41', dir = 'i'), Attrs(IOSTANDARD = 'LVTTL')),
 		# The serial interface and flash memory have a shared SPI bus.
