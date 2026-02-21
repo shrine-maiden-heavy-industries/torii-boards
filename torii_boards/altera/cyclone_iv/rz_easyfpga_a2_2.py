@@ -5,6 +5,7 @@ from textwrap                           import dedent
 from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import Display7SegResource, VGAResource
 from torii.platform.resources.interface import I2CResource, PS2Resource, UARTResource
 from torii.platform.resources.memory    import SDRAMResource
@@ -28,7 +29,7 @@ class RZEasyFPGAA2_2Platform(AlteraPlatform):
 	resources   = [
 		# Clock
 		Resource(
-			'clk50', 0, Pins('23', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 0, Pins('23', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		# Reset switch, located on the lower left of the board.
 		Resource('rst', 0, PinsN('25', dir = 'i'), Attrs(io_standard = '3.3-V LVTTL')),
