@@ -4,6 +4,7 @@ import subprocess
 
 from enum                               import Enum
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import DirectUSBResource, UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources
@@ -61,7 +62,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 				'clk50',
 				0,
 				Pins('E2', dir = 'i'),
-				Clock(50_000_000),
+				Clock(MHz(50)),
 				Attrs(IO_TYPE = 'LVCMOS33')
 			),
 
