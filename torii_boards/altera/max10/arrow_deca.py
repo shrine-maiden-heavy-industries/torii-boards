@@ -4,6 +4,7 @@ from textwrap                      import dedent
 
 from torii.build                   import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run               import BuildProducts
+from torii.hdl.time                import MHz
 from torii.platform.resources.user import ButtonResources, LEDResources, SwitchResources
 from torii.platform.vendor.altera  import AlteraPlatform
 
@@ -22,10 +23,10 @@ class ArrowDECAPlatform(AlteraPlatform):
 	description = 'Arrow Development Tools DECA Altera MAX10 Development Kit'
 
 	resources   = [
-		Resource('clk50', 0, Pins('M8', dir = 'i'), Clock(50e6), Attrs(io_standard = '2.5 V')),
-		Resource('clk50', 1, Pins('P11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3 V')),
-		Resource('clk50', 2, Pins('N15', dir = 'i'), Clock(50e6), Attrs(io_standard = '1.5 V')),
-		Resource('clk10', 0, Pins('M9', dir = 'i'), Clock(10e6), Attrs(io_standard = '2.5 V')),
+		Resource('clk50', 0, Pins('M8', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '2.5 V')),
+		Resource('clk50', 1, Pins('P11', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3 V')),
+		Resource('clk50', 2, Pins('N15', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '1.5 V')),
+		Resource('clk10', 0, Pins('M9', dir = 'i'), Clock(MHz(10)), Attrs(io_standard = '2.5 V')),
 		*LEDResources(
 			pins = 'C7 C8 A6 B7 C4 A5 B4 C5',
 			invert = True,

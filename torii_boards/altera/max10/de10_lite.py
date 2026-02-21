@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import Display7SegResource, VGAResource
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SDRAMResource
@@ -24,13 +25,13 @@ class DE10LitePlatform(AlteraPlatform):
 
 	resources   = [
 		Resource(
-			'clk10', 0, Pins('N5', dir = 'i'),  Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk10', 0, Pins('N5', dir = 'i'),  Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 0, Pins('P11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 0, Pins('P11', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 1, Pins('N14', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 1, Pins('N14', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		*LEDResources(
 			pins = 'A8 A9 A10 B10 D13 C13 E14 D14 A11 B11',
