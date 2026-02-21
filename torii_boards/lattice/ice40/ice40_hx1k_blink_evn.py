@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import LEDResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
@@ -20,7 +21,7 @@ class ICE40HX1KBlinkEVNPlatform(ICE40Platform):
 
 	resources   = [
 		Resource(
-			'clk3p3', 0, Pins('13', dir = 'i'), Clock(3.3e6),
+			'clk3p3', 0, Pins('13', dir = 'i'), Clock(MHz(3.3)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
 		*LEDResources(pins = '59 56 53 51', attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),

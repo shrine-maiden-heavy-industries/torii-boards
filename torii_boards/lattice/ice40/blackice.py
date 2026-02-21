@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.interface  import UARTResource
 from torii.platform.resources.memory     import SRAMResource
 from torii.platform.resources.user       import ButtonResources, LEDResources, SwitchResources
@@ -21,7 +22,7 @@ class BlackIcePlatform(ICE40Platform):
 
 	resources   = [
 		Resource(
-			'clk100', 0, Pins('129', dir = 'i'), Clock(100e6), Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
+			'clk100', 0, Pins('129', dir = 'i'), Clock(MHz(100)), Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
 		*LEDResources(pins = '71 67 68 70', attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		# Semantic aliases

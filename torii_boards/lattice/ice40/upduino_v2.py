@@ -2,6 +2,7 @@
 
 from torii.build     import Attrs, Clock, Pins, Resource
 from torii.build.run import BuildProducts
+from torii.hdl.time  import MHz
 
 from .upduino_v1     import UpduinoV1Platform
 
@@ -18,7 +19,7 @@ class UpduinoV2Platform(UpduinoV1Platform):
 	resources = UpduinoV1Platform.resources + [
 		# Solder pin 12 to the adjacent 'J8' osc_out pin to enable.
 		Resource(
-			'clk12', 0, Pins('12', dir = 'i'), Clock(12e6), Attrs(IO_STANDARD = 'SB_LVCMOS')
+			'clk12', 0, Pins('12', dir = 'i'), Clock(MHz(12)), Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
 

@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.interface  import UARTResource
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import LEDResources
@@ -22,7 +23,7 @@ class ICE40HX8KBEVNPlatform(ICE40Platform):
 	resources   = [
 		Resource(
 			'clk12', 0,
-			Pins('J3', dir = 'i'), Clock(12e6),
+			Pins('J3', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
 		*LEDResources(

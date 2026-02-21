@@ -4,6 +4,7 @@ import os
 import subprocess
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
+from torii.hdl.time                      import MHz
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import RGBLEDResource
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
@@ -25,7 +26,7 @@ class UpduinoV3Platform(ICE40Platform):
 		# Solder the OSC jumper to connect the onboard oscillator to pin 20.
 		# Note that this overlaps with the QSPI pins.
 		Resource(
-			'clk12', 0, Pins('20', dir = 'i'), Clock(12e6), Attrs(IO_STANDARD = 'SB_LVCMOS')
+			'clk12', 0, Pins('20', dir = 'i'), Clock(MHz(12)), Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 		RGBLEDResource(
 			0,

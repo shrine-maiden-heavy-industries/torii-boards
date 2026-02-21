@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.interface  import DirectUSBResource
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import LEDResources, RGBLEDResource
@@ -22,7 +23,7 @@ class FomuHackerPlatform(ICE40Platform):
 	resources   = [
 		Resource(
 			'clk48', 0,
-			Pins('F5', dir = 'i'), Clock(48e6),
+			Pins('F5', dir = 'i'), Clock(MHz(48)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
 		*LEDResources(pins = 'A5', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),

@@ -2,6 +2,7 @@
 
 from torii.build                         import Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.display    import Display7SegResource, VGAResource
 from torii.platform.resources.interface  import UARTResource
 from torii.platform.resources.memory     import SPIFlashResources
@@ -22,7 +23,7 @@ class NandlandGoPlatform(ICE40Platform):
 
 	resources = [
 		Resource(
-			'clk25', 0, Pins('15', dir = 'i'), Clock(25e6)
+			'clk25', 0, Pins('15', dir = 'i'), Clock(MHz(25))
 		),
 		*LEDResources(pins = '56 57 59 60'),
 		*ButtonResources(pins = '53 51 54 52'),

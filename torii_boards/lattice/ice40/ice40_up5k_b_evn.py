@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import LEDResources, SwitchResources
 from torii.platform.vendor.lattice.ice40 import ICE40Platform
@@ -21,7 +22,7 @@ class ICE40UP5KBEVNPlatform(ICE40Platform):
 	resources   = [
 		# J51 must be connected to use clk12 (it is by default)
 		Resource(
-			'clk12', 0, Pins('35', dir = 'i'), Clock(12e6),
+			'clk12', 0, Pins('35', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
 		# 3 LEDs are present in an RGB common-anode package.

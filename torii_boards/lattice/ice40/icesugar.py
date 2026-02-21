@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, PinsN, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.interface  import DirectUSBResource, UARTResource
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import LEDResources, SwitchResources
@@ -21,7 +22,7 @@ class ICESugarPlatform(ICE40Platform):
 
 	resources   = [
 		Resource(
-			'clk12', 0, Pins('35', dir = 'i'), Clock(12e6),
+			'clk12', 0, Pins('35', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'LVCMOS33')
 		),
 		*LEDResources(pins = '40 41 39', invert = True, attrs = Attrs(IO_STANDARD = 'LVCMOS33')),

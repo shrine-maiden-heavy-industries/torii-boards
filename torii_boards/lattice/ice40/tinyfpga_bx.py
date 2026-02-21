@@ -2,6 +2,7 @@
 
 from torii.build                         import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                     import BuildProducts
+from torii.hdl.time                      import MHz
 from torii.platform.resources.interface  import DirectUSBResource
 from torii.platform.resources.memory     import SPIFlashResources
 from torii.platform.resources.user       import LEDResources
@@ -21,7 +22,7 @@ class TinyFPGABXPlatform(ICE40Platform):
 
 	resources   = [
 		Resource(
-			'clk16', 0, Pins('B2', dir = 'i'), Clock(16e6), Attrs(IO_STANDARD = 'SB_LVCMOS')
+			'clk16', 0, Pins('B2', dir = 'i'), Clock(MHz(16)), Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 		*LEDResources(pins = 'B3', attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		DirectUSBResource(
