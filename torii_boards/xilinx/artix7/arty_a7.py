@@ -5,6 +5,7 @@ from textwrap                           import dedent
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import SPIResource, UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
@@ -23,7 +24,7 @@ class _ArtyA7Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk100', 0, Pins('E3', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'clk100', 0, Pins('E3', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		Resource('rst', 0, PinsN('C2', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*LEDResources(pins = 'H5 J5 T9 T10', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
@@ -80,10 +81,10 @@ class _ArtyA7Platform(XilinxPlatform):
 		),
 		Resource(
 			'eth_clk25', 0,
-			Pins('G18', dir = 'o'), Clock(25e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			Pins('G18', dir = 'o'), Clock(MHz(25)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		Resource(
-			'eth_clk50', 0, Pins('G18', dir = 'o'), Clock(50e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'eth_clk50', 0, Pins('G18', dir = 'o'), Clock(MHz(50)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		# TODO(aki): Replace with `EthernetResource` when more granular attrs are possible
 		Resource(

@@ -5,6 +5,7 @@ from textwrap                           import dedent
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import Display7SegResource, VGAResource
 from torii.platform.resources.interface import PS2Resource, UARTResource
 from torii.platform.resources.memory    import SDCardResources, SPIFlashResources
@@ -26,7 +27,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 	description = 'Digilent Nexys 4 DDR Xilinx Artix7-100T Development Board'
 
 	resources   = [
-		Resource('clk100', 0, Pins('E3', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
+		Resource('clk100', 0, Pins('E3', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource('rst', 0, PinsN('C12', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*SwitchResources(
 			pins = {
@@ -140,7 +141,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 			Subsignal('txen', Pins('B9', dir = 'o')),
 			Subsignal('crs_dv', Pins('D9', dir = 'io')),
 			Subsignal('int', PinsN('B8', dir = 'io')),
-			Subsignal('clk', Pins('D5', dir = 'o'), Clock(50e6)),
+			Subsignal('clk', Pins('D5', dir = 'o'), Clock(MHz(50))),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		*SPIFlashResources(

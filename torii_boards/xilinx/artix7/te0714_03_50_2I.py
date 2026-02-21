@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                     import Attrs, Clock, Connector, Pins, Resource
+from torii.hdl.time                  import MHz
 from torii.platform.resources.memory import SPIFlashResources
 from torii.platform.resources.user   import LEDResources
 from torii.platform.vendor.xilinx    import XilinxPlatform
@@ -19,7 +20,7 @@ class TE0714_03_50_2IPlatform(XilinxPlatform):
 	description = 'Trenz Electronic TE0714-03-50 Xilinx Artix7-50T based FPGA Module'
 
 	resources   = [
-		Resource('clk25', 0, Pins('T14', dir = 'i'), Clock(25e6), Attrs(IOSTANDARD = 'LVCMOS18')),
+		Resource('clk25', 0, Pins('T14', dir = 'i'), Clock(MHz(25)), Attrs(IOSTANDARD = 'LVCMOS18')),
 		*LEDResources(pins = 'K18', attrs = Attrs(IOSTANDARD = 'LVCMOS18')),
 		*SPIFlashResources(
 			0,

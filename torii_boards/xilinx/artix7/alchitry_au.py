@@ -2,6 +2,7 @@
 
 from torii.build                     import Attrs, Clock, Connector, Pins, Resource, Subsignal
 from torii.build.run                 import BuildProducts
+from torii.hdl.time                  import MHz
 from torii.platform.resources.memory import DDR3Resource
 from torii.platform.resources.user   import LEDResources
 from torii.platform.vendor.xilinx    import XilinxPlatform
@@ -36,7 +37,7 @@ class AlchitryAuPlatform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk100', 0, Pins('N14', dir = 'i'), Clock(10e7),
+			'clk100', 0, Pins('N14', dir = 'i'), Clock(MHz(100)),
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		# On-Board LED Array

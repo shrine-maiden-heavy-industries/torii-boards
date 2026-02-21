@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import VGADACResource
 from torii.platform.resources.interface import I2CResource, UARTResource
 from torii.platform.resources.memory    import SDCardResources
@@ -21,7 +22,7 @@ class Mega65r3Platform(XilinxPlatform):
 	description = 'Mega65 Xilinx Artix7-200T Based 8-bit computer'
 
 	resources = [
-		Resource('clk100', 0, Pins('V13', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
+		Resource('clk100', 0, Pins('V13', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*LEDResources(pins = 'U22', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource(
 			'iec', 0,
