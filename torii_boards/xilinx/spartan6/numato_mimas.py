@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                     import Attrs, Clock, Connector, Pins, Resource
+from torii.hdl.time                  import MHz
 from torii.platform.resources.memory import SPIFlashResources
 from torii.platform.resources.user   import ButtonResources, LEDResources
 from torii.platform.vendor.xilinx    import XilinxPlatform
@@ -19,7 +20,7 @@ class NumatoMimasPlatform(XilinxPlatform):
 	description = 'Numato Mimas S6 Xilinx Spartan6 Development Board'
 
 	resources   = [
-		Resource('clk100', 0, Pins('P126', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')),
+		Resource('clk100', 0, Pins('P126', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*LEDResources(
 			pins = 'P119 P118 P117 P116 P115 P114 P112 P111',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')

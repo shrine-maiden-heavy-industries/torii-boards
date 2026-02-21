@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from torii.build                     import Attrs, Clock, Connector, Pins, Resource
+from torii.hdl.time                  import MHz
 from torii.platform.resources.memory import SPIFlashResources, SRAMResource
 from torii.platform.vendor.xilinx    import XilinxPlatform
 
@@ -19,7 +20,7 @@ class SK_XC6SLX9Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk50', 0, Pins('P134', dir = 'i'), Clock(50e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'clk50', 0, Pins('P134', dir = 'i'), Clock(MHz(50)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		*SPIFlashResources(
 			0,

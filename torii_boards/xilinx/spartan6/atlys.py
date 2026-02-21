@@ -4,6 +4,7 @@ from typing                             import Literal
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import PS2Resource, UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources, SwitchResources
@@ -40,7 +41,7 @@ class AtlysPlatform(XilinxPlatform):
 	resources   = [
 		Resource('rst', 0, PinsN('T15', dir = 'i'), Attrs(IOSTANDARD = bank2_iostandard)), # RESET
 		Resource(
-			'clk100', 0, Pins('L15', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'clk100', 0, Pins('L15', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')
 		), # GCLK
 		*LEDResources(pins = 'U18 M14 N14 L14 M13 D3 P16', attrs = Attrs(IOSTANDARD = 'LVCMOS33')), # LD0..6
 		Resource('led', 7, Pins('N12', dir = 'o'), Attrs(IOSTANDARD = bank2_iostandard)),    # LD7
