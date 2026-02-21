@@ -2,6 +2,7 @@
 
 from torii.build                   import Attrs, Clock, DiffPairs, Resource
 from torii.build.run               import BuildProducts
+from torii.hdl.time                import MHz
 from torii.platform.resources.user import LEDResources
 from torii.platform.vendor.xilinx  import XilinxPlatform
 
@@ -20,13 +21,15 @@ class KCU105Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk125', 0, DiffPairs('G10', 'F10', dir = 'i'), Clock(125e6), Attrs(IOSTANDARD = 'LVDS')
+			'clk125', 0, DiffPairs('G10', 'F10', dir = 'i'), Clock(MHz(125)), Attrs(IOSTANDARD = 'LVDS')
 		),
 		*LEDResources(
 			pins = 'AP8 H23 P20 P21 N22 M22 R23 P23',
 			attrs = Attrs(IOSTANDARD = 'LVCMOS18')
 		),
 	]
+
+	connectors = []
 
 	def toolchain_program(self, products: BuildProducts, name: str) -> None:
 		from os         import environ
