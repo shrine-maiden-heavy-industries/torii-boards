@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource, ULPIResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import RGBLEDResource
@@ -21,7 +22,7 @@ class _ECPIX5Platform(ECP5Platform):
 	resources   = [
 		Resource('rst', 0, PinsN('AB1', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource(
-			'clk100', 0, Pins('K23', dir = 'i'), Clock(100e6), Attrs(IO_TYPE = 'LVCMOS33')
+			'clk100', 0, Pins('K23', dir = 'i'), Clock(MHz(100)), Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		RGBLEDResource(
 			0,

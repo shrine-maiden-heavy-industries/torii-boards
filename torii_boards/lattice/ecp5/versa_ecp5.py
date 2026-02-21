@@ -4,6 +4,7 @@ from textwrap                           import dedent
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import LEDResources, SwitchResources
@@ -25,7 +26,7 @@ class VersaECP5Platform(ECP5Platform):
 
 	resources   = [
 		Resource('rst', 0, PinsN('T1', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
-		Resource('clk100', 0, DiffPairs('P3', 'P4', dir = 'i'), Clock(100e6), Attrs(IO_TYPE = 'LVDS')),
+		Resource('clk100', 0, DiffPairs('P3', 'P4', dir = 'i'), Clock(MHz(100)), Attrs(IO_TYPE = 'LVDS')),
 		Resource('pclk', 0, DiffPairs('A4', 'A5', dir = 'i'), Attrs(IO_TYPE = 'LVDS')),
 		*LEDResources(
 			pins = 'E16 D17 D18 E18 F17 F18 E17 F16', invert = True,
@@ -69,10 +70,10 @@ class VersaECP5Platform(ECP5Platform):
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		Resource(
-			'eth_clk125', 0, Pins('L19', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
+			'eth_clk125', 0, Pins('L19', dir = 'i'), Clock(MHz(125)), Attrs(IO_TYPE = 'LVCMOS25')
 		),
 		Resource(
-			'eth_clk125_pll', 0, Pins('U16', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
+			'eth_clk125_pll', 0, Pins('U16', dir = 'i'), Clock(MHz(125)), Attrs(IO_TYPE = 'LVCMOS25')
 		), # NC by default
 		# TODO(aki): Replace with `EthernetResource` when it has `rst` signal support
 		Resource(
@@ -98,10 +99,10 @@ class VersaECP5Platform(ECP5Platform):
 			Subsignal('rx', DiffPairs('Y14', 'Y15', dir = 'i')),
 		),
 		Resource(
-			'eth_clk125', 1, Pins('J20', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
+			'eth_clk125', 1, Pins('J20', dir = 'i'), Clock(MHz(125)), Attrs(IO_TYPE = 'LVCMOS25')
 		),
 		Resource(
-			'eth_clk125_pll', 1, Pins('C18', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS25')
+			'eth_clk125_pll', 1, Pins('C18', dir = 'i'), Clock(MHz(125)), Attrs(IO_TYPE = 'LVCMOS25')
 		), # NC by default
 		# TODO(aki): Replace with `EthernetResource` when it has `rst` signal support
 		Resource(

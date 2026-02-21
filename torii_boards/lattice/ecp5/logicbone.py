@@ -3,6 +3,7 @@
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import DirectUSBResource
 from torii.platform.resources.memory    import DDR3Resource, SDCardResources, SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources
@@ -25,7 +26,7 @@ class LogicbonePlatform(ECP5Platform):
 
 	resources   = [
 		Resource(
-			'refclk', 0, Pins('M19', dir = 'i'), Clock(25e6), Attrs(IO_TYPE = 'LVCMOS18')
+			'refclk', 0, Pins('M19', dir = 'i'), Clock(MHz(25)), Attrs(IO_TYPE = 'LVCMOS18')
 		),
 		# SerDes connections.
 		Resource(
@@ -63,7 +64,7 @@ class LogicbonePlatform(ECP5Platform):
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		Resource(
-			'eth_clk125', 0, Pins('A19', dir = 'i'), Clock(125e6), Attrs(IO_TYPE = 'LVCMOS33')
+			'eth_clk125', 0, Pins('A19', dir = 'i'), Clock(MHz(125)), Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		# TODO(aki): Replace with `EthernetResource` when it supports `int` signal
 		Resource(

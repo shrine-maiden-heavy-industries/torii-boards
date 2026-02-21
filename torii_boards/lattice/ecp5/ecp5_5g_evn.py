@@ -5,6 +5,7 @@ from typing                             import Literal
 
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources, SwitchResources
@@ -59,7 +60,7 @@ class ECP55GEVNPlatform(ECP5Platform):
 	resources   = [
 		Resource('rst', 0, PinsN('G2', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource(
-			'clk12', 0, Pins('A10', dir = 'i'), Clock(12e6), Attrs(IO_TYPE = 'LVCMOS33')
+			'clk12', 0, Pins('A10', dir = 'i'), Clock(MHz(12)), Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		# By default this CLK is not populated, see User Manual Section 4.
 		Resource(

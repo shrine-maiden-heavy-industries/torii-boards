@@ -3,6 +3,7 @@
 from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SDRAMResource
 from torii.platform.resources.user      import ButtonResources, LEDResources
@@ -22,7 +23,7 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 	description = 'Colorlight 5A-75B Lattice ECP5-25F FPGA Board'
 
 	resources   = [
-		Resource('clk25', 0, Pins('P6', dir = 'i'), Clock(25e6), Attrs(IO_TYPE = 'LVCMOS33')),
+		Resource('clk25', 0, Pins('P6', dir = 'i'), Clock(MHz(25)), Attrs(IO_TYPE = 'LVCMOS33')),
 		*LEDResources(
 			pins = 'P11', invert = True,
 			attrs = Attrs(IO_TYPE = 'LVCMOS33', DRIVE = '4')

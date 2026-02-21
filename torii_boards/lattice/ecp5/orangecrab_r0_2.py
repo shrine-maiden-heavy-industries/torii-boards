@@ -3,6 +3,7 @@
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import DirectUSBResource
 from torii.platform.resources.memory    import SDCardResources, SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, RGBLEDResource
@@ -27,7 +28,7 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 	description = 'OrangeCrab R0.2 Lattice ECP5-25F Development Board'
 
 	resources   = [
-		Resource('clk', 0, Pins('A9', dir = 'i'), Clock(48e6), Attrs(IO_TYPE = 'LVCMOS33')),
+		Resource('clk', 0, Pins('A9', dir = 'i'), Clock(MHz(48)), Attrs(IO_TYPE = 'LVCMOS33')),
 		# Used to reload FPGA configuration.
 		# Can enter USB bootloader by assigning button 0 to program.
 		Resource('program', 0, PinsN('V17', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS33')),

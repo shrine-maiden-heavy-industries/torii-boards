@@ -5,6 +5,7 @@ from torii.build                        import (
 )
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import DirectUSBResource, UARTResource
 from torii.platform.resources.memory    import SDRAMResource
 from torii.platform.resources.user      import ButtonResources, LEDResources
@@ -49,7 +50,7 @@ class Supercon19BadgePlatform(ECP5Platform):
 	]
 
 	resources   = [
-		Resource('clk8', 0, Pins('U18'), Clock(8e6), Attrs(IO_TYPE = 'LVCMOS33')),
+		Resource('clk8', 0, Pins('U18'), Clock(MHz(8)), Attrs(IO_TYPE = 'LVCMOS33')),
 		# Used to trigger FPGA reconfiguration.
 		Resource('program', 0, PinsN('R1'), Attrs(IO_TYPE = 'LVCMOS33')),
 		# See note above for LED anode/cathode information.

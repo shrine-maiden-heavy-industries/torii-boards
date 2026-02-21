@@ -3,6 +3,7 @@
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import DirectUSBResource, SPIResource, UARTResource
 from torii.platform.resources.memory    import SDCardResources, SDRAMResource
 from torii.platform.resources.user      import ButtonResources, LEDResources
@@ -21,7 +22,7 @@ class _ULX3SPlatform(ECP5Platform):
 	default_clk = 'clk25'
 
 	resources   = [
-		Resource('clk25', 0, Pins('G2', dir = 'i'), Clock(25e6), Attrs(IO_TYPE = 'LVCMOS33')),
+		Resource('clk25', 0, Pins('G2', dir = 'i'), Clock(MHz(25)), Attrs(IO_TYPE = 'LVCMOS33')),
 		# Used to reload FPGA configuration.
 		Resource('program', 0, PinsN('M4', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS33', PULLMODE = 'UP')),
 		*LEDResources(
