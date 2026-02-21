@@ -2,6 +2,7 @@
 
 from torii.build                   import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run               import BuildProducts
+from torii.hdl.time                import MHz
 from torii.platform.resources.user import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
 from torii.platform.vendor.xilinx  import XilinxPlatform
 
@@ -20,7 +21,7 @@ class ArtyZ720Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk125', 0, Pins('H16', dir = 'i'), Clock(125e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'clk125', 0, Pins('H16', dir = 'i'), Clock(MHz(125)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		*SwitchResources(
 			pins = 'M20 M19',

@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Pins, Resource
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.user      import LEDResources
 from torii.platform.vendor.xilinx       import XilinxPlatform
@@ -21,7 +22,7 @@ class EBAZ4205Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk33_333', 0, Pins('N18', dir = 'i'), Clock(33.333e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'clk33_333', 0, Pins('N18', dir = 'i'), Clock(MHz(33.333)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		*LEDResources(
 			pins = 'W14 W13',
