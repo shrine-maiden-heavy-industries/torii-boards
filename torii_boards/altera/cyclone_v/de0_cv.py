@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import Display7SegResource, VGAResource
 from torii.platform.resources.interface import PS2Resource
 from torii.platform.resources.memory    import SDCardResources, SDRAMResource
@@ -23,16 +24,16 @@ class DE0CVPlatform(AlteraPlatform):
 
 	resources   = [
 		Resource(
-			'clk50', 0, Pins('M9', dir = 'i'),  Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 0, Pins('M9', dir = 'i'),  Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 1, Pins('H13', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 1, Pins('H13', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 2, Pins('E10', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 2, Pins('E10', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 3, Pins('V15', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 3, Pins('V15', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 
 		*LEDResources(

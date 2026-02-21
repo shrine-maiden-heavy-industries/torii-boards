@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Connector, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import VGAResource
 from torii.platform.resources.interface import SPIResource, UARTResource
 from torii.platform.resources.memory    import SDCardResources, SDRAMResource
@@ -24,13 +25,13 @@ class MisterPlatform(AlteraPlatform):
 
 	resources   = [
 		Resource(
-			'clk50', 0, Pins('V11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 0, Pins('V11', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 1, Pins('Y13', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 1, Pins('Y13', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 2, Pins('E11', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 2, Pins('E11', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		*LEDResources(
 			pins = 'W15 AA24 V16 V15 AF26 AE26 Y16 AA23',

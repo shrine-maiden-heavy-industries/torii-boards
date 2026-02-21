@@ -2,6 +2,7 @@
 
 from torii.build                      import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                  import BuildProducts
+from torii.hdl.time                   import MHz
 from torii.platform.resources.display import Display7SegResource
 from torii.platform.resources.user    import ButtonResources, LEDResources, SwitchResources
 from torii.platform.vendor.altera     import AlteraPlatform
@@ -21,16 +22,16 @@ class DE1SoCPlatform(AlteraPlatform):
 
 	resources   = [
 		Resource(
-			'clk50', 0, Pins('AF14', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 0, Pins('AF14', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 1, Pins('AA16', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 1, Pins('AA16', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 2, Pins('Y26', dir = 'i'),  Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 2, Pins('Y26', dir = 'i'),  Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 3, Pins('K14', dir = 'i'),  Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 3, Pins('K14', dir = 'i'),  Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		*LEDResources(
 			pins = 'V16 W16 V17 V18 W17 W19 Y19 W20 W21 Y21',
