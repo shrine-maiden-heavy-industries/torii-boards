@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource, Subsignal
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import Display7SegResource, VGAResource
 from torii.platform.resources.interface import PS2Resource, UARTResource
 from torii.platform.resources.memory    import NORFlashResources, SDCardResources, SDRAMResource
@@ -23,10 +24,10 @@ class DE0Platform(AlteraPlatform):
 
 	resources   = [
 		Resource(
-			'clk50', 0, Pins('G21', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 0, Pins('G21', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 		Resource(
-			'clk50', 1, Pins('B12', dir = 'i'), Clock(50e6), Attrs(io_standard = '3.3-V LVTTL')
+			'clk50', 1, Pins('B12', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
 
 		*LEDResources(
