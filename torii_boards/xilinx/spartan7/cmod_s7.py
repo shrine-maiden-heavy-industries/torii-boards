@@ -3,6 +3,7 @@
 import subprocess
 
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources, RGBLEDResource
@@ -32,7 +33,7 @@ class CmodS7_Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk12', 0, Pins('M9', dir = 'i'), Clock(12e6), Attrs(IOSTANDARD = 'LVCMOS33')
+			'clk12', 0, Pins('M9', dir = 'i'), Clock(MHz(12)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 		*LEDResources(pins = 'E2 K1 J1 E1', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
 		RGBLEDResource(

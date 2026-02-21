@@ -5,6 +5,7 @@ from textwrap                           import dedent
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import I2CResource, SPIResource, UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, LEDResources, RGBLEDResource, SwitchResources
@@ -23,7 +24,7 @@ class _ArtyS7Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk100', 0, Pins('R2', dir = 'i'), Clock(100e6), Attrs(IOSTANDARD = 'SSTL135')
+			'clk100', 0, Pins('R2', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'SSTL135')
 		),
 		Resource('rst', 0, PinsN('C18', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*LEDResources(pins = 'E18 F13 E13 H15', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
