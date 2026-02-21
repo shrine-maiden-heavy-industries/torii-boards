@@ -2,6 +2,7 @@
 
 from torii.build                               import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run                           import BuildProducts
+from torii.hdl.time                            import MHz
 from torii.platform.resources.interface        import UARTResource
 from torii.platform.resources.memory           import SPIFlashResources
 from torii.platform.resources.user             import ButtonResources, LEDResources, SwitchResources
@@ -23,7 +24,7 @@ class MachXO3SKPlatform(MachXO3LPlatform):
 	resources   = [
 		Resource(
 			'clk12', 0, Pins('C8', dir = 'i'),
-			Clock(12e6), Attrs(IO_TYPE = 'LVCMOS33')
+			Clock(MHz(12)), Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		# need to solder R14-R18, R20-R22
 		UARTResource(
