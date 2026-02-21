@@ -2,6 +2,7 @@
 
 from torii.build                        import Attrs, Clock, DiffPairs, Resource
 from torii.build.run                    import BuildProducts
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.user      import LEDResources
 from torii.platform.vendor.xilinx       import XilinxPlatform
@@ -21,7 +22,7 @@ class KC705Platform(XilinxPlatform):
 
 	resources   = [
 		Resource(
-			'clk156', 0, DiffPairs('K28', 'K29', dir = 'i'), Clock(156e6), Attrs(IOSTANDARD = 'LVDS_25')
+			'clk156', 0, DiffPairs('K28', 'K29', dir = 'i'), Clock(MHz(156)), Attrs(IOSTANDARD = 'LVDS_25')
 		),
 		*LEDResources(
 			pins = 'AB8 AA8 AC9 AB9 AE26 G19 E18 F16',

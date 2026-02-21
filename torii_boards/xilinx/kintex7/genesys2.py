@@ -6,6 +6,7 @@ from typing                             import Literal
 from torii.build                        import Attrs, Clock, Connector, DiffPairs, Pins, PinsN, Resource, Subsignal
 from torii.build.run                    import BuildPlan, BuildProducts
 from torii.hdl.ir                       import Fragment
+from torii.hdl.time                     import MHz
 from torii.platform.resources.display   import VGAResource
 from torii.platform.resources.interface import I2CResource, SPIResource, UARTResource, ULPIResource
 from torii.platform.resources.memory    import SDCardResources
@@ -44,7 +45,7 @@ class Genesys2Platform(XilinxPlatform):
 	resources = [
 		Resource('rst', 0, PinsN('R19', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource(
-			'clk', 0, DiffPairs(p = 'AD12 ', n = 'AD11', dir = 'i'), Clock(200e6),
+			'clk', 0, DiffPairs(p = 'AD12 ', n = 'AD11', dir = 'i'), Clock(MHz(200)),
 			Attrs(IOSTANDARD = 'LVDS')
 		),
 		*ButtonResources(pins = {
