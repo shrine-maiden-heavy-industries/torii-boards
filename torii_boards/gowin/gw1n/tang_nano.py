@@ -3,6 +3,7 @@
 import subprocess
 
 from torii.build                        import Attrs, Clock, Pins, Resource, Subsignal
+from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
 from torii.platform.resources.user      import ButtonResources, RGBLEDResource
@@ -25,7 +26,7 @@ class TangNanoPlatform(GowinPlatform):
 		# This clock is shared with the USB-JTAG MCU and stops when the USB bus is suspended.
 		# It probably should not be used, but is included for completeness.
 		Resource(
-			'clk24', 0, Pins('35', dir = 'i'), Clock(24_000_000), Attrs(IO_TYPE = 'LVCMOS33')
+			'clk24', 0, Pins('35', dir = 'i'), Clock(MHz(24)), Attrs(IO_TYPE = 'LVCMOS33')
 		),
 		RGBLEDResource(0, r = '18', g = '16', b = '17', attrs = Attrs(IO_TYPE = 'LVCMOS33')),
 		*ButtonResources(pins = '15 14', invert = True, attrs = Attrs(IO_TYPE = 'LVCMOS33')),
