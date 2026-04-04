@@ -17,12 +17,12 @@ __all__ = (
 )
 
 class _ArtyS7Platform(XilinxPlatform):
-	package     = 'csga324'
-	speed       = '1'
-	default_clk = 'clk100'
-	default_rst = 'rst'
+	package: str = 'csga324' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
+	default_rst  = 'rst'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk100', 0, Pins('R2', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'SSTL135')
 		),
@@ -76,7 +76,8 @@ class _ArtyS7Platform(XilinxPlatform):
 			Attrs(IOSTANDARD = 'SSTL135', SLEW = 'FAST'),
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'L17 L18 M14 N14 - - M16 M17 M18 N18 - -'), # JA
 		Connector('pmod', 1, 'P17 P18 R18 T18 - - P14 P15 N15 P16 - -'), # JB
 		Connector('pmod', 2, 'U15 V16 U17 U18 - - U16 P13 R13 V14 - -'), # JC
@@ -228,7 +229,8 @@ class _ArtyS7Platform(XilinxPlatform):
 			check_call([openocd, '-f', 'board/arty_s7.cfg', '-c', command_str])
 
 	def toolchain_program(
-		self, products: BuildProducts, name: str, *, programmer: str = 'vivado', flash: bool = True
+		self, products: BuildProducts, name: str, *, programmer: str = 'vivado', flash: bool = True,
+		**kwargs
 	) -> None:
 
 		if programmer not in ('vivado', 'openocd'):
@@ -241,13 +243,13 @@ class _ArtyS7Platform(XilinxPlatform):
 
 
 class ArtyS7_50Platform(_ArtyS7Platform):
-	device      = 'xc7s50'
+	device: str = 'xc7s50' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Arty S7-50'
 	description = 'Digilent Arty S7-50 Xilinx Spartan7-50 Development Board'
 
 class ArtyS7_25Platform(_ArtyS7Platform):
-	device      = 'xc7s25'
+	device: str = 'xc7s25' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Arty S7-25'
 	description = 'Digilent Arty S7-25 Xilinx Spartan7-25 Development Board'

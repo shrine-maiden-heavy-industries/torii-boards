@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-import subprocess
-
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
+from torii.build.run                    import BuildProducts
 from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
@@ -23,15 +22,15 @@ __all__ = (
 )
 
 class CmodS7_Platform(XilinxPlatform):
-	device      = 'xc7s25'
-	package     = 'csga225'
-	speed       = '1'
-	default_clk = 'clk12'
+	device: str  = 'xc7s25'  # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'csga225' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'Cmod S7'
 	description = 'Digilent Cmod S7 Xilinx Spartan7-25 FPGA Module'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('M9', dir = 'i'), Clock(MHz(12)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
@@ -55,7 +54,7 @@ class CmodS7_Platform(XilinxPlatform):
 		Resource('atsha204a', 0, Pins('D17', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33'))
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'J2 H2 H4 F3 - - H3 H1 G1 F4 - -'), # JA
 		# Pin 24/25 are VCC and GND
 		# Pin 32/33 are analog (XADC)
@@ -75,9 +74,16 @@ class CmodS7_Platform(XilinxPlatform):
 		})
 	]
 
-	def toolchain_program(self, products, name):
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
+		from subprocess import check_call
+		from typing     import TYPE_CHECKING
+
 		with products.extract(f'{name}.bit') as bitstream_filename:
-			subprocess.check_call([
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
+			check_call([
 				'openFPGALoader', '-c', 'digilent', '--fpga-part', self.device, bitstream_filename
 			])
 
