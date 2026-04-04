@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                   import Attrs, Clock, DiffPairs, Resource
+from torii.build                   import Attrs, Clock, Connector, DiffPairs, Resource
 from torii.build.run               import BuildProducts
 from torii.hdl.time                import MHz
 from torii.platform.resources.user import LEDResources
@@ -11,15 +11,15 @@ __all__ = (
 )
 
 class KCU105Platform(XilinxPlatform):
-	device      = 'xcku040'
-	package     = 'ffva1156'
-	speed       = '2-e'
-	default_clk = 'clk125'
+	device: str  = 'xcku040'  # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'ffva1156' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2-e'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk125'
 
 	pretty_name = 'KCU105'
 	description = 'Xilinx Kintex UltraScale Evaluation Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk125', 0, DiffPairs('G10', 'F10', dir = 'i'), Clock(MHz(125)), Attrs(IOSTANDARD = 'LVDS')
 		),
@@ -29,9 +29,9 @@ class KCU105Platform(XilinxPlatform):
 		),
 	]
 
-	connectors = []
+	connectors: list[Connector] = []
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
 
