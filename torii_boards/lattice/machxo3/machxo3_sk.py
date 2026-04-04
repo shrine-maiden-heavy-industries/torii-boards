@@ -13,15 +13,15 @@ __all__ = (
 )
 
 class MachXO3SKPlatform(MachXO3LPlatform):
-	device      = 'LCMXO3LF-6900C'
-	package     = 'BG256'
-	speed       = '5'
-	default_clk = 'clk12'
+	device: str  = 'LCMXO3LF-6900C' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'BG256'          # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '5'              # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'MachXO3SK'
 	description = 'Lattice MachXO3LF Starter Kit'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('C8', dir = 'i'),
 			Clock(MHz(12)), Attrs(IO_TYPE = 'LVCMOS33')
@@ -47,7 +47,8 @@ class MachXO3SKPlatform(MachXO3LPlatform):
 			attrs = Attrs(IO_TYPE = 'LVCMOS33')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'j', 3, # J3
 			'-  -  A13 C13 F8  B12 C12 E11 E10 D10 '
@@ -78,12 +79,17 @@ class MachXO3SKPlatform(MachXO3LPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		openFPGALoader = environ.get('OPENFPGALOADER', 'openFPGALoader')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([openFPGALoader, bitstream_filename])
 
 
