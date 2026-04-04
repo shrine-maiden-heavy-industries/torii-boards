@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                               import Connector
+from torii.build                               import Connector, Resource
 from torii.platform.vendor.lattice.machxo_2_3l import MachXO2Platform
 
 __all__ = (
@@ -8,16 +8,18 @@ __all__ = (
 )
 
 class TinyFPGAAX2Platform(MachXO2Platform):
-	device         = 'LCMXO2-1200HC'
-	package        = 'SG32'
-	speed          = '4'
+	device: str    = 'LCMXO2-1200HC' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str   = 'SG32'          # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str     = '4'             # pyright: ignore[reportIncompatibleMethodOverride]
 	default_clk    = 'OSCH'
 	osch_frequency = 14.00
 
 	pretty_name    = 'TinyFPGA AX2'
 	description    = 'TinyFPGA AX2 Lattice MachXO2-1200 Development Board'
 
-	connectors     = [
+	resources: list[Resource] = [] # pyright: ignore[reportIncompatibleMethodOverride]
+
+	connectors: list[Connector] = [
 		Connector(
 			'gpio', 0,
 			# Left side of the board
@@ -28,5 +30,5 @@ class TinyFPGAAX2Platform(MachXO2Platform):
 			'-  -  -  -  4  5  8  9  10 11 12 '
 		),
 	]
-	resources = []
+
 	# This board doesn't have an integrated programmer.
