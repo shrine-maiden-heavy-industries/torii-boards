@@ -17,12 +17,12 @@ __all__ = (
 )
 
 class _ArtyA7Platform(XilinxPlatform):
-	package     = 'csg324'
-	speed       = '1L'
-	default_clk = 'clk100'
-	default_rst = 'rst'
+	package: str = 'csg324' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1L'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
+	default_rst  = 'rst'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk100', 0, Pins('E3', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
@@ -118,7 +118,8 @@ class _ArtyA7Platform(XilinxPlatform):
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		)
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'G13 B11 A11 D12 - - D13 B18 A18 K16 - -'), # JA
 		Connector('pmod', 1, 'E15 E16 D15 C15 - - J17 J18 K15 J15 - -'), # JB
 		Connector('pmod', 2, 'U12 V12 V10 V11 - - U14 V14 T13 U13 - -'), # JC
@@ -218,23 +219,28 @@ class _ArtyA7Platform(XilinxPlatform):
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import run
+		from typing     import TYPE_CHECKING
 
 		xc3sprog = environ.get('XC3SPROG', 'xc3sprog')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			run([xc3sprog, '-c', 'nexys4', bitstream_filename], check = True)
 
 
 class ArtyA7_35Platform(_ArtyA7Platform):
-	device = 'xc7a35ti'
+	device: str = 'xc7a35ti' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Arty A7-35T'
 	description = 'Digilent Arty A7-35T Xilinx Artix7-35 Development Board'
 
 class ArtyA7_100Platform(_ArtyA7Platform):
-	device = 'xc7a100ti'
+	device: str = 'xc7a100ti' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Arty A7-100T'
 	description = 'Digilent Arty-A7-100T Xilinx Artix7-100 Development Board'

@@ -17,16 +17,16 @@ __all__ = (
 )
 
 class Nexys4DDRPlatform(XilinxPlatform):
-	device      = 'xc7a100t'
-	package     = 'csg324'
-	speed       = '1'
-	default_clk = 'clk100'
-	default_rst = 'rst'
+	device: str  = 'xc7a100t' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'csg324'   # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'        # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
+	default_rst  = 'rst'
 
 	pretty_name = 'Nexys 4 DDR'
 	description = 'Digilent Nexys 4 DDR Xilinx Artix7-100T Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk100', 0, Pins('E3', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource('rst', 0, PinsN('C12', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*SwitchResources(
@@ -171,7 +171,7 @@ class Nexys4DDRPlatform(XilinxPlatform):
 			Attrs(IOSTANDARD = 'SSTL18_I', SLEW = 'FAST'))
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'C17 D18 E18 G17 - - D17 E17 F18 G18 - -'),  # JA
 		Connector('pmod', 1, 'D14 F16 G16 H14 - - E16 F13 G13 H16 - -'),  # JB
 		Connector('pmod', 2, 'K1 F6 J2 G6 - - E7 J3 J4 E6 - -'),  # JC
@@ -192,12 +192,17 @@ class Nexys4DDRPlatform(XilinxPlatform):
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import run
+		from typing     import TYPE_CHECKING
 
 		xc3sprog = environ.get('XC3SPROG', 'xc3sprog')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			run([xc3sprog, '-c', 'nexys4', bitstream_filename], check = True)
 
 

@@ -13,15 +13,15 @@ __all__ = (
 )
 
 class Mega65r3Platform(XilinxPlatform):
-	device = 'xc7a200t'
-	package = 'fbg484'
-	speed = '2'
-	default_clk = 'clk100'
+	device: str  = 'xc7a200t' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'fbg484'   # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2'        # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
 
 	pretty_name = 'Mega65'
 	description = 'Mega65 Xilinx Artix7-200T Based 8-bit computer'
 
-	resources = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk100', 0, Pins('V13', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*LEDResources(pins = 'U22', attrs = Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource(
@@ -216,7 +216,7 @@ class Mega65r3Platform(XilinxPlatform):
 		),
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'G1 E1 C2 B1 - - F1 D1 B2 A1 - -'),
 		Connector('pmod', 1, 'E2 D2 G4 J5 - - F3 E3 H4 H5 - -'),
 		Connector('test', 0, 'T16 U16 W16 J19 K17 N19 N20 D20'),

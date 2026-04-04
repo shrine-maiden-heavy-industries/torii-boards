@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-import subprocess
-
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
+from torii.build.run                    import BuildProducts
 from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources, SRAMResource
@@ -24,10 +23,11 @@ __all__ = (
 )
 
 class _CmodA7Platform(XilinxPlatform):
-	package     = 'cpg236'
-	speed       = '1'
-	default_clk = 'clk12'
-	resources   = [
+	package: str = 'cpg236' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
+
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('L17', dir = 'i'), Clock(MHz(12)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
@@ -55,7 +55,8 @@ class _CmodA7Platform(XilinxPlatform):
 		# May not be populated on the board
 		Resource('atsha204a', 0, Pins('D17', dir = 'io'), Attrs(IOSTANDARD = 'LVCMOS33'))
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'G17 G19 N18 L18 - - H17 H19 J19 K18 - -'), # JA
 		# Pin 24/25 are VCC and GND
 		# Pin 15/16 are analog (XADC)
@@ -74,21 +75,28 @@ class _CmodA7Platform(XilinxPlatform):
 		})
 	]
 
-	def toolchain_program(self, products, name):
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs):
+		from subprocess import check_call
+		from typing     import TYPE_CHECKING
+
 		with products.extract(f'{name}.bit') as bitstream_filename:
-			subprocess.check_call([
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
+			check_call([
 				'openFPGALoader', '-c', 'digilent', '--fpga-part', self.device, bitstream_filename
 			])
 
 
 class CmodA7_15Platform(_CmodA7Platform):
-	device      = 'xc7a15t'
+	device: str = 'xc7a15t' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Cmod A7-15T'
 	description = 'Digilent Cmod A7-15T Xilinx Artix7-15T FPGA Module'
 
 class CmodA7_35Platform(_CmodA7Platform):
-	device      = 'xc7a35t'
+	device: str = 'xc7a35t' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Cmod A7-35T'
 	description = 'Digilent Cmod A7-15T Xilinx Artix7-35T FPGA Module'

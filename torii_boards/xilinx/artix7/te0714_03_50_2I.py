@@ -11,15 +11,15 @@ __all__ = (
 )
 
 class TE0714_03_50_2IPlatform(XilinxPlatform):
-	device      = 'xc7a50t'
-	package     = 'csg325'
-	speed       = '2'
-	default_clk = 'clk25'
+	device: str  = 'xc7a50t' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'csg325'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk25'
 
 	pretty_name = 'TE0714-03-50'
 	description = 'Trenz Electronic TE0714-03-50 Xilinx Artix7-50T based FPGA Module'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk25', 0, Pins('T14', dir = 'i'), Clock(MHz(25)), Attrs(IOSTANDARD = 'LVCMOS18')),
 		*LEDResources(pins = 'K18', attrs = Attrs(IOSTANDARD = 'LVCMOS18')),
 		*SPIFlashResources(
@@ -28,7 +28,8 @@ class TE0714_03_50_2IPlatform(XilinxPlatform):
 			attrs = Attrs(IOSTANDARD = 'LVCMOS18')
 		)
 	]
-	connectors = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'JM1', 0,
 			'G4  D6  '

@@ -27,15 +27,16 @@ def find_loader() -> tuple[str, str]:
 
 
 class AlchitryAuPlatform(XilinxPlatform):
-	device      = 'XC7A35T' # Artix 7 33K LEs
-	package     = 'FTG256'
-	speed       = '1'
-	default_clk = 'clk100'
+	# Artix 7 33K LEs
+	device: str  = 'XC7A35T' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'FTG256'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
 
 	pretty_name = 'Alchitry Au'
 	description = 'Alchitry Au Xilinx Artix7 Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk100', 0, Pins('N14', dir = 'i'), Clock(MHz(100)),
 			Attrs(IOSTANDARD = 'LVCMOS33')
@@ -67,7 +68,7 @@ class AlchitryAuPlatform(XilinxPlatform):
 			attrs = Attrs(IOSTANDARD = 'LVCMOS15')),
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		Connector(
 			'bank', 0,
 			'T8  T7  T5  R5  R8  P8  L2  L3  J1  K1  H1  H2  G1  G2  K5  E6 '
@@ -90,11 +91,16 @@ class AlchitryAuPlatform(XilinxPlatform):
 		)
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		(loader, bridge_bin) = find_loader()
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				loader, '-e', '-f', bitstream_filename,
 				'-p', bridge_bin
