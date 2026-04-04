@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Connector
+from torii.build                  import Connector, Resource
 from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
@@ -8,15 +8,15 @@ __all__ = (
 )
 
 class ZTurnLiteZ007SPlatform(XilinxPlatform):
-	device     = 'xc7z007s'
-	package    = 'clg400'
-	speed      = '1'
+	device: str  = 'xc7z007s' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'clg400'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Z-Turn Lite'
 	description = 'Myir Z-Turn Lite Xilinx Zynq-7007 SoC Development Board'
 
-	resources  = []
-	connectors = [
+	resources: list[Resource] = [] # pyright: ignore[reportIncompatibleMethodOverride]
+	connectors: list[Connector] = [
 		Connector(
 			'expansion', 0,
 			'-   -   '

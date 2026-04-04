@@ -11,15 +11,15 @@ __all__ = (
 )
 
 class ArtyZ720Platform(XilinxPlatform):
-	device      = 'xc7z020'
-	package     = 'clg400'
-	speed       = '1'
-	default_clk = 'clk125'
+	device: str  = 'xc7z020' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'clg400'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk125'
 
 	pretty_name = 'Arty Z7-20'
 	description = 'Digilent Arty Z7-20 Xilinx Zynq 7020 SoC Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk125', 0, Pins('H16', dir = 'i'), Clock(MHz(125)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
@@ -84,7 +84,7 @@ class ArtyZ720Platform(XilinxPlatform):
 		)
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'Y18 Y19 Y16 Y17 - - U18 U19 W18 W19 - -'),  # JA
 		Connector('pmod', 1, 'W14 Y14 T11 T10 - - V16 W16 V12 W13 - -'),  # JB
 		Connector('ck_io', 0, {
@@ -174,10 +174,15 @@ class ArtyZ720Platform(XilinxPlatform):
 	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import run
+		from typing     import TYPE_CHECKING
 
 		xc3sprog = environ.get('XC3SPROG', 'xc3sprog')
-		with products.extract(f'{name}.bit') as bitstream:
-			run([xc3sprog, '-c', 'jtaghs1_fast', '-p', '1', bitstream], check = True)
+		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
+			run([xc3sprog, '-c', 'jtaghs1_fast', '-p', '1', bitstream_filename], check = True)
 
 
 if __name__ == '__main__':

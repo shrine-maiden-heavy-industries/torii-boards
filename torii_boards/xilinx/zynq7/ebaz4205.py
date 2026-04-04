@@ -12,15 +12,15 @@ __all__ = (
 )
 
 class EBAZ4205Platform(XilinxPlatform):
-	device      = 'xc7z010'
-	package     = 'clg400'
-	speed       = '1'
-	default_clk = 'clk33_333'
+	device: str  = 'xc7z010' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'clg400'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk33_333'
 
 	pretty_name = 'EBAZ4205'
 	description = 'EBAZ4205 Ebit E9+ Xilinx Zynq-7010 Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk33_333', 0, Pins('N18', dir = 'i'), Clock(MHz(33.333)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
@@ -40,9 +40,14 @@ class EBAZ4205Platform(XilinxPlatform):
 	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import run
+		from typing     import TYPE_CHECKING
 
 		xc3sprog = environ.get('XC3SPROG', 'xc3sprog')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			run([xc3sprog, '-c', 'jtaghs1_fast', '-p', '1', bitstream_filename], check = True)
 
 

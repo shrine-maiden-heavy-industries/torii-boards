@@ -7,7 +7,7 @@ __all__ = (
 )
 
 class ZTurnLiteZ010Platform(ZTurnLiteZ007SPlatform):
-	device = 'xc7z010'
+	device: str = 'xc7z010' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Z-Turn Lite'
 	description = 'Myir Z-Turn Lite Xilinx Zynq-7010 SoC Development Board'

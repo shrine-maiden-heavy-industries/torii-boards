@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-from torii.build                  import Connector
+from torii.build                  import Connector, Resource
 from torii.platform.vendor.xilinx import XilinxPlatform
 
 __all__ = (
@@ -8,15 +8,16 @@ __all__ = (
 )
 
 class MicroZedZ020Platform(XilinxPlatform):
-	device     = 'xc7z020'
-	package    = 'clg400'
-	speed      = '1'
+	device: str  = 'xc7z020' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'clg400'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '1'       # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'MicroZed Z020'
 	description = 'Avnet MicroZed Z020 Xilinx Zynq-7020 Development Board'
 
-	resources  = []
-	connectors = [
+	resources: list[Resource] = [] # pyright: ignore[reportIncompatibleMethodOverride]
+
+	connectors: list[Connector] = [
 		Connector(
 			'JX1', 0,
 			'F9  J6  '
