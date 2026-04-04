@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-import subprocess
-
 from enum                               import Enum
 from torii.build                        import Attrs, Clock, Connector, Pins, Resource
+from torii.build.run                    import BuildPlan, BuildProducts
+from torii.hdl.ir                       import Fragment
 from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import DirectUSBResource, UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
@@ -44,7 +44,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 
 		return 'GW5A-LV25MG121NES' if self.toolchain == 'Apicula' else 'GW5A-LV25MG121NC1/I0'
 
-	family = 'GW5A-25A'
+	family: str = 'GW5A-25A' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	# This is the 50 MHz crystal on the Primer 25K Dock.
 	# The builtin oscillator may also be used by specifying 'OSC'
@@ -56,7 +56,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 	pretty_name = 'Tang Primer 25K Dock'
 	description = 'Sipeed Tang Primer 25K Dock Gowin GW5A Development Board'
 
-	resources = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 			# 50 MHz crystal on the Dock
 			Resource(
 				'clk50',
@@ -110,7 +110,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 			),
 		]
 
-	connectors = [
+	connectors: list[Connector] = [
 			# These do not match the pin numbering in the Gowin schematic
 			# but do align with the pin numbering on the Type 1A PMOD standard:
 			Connector('pmod', 0, 'G11 D11 B11 C11 -   -   G10 D10 B10 C10 -   -'), # J4
@@ -149,7 +149,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 		programmer_target: str        = 'SRAM',
 		programmer_verify_flash: bool = True,
 		**kwargs,
-	):
+	) -> None:
 		'''
 		The `toolchain` argument can be either 'Apicula' or 'Gowin' depending on which toolchain
 		you have installed and available on the path.
@@ -180,7 +180,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 
 		super().__init__(*args, toolchain = toolchain, **kwargs)
 
-	def toolchain_prepare(self, fragment, name, **kwargs):
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		options = {
 			'ready_as_gpio': 1,
 			'done_as_gpio':  1,
@@ -201,7 +201,9 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 			**kwargs
 		)
 
-	def toolchain_program(self, products, name, **kwargs):
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
+		from subprocess import check_call
+
 		with products.extract(f'{name}.fs') as bitstream_filename:
 			if self._programmer == 'programmer_cli':
 				if self._programmer_target == 'flash':
@@ -212,7 +214,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 				else:
 					programmer_op = self.GowinProgrammerOp.SRAMProgram
 
-				subprocess.check_call(
+				check_call(
 					[
 						'programmer_cli',
 						'--device',
@@ -236,7 +238,7 @@ class TangPrimer25kDockPlatform(GowinPlatform):
 					program_command.append('-m')
 
 				program_command.extend(['-b', 'tangprimer25k', str(bitstream_filename)])
-				subprocess.check_call(program_command)
+				check_call(program_command)
 
 
 if __name__ == '__main__':
