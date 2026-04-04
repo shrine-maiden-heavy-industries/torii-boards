@@ -12,15 +12,15 @@ __all__ = (
 )
 
 class KC705Platform(XilinxPlatform):
-	device      = 'xc7k325t'
-	package     = 'ffg900'
-	speed       = '2'
-	default_clk = 'clk156'
+	device: str  = 'xc7k325t' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'ffg900'   # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2'        # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk156'
 
 	pretty_name = 'KC705'
 	description = 'Xilinx KC705 Kintex7-325T Evaluation Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk156', 0, DiffPairs('K28', 'K29', dir = 'i'), Clock(MHz(156)), Attrs(IOSTANDARD = 'LVDS_25')
 		),
@@ -35,7 +35,7 @@ class KC705Platform(XilinxPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
 

@@ -21,9 +21,9 @@ class Genesys2Platform(XilinxPlatform):
 	'''Platform file for Diglient Genesys2 Kitex-7 board.
 	https://digilent.com/reference/programmable-logic/genesys-2/start'''
 
-	device  = 'xc7k325t'
-	package = 'ffg900'
-	speed   = '2'
+	device: str  = 'xc7k325t' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'ffg900'   # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2'        # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Gensys 2'
 	description = 'Digilent Gensys 2 Xilinx Kintex7-325T Development Board'
@@ -42,7 +42,7 @@ class Genesys2Platform(XilinxPlatform):
 	default_rst = 'rst'
 	default_clk = 'clk'
 
-	resources = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('rst', 0, PinsN('R19', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33')),
 		Resource(
 			'clk', 0, DiffPairs(p = 'AD12 ', n = 'AD11', dir = 'i'), Clock(MHz(200)),
@@ -224,7 +224,7 @@ class Genesys2Platform(XilinxPlatform):
 		)
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector(
 			'pmod', 0,  # JA
 			'U27 U28 T26 T27 - - '
@@ -429,12 +429,17 @@ class Genesys2Platform(XilinxPlatform):
 			''')
 		}
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		openocd = environ.get('OPENOCD', 'openocd')
 		with products.extract(f'{name}-openocd.cfg', f'{name}.bit') as files:
+
+			if TYPE_CHECKING:
+				assert isinstance(files, list)
+
 			(config_filename, bitstream_filename) = files
 
 			check_call([
