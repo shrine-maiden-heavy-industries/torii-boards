@@ -11,9 +11,9 @@ __all__ = (
 )
 
 class QuickfeatherPlatform(QuicklogicPlatform):
-	device      = 'ql-eos-s3_wlcsp'
-	package     = 'PU64'
-	default_clk = 'sys_clk0'
+	device: str  = 'ql-eos-s3_wlcsp' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'PU64' # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'sys_clk0'
 	# It is possible to configure both oscillator frequency and
 	# clock divider. Resulting frequency is: 60MHz / 12 = 5MHz
 	osc_freq    = int(60e6)
@@ -22,7 +22,7 @@ class QuickfeatherPlatform(QuicklogicPlatform):
 	pretty_name = 'QuickFeather'
 	description = 'QuickLogic EOS S3 Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		*ButtonResources(pins = '62'),
 		RGBLEDResource(0, r = '34', g = '39', b = '38'),
 		UARTResource(0, rx = '9', tx = '8'),
@@ -42,7 +42,7 @@ class QuickfeatherPlatform(QuicklogicPlatform):
 		),
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('J', 2, '- 28 22 21 37 36 42 40 7 2 4 5'),
 		Connector('J', 3, '- 8 9 17 16 20 6 55 31 25 47 - - - - 41'),
 		Connector('J', 8, '27 26 33 32 23 57 56 3 64 62 63 61 59 - - -'),
@@ -50,12 +50,17 @@ class QuickfeatherPlatform(QuicklogicPlatform):
 
 	# This programmer requires OpenOCD with support for eos-s3:
 	# https://github.com/antmicro/openocd/tree/eos-s3-support
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		openocd = environ.get('OPENOCD', 'openocd')
-		with products.extract(f'{name}.openocd', '{name}_iomux.openocd') as files:
+		with products.extract(f'{name}.openocd', f'{name}_iomux.openocd') as files:
+
+			if TYPE_CHECKING:
+				assert isinstance(files, list)
+
 			(bitstream_openocd_filename, iomux_openocd_filename) = files
 			check_call([
 				openocd,
