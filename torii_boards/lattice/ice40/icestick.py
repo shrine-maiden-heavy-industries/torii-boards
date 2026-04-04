@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class ICEStickPlatform(ICE40Platform):
-	device      = 'iCE40HX1K'
-	package     = 'TQ144'
-	default_clk = 'clk12'
+	device: str  = 'iCE40HX1K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'TQ144'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'iCEstick'
 	description = 'Lattice iCEstick iCE40-HX1K Evaluation Kit'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('21', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
@@ -43,18 +43,24 @@ class ICEStickPlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, '78 79 80 81 - - 87 88 90 91 - -'), # J2
 		Connector('j', 1, '- - 112 113 114 115 116 117 118 119'), # J1
 		Connector('j', 3, '- - 62 61 60 56 48 47 45 44'), # J3
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([iceprog, bitstream_filename])
 
 

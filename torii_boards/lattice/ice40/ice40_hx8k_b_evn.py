@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class ICE40HX8KBEVNPlatform(ICE40Platform):
-	device      = 'iCE40HX8K'
-	package     = 'CT256'
-	default_clk = 'clk12'
+	device: str  = 'iCE40HX8K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'CT256'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'ICE40HX8KEVN'
 	description = 'Lattice iCE40-HX8K Evaluation Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0,
 			Pins('J3', dir = 'i'), Clock(MHz(12)),
@@ -42,7 +42,8 @@ class ICE40HX8KBEVNPlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'j', 1, # J1
 			'A16 -   A15 B15 B13 B14 -   -   B12 B11 '
@@ -73,12 +74,17 @@ class ICE40HX8KBEVNPlatform(ICE40Platform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			# TODO: this should be factored out and made customizable
 			check_call([iceprog, '-S', bitstream_filename])
 

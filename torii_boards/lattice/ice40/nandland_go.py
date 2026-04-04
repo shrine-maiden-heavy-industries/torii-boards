@@ -14,14 +14,14 @@ __all__ = (
 )
 
 class NandlandGoPlatform(ICE40Platform):
-	device      = 'iCE40HX1K'
-	package     = 'VQ100'
-	default_clk = 'clk25'
+	device: str  = 'iCE40HX1K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'VQ100'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk25'
 
 	pretty_name = 'Nandland Go'
 	description = 'Nandland Go Lattice iCE40-HX1K Development Board'
 
-	resources = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk25', 0, Pins('15', dir = 'i'), Clock(MHz(25))
 		),
@@ -47,16 +47,22 @@ class NandlandGoPlatform(ICE40Platform):
 			hs = '26', vs = '27'
 		),
 	]
-	connectors = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, '65 64 63 62 - - 78 79 80 81 - -'),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([iceprog, bitstream_filename])
 
 

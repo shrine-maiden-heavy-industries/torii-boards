@@ -10,15 +10,15 @@ __all__ = (
 )
 
 class UpduinoV1Platform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'SG48'
-	default_clk = 'SB_HFOSC'
-	hfosc_div   = 0
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'SG48'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'SB_HFOSC'
+	hfosc_div    = 0
 
 	pretty_name = 'Upduino V1'
 	description = 'TinyVision Upduino V1 Lattice iCE40-UP5K Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		*LEDResources(
 			pins = '39 40 41', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
@@ -32,7 +32,8 @@ class UpduinoV1Platform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		# 'Left' row of header pins (JP5 on the schematic)
 		Connector('j', 0, '- - 23 25 26 27 32 35 31 37 34 43 36 42 38 28'),
 		# 'Right' row of header pins (JP6 on the schematic)

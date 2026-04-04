@@ -12,14 +12,14 @@ __all__ = (
 )
 
 class ICE40HX1KBlinkEVNPlatform(ICE40Platform):
-	device      = 'iCE40HX1K'
-	package     = 'VQ100'
-	default_clk = 'clk3p3'
+	device: str  = 'iCE40HX1K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'VQ100'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk3p3'
 
 	pretty_name = 'ICE40HX1KEVN'
 	description = 'Lattice iCE40-HX1K Evaluation Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk3p3', 0, Pins('13', dir = 'i'), Clock(MHz(3.3)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
@@ -35,7 +35,8 @@ class ICE40HX1KBlinkEVNPlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 1, '10 9 8 7 - - 4 3 2 1 - -'), # J1
 		Connector('pmod', 5, '40 42 62 64 - - 37 41 63 45 - -'), # J5
 		Connector('pmod', 6, '25 24 21 20 - - 26 27 28 33 - -'), # J6
@@ -43,12 +44,17 @@ class ICE40HX1KBlinkEVNPlatform(ICE40Platform):
 		Connector('pmod', 12, '59 56 53 51 - -'), # J12
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceburn = environ.get('ICEBURN', 'iCEburn')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([iceburn, '-evw', bitstream_filename])
 
 

@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class FomuPVTPlatform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'UWG30'
-	default_clk = 'clk48'
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'UWG30'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk48'
 
 	pretty_name = 'FOMU'
 	description = 'Im Tomu FPGA Lattice iCE40 UP5K FPGA Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk48', 0, Pins('F4', dir = 'i'), Clock(MHz(48)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
@@ -44,12 +44,17 @@ class FomuPVTPlatform(ICE40Platform):
 		*ButtonResources('touch', pins = 'E4 D5 E5 F5'),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([dfu_util, '-D', bitstream_filename])
 
 

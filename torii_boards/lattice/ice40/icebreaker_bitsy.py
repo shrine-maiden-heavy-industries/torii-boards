@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class ICEBreakerBitsyPlatform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'SG48'
-	default_clk = 'clk12'
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'SG48'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'iCEBreaker Bitsy'
 	description = '1BitSquared iCEBreaker Bitsy Lattice iCE40-UP5K Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('35', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
@@ -45,7 +45,8 @@ class ICEBreakerBitsyPlatform(ICE40Platform):
 		Resource('led_g', 0, PinsN('6', dir = 'o'), Attrs(IO_STANDARD = 'SB_LVCMOS')),
 		*ButtonResources(pins = '2', invert = True, attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')),
 	]
-	connectors = [
+
+	connectors: list[Connector] = [
 		Connector('edge', 0, { # Pins bottom P0 - P12,
 				'0': '47', '1': '44', '2': '48', '3': '45', '4': '4', '5': '3',
 				'6': '9', '7': '10', '8': '11', '9': '12', '10': '21', '11': '13',
@@ -53,18 +54,20 @@ class ICEBreakerBitsyPlatform(ICE40Platform):
 				'18': '31', '19': '32', '20': '34', '21': '36', '22': '43', '23': '46'
 			}
 		),
-		Connector('pmod', 1, '0 2 4 6 - - 1 3 5 7 - -', conn = ('edge', '0')), # PMOD 1
+		Connector('pmod', 1, '0 2 4 6 - - 1 3 5 7 - -', conn = ('edge', '0')),         # PMOD 1
 		Connector('pmod', 2, '22 19 16 17 - - 21 18 15 20 - -', conn = ('edge', '0')), # PMOD 2
-		Connector('pmod', 3, '14 9 11 8 - - 13 10 12 23 - -', conn = ('edge', '0'))  # PMOD 3
+		Connector('pmod', 3, '14 9 11 8 - - 13 10 12 23 - -', conn = ('edge', '0'))    # PMOD 3
 	]
 
 	def toolchain_program(
 		self, products: BuildProducts, name: str,
 		run_vid: str | None = None, run_pid: str | None = None,
-		dfu_vid: str = '1d50', dfu_pid: str = '6146', reset: bool = True
+		dfu_vid: str = '1d50', dfu_pid: str = '6146', reset: bool = True,
+		**kwargs
 	) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 
@@ -82,6 +85,10 @@ class ICEBreakerBitsyPlatform(ICE40Platform):
 
 		# Run dfu-util
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			args.append(bitstream_filename)
 			check_call(args)
 

@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class ICEBreakerPlatform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'SG48'
-	default_clk = 'clk12'
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'SG48'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'iCEBreaker'
 	description = '1BitSquared iCEBreaker Lattice iCE40-UP5K Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('35', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
@@ -41,16 +41,18 @@ class ICEBreakerPlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors = [
-		Connector('pmod', 0, '4 2 47 45 - -  3 48 46 44 - -'), # PMOD1A
+
+	connectors: list[Connector] = [
+		Connector('pmod', 0, '4 2 47 45 - -  3 48 46 44 - -'),   # PMOD1A
 		Connector('pmod', 1, '43 38 34 31 - - 42 36 32 28 - -'), # PMOD1B
 		Connector('pmod', 2, '27 25 21 19 - - 26 23 20 18 - -'), # PMOD2
 	]
+
 	# The attached LED/button section can be either used standalone or as a PMOD.
 	# Attach to platform using:
 	# p.add_resources(p.break_off_pmod)
 	# pmod_btn = plat.request('user_btn')
-	break_off_pmod = [
+	break_off_pmod: list[Resource] = [
 		*LEDResources(
 			pins = {
 				2: '7', 3: '1', 4: '2', 5: '8', 6: '3'
@@ -79,12 +81,17 @@ class ICEBreakerPlatform(ICE40Platform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([iceprog, bitstream_filename])
 
 

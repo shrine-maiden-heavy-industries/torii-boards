@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class ICESugarPlatform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'SG48'
-	default_clk = 'clk12'
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'SG48'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'iCESugar'
 	description = 'iCESugar Lattice iCE40-UP5K Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('35', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'LVCMOS33')
@@ -50,19 +50,24 @@ class ICESugarPlatform(ICE40Platform):
 		),
 	]
 
-	connectors = [
-		Connector('pmod', 0, '10 6 3 48 - -  9 4 2 47 - -'), # PMOD1 - IO pins shared by USB
+	connectors: list[Connector] = [
+		Connector('pmod', 0, '10 6 3 48 - -  9 4 2 47 - -'),     # PMOD1 - IO pins shared by USB
 		Connector('pmod', 1, '46 44 42 37 - - 45 43 38 36 - -'), # PMOD2
 		Connector('pmod', 2, '34 31 27 25 - - 32 28 26 23 - -'), # PMOD3
-		Connector('pmod', 3, '21 20 19 18 - - - - - - - -'), # PMOD4 - IO pins used for switches via jumpers
+		Connector('pmod', 3, '21 20 19 18 - - - - - - - -'),     # PMOD4 - IO pins used for switches via jumpers
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([iceprog, bitstream_filename])
 
 

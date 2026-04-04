@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class FomuHackerPlatform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'UWG30'
-	default_clk = 'clk48'
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'UWG30'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk48'
 
 	pretty_name = 'FOMU Hacker'
 	description = 'Im Tomu FPGA Hacker Edition Lattice iCE40 UP5K FPGA Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk48', 0,
 			Pins('F5', dir = 'i'), Clock(MHz(48)),
@@ -44,19 +44,24 @@ class FomuHackerPlatform(ICE40Platform):
 		),
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('pin', 0, 'F4'),
 		Connector('pin', 1, 'E5'),
 		Connector('pin', 2, 'E4'),
 		Connector('pin', 3, 'F2'),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([dfu_util, '-D', bitstream_filename])
 
 

@@ -12,14 +12,14 @@ __all__ = (
 )
 
 class ICE40UP5KBEVNPlatform(ICE40Platform):
-	device      = 'iCE40UP5K'
-	package     = 'SG48'
-	default_clk = 'clk12'
+	device: str  = 'iCE40UP5K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'SG48'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'ICE40UP5KEVN'
 	description = 'Lattice iCE40-UP5K Evaluation Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		# J51 must be connected to use clk12 (it is by default)
 		Resource(
 			'clk12', 0, Pins('35', dir = 'i'), Clock(MHz(12)),
@@ -47,7 +47,8 @@ class ICE40UP5KBEVNPlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'aardvark', 0, # J1
 			'- - - - 14 - 15 17 16 -'
@@ -70,13 +71,18 @@ class ICE40UP5KBEVNPlatform(ICE40Platform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
-		with products.extract(f'{name}.bin') as bitstream_fn:
-			check_call([iceprog, bitstream_fn])
+		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
+			check_call([iceprog, bitstream_filename])
 
 
 if __name__ == '__main__':

@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class ICESugarNanoPlatform(ICE40Platform):
-	device      = 'iCE40LP1K'
-	package     = 'CM36'
-	default_clk = 'clk12'
+	device: str  = 'iCE40LP1K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'CM36'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
 
 	pretty_name = 'iCESugar-nano'
 	description = 'iCESugar-nano Lattice iCE40-LP1K Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk12', 0, Pins('D1', dir = 'i'), Clock(MHz(12)),
 			Attrs(GLOBAL = True, IO_STANDARD = 'LVCMOS33')
@@ -38,18 +38,23 @@ class ICESugarNanoPlatform(ICE40Platform):
 		),
 	]
 
-	connectors = [
-		Connector('pmod', 0, 'E2 D1 B1 A1 - -'), # PMOD1
-		Connector('pmod', 1, 'B3 A3 B6 C5 - -'), # PMOD2
+	connectors: list[Connector] = [
+		Connector('pmod', 0, 'E2 D1 B1 A1 - -'),                 # PMOD1
+		Connector('pmod', 1, 'B3 A3 B6 C5 - -'),                 # PMOD2
 		Connector('pmod', 2, 'B4 B5 E1 B1 - - C6 E3 C2 A1 - -'), # PMOD3
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		iceprog = environ.get('ICEPROG', 'iceprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([iceprog, bitstream_filename])
 
 

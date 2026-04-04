@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class TinyFPGABXPlatform(ICE40Platform):
-	device      = 'iCE40LP8K'
-	package     = 'CM81'
-	default_clk = 'clk16'
+	device: str  = 'iCE40LP8K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'CM81'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk16'
 
 	pretty_name = 'TinyFPGA BX'
 	description = 'TinyFPGA BX Lattice iCE40-LP8K Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk16', 0, Pins('B2', dir = 'i'), Clock(MHz(16)), Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
@@ -36,7 +36,8 @@ class TinyFPGABXPlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'gpio', 0,
 			# Left side of the board
@@ -51,12 +52,17 @@ class TinyFPGABXPlatform(ICE40Platform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		tinyprog = environ.get('TINYPROG', 'tinyprog')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([tinyprog, '-p', bitstream_filename])
 
 

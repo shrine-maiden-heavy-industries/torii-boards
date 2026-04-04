@@ -13,14 +13,14 @@ __all__ = (
 )
 
 class BlackIcePlatform(ICE40Platform):
-	device      = 'iCE40HX4K'
-	package     = 'TQ144'
-	default_clk = 'clk100'
+	device: str  = 'iCE40HX4K' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'TQ144'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
 
 	pretty_name = 'BlackIce'
 	description = 'myStorm BlackIce Lattice iCE40-HX4k Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk100', 0, Pins('129', dir = 'i'), Clock(MHz(100)), Attrs(GLOBAL = True, IO_STANDARD = 'SB_LVCMOS')
 		),
@@ -46,7 +46,8 @@ class BlackIcePlatform(ICE40Platform):
 			attrs = Attrs(IO_STANDARD = 'SB_LVCMOS'),
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, '94 91 88 85 - - 95 93 90 87 - -'),  # PMOD1/2
 		Connector('pmod', 1, '105 102 99 97 - - 104 101 98 96 - -'),  # PMOD3/4
 		Connector('pmod', 2, '143 114 112 107 - - 144 113 110 106 - -'),  # PMOD5/6
@@ -57,10 +58,15 @@ class BlackIcePlatform(ICE40Platform):
 		Connector('pmod', 7, '71 67 68 70 - -'),  # PMOD14
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				'cp', bitstream_filename, '/dev/ttyACM0'
 			])
