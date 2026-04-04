@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 from textwrap                      import dedent
+from typing                        import TYPE_CHECKING
 
 from torii.build                   import Attrs, Clock, Connector, Pins, Resource
 from torii.build.run               import BuildProducts
@@ -13,16 +14,17 @@ __all__ = (
 )
 
 class ArrowDECAPlatform(AlteraPlatform):
-	device      = '10M50DA' # MAX 10
-	package     = 'F484'
-	speed       = 'C6'
-	suffix      = 'GES'
-	default_clk = 'clk50'
+	# MAX 10
+	device: str  = '10M50DA' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'F484'    # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = 'C6'      # pyright: ignore[reportIncompatibleMethodOverride]
+	suffix       = 'GES'
+	default_clk  = 'clk50'
 
 	pretty_name = 'DECA Development Kit'
 	description = 'Arrow Development Tools DECA Altera MAX10 Development Kit'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk50', 0, Pins('M8', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '2.5 V')),
 		Resource('clk50', 1, Pins('P11', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3 V')),
 		Resource('clk50', 2, Pins('N15', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '1.5 V')),
@@ -43,7 +45,7 @@ class ArrowDECAPlatform(AlteraPlatform):
 		),
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		Connector(
 			'gpio', 0,
 			'W18  Y18  Y19  AA17 AA20 AA19 AB21 AB20 AB19 Y16  V16  '
@@ -59,25 +61,35 @@ class ArrowDECAPlatform(AlteraPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				quartus_pgm, '--haltcc', '--mode', 'JTAG',
 				'--operation', 'P;' + bitstream_filename
 			])
 
 	@property
-	def file_templates(self):
+	def file_templates(self) -> dict[str, str]:
 		# Configure the voltages of the I/O banks by appending the global
 		# assignments to the template. However, we create our own copy of the
 		# file templates before modifying them to avoid modifying the original.
+
+		parent_qsf = super().file_templates.get('{{name}}.qsf')
+
+		if TYPE_CHECKING:
+			assert isinstance(parent_qsf, str)
+
 		return {
 			**super().file_templates,
-			'{{name}}.qsf': super().file_templates.get('{{name}}.qsf') + dedent(r'''
+			'{{name}}.qsf': parent_qsf + dedent(r'''
 				set_global_assignment -name IOBANK_VCCIO 2.5V -section_id 1A
 				set_global_assignment -name IOBANK_VCCIO 2.5V -section_id 1B
 				set_global_assignment -name IOBANK_VCCIO 2.5V -section_id 2

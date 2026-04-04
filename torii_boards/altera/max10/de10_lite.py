@@ -14,16 +14,18 @@ __all__ = (
 )
 
 class DE10LitePlatform(AlteraPlatform):
-	device      = '10M50DA' # MAX10
-	package     = 'F484'    # FBGA-484
-	speed       = 'C7'
-	suffix      = 'G'
-	default_clk = 'clk50'
+	# MAX10
+	device: str  = '10M50DA' # pyright: ignore[reportIncompatibleMethodOverride]
+	# FBGA-484
+	package: str = 'F484'    # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = 'C7'      # pyright: ignore[reportIncompatibleMethodOverride]
+	suffix       = 'G'
+	default_clk  = 'clk50'
 
 	pretty_name = 'DE10-Lite'
 	description = 'terasIC DE10-Lite Altera MAX 10 Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk10', 0, Pins('N5', dir = 'i'),  Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
@@ -98,7 +100,7 @@ class DE10LitePlatform(AlteraPlatform):
 		)
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		Connector(
 			'gpio', 0,
 			'V10  W10 V9 W9  V8 W8  V7 W7  W6 V5  W5 AA15 AA14 W13 W12 AB13 AB12 Y11 AB11 W11 AB10 '
@@ -110,12 +112,17 @@ class DE10LitePlatform(AlteraPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				quartus_pgm, '--haltcc', '--mode', 'JTAG',
 				'--operation', 'P;' + bitstream_filename
