@@ -17,16 +17,19 @@ __all__ = (
 )
 
 class RZEasyFPGAA2_2Platform(AlteraPlatform):
-	device      = 'EP4CE6' # Cyclone IV 6K LEs
-	package     = 'E22'    # EQFP 144 pins
-	speed       = 'C8'
-	default_clk = 'clk50'  # 50MHz builtin clock
-	default_rst = 'rst'
+	# Cyclone IV 6K LEs
+	device: str  = 'EP4CE6' # pyright: ignore[reportIncompatibleMethodOverride]
+	# EQFP 144 pins
+	package: str = 'E22'    # pyright: ignore[reportIncompatibleMethodOverride]
+	# 50MHz builtin clock
+	speed: str   = 'C8'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk50'
+	default_rst  = 'rst'
 
 	pretty_name = 'RZ-EasyFPGA A2.2'
 	description = 'RZ-EasyFPGA Altera Cyclone IV Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		# Clock
 		Resource(
 			'clk50', 0, Pins('23', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
@@ -92,7 +95,7 @@ class RZEasyFPGAA2_2Platform(AlteraPlatform):
 		),
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		# Located above the chip.
 		Connector(
 			'gpio', 0,
@@ -129,12 +132,17 @@ class RZEasyFPGAA2_2Platform(AlteraPlatform):
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				quartus_pgm, '--haltcc', '--mode', 'JTAG',
 				'--operation', 'P;' + bitstream_filename
