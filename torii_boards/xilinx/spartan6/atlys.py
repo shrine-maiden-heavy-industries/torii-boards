@@ -18,9 +18,9 @@ class AtlysPlatform(XilinxPlatform):
 	'''Platform file for Digilent Atlys Spartan 6 board.
 	https://digilent.com/reference/programmable-logic/atlys/start'''
 
-	device  = 'xc6slx45'
-	package = 'csg324'
-	speed   = '3'
+	device: str  = 'xc6slx45' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'csg324'   # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '3'        # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Atlys'
 	description = 'Digilent Atlys Xilinx Spartan 6 Trainer Board'
@@ -38,7 +38,7 @@ class AtlysPlatform(XilinxPlatform):
 	default_clk = 'clk100'
 	default_rst = 'rst'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('rst', 0, PinsN('T15', dir = 'i'), Attrs(IOSTANDARD = bank2_iostandard)), # RESET
 		Resource(
 			'clk100', 0, Pins('L15', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')
@@ -219,7 +219,8 @@ class AtlysPlatform(XilinxPlatform):
 			Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'T3 R3 P6 N5 - - V9 T9 V4 T4 - -'), # JB
 		Connector(
 			'vhdci', 0, # JC
@@ -228,9 +229,9 @@ class AtlysPlatform(XilinxPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
-		from subprocess import run
-		from textwrap import dedent
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
+		from subprocess  import run
+		from textwrap    import dedent
 
 		from torii.tools import require_tool
 

@@ -11,15 +11,15 @@ __all__ = (
 )
 
 class NumatoMimasPlatform(XilinxPlatform):
-	device      = 'xc6slx9'
-	package     = 'tqg144'
-	speed       = '2'
-	default_clk = 'clk100'
+	device: str  = 'xc6slx9' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'tqg144'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
 
 	pretty_name = 'Mimas S6'
 	description = 'Numato Mimas S6 Xilinx Spartan6 Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk100', 0, Pins('P126', dir = 'i'), Clock(MHz(100)), Attrs(IOSTANDARD = 'LVCMOS33')),
 		*LEDResources(
 			pins = 'P119 P118 P117 P116 P115 P114 P112 P111',
@@ -35,7 +35,8 @@ class NumatoMimasPlatform(XilinxPlatform):
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'p', 1,
 			'-    -    P35  P34  P33  P32  P30  P29  P27  P26  '

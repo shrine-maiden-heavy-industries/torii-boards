@@ -10,15 +10,15 @@ __all__ = (
 )
 
 class SK_XC6SLX9Platform(XilinxPlatform):
-	device      = 'xc6slx9'
-	package     = 'tqg144'
-	speed       = '2'
-	default_clk = 'clk50'
+	device: str  = 'xc6slx9' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'tqg144'  # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '2'       # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk50'
 
 	pretty_name = 'SK-XC6SLX9'
 	description = 'Starterkit.ru SK-XC6SLX9 Xilinx Spartan 6 Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk50', 0, Pins('P134', dir = 'i'), Clock(MHz(50)), Attrs(IOSTANDARD = 'LVCMOS33')
 		),
@@ -35,7 +35,8 @@ class SK_XC6SLX9Platform(XilinxPlatform):
 			attrs = Attrs(IOSTANDARD = 'LVCMOS33')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'x', 7,
 			'-    -    P34  -    P33  P32  P30  P29  P27  P26  '
