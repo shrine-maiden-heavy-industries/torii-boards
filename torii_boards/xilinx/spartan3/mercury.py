@@ -28,16 +28,16 @@ class MercuryPlatform(XilinxPlatform):
 	Mercury and Baseboard Resources: https://www.micro-nova.com/resources-mercury
 	'''
 
-	device  = 'xc3s200a'
-	package = 'vq100'
-	speed   = '4'
+	device: str  = 'xc3s200a' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'vq100'    # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '4'        # pyright: ignore[reportIncompatibleMethodOverride]
 
 	default_clk = 'clk50'
 
 	pretty_name = 'Micro-Nova Mercury'
 	description = 'Micro-Nova Mercury Xilinx Spartan-3A based FPGA Module'
 
-	resources = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk50', 0, Pins('P43', dir = 'i'), Attrs(IOSTANDARD = 'LVCMOS33'), Clock(MHz(50))
 		),
@@ -74,7 +74,7 @@ class MercuryPlatform(XilinxPlatform):
 
 	# Perhaps define some connectors as having a specific purpose- i.e. a 5V GPIO
 	# bus with data, peripheral-select, and control signals?
-	connectors = [
+	connectors: list[Connector] = [
 		Connector(
 			'gpio', 0,
 			'P59 P60 P61 P62 P64 P57 '
@@ -97,14 +97,14 @@ class MercuryPlatform(XilinxPlatform):
 	# Some default useful extensions. Attach to platform using:
 	# p.add_resources(p.leds)
 	# pmod_btn = plat.request('led')
-	leds = [
+	leds: list[Resource] = [
 		Resource('led', 0, Pins('1', dir = 'o', conn = ('led', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('led', 1, Pins('2', dir = 'o', conn = ('led', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('led', 2, Pins('3', dir = 'o', conn = ('led', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('led', 3, Pins('4', dir = 'o', conn = ('led', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 	]
 
-	sram = [
+	sram: list[Resource] = [
 		SRAMResource(
 			0,
 			cs_n = 'P3', we_n = 'gpio_0:29',
@@ -130,14 +130,14 @@ class MercuryPlatform(XilinxPlatform):
 	# constraints and the fact that both the FT245RL and FPGA can BOTH be
 	# SPI primaries, however, it may be necessary to sacrifice two 'high-speed'
 	# (DIO, INPUT) pins instead.
-	serial = [
+	serial: list[Resource] = [
 		# RX: FTDI D0, TX: FTDI D1
 		UARTResource(0, rx = 'input_0:1', tx = 'dio_0:1', attrs = Attrs(IOSTANDARD = 'LVCMOS33'))
 	]
 
 	# The remaining peripherals only make sense w/ the Baseboard installed.
 	# See: http://www.micro-nova.com/mercury-baseboard/
-	_switches = [
+	_switches: list[Resource] = [
 		Resource('switch', 0, Pins('1', dir = 'i', conn = ('gpio', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('switch', 1, Pins('2', dir = 'i', conn = ('gpio', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('switch', 2, Pins('3', dir = 'i', conn = ('gpio', 0)), Attrs(IOSTANDARD = 'LVTTL')),
@@ -148,14 +148,14 @@ class MercuryPlatform(XilinxPlatform):
 		Resource('switch', 7, Pins('8', dir = 'i', conn = ('gpio', 0)), Attrs(IOSTANDARD = 'LVTTL'))
 	]
 
-	_buttons = [
+	_buttons: list[Resource] = [
 		Resource('button', 1, Pins('1', dir = 'i', conn = ('input', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('button', 2, Pins('2', dir = 'i', conn = ('input', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('button', 3, Pins('3', dir = 'i', conn = ('input', 0)), Attrs(IOSTANDARD = 'LVTTL')),
 		Resource('button', 4, Pins('4', dir = 'i', conn = ('input', 0)), Attrs(IOSTANDARD = 'LVTTL'))
 	]
 
-	_vga = [
+	_vga: list[Resource] = [
 		VGAResource(
 			0,
 			r = 'dio_0:1 dio_0:2 dio_0:3',
@@ -166,11 +166,11 @@ class MercuryPlatform(XilinxPlatform):
 		)
 	]
 
-	_extclk = [
+	_extclk: list[Resource] = [
 		Resource('extclk', 0, Pins('1', dir = 'i', conn = ('clkio', 1)), Attrs(IOSTANDARD = 'LVCMOS33'))
 	]
 
-	_sevenseg = [
+	_sevenseg: list[Resource] = [
 		Display7SegResource(
 			0,
 			a = 'gpio_0:13', b = 'gpio_0:14', c = 'gpio_0:15', d = 'gpio_0:16',
@@ -184,11 +184,11 @@ class MercuryPlatform(XilinxPlatform):
 		)
 	]
 
-	_ps2 = [
+	_ps2: list[Resource] = [
 		PS2Resource(0, clk = '2', dat = '1', conn = ('led', 0), attrs = Attrs(IOSTANDARD = 'LVTTL')),
 	]
 
-	_audio = [
+	_audio: list[Resource] = [
 		Resource(
 			'audio', 0,
 			Subsignal('l', Pins('30', dir = 'o', conn = ('gpio', 0))),
@@ -197,16 +197,21 @@ class MercuryPlatform(XilinxPlatform):
 		)
 	]
 
-	baseboard_sram    = _buttons + _vga + _extclk + _ps2
-	baseboard_no_sram = baseboard_sram + _switches + _sevenseg + _audio
+	baseboard_sram: list[Resource]    = _buttons + _vga + _extclk + _ps2
+	baseboard_no_sram: list[Resource] = baseboard_sram + _switches + _sevenseg + _audio
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		# https://github.com/cr1901/mercpcl
 		mercpcl = environ.get('MERCPCL', 'mercpcl')
 		with products.extract(f'{name}.bin') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([mercpcl, bitstream_filename])
 
 
