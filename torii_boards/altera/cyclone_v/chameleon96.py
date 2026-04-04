@@ -12,15 +12,17 @@ __all__ = (
 )
 
 class Chameleon96Platform(AlteraPlatform):
-	device      = '5CSEBA6' # Cyclone V SE 110K LEs
-	package     = 'U19'     # UBGA-484
-	speed       = 'I7'
-	default_clk = 'cyclonev_oscillator'
+	# Cyclone V SE 110K LEs
+	device: str  = '5CSEBA6' # pyright: ignore[reportIncompatibleMethodOverride]
+	# UBGA-484
+	package: str = 'U19'     # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = 'I7'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'cyclonev_oscillator'
 
 	pretty_name = 'Chameleon96'
 	description = 'Altera Cyclone V SoC Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		# WIFI and BT LEDs
 		*LEDResources(
 			pins = 'Y19 Y20',
@@ -77,7 +79,7 @@ class Chameleon96Platform(AlteraPlatform):
 		),
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		# J3, 2x20 expansion port
 		Connector(
 			'J', 3,
@@ -98,12 +100,17 @@ class Chameleon96Platform(AlteraPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			# The @2 selects the second device in the JTAG chain, because this chip
 			# puts the ARM cores first.
 			check_call([

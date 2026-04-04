@@ -15,15 +15,17 @@ __all__ = (
 
 # The MiSTer platform is built around the DE10-Nano; if you update one you should update the other.
 class MisterPlatform(AlteraPlatform):
-	device      = '5CSEBA6' # Cyclone V 110K LEs
-	package     = 'U23'     # UBGA-484
-	speed       = 'I7'
-	default_clk = 'clk50'
+	# Cyclone V 110K LEs
+	device: str  = '5CSEBA6' # pyright: ignore[reportIncompatibleMethodOverride]
+	# UBGA-484
+	package: str = 'U23'     # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = 'I7'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk50'
 
 	pretty_name = 'MiSTer FPGA'
 	description = 'terasIC DE10-Nano based MiSTer FPGA Platform'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk50', 0, Pins('V11', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
@@ -131,7 +133,7 @@ class MisterPlatform(AlteraPlatform):
 		)
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		# Located on the top of the board, above the chip.
 		Connector(
 			'gpio', 0,
@@ -156,12 +158,17 @@ class MisterPlatform(AlteraPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			# The @2 selects the second device in the JTAG chain, because this chip
 			# puts the ARM cores first.
 			check_call([

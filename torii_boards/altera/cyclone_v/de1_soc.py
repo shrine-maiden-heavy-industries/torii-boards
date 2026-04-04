@@ -12,15 +12,17 @@ __all__ = (
 )
 
 class DE1SoCPlatform(AlteraPlatform):
-	device      = '5CSEMA5' # Cyclone V 85K LEs
-	package     = 'F31'     # FBGA-896
-	speed       = 'C6'
-	default_clk = 'clk50'
+	# Cyclone V 85K LEs
+	device: str  = '5CSEMA5' # pyright: ignore[reportIncompatibleMethodOverride]
+	# FBGA-896
+	package: str = 'F31'     # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = 'C6'      # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk50'
 
 	pretty_name = 'DE1-SoC'
 	description = 'terasIC DE1-SoC Altera Cyclone V SoC Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk50', 0, Pins('AF14', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
@@ -83,7 +85,7 @@ class DE1SoCPlatform(AlteraPlatform):
 		),
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		# Located on the right hand side of the board
 		Connector(
 			'gpio', 0,
@@ -101,12 +103,17 @@ class DE1SoCPlatform(AlteraPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			# The @2 selects the second device in the JTAG chain, because this chip
 			# puts the ARM cores first.
 			check_call([
