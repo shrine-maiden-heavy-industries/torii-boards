@@ -7,7 +7,7 @@ __all__ = (
 )
 
 class VersaECP55GPlatform(VersaECP5Platform):
-	device      = 'LFE5UM5G-45F'
+	device: str = 'LFE5UM5G-45F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'Versa 5G'
 	description = 'Lattice Versa 5G ECP5-5G-45F Evaluation Board'

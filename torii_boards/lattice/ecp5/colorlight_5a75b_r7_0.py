@@ -14,15 +14,15 @@ __all__ = (
 )
 
 class Colorlight_5A75B_R70Platform(ECP5Platform):
-	device      = 'LFE5U-25F'
-	package     = 'BG256'
-	speed       = '6'
-	default_clk = 'clk25'
+	device: str  = 'LFE5U-25F' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'BG256'     # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '6'         # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk25'
 
 	pretty_name = 'Colorlight 5A-75B'
 	description = 'Colorlight 5A-75B Lattice ECP5-25F FPGA Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk25', 0, Pins('P6', dir = 'i'), Clock(MHz(25)), Attrs(IO_TYPE = 'LVCMOS33')),
 		*LEDResources(
 			pins = 'P11', invert = True,
@@ -95,7 +95,8 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 			Attrs(IO_TYPE = 'LVCMOS33')
 		),
 	]
-	connectors = [
+
+	connectors: list[Connector] = [
 		Connector('j', 1, 'F3 F1 G3 - G2 H3 H5 F15 L2 K1 J5 K2 B16 J14 F12 -'),
 		Connector('j', 2, 'J4 K3 G1 - K4 C2 E3 F15 L2 K1 J5 K2 B16 J14 F12 -'),
 		Connector('j', 3, 'H4 K5 P1 - R1 L5 F2 F15 L2 K1 J5 K2 B16 J14 F12 -'),
@@ -115,15 +116,20 @@ class Colorlight_5A75B_R70Platform(ECP5Platform):
 
 	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress')
-		overrides.update(kwargs)
-		return super().toolchain_prepare(fragment, name, **overrides)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
+
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		tool = environ.get('OPENFPGALOADER', 'openFPGALoader')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				tool, '-c', 'ft232', '-m', bitstream_filename
 			])

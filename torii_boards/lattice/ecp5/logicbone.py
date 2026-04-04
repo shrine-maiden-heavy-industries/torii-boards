@@ -15,16 +15,16 @@ __all__ = (
 )
 
 class LogicbonePlatform(ECP5Platform):
-	name        = 'Logicbone'
-	device      = 'LFE5UM5G-45F'
-	package     = 'BG381'
-	speed       = '8'
-	default_clk = 'refclk'
+	name         = 'Logicbone'
+	device: str  = 'LFE5UM5G-45F' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'BG381'        # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '8'            # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'refclk'
 
 	pretty_name = 'Logicbone'
 	description = 'Logicbone Lattice ECP5-5G-45F Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'refclk', 0, Pins('M19', dir = 'i'), Clock(MHz(25)), Attrs(IO_TYPE = 'LVCMOS18')
 		),
@@ -94,7 +94,8 @@ class LogicbonePlatform(ECP5Platform):
 			attrs = Attrs(IO_TYPE = 'SSTL135_I')
 		)
 	]
-	connectors = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'P8', 0,
 			' -   -   C20 D19 D20 E19 E20 F19 F20 G20 -   -   -   -   -   -   '
@@ -111,14 +112,20 @@ class LogicbonePlatform(ECP5Platform):
 
 	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress --spimode qspi --freq 38.8')
-		overrides.update(kwargs)
-		return super().toolchain_prepare(fragment, name, **overrides)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
+
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
+
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				dfu_util, '-d', '1d50:615d', '-a', '0', '-R',
 				'-D', bitstream_filename
@@ -127,7 +134,7 @@ class LogicbonePlatform(ECP5Platform):
 
 class Logicbone85FPlatform(LogicbonePlatform):
 	name        = 'Logicbone (85F Variant)'
-	device      = 'LFE5UM5G-85F'
+	device: str = 'LFE5UM5G-85F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 if __name__ == '__main__':
 	import argparse
@@ -144,10 +151,9 @@ if __name__ == '__main__':
 
 	args = parser.parse_args()
 
-	if args.variant == '45':
-		platform = LogicbonePlatform()
-
 	if args.variant == '85':
 		platform = Logicbone85FPlatform()
+	else:
+		platform = LogicbonePlatform()
 
 	platform.build(Blinky(), do_program = True)

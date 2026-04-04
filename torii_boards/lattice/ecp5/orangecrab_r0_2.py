@@ -19,15 +19,15 @@ __all__ = (
 )
 
 class OrangeCrabR0_2Platform(ECP5Platform):
-	device      = 'LFE5U-25F'
-	package     = 'MG285'
-	speed       = '8'
-	default_clk = 'clk'
+	device: str  = 'LFE5U-25F' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'MG285'     # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '8'         # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk'
 
 	pretty_name = 'OrangeCrab R0.2'
 	description = 'OrangeCrab R0.2 Lattice ECP5-25F Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk', 0, Pins('A9', dir = 'i'), Clock(MHz(48)), Attrs(IO_TYPE = 'LVCMOS33')),
 		# Used to reload FPGA configuration.
 		# Can enter USB bootloader by assigning button 0 to program.
@@ -94,7 +94,7 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 		DirectUSBResource(0, d_p = 'N1', d_n = 'M2', pullup = 'N2', attrs = Attrs(IO_TYPE = 'LVCMOS33'))
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('io', 0, {
 			'0': 'N17',
 			'1': 'M18',
@@ -132,15 +132,20 @@ class OrangeCrabR0_2Platform(ECP5Platform):
 
 	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress --freq 38.8')
-		overrides.update(kwargs)
-		return super().toolchain_prepare(fragment, name, **overrides)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
+
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([dfu_util, '-a', '0', '-D', bitstream_filename])
 
 
@@ -149,7 +154,7 @@ class OrangeCrabR0_2_25FPlatform(OrangeCrabR0_2Platform):
 	description = 'OrangeCrab R0.2 Lattice ECP5-25F Development Board'
 
 class OrangeCrabR0_2_85FPlatform(OrangeCrabR0_2Platform):
-	device = 'LFE5U-85F'
+	device: str = 'LFE5U-85F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'OrangeCrab R0.2 85F'
 	description = 'OrangeCrab R0.2 Lattice ECP5-85F Development Board'

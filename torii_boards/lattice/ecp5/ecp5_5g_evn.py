@@ -16,11 +16,11 @@ __all__ = (
 )
 
 class ECP55GEVNPlatform(ECP5Platform):
-	device      = 'LFE5UM5G-85F'
-	package     = 'BG381'
-	speed       = '8'
-	default_clk = 'clk12'
-	default_rst = 'rst'
+	device: str  = 'LFE5UM5G-85F' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'BG381'        # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '8'            # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk12'
+	default_rst  = 'rst'
 
 	pretty_name = 'ECP55GEVN'
 	description = 'ECP55GEVN Lattice ECP5-5G-85F Evaluation Board'
@@ -57,7 +57,7 @@ class ECP55GEVNPlatform(ECP5Platform):
 	def bank6_iostandard(self) -> str:
 		return self._vccio_to_iostandard(self._VCCIO6)
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('rst', 0, PinsN('G2', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource(
 			'clk12', 0, Pins('A10', dir = 'i'), Clock(MHz(12)), Attrs(IO_TYPE = 'LVCMOS33')
@@ -119,7 +119,8 @@ class ECP55GEVNPlatform(ECP5Platform):
 		Resource('serdes_clk', 1, DiffPairs('Y19', 'W20', dir = 'i')), # 200 MHz
 		# TODO: add other resources
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		# Expansion connectors
 		Connector(
 			'J', 39,
@@ -181,12 +182,17 @@ class ECP55GEVNPlatform(ECP5Platform):
 			''')
 		}
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		openocd = environ.get('OPENOCD', 'openocd')
 		with products.extract(f'{name}-openocd.cfg', f'{name}.svf') as files:
+
+			if TYPE_CHECKING:
+				assert isinstance(files, list)
+
 			(config_filename, vector_filename) = files
 			check_call([
 				openocd,

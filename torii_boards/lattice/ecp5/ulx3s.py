@@ -17,11 +17,11 @@ __all__ = (
 )
 
 class _ULX3SPlatform(ECP5Platform):
-	package     = 'BG381'
-	speed       = '6'
-	default_clk = 'clk25'
+	package: str = 'BG381' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '6'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk25'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk25', 0, Pins('G2', dir = 'i'), Clock(MHz(25)), Attrs(IO_TYPE = 'LVCMOS33')),
 		# Used to reload FPGA configuration.
 		Resource('program', 0, PinsN('M4', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS33', PULLMODE = 'UP')),
@@ -145,7 +145,7 @@ class _ULX3SPlatform(ECP5Platform):
 		)
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('gpio', 0, {
 			'0+': 'B11', '0-': 'C11', '1+': 'A10', '1-': 'A11',
 			'2+': 'A9', '2-': 'B10', '3+': 'B9', '3-': 'C10',
@@ -172,38 +172,43 @@ class _ULX3SPlatform(ECP5Platform):
 
 	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress')
-		overrides.update(kwargs)
-		return super().toolchain_prepare(fragment, name, **overrides)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
+
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		tool = environ.get('OPENFPGALOADER', 'openFPGALoader')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([tool, '-b', 'ulx3s', '-m', bitstream_filename])
 
 
 class ULX3S_12F_Platform(_ULX3SPlatform):
-	device = 'LFE5U-12F'
+	device: str = 'LFE5U-12F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'ULXS3-12F'
 	description = 'Radiona ULXS3-12F Lattice ECP5-12F Development Board'
 
 class ULX3S_25F_Platform(_ULX3SPlatform):
-	device = 'LFE5U-25F'
+	device: str = 'LFE5U-25F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'ULXS3-24F'
 	description = 'Radiona ULXS3-25F Lattice ECP5-25F Development Board'
 
 class ULX3S_45F_Platform(_ULX3SPlatform):
-	device = 'LFE5U-45F'
+	device: str = 'LFE5U-45F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'ULXS3-45F'
 	description = 'Radiona ULXS3-45F Lattice ECP5-45F Development Board'
 
 class ULX3S_85F_Platform(_ULX3SPlatform):
-	device = 'LFE5U-85F'
+	device: str = 'LFE5U-85F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'ULXS3-85F'
 	description = 'Radiona ULXS3-85F Lattice ECP5-85F Development Board'

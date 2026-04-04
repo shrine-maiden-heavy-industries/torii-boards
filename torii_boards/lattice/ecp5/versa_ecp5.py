@@ -15,16 +15,16 @@ __all__ = (
 )
 
 class VersaECP5Platform(ECP5Platform):
-	device      = 'LFE5UM-45F'
-	package     = 'BG381'
-	speed       = '8'
-	default_clk = 'clk100'
-	default_rst = 'rst'
+	device: str  = 'LFE5UM-45F' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'BG381'      # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '8'          # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
+	default_rst  = 'rst'
 
 	pretty_name = 'Versa'
 	description = 'Lattice Versa ECP5-45F Evaluation Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('rst', 0, PinsN('T1', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource('clk100', 0, DiffPairs('P3', 'P4', dir = 'i'), Clock(MHz(100)), Attrs(IO_TYPE = 'LVDS')),
 		Resource('pclk', 0, DiffPairs('A4', 'A5', dir = 'i'), Attrs(IO_TYPE = 'LVDS')),
@@ -151,7 +151,8 @@ class VersaECP5Platform(ECP5Platform):
 			Attrs(IO_TYPE = 'SSTL135_I', SLEWRATE = 'FAST')
 		)
 	]
-	connectors = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'expcon', 1,
 			'-   -   -   B19 B12 B9  E6  D6  E7  D7  B11 B6  E9  D9  B8  C8  D8  E8  C7  C6 '
@@ -189,12 +190,17 @@ class VersaECP5Platform(ECP5Platform):
 			''')
 		}
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		openocd = environ.get('OPENOCD', 'openocd')
 		with products.extract(f'{name}-openocd.cfg', f'{name}.svf') as files:
+
+			if TYPE_CHECKING:
+				assert isinstance(files, list)
+
 			(config_filename, vector_filename) = files
 			check_call([
 				openocd, '-f', config_filename,

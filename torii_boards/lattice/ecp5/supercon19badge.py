@@ -16,10 +16,10 @@ __all__ = (
 )
 
 class Supercon19BadgePlatform(ECP5Platform):
-	device      = 'LFE5U-45F'
-	package     = 'BG381'
-	speed       = '8'
-	default_clk = 'clk8'
+	device: str  = 'LFE5U-45F' # pyright: ignore[reportIncompatibleMethodOverride]
+	package: str = 'BG381'     # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '8'         # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk8'
 
 	pretty_name = 'Supercon 19 Badge'
 	description = 'Lattice ECP5-45F Based Hackaday Supercon 2019 Badge'
@@ -49,7 +49,7 @@ class Supercon19BadgePlatform(ECP5Platform):
 		{'r': 1, 'g': 0, 'b': 2}, # LED11: by default, green
 	]
 
-	resources   = [
+	resources: list[Resource]  = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('clk8', 0, Pins('U18'), Clock(MHz(8)), Attrs(IO_TYPE = 'LVCMOS33')),
 		# Used to trigger FPGA reconfiguration.
 		Resource('program', 0, PinsN('R1'), Attrs(IO_TYPE = 'LVCMOS33')),
@@ -153,7 +153,7 @@ class Supercon19BadgePlatform(ECP5Platform):
 		)
 	]
 
-	connectors = [
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'A15 C16 A14 D16 B15 C15 A13 B13'),
 		Connector(
 			'cartridge', 0,
@@ -174,15 +174,20 @@ class Supercon19BadgePlatform(ECP5Platform):
 
 	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = dict(ecppack_opts = '--compress --freq 38.8')
-		overrides.update(kwargs)
+
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		dfu_util = environ.get('DFU_UTIL', 'dfu-util')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([dfu_util, '-d', '1d50:614b', '-a', '0', '-D', bitstream_filename])
 
 

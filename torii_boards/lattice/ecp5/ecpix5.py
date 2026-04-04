@@ -14,12 +14,12 @@ __all__ = (
 )
 
 class _ECPIX5Platform(ECP5Platform):
-	package     = 'BG554'
-	speed       = '8'
-	default_clk = 'clk100'
-	default_rst = 'rst'
+	package: str = 'BG554' # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = '8'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk100'
+	default_rst  = 'rst'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource('rst', 0, PinsN('AB1', dir = 'i'), Attrs(IO_TYPE = 'LVCMOS33')),
 		Resource(
 			'clk100', 0, Pins('K23', dir = 'i'), Clock(MHz(100)), Attrs(IO_TYPE = 'LVCMOS33')
@@ -126,7 +126,7 @@ class _ECPIX5Platform(ECP5Platform):
 		),
 	]
 
-	connectors  = [
+	connectors: list[Connector] = [
 		Connector('pmod', 0, 'T25 U25 U24 V24 - - T26 U26 V26 W26 - -'),
 		Connector('pmod', 1, 'U23 V23 U22 V21 - - W25 W24 W23 W22 - -'),
 		Connector('pmod', 2, 'J24 H22 E21 D18 - - K22 J21 H21 D22 - -'),
@@ -137,23 +137,28 @@ class _ECPIX5Platform(ECP5Platform):
 		Connector('pmod', 7, 'D14 B14 E14 B16 - - C14 A14 A15 A16 - -'),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		tool = environ.get('OPENFPGALOADER', 'openFPGALoader')
 		with products.extract(f'{name}.bit') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				tool, '-c', 'ft2232', '-m', bitstream_filename
 			])
 
 class ECPIX545Platform(_ECPIX5Platform):
-	device      = 'LFE5UM5G-45F'
+	device: str = 'LFE5UM5G-45F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'ECPIX5 45F'
 	description = 'Lambda Concept ECPIX5 45F Lattice ECP5-5G-45F Development Board'
 
-	resources   = [
+	resources: list[Resource] = [
 		*_ECPIX5Platform.resources,
 		# The IT6613E HDMI transmitter has access to 8 bits per color channel.
 		Resource(
@@ -182,12 +187,12 @@ class ECPIX545Platform(_ECPIX5Platform):
 
 
 class ECPIX585Platform(_ECPIX5Platform):
-	device      = 'LFE5UM5G-85F'
+	device: str = 'LFE5UM5G-85F' # pyright: ignore[reportIncompatibleMethodOverride]
 
 	pretty_name = 'ECPIX5 85F'
 	description = 'Lambda Concept ECPIX5 85F Lattice ECP5-5G-85F Development Board'
 
-	resources   = [
+	resources: list[Resource] = [
 		*_ECPIX5Platform.resources,
 		# The IT6613E HDMI transmitter has access to 12 bits per color channel. The LFE5UM5G-85F
 		# has an additional I/O bank which is used to provide the lower 4 bits of each channel.
