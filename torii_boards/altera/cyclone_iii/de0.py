@@ -14,15 +14,17 @@ __all__ = (
 )
 
 class DE0Platform(AlteraPlatform):
-	device      = 'EP3C16' # Cyclone III 15K LEs
-	package     = 'F484'   # FBGA-484
-	speed       = 'C6'
-	default_clk = 'clk50'
+	# Cyclone III 15K LEs
+	device: str  = 'EP3C16' # pyright: ignore[reportIncompatibleMethodOverride]
+	# FBGA-484
+	package: str = 'F484'   # pyright: ignore[reportIncompatibleMethodOverride]
+	speed: str   = 'C6'     # pyright: ignore[reportIncompatibleMethodOverride]
+	default_clk  = 'clk50'
 
 	pretty_name = 'DE0'
 	description = 'terasIC DE0 Altera Cyclone III Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		Resource(
 			'clk50', 0, Pins('G21', dir = 'i'), Clock(MHz(50)), Attrs(io_standard = '3.3-V LVTTL')
 		),
@@ -115,7 +117,8 @@ class DE0Platform(AlteraPlatform):
 			attrs = Attrs(io_standard = '3.3-V LVTTL')
 		),
 	]
-	connectors  = [
+
+	connectors: list[Connector] = [
 		Connector(
 			'j', 4,
 			'AB12 AB16 AA12 AA16 AA15 AB15 AA14 AB14 AB13 AA13 -    -    '
@@ -132,12 +135,17 @@ class DE0Platform(AlteraPlatform):
 		),
 	]
 
-	def toolchain_program(self, products: BuildProducts, name: str) -> None:
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
 		from os         import environ
 		from subprocess import check_call
+		from typing     import TYPE_CHECKING
 
 		quartus_pgm = environ.get('QUARTUS_PGM', 'quartus_pgm')
 		with products.extract(f'{name}.sof') as bitstream_filename:
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
 			check_call([
 				quartus_pgm, '--haltcc', '--mode', 'JTAG',
 				'--operation', 'P;' + bitstream_filename
