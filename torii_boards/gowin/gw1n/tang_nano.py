@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
-import subprocess
-
 from torii.build                        import Attrs, Clock, Pins, Resource, Subsignal
+from torii.build.run                    import BuildPlan, BuildProducts
+from torii.hdl.ir                       import Fragment
 from torii.hdl.time                     import MHz
 from torii.platform.resources.interface import UARTResource
 from torii.platform.resources.memory    import SPIFlashResources
@@ -14,15 +14,15 @@ __all__ = (
 )
 
 class TangNanoPlatform(GowinPlatform):
-	part        = 'GW1N-LV1QN48C6/I5'
-	family      = 'GW1N-1'
+	part: str   = 'GW1N-LV1QN48C6/I5' # pyright: ignore[reportIncompatibleMethodOverride]
+	family: str = 'GW1N-1'            # pyright: ignore[reportIncompatibleMethodOverride]
 	default_clk = 'OSC'
 	osc_frequency = 24_000_000
 
 	pretty_name = 'Tang Nano'
 	description = 'Sipeed Tang Nano Gowin GW1N-1 Development Board'
 
-	resources   = [
+	resources: list[Resource] = [ # pyright: ignore[reportIncompatibleMethodOverride]
 		# This clock is shared with the USB-JTAG MCU and stops when the USB bus is suspended.
 		# It probably should not be used, but is included for completeness.
 		Resource(
@@ -51,16 +51,23 @@ class TangNanoPlatform(GowinPlatform):
 		Resource('lcd_backlight', 0, Pins('47', dir = 'o'), Attrs(IO_TYPE = 'LVCMOS33')),
 	]
 
-	def toolchain_prepare(self, fragment, name, **kwargs):
+	def toolchain_prepare(self, fragment: Fragment, name: str, **kwargs) -> BuildPlan:
 		overrides = {
 			'add_options': 'set_option -use_mspi_as_gpio 1 -use_sspi_as_gpio 1',
 			'gowin_pack_opts': '--sspi_as_gpio --mspi_as_gpio'
 		}
 		return super().toolchain_prepare(fragment, name, **overrides, **kwargs)
 
-	def toolchain_program(self, products, name):
+	def toolchain_program(self, products: BuildProducts, name: str, **kwargs) -> None:
+		from subprocess import check_call
+		from typing     import TYPE_CHECKING
+
 		with products.extract(f'{name}.fs') as bitstream_filename:
-			subprocess.check_call([
+
+			if TYPE_CHECKING:
+				assert isinstance(bitstream_filename, str)
+
+			check_call([
 				'openFPGALoader', '-b', 'tangnano', bitstream_filename
 			])
 
