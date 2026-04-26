@@ -35,7 +35,7 @@ def test(session: nox.Session) -> None:
 	unittest_args = ('-m', 'unittest', 'discover', '-s', str(ROOT_DIR))
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	# XXX(aki): Coverage is not quite possible yet
 	if False and ENABLE_COVERAGE:
@@ -66,7 +66,7 @@ def watch_docs(session: Session) -> None:
 	session.install('sphinx-autobuild')
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	session.run('sphinx-autobuild', str(DOCS_DIR), str(OUTPUT_DIR))
 
@@ -77,7 +77,7 @@ def build_docs(session: Session) -> None:
 	session.install('-r', str(DOCS_DIR / 'requirements.txt'))
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	session.run('sphinx-build', '-b', 'html', str(DOCS_DIR), str(OUTPUT_DIR))
 
@@ -90,7 +90,7 @@ def build_docs_multiversion(session: Session) -> None:
 	session.install('-r', str(DOCS_DIR / 'requirements.txt'))
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	# Workaround for sphinx-contrib/multiversion#58
 	# Ask git for the list of tags matching `v*`, and sort them in reverse order by name
@@ -183,7 +183,7 @@ def linkcheck_docs(session: Session) -> None:
 	session.install('-r', str(DOCS_DIR / 'requirements.txt'))
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	session.run('sphinx-build', '-b', 'linkcheck', str(DOCS_DIR), str(OUTPUT_DIR))
 
@@ -196,7 +196,7 @@ def typecheck_mypy(session: Session) -> None:
 	session.install('lxml')
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	session.run(
 		'mypy', '--non-interactive', '--install-types', '--pretty',
@@ -213,7 +213,7 @@ def typecheck_pyright(session: Session) -> None:
 	session.install('pyright')
 	# TODO(aki): Removed once we can rely on the Torii version in PyPi
 	session.install('git+https://github.com/shrine-maiden-heavy-industries/torii-hdl.git')
-	session.install('-e', '.')
+	session.install('--pre', '-e', '.')
 
 	with (OUTPUT_DIR / 'pyright.log').open('w') as f:
 		session.run('pyright', *session.posargs, stdout = f)
